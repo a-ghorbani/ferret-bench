@@ -50,24 +50,21 @@ def parse_grade(text: str):
     return None, None
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--run", required=True)
-    ap.add_argument("--judge-model", default=DEFAULT_JUDGE)
-    ap.add_argument("--overwrite", action="store_true")
-    args = ap.parse_args()
-
+def judge_run(run_dir, judge_model=DEFAULT_JUDGE, overwrite=False, warm=True):
+    """Grade one run. Returns path to judgments.jsonl (or None if skipped)."""
     load_env()
-    run_dir = Path(args.run).resolve()
+    run_dir = Path(run_dir).resolve()
     outputs = read_jsonl(run_dir / "outputs.jsonl")
     out_path = run_dir / "judgments.jsonl"
-    if out_path.exists() and not args.overwrite:
-        raise SystemExit(f"{out_path} exists (use --overwrite)")
+    if out_path.exists() and not overwrite:
+        print(f"skip (exists): {out_path}")
+        return None
     if out_path.exists():
         out_path.unlink()
 
-    print(f"warming judge {args.judge_model} …", flush=True)
-    warm_model(args.judge_model)
+    if warm:
+        print(f"warming judge {judge_model} …", flush=True)
+        warm_model(judge_model)
 
     for i, rec in enumerate(outputs):
         if rec["split"] == "no_search" or not rec.get("gold_answer"):
@@ -77,7 +74,7 @@ def main():
         else:
             prompt = JUDGE_TEMPLATE.format(question=rec["question"], gold=rec["gold_answer"],
                                            pred=rec["final_answer"][:4000])
-            resp = chat(args.judge_model, [{"role": "user", "content": prompt}],
+            resp = chat(judge_model, [{"role": "user", "content": prompt}],
                         gen={"temperature": 0, "max_tokens": 1024})
             text = (resp["choices"][0]["message"].get("content") or "")
             grade, reason = parse_grade(text)
@@ -88,10 +85,20 @@ def main():
 
     manifest_path = run_dir / "manifest.json"
     manifest = json.loads(manifest_path.read_text())
-    manifest["judge"] = {"model": args.judge_model, "prompt_version": JUDGE_PROMPT_VERSION,
+    manifest["judge"] = {"model": judge_model, "prompt_version": JUDGE_PROMPT_VERSION,
                          "temperature": 0}
     manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False))
     print(f"done → {out_path}")
+    return out_path
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--run", required=True)
+    ap.add_argument("--judge-model", default=DEFAULT_JUDGE)
+    ap.add_argument("--overwrite", action="store_true")
+    args = ap.parse_args()
+    judge_run(args.run, args.judge_model, args.overwrite)
 
 
 if __name__ == "__main__":
