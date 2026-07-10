@@ -1,5 +1,5 @@
-phase: PROTOCOL
-updated: 2026-07-10T20:40:00Z
+phase: SCREEN
+updated: 2026-07-10T22:50:00Z
 blocked_on: -
-next: (1) curate datasets/v1 (fresh 40 via web-curation subagents, stable 30, no_search 15) + datasets/README.md refresh protocol; (2) judge smoke-validate; (3) enumerate SCREEN configs and start screening on qwen3-1.7b + gemma-3-4b
-progress: harness built and smoke-tested e2e (run 20260710-203213); contract pinned; repo pushed to github.com/a-ghorbani/ferret-bench (private)
+next: (1) when screen sweep finishes: aggregate, eliminate dominated levels, log eliminations w/ numbers; (2) floor-demotion check on fresh split (floor-notool runs); (3) design ABLATE round from survivors
+progress: dataset v1 (89 Qs) committed; judge validated; SCREEN sweep running in background (19 configs x 2 dev models x 35-Q slice)

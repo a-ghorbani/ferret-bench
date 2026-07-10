@@ -24,3 +24,11 @@ Append-only. Decisions, findings, surprises, dead ends.
 - Smoke run 20260710-203213-smoke-shipped-qwen3-1.7b: 3/3 questions, fresh Q searched (Tavily live→cache), no_search Q didn't, message shapes match contract, no API-key fragments in cache/ or runs/ (grep scan).
 - Protocol amendments #2–#4 logged (local ceiling, local judge, anchor_date-as-today).
 - GitHub: private repo a-ghorbani/ferret-bench created, pushed.
+
+## 2026-07-10 — Dataset v1 + SCREEN launched
+
+- Dataset v1 assembled: 89 questions (44 fresh web-verified by 3 curator subagents with source URLs, 30 stable, 15 no_search); sha256 d3502755…; screening slice = 35 stratified (20 fresh: 7e/9m/4h across beats, 8 stable incl. 2 gotchas, 7 no_search).
+- Dropped 1 duplicate between curator beats (Eurovision winner appeared in news + entertainment; kept fr-news-02).
+- Judge pipeline validated on smoke run (Canberra → CORRECT with sane reason).
+- Dev-model probe (shipped config): gemma-3-4b NEVER calls tools (0 searches on fresh Q, instant answer) — early capability-gate signal, noted for CONFIRM. qwen35-4b and ministral-3-3b both search properly. Dev models for SCREEN: qwen3-1.7b + ministral-3-3b (family diversity: Qwen + Mistral).
+- SCREEN sweep launched in background: 19 configs (shipped, floor, 17 OFAT variants) × 2 models × 35 Qs, then judge + aggregate. Log: analysis/screen-sweep.log.
