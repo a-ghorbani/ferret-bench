@@ -17,3 +17,10 @@ Append-only. Decisions, findings, surprises, dead ends.
 - Shipped values now known and set as the default config: result_count 5 (1–8), snippet 280 chars, search-menu ceiling 1000 tok, read_url 4800 chars via r.jina.ai, max_turns 5 with forced no-tools final, dated grounding system line (budget=4 wording), nonce'd UNTRUSTED WEB CONTENT wrapper on every tool result, labeled plain-text result blocks, Tavily default provider.
 - Surprise worth testing: `budgetHits`' 1000-token ceiling silently drops trailing hits — result_count>5 may be a no-op without raising the ceiling. Logged as confound in factors.md; harness will log hits-actually-included.
 - Providers in app: tavily (default), brave, exa, parallel(gated). We have keys for brave+tavily → RQ4 scope stays brave-vs-tavily; exa/parallel noted as not-tested.
+
+## 2026-07-10 — Harness built + smoke-tested (PROTOCOL phase)
+
+- Wrote harness/: common.py (budget/text replicas), http_cache.py (record-replay, key-stripped), providers.py (tavily/brave/jina), talents.py (web_search/read_url replicas + format variants), configs.py (factor knobs, prompt/tool-desc variants), agent_loop.py (AgentRunner replica incl. forced-final nudge), llm.py (llama-swap client, warm-up retries, serial), run_eval.py, judge.py (Qwen3.6-27B judge, v1-simpleqa-3way), aggregate.py (Wilson 90% CIs → analysis/scores.jsonl).
+- Smoke run 20260710-203213-smoke-shipped-qwen3-1.7b: 3/3 questions, fresh Q searched (Tavily live→cache), no_search Q didn't, message shapes match contract, no API-key fragments in cache/ or runs/ (grep scan).
+- Protocol amendments #2–#4 logged (local ceiling, local judge, anchor_date-as-today).
+- GitHub: private repo a-ghorbani/ferret-bench created, pushed.

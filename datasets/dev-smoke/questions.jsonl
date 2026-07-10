@@ -1,0 +1,3 @@
+{"id": "smoke-1", "split": "fresh", "question": "What was the most recent version of the llama.cpp b-release tagged this week?", "gold_answer": null, "category": "tech"}
+{"id": "smoke-2", "split": "stable", "question": "What is the capital of Australia?", "gold_answer": "Canberra", "category": "geography"}
+{"id": "smoke-3", "split": "no_search", "question": "Write a haiku about rain.", "gold_answer": null, "category": "creative"}

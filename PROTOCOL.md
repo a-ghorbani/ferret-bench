@@ -44,11 +44,14 @@ See `factors.md` for the full table. Summary of controlled factors and their fro
 
 ## Dataset
 
-- **Source**: TBD in PROTOCOL phase — candidates: SimpleQA subset (contamination risk: high for pre-cutoff facts), FreshQA-style fresh questions (require retrieval by construction), plus a generated set of time-anchored questions. Decision + generator script land in `datasets/`.
-- **Version/hash**: TBD
-- **Fitness check**: questions must resemble what phone users actually ask (news, facts, how-to, local-ish lookups) and must *require* retrieval for a meaningful fraction (freshness split) so the mechanism is provably engaged.
-- **Contamination assessment**: every question tagged `pre-cutoff` (answerable from memory) or `post-cutoff/fresh` (requires search); the floor baseline (RQ7) quantifies memory answering directly.
-- **Nondeterminism pinning**: record-replay HTTP cache, dataset pinned by content hash.
+- **Source**: curated three-split set, generated + hand-curated (curation protocol in `datasets/README.md`), SimpleQA-style short-answer format:
+  - `fresh` (~40): answers post-date small-model training cutoffs (events/facts from 2026-05..07) — retrieval required by construction; each pinned with gold answer + source URLs.
+  - `stable` (~30): timeless facts (SimpleQA-style) — measures whether the search loop *hurts* questions memory could answer, and feeds the floor comparison.
+  - `no_search` (~15): questions where searching is wrong/unnecessary (chit-chat, arithmetic, creative) — measures false-positive tool firing.
+- **Version/hash**: `datasets/v<N>/questions.jsonl` pinned by sha256 in every manifest; `anchor_date` recorded per version.
+- **Fitness check**: categories mirror phone-user asks (news, sports, prices/releases, local-ish facts, how-to); short-answer gold keeps judging tractable.
+- **Contamination assessment**: split tags are the control; the no-tool floor run quantifies memory answering per question — a `fresh` question the floor answers correctly gets demoted/flagged.
+- **Nondeterminism pinning**: record-replay HTTP cache for all provider/reader calls (capture-on-miss, keys stripped); the grounding line's `today` uses the dataset `anchor_date`, not wall clock (deliberate harness deviation for replay consistency); generation seed pinned.
 
 ## Metrics
 
@@ -61,12 +64,12 @@ See `factors.md` for the full table. Summary of controlled factors and their fro
 | Loop completion rate | mechanical | final answer within turn cap | secondary |
 | Turns & tokens to answer | mechanical | loop telemetry | cost axis |
 
-- **Judge config**: TBD in PROTOCOL phase (candidate: a strong local model or cloud API; frozen prompt version in every manifest; spot-validated against a human-labeled sample before results are trusted).
+- **Judge config**: `ggml-org/Qwen3.6-27B-GGUF:Q8_0` (local, ~7× larger than the class under test), temperature 0, SimpleQA-style 3-way grading (CORRECT / INCORRECT / NOT_ATTEMPTED) against gold answer; prompt versioned in `harness/judge.py` and every manifest. Validated against a control-agent manual re-label of a stratified 40-sample before results are trusted; absence of independent human labels goes in Limitations.
 
 ## Baselines
 
 - **Floor**: same models, no tools ("answer from what you know") — quantifies parametric-memory contamination per question.
-- **Ceiling**: a frontier cloud model run through the *same* harness and config — the achievable quality bound for the task itself.
+- **Ceiling**: largest local models (Qwen3.6-27B Q8 / Gemma-4-31B Q8) through the *same* harness and frozen config — amended from "frontier cloud" (no cloud LLM key guaranteed; local is reproducible and free; still far above the <8B class under test). See Amendment #2.
 
 ## Experiment design
 
@@ -111,3 +114,6 @@ Append-only. An unlogged protocol change invalidates the run.
 | # | Date | Change | Rationale | Solo / user-approved |
 | --- | ------ | ---------------- | --------- | ---------------------------- |
 | 1 | 2026-07-10 | Initial protocol | — | solo (goal-run) |
+| 2 | 2026-07-10 | Ceiling baseline = large local models (Qwen3.6-27B/Gemma-4-31B) via same harness, not frontier cloud | No cloud LLM key guaranteed in env; local ceiling is reproducible, free, and still ~7× the size class under test | solo |
+| 3 | 2026-07-10 | Judge = local Qwen3.6-27B-Q8, temp 0, 3-way SimpleQA-style grading; validated vs control-agent manual labels (n=40) | Same rationale as #2; agreement stats reported; no independent human labels → Limitations | solo |
+| 4 | 2026-07-10 | Harness grounding line uses dataset anchor_date as "today", not wall clock | Replayed search captures come from the capture window; a wall-clock date would contradict the evidence the model sees | solo |

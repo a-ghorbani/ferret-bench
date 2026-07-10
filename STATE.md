@@ -1,5 +1,5 @@
-phase: FRAME
-updated: 2026-07-10T00:00:00Z
+phase: PROTOCOL
+updated: 2026-07-10T20:40:00Z
 blocked_on: -
-next: (1) receive PocketPal PR#808 talent-contract extraction from subagent and pin it into harness/CONTRACT.md; (2) write factors.md (DECOMPOSE); (3) finish PROTOCOL: dataset decision + generator, judge config; create private GitHub repo
-progress: scaffold + git init done; PROTOCOL.md v1 frame written; topic profile context/topics/web-search.md drafted; llama-swap verified up (45 model ids); BRAVE/TAVILY keys located in ~/Dev/rd-team/.env
+next: (1) curate datasets/v1 (fresh 40 via web-curation subagents, stable 30, no_search 15) + datasets/README.md refresh protocol; (2) judge smoke-validate; (3) enumerate SCREEN configs and start screening on qwen3-1.7b + gemma-3-4b
+progress: harness built and smoke-tested e2e (run 20260710-203213); contract pinned; repo pushed to github.com/a-ghorbani/ferret-bench (private)
