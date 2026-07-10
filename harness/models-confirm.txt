@@ -1,0 +1,20 @@
+# CONFIRM sweep roster — llama-swap model ids, one per line.
+# Adding a model to the benchmark = adding a line here and re-running:
+#   python3 sweep.py --configs frozen --models-file models-confirm.txt --dataset ../datasets/v1/questions.jsonl --tag confirm
+# <8B on-device class (PocketPal-relevant, Q4-class GGUF unless noted):
+qwen3-06b
+qwen3-1.7b
+huihui-qwen35-2b
+qwen35-4b
+mlabonne-qwen3-4b
+gemma-3-1b-q4
+gemma-3-4b
+gemma-4-e2b
+ministral-3-3b
+phi-4-mini
+smollm3-3b
+lfm25-1.2b
+hermes-3-3b
+# ceiling references (NOT <8B; reported separately, not ranked):
+ggml-org/Qwen3.6-27B-GGUF:Q8_0
+ggml-org/gemma-4-31B-it-GGUF:Q8_0
