@@ -6,15 +6,15 @@ DECOMPOSE output. Levels marked *(shipped)* mirror PocketPal PR #808 and form th
 
 | Factor | Levels | Expected effect | Cost to vary |
 | ------ | ------ | --------------- | ------------ |
-| `result_count` | 3 / 5 *(shipped: TBD)* / 10 | More results = more coverage but context burn + distraction for small models; expect inverted-U | cheap (harness param) |
-| `result_format` | shipped format / compact numbered text / markdown list / JSON | Token efficiency and parseability by small models; JSON suspected wasteful | cheap |
-| `snippet_length` | full provider description / truncated ~160 chars | Long snippets may substitute for read_url or may drown 1–2B models | cheap |
+| `result_count` | 3 / 5 *(shipped default)* / 8 *(shipped max)* | More results = more coverage but context burn + distraction for small models; expect inverted-U. NB: shipped `budgetHits` also drops trailing hits at a 1000-token ceiling — co-vary or log hits actually included | cheap (harness param) |
+| `result_format` | shipped labeled-blocks / compact numbered text / markdown list / JSON | Token efficiency and parseability by small models; JSON suspected wasteful | cheap |
+| `snippet_length` | 280 chars *(shipped)* / 140 / full provider description | Long snippets may substitute for read_url or may drown 1–2B models | cheap |
 | `system_prompt` | shipped / minimal (tools speak for themselves) / guided (explicit search→read→cite strategy) | Large expected effect on *when* small models search and whether they iterate | cheap |
 | `tool_description` | shipped / enriched (usage guidance + arg hints in description) | Small models rely heavily on descriptions; enrichment may fix bad queries | cheap |
 | `provider` | brave / tavily | Tavily returns LLM-ready content chunks; hypothesis: helps small models more than large | cheap to vary, metered API |
 | `read_url_policy` | disabled (snippet-only) / available *(shipped)* / prompt-encouraged | Reading pages should improve grounding iff content truncation is right | cheap |
-| `read_content_limit` | ~2k / ~4k / ~8k chars *(shipped: TBD)* | Page text is the biggest context consumer; small-ctx models need low limits | cheap |
-| `max_turns` | shipped TBD / 5 / 10 | Higher caps rescue hard questions but risk loops; on-device each turn = full prefill | cheap |
+| `read_content_limit` | 2400 / 4800 *(shipped: 1200 tok × 4 chars)* / 9600 chars | Page text is the biggest context consumer; small-ctx models need low limits | cheap |
+| `max_turns` | 3 / 5 *(shipped, incl. forced final)* / 8 | Higher caps rescue hard questions but risk loops; on-device each turn = full prefill | cheap |
 
 ## Sweep factor (CONFIRM)
 
@@ -26,7 +26,9 @@ DECOMPOSE output. Levels marked *(shipped)* mirror PocketPal PR #808 and form th
 
 | Factor | Value | Why |
 | ------ | ----- | --- |
-| Generation params | PocketPal loop defaults (extracted; else temp 0.7 top_p 0.95) | Mirror the app |
+| Generation params | PocketPal forwards Pal completion settings unchanged; we pin temp 0.7 / top_p 0.95 (app-typical defaults) | Mirror the app |
+| Untrusted-content wrapper | shipped `wrapUntrusted` markers + note on every tool result | Security-load-bearing in the app; ~90 tokens overhead accepted as constant |
+| Search-menu token ceiling | 1000 tokens (`recommendedContextTokens`) unless co-varied with `result_count` | Shipped value |
 | Context size | 8192 (with prompt-size telemetry so 4k feasibility is derivable) | Phone-realistic ceiling |
 | Quantization | Q4_K_M class | What phones actually run |
 | Judge | frozen model+prompt, temp 0, versioned in manifests | Comparability |
