@@ -1,0 +1,11 @@
+{
+  "version": "v1",
+  "anchor_date": "2026-07-10",
+  "created": "2026-07-10T20:39:16Z",
+  "counts": {
+    "stable": 30,
+    "fresh": 44,
+    "no_search": 15
+  },
+  "sha256": "d350275558b05c03678cb8b23ad9070fc6123ba06b9fc03c8c14e88a7d149859"
+}
