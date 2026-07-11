@@ -44,3 +44,13 @@ Append-only. Decisions, findings, surprises, dead ends.
   - ELIMINATED (dominated: ≤ shipped on both or worse on one + more expensive): fmt-json (0.75/0.85 vs cost), fmt-compact (0.70/0.80), rc8 (0.70/0.80 + more tokens), snip-full (0.75/0.75, +50% tokens), turns8 (mixed, no gain). Kept for possible later use: rc3 (cheaper, ~neutral), snip140 (mixed), turns3 (~neutral, cheaper), readlim* (~neutral — reads are rare), fmt-markdown (0.75/0.95 — model-dependent, carried into ablate).
   - Tool-call validity 1.00 across every screen config on both dev models — these two families have no syntax problem; the gate will matter for others in CONFIRM.
 - ABLATE launched on FULL dataset (89 Qs), 8 configs × 2 models: shipped + floor anchors; a1 td+brave; a2 +markdown; a3 +guided-v2; a4 +read-off; a5 td+guided-v2 (tavily control); a6 full combo. Log: analysis/ablate-sweep.log.
+
+## 2026-07-11 — ABLATE results (full 89-Q dataset, both dev models; 0 failures)
+
+- Composite fresh (mean of both models): a2 td+brave+markdown 0.921; a3 td+brave+guided2 0.909; a4 td+brave+readoff 0.909; shipped 0.875; a6 full-combo 0.852; a1 td+brave 0.830; a5 td+guided2(tavily) 0.795; floor 0.023.
+- Per model: ministral a4=1.000 [0.94,1.00], shipped/a2/a3=0.977; qwen3-1.7b a2=0.864 best, a3=0.841, shipped=0.773.
+- guided-v2 fixed the false-search problem: 0.0 on every ablate config (screen guided-v1 was 0.29); shipped shows 0.067.
+- INTERACTION: markdown + guided-v2 together (a6) UNDERPERFORMS either alone on both models — do not stack; choose one.
+- read_url: disabling it (a4) is best-or-tied on ministral but drops qwen engagement to 0.86; product-wise PocketPal ships read_url, and a2/a3 (reads available) match a4 — keep read_url available in the frozen config.
+- a2 vs a3 statistically tied → tiebreak criterion: search-ENGAGEMENT on weak models (the observed failure mode of small/weak models is never searching — cf. gemma-3-4b probe). Tiebreak sweep launched: a2/a3/shipped × qwen3-06b + gemma-4-e2b, full dataset.
+- Note: a1 (td+brave, snippets unchanged) < a2 on both models and < shipped on qwen — the screening td-enriched effect partially came through interaction with formatting/other levels; OFAT screen estimates were noisy at n=20. Full-dataset ablate is authoritative.
