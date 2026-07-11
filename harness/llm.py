@@ -40,22 +40,26 @@ def warm_model(model: str, retries: int = 5):
     raise LLMError(f"warm-up failed for {model}: {last}")
 
 
-def chat(model: str, messages, tools=None, gen=None, retries: int = 3):
-    """One chat completion. Returns the raw response dict. Retries transient failures."""
+def chat(model: str, messages, tools=None, gen=None, retries: int = 3,
+         base_url: str = None, api_key: str = None):
+    """One chat completion (llama-swap by default; any OpenAI-compatible API via base_url/api_key).
+    Returns the raw response dict. Retries transient failures."""
     payload = {"model": model, "messages": messages}
     if tools:
         payload["tools"] = tools
         payload["tool_choice"] = "auto"
     for k, v in (gen or {}).items():
         payload[k] = v
+    url = f"{base_url or BASE_URL}/v1/chat/completions"
+    headers = {"Authorization": f"Bearer {api_key}"} if api_key else {}
     last = None
     for attempt in range(retries):
         try:
-            r = requests.post(f"{BASE_URL}/v1/chat/completions", json=payload, timeout=REQUEST_TIMEOUT_S)
+            r = requests.post(url, json=payload, headers=headers, timeout=REQUEST_TIMEOUT_S)
             if r.status_code == 200:
                 return r.json()
             last = f"HTTP {r.status_code}: {r.text[:500]}"
-            if r.status_code in (400, 422):  # not transient (bad template/tool support) — surface now
+            if r.status_code in (400, 401, 422):  # not transient — surface now
                 raise LLMError(last)
         except requests.RequestException as e:
             last = str(e)

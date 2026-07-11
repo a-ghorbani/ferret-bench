@@ -416,3 +416,1466 @@
 [20260710-231840-screen-screen-td-enriched-qwen3-1.7b] 19/35 fr-tech-08 ok turns=2 searches=1 reads=0
 [20260710-231840-screen-screen-td-enriched-qwen3-1.7b] 20/35 fr-tech-13 ok turns=2 searches=1 reads=0
 [20260710-231840-screen-screen-td-enriched-qwen3-1.7b] 21/35 st-01 ok turns=2 searches=1 reads=0
+[20260710-231840-screen-screen-td-enriched-qwen3-1.7b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260710-231840-screen-screen-td-enriched-qwen3-1.7b] 23/35 st-03 ok turns=1 searches=0 reads=0
+[20260710-231840-screen-screen-td-enriched-qwen3-1.7b] 24/35 st-04 ok turns=2 searches=1 reads=0
+[20260710-231840-screen-screen-td-enriched-qwen3-1.7b] 25/35 st-07 ok turns=1 searches=0 reads=0
+[20260710-231840-screen-screen-td-enriched-qwen3-1.7b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260710-231840-screen-screen-td-enriched-qwen3-1.7b] 27/35 st-11 ok turns=2 searches=1 reads=0
+[20260710-231840-screen-screen-td-enriched-qwen3-1.7b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260710-231840-screen-screen-td-enriched-qwen3-1.7b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260710-231840-screen-screen-td-enriched-qwen3-1.7b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260710-231840-screen-screen-td-enriched-qwen3-1.7b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260710-231840-screen-screen-td-enriched-qwen3-1.7b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260710-231840-screen-screen-td-enriched-qwen3-1.7b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260710-231840-screen-screen-td-enriched-qwen3-1.7b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260710-231840-screen-screen-td-enriched-qwen3-1.7b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260710-231840-screen-screen-td-enriched-qwen3-1.7b] done in 202.0s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-231840-screen-screen-td-enriched-qwen3-1.7b
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 2/35 fr-news-02 ok turns=1 searches=0 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 4/35 fr-news-06 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 9/35 fr-sport-01 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 11/35 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 12/35 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 13/35 fr-sport-07 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 15/35 fr-tech-01 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 16/35 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 19/35 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 20/35 fr-tech-13 ok turns=1 searches=0 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 21/35 st-01 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 23/35 st-03 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 24/35 st-04 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 27/35 st-11 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260710-232202-screen-screen-prov-brave-qwen3-1.7b] done in 209.8s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-232202-screen-screen-prov-brave-qwen3-1.7b
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 4/35 fr-news-06 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 9/35 fr-sport-01 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 11/35 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 12/35 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 13/35 fr-sport-07 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 15/35 fr-tech-01 ok turns=1 searches=0 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 16/35 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 18/35 fr-tech-07 ok turns=1 searches=0 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 19/35 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 20/35 fr-tech-13 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 21/35 st-01 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 23/35 st-03 ok turns=1 searches=0 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 27/35 st-11 ok turns=1 searches=0 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 30/35 ns-03 ok turns=2 searches=1 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260710-232532-screen-screen-read-off-qwen3-1.7b] done in 205.3s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-232532-screen-screen-read-off-qwen3-1.7b
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 4/35 fr-news-06 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 9/35 fr-sport-01 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 11/35 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 12/35 fr-sport-06 ok turns=1 searches=0 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 13/35 fr-sport-07 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 15/35 fr-tech-01 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 16/35 fr-tech-02 ok turns=1 searches=0 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 18/35 fr-tech-07 ok turns=1 searches=0 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 19/35 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 20/35 fr-tech-13 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 21/35 st-01 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 23/35 st-03 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 24/35 st-04 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 27/35 st-11 ok turns=1 searches=0 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 28/35 st-20 ok turns=1 searches=0 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 29/35 ns-01 ok turns=2 searches=1 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260710-232857-screen-screen-read-encouraged-qwen3-1.7b] done in 203.1s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-232857-screen-screen-read-encouraged-qwen3-1.7b
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 4/35 fr-news-06 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 9/35 fr-sport-01 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 11/35 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 12/35 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 13/35 fr-sport-07 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 15/35 fr-tech-01 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 16/35 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 18/35 fr-tech-07 ok turns=1 searches=0 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 19/35 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 20/35 fr-tech-13 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 21/35 st-01 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 23/35 st-03 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 24/35 st-04 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 27/35 st-11 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 30/35 ns-03 ok turns=2 searches=1 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260710-233220-screen-screen-readlim2400-qwen3-1.7b] done in 212.3s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-233220-screen-screen-readlim2400-qwen3-1.7b
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 4/35 fr-news-06 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 9/35 fr-sport-01 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 11/35 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 12/35 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 13/35 fr-sport-07 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 15/35 fr-tech-01 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 16/35 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 18/35 fr-tech-07 ok turns=1 searches=0 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 19/35 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 20/35 fr-tech-13 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 21/35 st-01 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 23/35 st-03 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 24/35 st-04 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 27/35 st-11 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 30/35 ns-03 ok turns=2 searches=1 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260710-233552-screen-screen-readlim9600-qwen3-1.7b] done in 204.1s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-233552-screen-screen-readlim9600-qwen3-1.7b
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 4/35 fr-news-06 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 9/35 fr-sport-01 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 11/35 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 12/35 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 13/35 fr-sport-07 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 15/35 fr-tech-01 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 16/35 fr-tech-02 ok turns=1 searches=0 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 19/35 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 20/35 fr-tech-13 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 21/35 st-01 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 23/35 st-03 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 24/35 st-04 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 26/35 st-10 ok turns=1 searches=0 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 27/35 st-11 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 34/35 ns-11 ok turns=2 searches=1 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260710-233916-screen-screen-turns3-qwen3-1.7b] done in 193.2s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-233916-screen-screen-turns3-qwen3-1.7b
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 4/35 fr-news-06 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 9/35 fr-sport-01 ok turns=1 searches=0 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 11/35 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 12/35 fr-sport-06 ok turns=1 searches=0 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 13/35 fr-sport-07 ok turns=1 searches=0 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 15/35 fr-tech-01 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 16/35 fr-tech-02 ok turns=1 searches=0 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 19/35 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 20/35 fr-tech-13 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 21/35 st-01 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 23/35 st-03 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 24/35 st-04 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 27/35 st-11 ok turns=1 searches=0 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 34/35 ns-11 ok turns=2 searches=1 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260710-234230-screen-screen-turns8-qwen3-1.7b] done in 193.9s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-234230-screen-screen-turns8-qwen3-1.7b
+=== warming ministral-3-3b ===
+[20260710-234546-screen-shipped-ministral-3-3b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 2/35 fr-news-02 ok turns=3 searches=1 reads=1
+[20260710-234546-screen-shipped-ministral-3-3b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 4/35 fr-news-06 ok turns=2 searches=1 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 9/35 fr-sport-01 ok turns=2 searches=2 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 11/35 fr-sport-05 ok turns=3 searches=1 reads=1
+[20260710-234546-screen-shipped-ministral-3-3b] 12/35 fr-sport-06 ok turns=3 searches=1 reads=1
+[20260710-234546-screen-shipped-ministral-3-3b] 13/35 fr-sport-07 ok turns=4 searches=1 reads=2
+[20260710-234546-screen-shipped-ministral-3-3b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 15/35 fr-tech-01 ok turns=3 searches=2 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 16/35 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 19/35 fr-tech-08 ok turns=3 searches=1 reads=1
+[20260710-234546-screen-shipped-ministral-3-3b] 20/35 fr-tech-13 ok turns=2 searches=1 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 21/35 st-01 ok turns=1 searches=0 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 23/35 st-03 ok turns=2 searches=1 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 27/35 st-11 ok turns=3 searches=1 reads=1
+[20260710-234546-screen-shipped-ministral-3-3b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260710-234546-screen-shipped-ministral-3-3b] done in 121.5s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-234546-screen-shipped-ministral-3-3b
+[20260710-234748-screen-floor-notool-ministral-3-3b] 1/35 fr-news-01 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 2/35 fr-news-02 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 3/35 fr-news-03 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 4/35 fr-news-06 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 5/35 fr-news-07 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 6/35 fr-news-08 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 7/35 fr-news-13 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 8/35 fr-news-14 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 9/35 fr-sport-01 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 10/35 fr-sport-02 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 11/35 fr-sport-05 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 12/35 fr-sport-06 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 13/35 fr-sport-07 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 14/35 fr-sport-12 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 15/35 fr-tech-01 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 16/35 fr-tech-02 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 17/35 fr-tech-06 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 18/35 fr-tech-07 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 19/35 fr-tech-08 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 20/35 fr-tech-13 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 21/35 st-01 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 22/35 st-02 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 23/35 st-03 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 25/35 st-07 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 26/35 st-10 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 27/35 st-11 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 28/35 st-20 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260710-234748-screen-floor-notool-ministral-3-3b] done in 28.5s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-234748-screen-floor-notool-ministral-3-3b
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 4/35 fr-news-06 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 9/35 fr-sport-01 ok turns=1 searches=0 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 11/35 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 12/35 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 13/35 fr-sport-07 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 15/35 fr-tech-01 ok turns=5 searches=3 reads=1
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 16/35 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 19/35 fr-tech-08 ok turns=5 searches=2 reads=2
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 20/35 fr-tech-13 ok turns=5 searches=3 reads=1
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 21/35 st-01 ok turns=1 searches=0 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 23/35 st-03 ok turns=5 searches=3 reads=1
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 27/35 st-11 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260710-234816-screen-screen-rc3-ministral-3-3b] done in 86.4s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-234816-screen-screen-rc3-ministral-3-3b
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 1/35 fr-news-01 ok turns=3 searches=1 reads=1
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 4/35 fr-news-06 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 6/35 fr-news-08 ok turns=3 searches=1 reads=1
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 9/35 fr-sport-01 ok turns=1 searches=0 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 11/35 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 12/35 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 13/35 fr-sport-07 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 15/35 fr-tech-01 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 16/35 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 17/35 fr-tech-06 ok turns=3 searches=1 reads=1
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 19/35 fr-tech-08 ok turns=3 searches=1 reads=1
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 20/35 fr-tech-13 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 21/35 st-01 ok turns=3 searches=1 reads=1
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 23/35 st-03 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 27/35 st-11 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260710-234943-screen-screen-rc8-ministral-3-3b] done in 120.8s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-234943-screen-screen-rc8-ministral-3-3b
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 4/35 fr-news-06 ok turns=3 searches=2 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 9/35 fr-sport-01 ok turns=1 searches=0 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 11/35 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 12/35 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 13/35 fr-sport-07 ok turns=5 searches=1 reads=3
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 14/35 fr-sport-12 ok turns=3 searches=1 reads=1
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 15/35 fr-tech-01 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 16/35 fr-tech-02 ok turns=3 searches=1 reads=1
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 19/35 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 20/35 fr-tech-13 ok turns=5 searches=1 reads=3
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 21/35 st-01 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 23/35 st-03 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 27/35 st-11 ok turns=4 searches=1 reads=2
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260710-235143-screen-screen-fmt-compact-ministral-3-3b] done in 104.3s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-235143-screen-screen-fmt-compact-ministral-3-3b
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 4/35 fr-news-06 ok turns=2 searches=1 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 7/35 fr-news-13 ok turns=3 searches=1 reads=1
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 9/35 fr-sport-01 ok turns=3 searches=2 reads=1
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 11/35 fr-sport-05 ok turns=4 searches=1 reads=2
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 12/35 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 13/35 fr-sport-07 ok turns=2 searches=1 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 15/35 fr-tech-01 ok turns=3 searches=2 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 16/35 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 17/35 fr-tech-06 ok turns=3 searches=1 reads=1
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 19/35 fr-tech-08 ok turns=3 searches=1 reads=1
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 20/35 fr-tech-13 ok turns=2 searches=1 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 21/35 st-01 ok turns=1 searches=0 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 23/35 st-03 ok turns=3 searches=1 reads=1
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 27/35 st-11 ok turns=2 searches=1 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260710-235328-screen-screen-fmt-markdown-ministral-3-3b] done in 83.1s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-235328-screen-screen-fmt-markdown-ministral-3-3b
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 4/35 fr-news-06 ok turns=3 searches=1 reads=1
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 6/35 fr-news-08 ok turns=3 searches=1 reads=1
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 9/35 fr-sport-01 ok turns=3 searches=3 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 11/35 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 12/35 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 13/35 fr-sport-07 ok turns=5 searches=1 reads=3
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 15/35 fr-tech-01 ok turns=3 searches=2 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 16/35 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 17/35 fr-tech-06 ok turns=3 searches=1 reads=1
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 19/35 fr-tech-08 ok turns=4 searches=2 reads=1
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 20/35 fr-tech-13 ok turns=5 searches=1 reads=3
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 21/35 st-01 ok turns=1 searches=0 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 23/35 st-03 ok turns=2 searches=1 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 27/35 st-11 ok turns=2 searches=1 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260710-235451-screen-screen-fmt-json-ministral-3-3b] done in 82.4s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-235451-screen-screen-fmt-json-ministral-3-3b
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 1/35 fr-news-01 ok turns=3 searches=1 reads=1
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 4/35 fr-news-06 ok turns=3 searches=2 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 6/35 fr-news-08 ok turns=3 searches=1 reads=1
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 9/35 fr-sport-01 ok turns=3 searches=3 reads=1
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 10/35 fr-sport-02 ok turns=3 searches=1 reads=1
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 11/35 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 12/35 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 13/35 fr-sport-07 ok turns=4 searches=1 reads=2
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 14/35 fr-sport-12 ok turns=3 searches=1 reads=1
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 15/35 fr-tech-01 ok turns=4 searches=2 reads=1
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 16/35 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 19/35 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 20/35 fr-tech-13 ERR turns=5 searches=2 reads=3
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 21/35 st-01 ok turns=1 searches=0 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 23/35 st-03 ERR turns=3 searches=2 reads=4
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 27/35 st-11 ok turns=2 searches=1 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260710-235613-screen-screen-snip140-ministral-3-3b] done in 132.0s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-235613-screen-screen-snip140-ministral-3-3b
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 1/35 fr-news-01 ok turns=4 searches=1 reads=2
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 4/35 fr-news-06 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 9/35 fr-sport-01 ok turns=1 searches=0 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 11/35 fr-sport-05 ok turns=3 searches=1 reads=1
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 12/35 fr-sport-06 ok turns=3 searches=1 reads=1
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 13/35 fr-sport-07 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 15/35 fr-tech-01 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 16/35 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 18/35 fr-tech-07 ok turns=5 searches=1 reads=3
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 19/35 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 20/35 fr-tech-13 ok turns=4 searches=2 reads=1
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 21/35 st-01 ok turns=1 searches=0 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 23/35 st-03 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 27/35 st-11 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260710-235825-screen-screen-snip-full-ministral-3-3b] done in 96.0s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-235825-screen-screen-snip-full-ministral-3-3b
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 2/35 fr-news-02 ok turns=5 searches=1 reads=3
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 4/35 fr-news-06 ok turns=3 searches=1 reads=1
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 9/35 fr-sport-01 ok turns=1 searches=0 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 11/35 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 12/35 fr-sport-06 ok turns=1 searches=0 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 13/35 fr-sport-07 ok turns=2 searches=1 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 15/35 fr-tech-01 ok turns=3 searches=2 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 16/35 fr-tech-02 ok turns=3 searches=2 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 19/35 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 20/35 fr-tech-13 ok turns=4 searches=2 reads=1
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 21/35 st-01 ok turns=1 searches=0 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 22/35 st-02 ok turns=1 searches=0 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 23/35 st-03 ok turns=2 searches=1 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 25/35 st-07 ok turns=2 searches=2 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 27/35 st-11 ok turns=3 searches=1 reads=1
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 28/35 st-20 ok turns=1 searches=0 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260711-000001-screen-screen-sp-dateonly-ministral-3-3b] done in 117.9s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-000001-screen-screen-sp-dateonly-ministral-3-3b
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 1/35 fr-news-01 ok turns=5 searches=2 reads=2
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 4/35 fr-news-06 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 7/35 fr-news-13 ok turns=3 searches=1 reads=1
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 9/35 fr-sport-01 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 11/35 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 12/35 fr-sport-06 ok turns=3 searches=1 reads=1
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 13/35 fr-sport-07 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 15/35 fr-tech-01 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 16/35 fr-tech-02 ok turns=3 searches=1 reads=1
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 19/35 fr-tech-08 ok turns=3 searches=1 reads=1
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 20/35 fr-tech-13 ok turns=5 searches=1 reads=3
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 21/35 st-01 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 23/35 st-03 ok turns=3 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 27/35 st-11 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 31/35 ns-05 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 34/35 ns-11 ok turns=2 searches=1 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260711-000159-screen-screen-sp-guided-ministral-3-3b] done in 102.9s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-000159-screen-screen-sp-guided-ministral-3-3b
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 4/35 fr-news-06 ok turns=3 searches=1 reads=2
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 7/35 fr-news-13 ok turns=4 searches=1 reads=2
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 9/35 fr-sport-01 ok turns=2 searches=1 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 11/35 fr-sport-05 ok turns=3 searches=1 reads=1
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 12/35 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 13/35 fr-sport-07 ok turns=3 searches=1 reads=1
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 14/35 fr-sport-12 ok turns=3 searches=1 reads=1
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 15/35 fr-tech-01 ok turns=3 searches=2 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 16/35 fr-tech-02 ok turns=3 searches=2 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 19/35 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 20/35 fr-tech-13 ok turns=2 searches=1 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 21/35 st-01 ok turns=2 searches=0 reads=1
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 23/35 st-03 ok turns=2 searches=1 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 26/35 st-10 ok turns=1 searches=0 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 27/35 st-11 ok turns=2 searches=1 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 28/35 st-20 ok turns=1 searches=0 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260711-000342-screen-screen-td-enriched-ministral-3-3b] done in 107.5s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-000342-screen-screen-td-enriched-ministral-3-3b
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 4/35 fr-news-06 ok turns=3 searches=2 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 9/35 fr-sport-01 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 11/35 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 12/35 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 13/35 fr-sport-07 ok turns=3 searches=1 reads=1
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 15/35 fr-tech-01 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 16/35 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 19/35 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 20/35 fr-tech-13 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 21/35 st-01 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 23/35 st-03 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 27/35 st-11 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260711-000529-screen-screen-prov-brave-ministral-3-3b] done in 78.7s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-000529-screen-screen-prov-brave-ministral-3-3b
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 4/35 fr-news-06 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 9/35 fr-sport-01 ok turns=4 searches=4 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 11/35 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 12/35 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 13/35 fr-sport-07 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 15/35 fr-tech-01 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 16/35 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 19/35 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 20/35 fr-tech-13 ok turns=3 searches=2 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 21/35 st-01 ok turns=1 searches=0 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 22/35 st-02 ok turns=1 searches=0 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 23/35 st-03 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 27/35 st-11 ok turns=1 searches=0 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260711-000648-screen-screen-read-off-ministral-3-3b] done in 70.6s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-000648-screen-screen-read-off-ministral-3-3b
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 4/35 fr-news-06 ok turns=2 searches=1 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 5/35 fr-news-07 ok turns=3 searches=1 reads=3
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 9/35 fr-sport-01 ERR turns=5 searches=1 reads=4
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 11/35 fr-sport-05 ok turns=3 searches=1 reads=1
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 12/35 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 13/35 fr-sport-07 ERR turns=5 searches=1 reads=4
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 14/35 fr-sport-12 ok turns=3 searches=1 reads=1
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 15/35 fr-tech-01 ok turns=4 searches=2 reads=1
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 16/35 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 19/35 fr-tech-08 ok turns=4 searches=2 reads=1
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 20/35 fr-tech-13 ok turns=4 searches=2 reads=1
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 21/35 st-01 ok turns=1 searches=0 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 23/35 st-03 ok turns=2 searches=1 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 27/35 st-11 ok turns=2 searches=1 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260711-000759-screen-screen-read-encouraged-ministral-3-3b] done in 177.2s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-000759-screen-screen-read-encouraged-ministral-3-3b
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 4/35 fr-news-06 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 9/35 fr-sport-01 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 11/35 fr-sport-05 ok turns=3 searches=1 reads=1
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 12/35 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 13/35 fr-sport-07 ok turns=3 searches=1 reads=1
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 15/35 fr-tech-01 ok turns=5 searches=2 reads=2
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 16/35 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 19/35 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 20/35 fr-tech-13 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 21/35 st-01 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 23/35 st-03 ok turns=5 searches=2 reads=5
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 27/35 st-11 ok turns=3 searches=1 reads=1
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260711-001056-screen-screen-readlim2400-ministral-3-3b] done in 71.7s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-001056-screen-screen-readlim2400-ministral-3-3b
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 2/35 fr-news-02 ERR turns=5 searches=1 reads=4
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 4/35 fr-news-06 ok turns=3 searches=2 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 9/35 fr-sport-01 ok turns=2 searches=1 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 11/35 fr-sport-05 ok turns=3 searches=1 reads=1
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 12/35 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 13/35 fr-sport-07 ok turns=3 searches=1 reads=1
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 15/35 fr-tech-01 ok turns=4 searches=2 reads=1
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 16/35 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 19/35 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 20/35 fr-tech-13 ok turns=2 searches=1 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 21/35 st-01 ok turns=2 searches=0 reads=1
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 23/35 st-03 ERR turns=2 searches=2 reads=3
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 27/35 st-11 ok turns=3 searches=1 reads=1
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260711-001208-screen-screen-readlim9600-ministral-3-3b] done in 91.9s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-001208-screen-screen-readlim9600-ministral-3-3b
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 4/35 fr-news-06 ok turns=3 searches=2 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 9/35 fr-sport-01 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 11/35 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 12/35 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 13/35 fr-sport-07 ERR turns=3 searches=2 reads=1
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 15/35 fr-tech-01 ok turns=3 searches=2 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 16/35 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 19/35 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 20/35 fr-tech-13 ERR turns=3 searches=2 reads=1
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 21/35 st-01 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 23/35 st-03 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 27/35 st-11 ok turns=2 searches=0 reads=1
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260711-001340-screen-screen-turns3-ministral-3-3b] done in 127.4s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-001340-screen-screen-turns3-ministral-3-3b
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 1/35 fr-news-01 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 2/35 fr-news-02 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 3/35 fr-news-03 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 4/35 fr-news-06 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 5/35 fr-news-07 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 6/35 fr-news-08 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 7/35 fr-news-13 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 8/35 fr-news-14 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 9/35 fr-sport-01 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 10/35 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 11/35 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 12/35 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 13/35 fr-sport-07 ok turns=4 searches=1 reads=2
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 14/35 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 15/35 fr-tech-01 ok turns=4 searches=3 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 16/35 fr-tech-02 ok turns=3 searches=1 reads=1
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 17/35 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 18/35 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 19/35 fr-tech-08 ok turns=3 searches=1 reads=1
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 20/35 fr-tech-13 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 21/35 st-01 ok turns=1 searches=0 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 22/35 st-02 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 23/35 st-03 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 24/35 st-04 ok turns=1 searches=0 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 25/35 st-07 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 26/35 st-10 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 27/35 st-11 ok turns=1 searches=0 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 28/35 st-20 ok turns=2 searches=1 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 29/35 ns-01 ok turns=1 searches=0 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 30/35 ns-03 ok turns=1 searches=0 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 31/35 ns-05 ok turns=1 searches=0 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 32/35 ns-07 ok turns=1 searches=0 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 33/35 ns-09 ok turns=1 searches=0 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 34/35 ns-11 ok turns=1 searches=0 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] 35/35 ns-13 ok turns=1 searches=0 reads=0
+[20260711-001547-screen-screen-turns8-ministral-3-3b] done in 59.1s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-001547-screen-screen-turns8-ministral-3-3b
+=== judging ===
+1/35 fr-news-01 → CORRECT
+2/35 fr-news-02 → INCORRECT
+3/35 fr-news-03 → CORRECT
+4/35 fr-news-06 → CORRECT
+5/35 fr-news-07 → CORRECT
+6/35 fr-news-08 → CORRECT
+7/35 fr-news-13 → PARSE_FAIL
+8/35 fr-news-14 → CORRECT
+9/35 fr-sport-01 → CORRECT
+10/35 fr-sport-02 → CORRECT
+11/35 fr-sport-05 → CORRECT
+12/35 fr-sport-06 → CORRECT
+13/35 fr-sport-07 → PARSE_FAIL
+14/35 fr-sport-12 → CORRECT
+15/35 fr-tech-01 → PARSE_FAIL
+16/35 fr-tech-02 → PARSE_FAIL
+17/35 fr-tech-06 → CORRECT
+18/35 fr-tech-07 → CORRECT
+19/35 fr-tech-08 → NOT_ATTEMPTED
+20/35 fr-tech-13 → CORRECT
+21/35 st-01 → CORRECT
+22/35 st-02 → CORRECT
+23/35 st-03 → CORRECT
+24/35 st-04 → CORRECT
+25/35 st-07 → CORRECT
+26/35 st-10 → INCORRECT
+27/35 st-11 → CORRECT
+28/35 st-20 → CORRECT
+29/35 ns-01 → N/A
+30/35 ns-03 → N/A
+31/35 ns-05 → N/A
+32/35 ns-07 → N/A
+33/35 ns-09 → N/A
+34/35 ns-11 → N/A
+35/35 ns-13 → N/A
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-224310-screen-shipped-qwen3-1.7b/judgments.jsonl
+1/35 fr-news-01 → PARSE_FAIL
+2/35 fr-news-02 → INCORRECT
+3/35 fr-news-03 → INCORRECT
+4/35 fr-news-06 → INCORRECT
+5/35 fr-news-07 → INCORRECT
+6/35 fr-news-08 → INCORRECT
+7/35 fr-news-13 → INCORRECT
+8/35 fr-news-14 → INCORRECT
+9/35 fr-sport-01 → INCORRECT
+10/35 fr-sport-02 → NOT_ATTEMPTED
+11/35 fr-sport-05 → NOT_ATTEMPTED
+12/35 fr-sport-06 → PARSE_FAIL
+13/35 fr-sport-07 → INCORRECT
+14/35 fr-sport-12 → NOT_ATTEMPTED
+15/35 fr-tech-01 → PARSE_FAIL
+16/35 fr-tech-02 → NOT_ATTEMPTED
+17/35 fr-tech-06 → INCORRECT
+18/35 fr-tech-07 → PARSE_FAIL
+19/35 fr-tech-08 → INCORRECT
+20/35 fr-tech-13 → NOT_ATTEMPTED
+21/35 st-01 → CORRECT
+22/35 st-02 → CORRECT
+23/35 st-03 → CORRECT
+24/35 st-04 → CORRECT
+25/35 st-07 → CORRECT
+26/35 st-10 → INCORRECT
+27/35 st-11 → CORRECT
+28/35 st-20 → CORRECT
+29/35 ns-01 → N/A
+30/35 ns-03 → N/A
+31/35 ns-05 → N/A
+32/35 ns-07 → N/A
+33/35 ns-09 → N/A
+34/35 ns-11 → N/A
+35/35 ns-13 → N/A
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-224651-screen-floor-notool-qwen3-1.7b/judgments.jsonl
+1/35 fr-news-01 → INCORRECT
+2/35 fr-news-02 → CORRECT
+3/35 fr-news-03 → CORRECT
+4/35 fr-news-06 → CORRECT
+5/35 fr-news-07 → CORRECT
+6/35 fr-news-08 → CORRECT
+7/35 fr-news-13 → PARSE_FAIL
+8/35 fr-news-14 → CORRECT
+9/35 fr-sport-01 → CORRECT
+10/35 fr-sport-02 → CORRECT
+11/35 fr-sport-05 → CORRECT
+12/35 fr-sport-06 → CORRECT
+13/35 fr-sport-07 → INCORRECT
+14/35 fr-sport-12 → CORRECT
+15/35 fr-tech-01 → CORRECT
+16/35 fr-tech-02 → INCORRECT
+17/35 fr-tech-06 → CORRECT
+18/35 fr-tech-07 → CORRECT
+19/35 fr-tech-08 → INCORRECT
+20/35 fr-tech-13 → CORRECT
+21/35 st-01 → CORRECT
+22/35 st-02 → CORRECT
+23/35 st-03 → CORRECT
+24/35 st-04 → CORRECT
+25/35 st-07 → CORRECT
+26/35 st-10 → INCORRECT
+27/35 st-11 → CORRECT
+28/35 st-20 → CORRECT
+29/35 ns-01 → N/A
+30/35 ns-03 → N/A
+31/35 ns-05 → N/A
+32/35 ns-07 → N/A
+33/35 ns-09 → N/A
+34/35 ns-11 → N/A
+35/35 ns-13 → N/A
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-224903-screen-screen-rc3-qwen3-1.7b/judgments.jsonl
+1/35 fr-news-01 → INCORRECT
+2/35 fr-news-02 → CORRECT
+3/35 fr-news-03 → CORRECT
+4/35 fr-news-06 → CORRECT
+5/35 fr-news-07 → CORRECT
+6/35 fr-news-08 → CORRECT
+7/35 fr-news-13 → CORRECT
+8/35 fr-news-14 → CORRECT
+9/35 fr-sport-01 → CORRECT
+10/35 fr-sport-02 → CORRECT
+11/35 fr-sport-05 → CORRECT
+12/35 fr-sport-06 → INCORRECT
+13/35 fr-sport-07 → PARSE_FAIL
+14/35 fr-sport-12 → INCORRECT
+15/35 fr-tech-01 → NOT_ATTEMPTED
+16/35 fr-tech-02 → CORRECT
+17/35 fr-tech-06 → CORRECT
+18/35 fr-tech-07 → CORRECT
+19/35 fr-tech-08 → NOT_ATTEMPTED
+20/35 fr-tech-13 → CORRECT
+21/35 st-01 → CORRECT
+22/35 st-02 → CORRECT
+23/35 st-03 → CORRECT
+24/35 st-04 → CORRECT
+25/35 st-07 → CORRECT
+26/35 st-10 → INCORRECT
+27/35 st-11 → CORRECT
+28/35 st-20 → CORRECT
+29/35 ns-01 → N/A
+30/35 ns-03 → N/A
+31/35 ns-05 → N/A
+32/35 ns-07 → N/A
+33/35 ns-09 → N/A
+34/35 ns-11 → N/A
+35/35 ns-13 → N/A
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-225215-screen-screen-rc8-qwen3-1.7b/judgments.jsonl
+1/35 fr-news-01 → INCORRECT
+2/35 fr-news-02 → CORRECT
+3/35 fr-news-03 → CORRECT
+4/35 fr-news-06 → CORRECT
+5/35 fr-news-07 → CORRECT
+6/35 fr-news-08 → CORRECT
+7/35 fr-news-13 → CORRECT
+8/35 fr-news-14 → CORRECT
+9/35 fr-sport-01 → CORRECT
+10/35 fr-sport-02 → CORRECT
+11/35 fr-sport-05 → CORRECT
+12/35 fr-sport-06 → INCORRECT
+13/35 fr-sport-07 → PARSE_FAIL
+14/35 fr-sport-12 → CORRECT
+15/35 fr-tech-01 → INCORRECT
+16/35 fr-tech-02 → INCORRECT
+17/35 fr-tech-06 → CORRECT
+18/35 fr-tech-07 → CORRECT
+19/35 fr-tech-08 → NOT_ATTEMPTED
+20/35 fr-tech-13 → CORRECT
+21/35 st-01 → CORRECT
+22/35 st-02 → CORRECT
+23/35 st-03 → CORRECT
+24/35 st-04 → CORRECT
+25/35 st-07 → CORRECT
+26/35 st-10 → NOT_ATTEMPTED
+27/35 st-11 → CORRECT
+28/35 st-20 → CORRECT
+29/35 ns-01 → N/A
+30/35 ns-03 → N/A
+31/35 ns-05 → N/A
+32/35 ns-07 → N/A
+33/35 ns-09 → N/A
+34/35 ns-11 → N/A
+35/35 ns-13 → N/A
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-225552-screen-screen-fmt-compact-qwen3-1.7b/judgments.jsonl
+1/35 fr-news-01 → INCORRECT
+2/35 fr-news-02 → PARSE_FAIL
+3/35 fr-news-03 → CORRECT
+4/35 fr-news-06 → CORRECT
+5/35 fr-news-07 → CORRECT
+6/35 fr-news-08 → CORRECT
+7/35 fr-news-13 → CORRECT
+8/35 fr-news-14 → CORRECT
+9/35 fr-sport-01 → CORRECT
+10/35 fr-sport-02 → CORRECT
+11/35 fr-sport-05 → CORRECT
+12/35 fr-sport-06 → CORRECT
+13/35 fr-sport-07 → INCORRECT
+14/35 fr-sport-12 → CORRECT
+15/35 fr-tech-01 → NOT_ATTEMPTED
+16/35 fr-tech-02 → INCORRECT
+17/35 fr-tech-06 → CORRECT
+18/35 fr-tech-07 → CORRECT
+19/35 fr-tech-08 → NOT_ATTEMPTED
+20/35 fr-tech-13 → CORRECT
+21/35 st-01 → CORRECT
+22/35 st-02 → CORRECT
+23/35 st-03 → CORRECT
+24/35 st-04 → CORRECT
+25/35 st-07 → CORRECT
+26/35 st-10 → CORRECT
+27/35 st-11 → CORRECT
+28/35 st-20 → CORRECT
+29/35 ns-01 → N/A
+30/35 ns-03 → N/A
+31/35 ns-05 → N/A
+32/35 ns-07 → N/A
+33/35 ns-09 → N/A
+34/35 ns-11 → N/A
+35/35 ns-13 → N/A
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-225911-screen-screen-fmt-markdown-qwen3-1.7b/judgments.jsonl
+1/35 fr-news-01 → INCORRECT
+2/35 fr-news-02 → CORRECT
+3/35 fr-news-03 → CORRECT
+4/35 fr-news-06 → CORRECT
+5/35 fr-news-07 → CORRECT
+6/35 fr-news-08 → CORRECT
+7/35 fr-news-13 → CORRECT
+8/35 fr-news-14 → CORRECT
+9/35 fr-sport-01 → CORRECT
+10/35 fr-sport-02 → CORRECT
+11/35 fr-sport-05 → CORRECT
+12/35 fr-sport-06 → CORRECT
+13/35 fr-sport-07 → INCORRECT
+14/35 fr-sport-12 → CORRECT
+15/35 fr-tech-01 → INCORRECT
+16/35 fr-tech-02 → INCORRECT
+17/35 fr-tech-06 → CORRECT
+18/35 fr-tech-07 → CORRECT
+19/35 fr-tech-08 → NOT_ATTEMPTED
+20/35 fr-tech-13 → CORRECT
+21/35 st-01 → CORRECT
+22/35 st-02 → CORRECT
+23/35 st-03 → CORRECT
+24/35 st-04 → CORRECT
+25/35 st-07 → CORRECT
+26/35 st-10 → PARSE_FAIL
+27/35 st-11 → CORRECT
+28/35 st-20 → CORRECT
+29/35 ns-01 → N/A
+30/35 ns-03 → N/A
+31/35 ns-05 → N/A
+32/35 ns-07 → N/A
+33/35 ns-09 → N/A
+34/35 ns-11 → N/A
+35/35 ns-13 → N/A
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-230226-screen-screen-fmt-json-qwen3-1.7b/judgments.jsonl
+1/35 fr-news-01 → INCORRECT
+2/35 fr-news-02 → CORRECT
+3/35 fr-news-03 → CORRECT
+4/35 fr-news-06 → CORRECT
+5/35 fr-news-07 → CORRECT
+6/35 fr-news-08 → CORRECT
+7/35 fr-news-13 → NOT_ATTEMPTED
+8/35 fr-news-14 → CORRECT
+9/35 fr-sport-01 → CORRECT
+10/35 fr-sport-02 → PARSE_FAIL
+11/35 fr-sport-05 → CORRECT
+12/35 fr-sport-06 → CORRECT
+13/35 fr-sport-07 → INCORRECT
+14/35 fr-sport-12 → CORRECT
+15/35 fr-tech-01 → INCORRECT
+16/35 fr-tech-02 → INCORRECT
+17/35 fr-tech-06 → CORRECT
+18/35 fr-tech-07 → CORRECT
+19/35 fr-tech-08 → NOT_ATTEMPTED
+20/35 fr-tech-13 → CORRECT
+21/35 st-01 → CORRECT
+22/35 st-02 → CORRECT
+23/35 st-03 → CORRECT
+24/35 st-04 → CORRECT
+25/35 st-07 → CORRECT
+26/35 st-10 → CORRECT
+27/35 st-11 → CORRECT
+28/35 st-20 → CORRECT
+29/35 ns-01 → N/A
+30/35 ns-03 → N/A
+31/35 ns-05 → N/A
+32/35 ns-07 → N/A
+33/35 ns-09 → N/A
+34/35 ns-11 → N/A
+35/35 ns-13 → N/A
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-230531-screen-screen-snip140-qwen3-1.7b/judgments.jsonl
+1/35 fr-news-01 → INCORRECT
+2/35 fr-news-02 → CORRECT
+3/35 fr-news-03 → CORRECT
+4/35 fr-news-06 → CORRECT
+5/35 fr-news-07 → CORRECT
+6/35 fr-news-08 → CORRECT
+7/35 fr-news-13 → CORRECT
+8/35 fr-news-14 → CORRECT
+9/35 fr-sport-01 → CORRECT
+10/35 fr-sport-02 → CORRECT
+11/35 fr-sport-05 → CORRECT
+12/35 fr-sport-06 → CORRECT
+13/35 fr-sport-07 → INCORRECT
+14/35 fr-sport-12 → CORRECT
+15/35 fr-tech-01 → INCORRECT
+16/35 fr-tech-02 → CORRECT
+17/35 fr-tech-06 → CORRECT
+18/35 fr-tech-07 → INCORRECT
+19/35 fr-tech-08 → INCORRECT
+20/35 fr-tech-13 → CORRECT
+21/35 st-01 → CORRECT
+22/35 st-02 → CORRECT
+23/35 st-03 → CORRECT
+24/35 st-04 → CORRECT
+25/35 st-07 → CORRECT
+26/35 st-10 → CORRECT
+27/35 st-11 → CORRECT
+28/35 st-20 → CORRECT
+29/35 ns-01 → N/A
+30/35 ns-03 → N/A
+31/35 ns-05 → N/A
+32/35 ns-07 → N/A
+33/35 ns-09 → N/A
+34/35 ns-11 → N/A
+35/35 ns-13 → N/A
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-230830-screen-screen-snip-full-qwen3-1.7b/judgments.jsonl
+1/35 fr-news-01 → CORRECT
+2/35 fr-news-02 → CORRECT
+3/35 fr-news-03 → CORRECT
+4/35 fr-news-06 → CORRECT
+5/35 fr-news-07 → CORRECT
+6/35 fr-news-08 → CORRECT
+7/35 fr-news-13 → PARSE_FAIL
+8/35 fr-news-14 → CORRECT
+9/35 fr-sport-01 → CORRECT
+10/35 fr-sport-02 → CORRECT
+11/35 fr-sport-05 → CORRECT
+12/35 fr-sport-06 → CORRECT
+13/35 fr-sport-07 → INCORRECT
+14/35 fr-sport-12 → CORRECT
+15/35 fr-tech-01 → NOT_ATTEMPTED
+16/35 fr-tech-02 → CORRECT
+17/35 fr-tech-06 → CORRECT
+18/35 fr-tech-07 → CORRECT
+19/35 fr-tech-08 → INCORRECT
+20/35 fr-tech-13 → CORRECT
+21/35 st-01 → CORRECT
+22/35 st-02 → CORRECT
+23/35 st-03 → CORRECT
+24/35 st-04 → CORRECT
+25/35 st-07 → CORRECT
+26/35 st-10 → INCORRECT
+27/35 st-11 → CORRECT
+28/35 st-20 → CORRECT
+29/35 ns-01 → N/A
+30/35 ns-03 → N/A
+31/35 ns-05 → N/A
+32/35 ns-07 → N/A
+33/35 ns-09 → N/A
+34/35 ns-11 → N/A
+35/35 ns-13 → N/A
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-231149-screen-screen-sp-dateonly-qwen3-1.7b/judgments.jsonl
+1/35 fr-news-01 → CORRECT
+2/35 fr-news-02 → CORRECT
+3/35 fr-news-03 → CORRECT
+4/35 fr-news-06 → CORRECT
+5/35 fr-news-07 → CORRECT
+6/35 fr-news-08 → CORRECT
+7/35 fr-news-13 → CORRECT
+8/35 fr-news-14 → CORRECT
+9/35 fr-sport-01 → CORRECT
+10/35 fr-sport-02 → CORRECT
+11/35 fr-sport-05 → CORRECT
+12/35 fr-sport-06 → CORRECT
+13/35 fr-sport-07 → CORRECT
+14/35 fr-sport-12 → CORRECT
+15/35 fr-tech-01 → PARSE_FAIL
+16/35 fr-tech-02 → CORRECT
+17/35 fr-tech-06 → CORRECT
+18/35 fr-tech-07 → CORRECT
+19/35 fr-tech-08 → INCORRECT
+20/35 fr-tech-13 → CORRECT
+21/35 st-01 → CORRECT
+22/35 st-02 → CORRECT
+23/35 st-03 → CORRECT
+24/35 st-04 → CORRECT
+25/35 st-07 → CORRECT
+26/35 st-10 → CORRECT
+27/35 st-11 → CORRECT
+28/35 st-20 → CORRECT
+29/35 ns-01 → N/A
+30/35 ns-03 → N/A
+31/35 ns-05 → N/A
+32/35 ns-07 → N/A
+33/35 ns-09 → N/A
+34/35 ns-11 → N/A
+35/35 ns-13 → N/A
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-231536-screen-screen-sp-guided-qwen3-1.7b/judgments.jsonl
+1/35 fr-news-01 → CORRECT
+2/35 fr-news-02 → CORRECT
+3/35 fr-news-03 → CORRECT
+4/35 fr-news-06 → CORRECT
+5/35 fr-news-07 → CORRECT
+6/35 fr-news-08 → CORRECT
+7/35 fr-news-13 → PARSE_FAIL
+8/35 fr-news-14 → CORRECT
+9/35 fr-sport-01 → CORRECT
+10/35 fr-sport-02 → CORRECT
+11/35 fr-sport-05 → CORRECT
+12/35 fr-sport-06 → CORRECT
+13/35 fr-sport-07 → CORRECT
+14/35 fr-sport-12 → CORRECT
+15/35 fr-tech-01 → INCORRECT
+16/35 fr-tech-02 → CORRECT
+17/35 fr-tech-06 → CORRECT
+18/35 fr-tech-07 → CORRECT
+19/35 fr-tech-08 → CORRECT
+20/35 fr-tech-13 → CORRECT
+21/35 st-01 → CORRECT
+22/35 st-02 → CORRECT
+23/35 st-03 → CORRECT
+24/35 st-04 → CORRECT
+25/35 st-07 → CORRECT
+26/35 st-10 → CORRECT
+27/35 st-11 → CORRECT
+28/35 st-20 → CORRECT
+29/35 ns-01 → N/A
+30/35 ns-03 → N/A
+31/35 ns-05 → N/A
+32/35 ns-07 → N/A
+33/35 ns-09 → N/A
+34/35 ns-11 → N/A
+35/35 ns-13 → N/A
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-231840-screen-screen-td-enriched-qwen3-1.7b/judgments.jsonl
+1/35 fr-news-01 → CORRECT
+2/35 fr-news-02 → INCORRECT
+3/35 fr-news-03 → CORRECT
+4/35 fr-news-06 → CORRECT
+5/35 fr-news-07 → CORRECT
+6/35 fr-news-08 → CORRECT
+7/35 fr-news-13 → CORRECT
+8/35 fr-news-14 → CORRECT
+9/35 fr-sport-01 → CORRECT
+10/35 fr-sport-02 → CORRECT
+11/35 fr-sport-05 → CORRECT
+12/35 fr-sport-06 → PARSE_FAIL
+13/35 fr-sport-07 → CORRECT
+14/35 fr-sport-12 → INCORRECT
+15/35 fr-tech-01 → CORRECT
+16/35 fr-tech-02 → CORRECT
+17/35 fr-tech-06 → CORRECT
+18/35 fr-tech-07 → CORRECT
+19/35 fr-tech-08 → CORRECT
+20/35 fr-tech-13 → CORRECT
+21/35 st-01 → CORRECT
+22/35 st-02 → CORRECT
+23/35 st-03 → CORRECT
+24/35 st-04 → CORRECT
+25/35 st-07 → CORRECT
+26/35 st-10 → CORRECT
+27/35 st-11 → CORRECT
+28/35 st-20 → CORRECT
+29/35 ns-01 → N/A
+30/35 ns-03 → N/A
+31/35 ns-05 → N/A
+32/35 ns-07 → N/A
+33/35 ns-09 → N/A
+34/35 ns-11 → N/A
+35/35 ns-13 → N/A
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-232202-screen-screen-prov-brave-qwen3-1.7b/judgments.jsonl
+1/35 fr-news-01 → CORRECT
+2/35 fr-news-02 → CORRECT
+3/35 fr-news-03 → CORRECT
+4/35 fr-news-06 → CORRECT
+5/35 fr-news-07 → CORRECT
+6/35 fr-news-08 → CORRECT
+7/35 fr-news-13 → CORRECT
+8/35 fr-news-14 → CORRECT
+9/35 fr-sport-01 → CORRECT
+10/35 fr-sport-02 → CORRECT
+11/35 fr-sport-05 → CORRECT
+12/35 fr-sport-06 → CORRECT
+13/35 fr-sport-07 → CORRECT
+14/35 fr-sport-12 → CORRECT
+15/35 fr-tech-01 → INCORRECT
+16/35 fr-tech-02 → NOT_ATTEMPTED
+17/35 fr-tech-06 → CORRECT
+18/35 fr-tech-07 → INCORRECT
+19/35 fr-tech-08 → NOT_ATTEMPTED
+20/35 fr-tech-13 → CORRECT
+21/35 st-01 → CORRECT
+22/35 st-02 → CORRECT
+23/35 st-03 → CORRECT
+24/35 st-04 → CORRECT
+25/35 st-07 → CORRECT
+26/35 st-10 → CORRECT
+27/35 st-11 → CORRECT
+28/35 st-20 → CORRECT
+29/35 ns-01 → N/A
+30/35 ns-03 → N/A
+31/35 ns-05 → N/A
+32/35 ns-07 → N/A
+33/35 ns-09 → N/A
+34/35 ns-11 → N/A
+35/35 ns-13 → N/A
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260710-232532-screen-screen-read-off-qwen3-1.7b/judgments.jsonl
+1/35 fr-news-01 → CORRECT
+2/35 fr-news-02 → CORRECT
+3/35 fr-news-03 → CORRECT
+4/35 fr-news-06 → CORRECT
+5/35 fr-news-07 → CORRECT
+6/35 fr-news-08 → CORRECT

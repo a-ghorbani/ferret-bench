@@ -1,0 +1,6 @@
+{
+  "config_id": "a4-td-brave-readoff",
+  "tool_desc": "enriched",
+  "provider": "brave",
+  "read_url_policy": "disabled"
+}

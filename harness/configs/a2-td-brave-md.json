@@ -1,0 +1,6 @@
+{
+  "config_id": "a2-td-brave-md",
+  "tool_desc": "enriched",
+  "provider": "brave",
+  "result_format": "markdown"
+}

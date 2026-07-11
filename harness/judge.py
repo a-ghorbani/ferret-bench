@@ -12,6 +12,7 @@ judge.py while run_eval.py is in flight.
 
 import argparse
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -22,7 +23,10 @@ from common import load_env, read_jsonl
 from llm import chat, warm_model
 
 JUDGE_PROMPT_VERSION = "v1-simpleqa-3way"
-DEFAULT_JUDGE = "ggml-org/Qwen3.6-27B-GGUF:Q8_0"
+DEFAULT_JUDGE = "google/gemini-3.5-flash"  # via OpenRouter (protocol amendment #5; grok-4.5 region-blocked)
+OPENROUTER_URL = "https://openrouter.ai/api"  # chat() appends /v1/chat/completions
+LOCAL_FALLBACK_JUDGE = "ggml-org/Qwen3.6-27B-GGUF:Q8_0"
+JUDGE_WORKERS = 8
 
 JUDGE_TEMPLATE = """You are grading an answer to a factual question against a gold answer.
 
@@ -50,6 +54,30 @@ def parse_grade(text: str):
     return None, None
 
 
+def _judge_endpoint(judge_model):
+    """Remote (OpenRouter) for non-local judge ids; local llama-swap otherwise."""
+    if "/" in judge_model and not judge_model.startswith("ggml-org") and ":" not in judge_model:
+        key = os.environ.get("OPENROUTER_API_KEY", "")
+        if not key:
+            raise SystemExit("OPENROUTER_API_KEY not set (needed for remote judge)")
+        return OPENROUTER_URL, key
+    return None, None
+
+
+def _grade_one(rec, judge_model, base_url, api_key):
+    if rec["split"] == "no_search" or not rec.get("gold_answer"):
+        return {"qid": rec["qid"], "grade": "N/A", "reason": "mechanical-only split"}
+    if rec.get("error") or rec.get("final_answer") is None:
+        return {"qid": rec["qid"], "grade": "NOT_ATTEMPTED", "reason": "run error / no final answer"}
+    prompt = JUDGE_TEMPLATE.format(question=rec["question"], gold=rec["gold_answer"],
+                                   pred=rec["final_answer"][:4000])
+    resp = chat(judge_model, [{"role": "user", "content": prompt}],
+                gen={"temperature": 0, "max_tokens": 1024}, base_url=base_url, api_key=api_key)
+    text = (resp["choices"][0]["message"].get("content") or "")
+    grade, reason = parse_grade(text)
+    return {"qid": rec["qid"], "grade": grade or "PARSE_FAIL", "reason": reason or text[:200]}
+
+
 def judge_run(run_dir, judge_model=DEFAULT_JUDGE, overwrite=False, warm=True):
     """Grade one run. Returns path to judgments.jsonl (or None if skipped)."""
     load_env()
@@ -62,26 +90,23 @@ def judge_run(run_dir, judge_model=DEFAULT_JUDGE, overwrite=False, warm=True):
     if out_path.exists():
         out_path.unlink()
 
-    if warm:
+    base_url, api_key = _judge_endpoint(judge_model)
+    if warm and base_url is None:
         print(f"warming judge {judge_model} …", flush=True)
         warm_model(judge_model)
 
-    for i, rec in enumerate(outputs):
-        if rec["split"] == "no_search" or not rec.get("gold_answer"):
-            row = {"qid": rec["qid"], "grade": "N/A", "reason": "mechanical-only split"}
-        elif rec.get("error") or rec.get("final_answer") is None:
-            row = {"qid": rec["qid"], "grade": "NOT_ATTEMPTED", "reason": "run error / no final answer"}
-        else:
-            prompt = JUDGE_TEMPLATE.format(question=rec["question"], gold=rec["gold_answer"],
-                                           pred=rec["final_answer"][:4000])
-            resp = chat(judge_model, [{"role": "user", "content": prompt}],
-                        gen={"temperature": 0, "max_tokens": 1024})
-            text = (resp["choices"][0]["message"].get("content") or "")
-            grade, reason = parse_grade(text)
-            row = {"qid": rec["qid"], "grade": grade or "PARSE_FAIL", "reason": reason or text[:200]}
-        with open(out_path, "a") as f:
+    if base_url:  # remote judge: parallel
+        from concurrent.futures import ThreadPoolExecutor
+        with ThreadPoolExecutor(max_workers=JUDGE_WORKERS) as ex:
+            rows = list(ex.map(lambda r: _grade_one(r, judge_model, base_url, api_key), outputs))
+    else:  # local judge: strictly serial (single GPU)
+        rows = [_grade_one(r, judge_model, None, None) for r in outputs]
+
+    with open(out_path, "w") as f:
+        for row in rows:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
-        print(f"{i+1}/{len(outputs)} {rec['qid']} → {row['grade']}", flush=True)
+    from collections import Counter
+    print(f"{run_dir.name}: {dict(Counter(r['grade'] for r in rows))}", flush=True)
 
     manifest_path = run_dir / "manifest.json"
     manifest = json.loads(manifest_path.read_text())

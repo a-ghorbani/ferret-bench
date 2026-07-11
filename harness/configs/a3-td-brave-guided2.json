@@ -1,0 +1,6 @@
+{
+  "config_id": "a3-td-brave-guided2",
+  "tool_desc": "enriched",
+  "provider": "brave",
+  "system_prompt": "guided-v2"
+}

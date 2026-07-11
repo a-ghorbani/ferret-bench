@@ -86,7 +86,9 @@ def main():
 
     if not args.no_judge and run_ids:
         print("=== judging ===", flush=True)
-        warm_model(args.judge_model)
+        from judge import _judge_endpoint
+        if _judge_endpoint(args.judge_model)[0] is None:
+            warm_model(args.judge_model)
         for rid in run_ids:
             try:
                 judge_run(RUNS_DIR / rid, args.judge_model, warm=False)

@@ -113,6 +113,24 @@ def build_system_prompt(cfg: dict, anchor_date: str) -> str:
         if cfg["read_url_policy"] == "encouraged" and has_read:
             line += " When snippets are not enough, open the best result with read_url before answering."
         return f"{BASE_SYSTEM}\n{line}"
+    if variant == "guided-v2":
+        # guided strategy + explicit no-search escape hatch (screening showed plain 'guided'
+        # causes false searches on ~29% of no_search questions)
+        steps = [
+            "(1) If the question is about facts, news, or anything possibly beyond your training data, call "
+            "web_search first — write a short keyword query, not a full sentence.",
+        ]
+        if has_read:
+            steps.append("(2) If the snippets do not fully answer, call read_url on the most promising result URL.")
+            steps.append("(3) Answer concisely using only the retrieved facts, citing source URLs.")
+        else:
+            steps.append("(2) Answer concisely using only the retrieved facts, citing source URLs.")
+        line = (f"Today's date is {anchor_date}. You are connected to live web search. Strategy: "
+                + " ".join(steps)
+                + f" You have a budget of {budget} tool calls. If the evidence does not contain the answer, "
+                "say so — never guess. For creative requests, math, writing help, or general knowledge you "
+                "are confident about, just answer directly without searching.")
+        return f"{BASE_SYSTEM}\n{line}"
     if variant == "guided":
         steps = [
             "(1) For any question about facts, news, or anything possibly beyond your training data, call "

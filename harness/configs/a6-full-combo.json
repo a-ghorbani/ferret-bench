@@ -1,0 +1,7 @@
+{
+  "config_id": "a6-full-combo",
+  "tool_desc": "enriched",
+  "provider": "brave",
+  "system_prompt": "guided-v2",
+  "result_format": "markdown"
+}

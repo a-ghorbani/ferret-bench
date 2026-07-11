@@ -32,3 +32,15 @@ Append-only. Decisions, findings, surprises, dead ends.
 - Judge pipeline validated on smoke run (Canberra → CORRECT with sane reason).
 - Dev-model probe (shipped config): gemma-3-4b NEVER calls tools (0 searches on fresh Q, instant answer) — early capability-gate signal, noted for CONFIRM. qwen35-4b and ministral-3-3b both search properly. Dev models for SCREEN: qwen3-1.7b + ministral-3-3b (family diversity: Qwen + Mistral).
 - SCREEN sweep launched in background: 19 configs (shipped, floor, 17 OFAT variants) × 2 models × 35 Qs, then judge + aggregate. Log: analysis/screen-sweep.log.
+
+## 2026-07-11 — Judge switch + SCREEN analysis + ABLATE launch
+
+- User directed switch to a fast remote judge (proposed x-ai/grok-4.5 on OpenRouter). grok-4.5 is region-blocked by xAI (403). Selected google/gemini-3.5-flash (1.2 s/call vs 16 s remote qwen3.6-27b); amendment #5. All 38 screen runs re-judged in 184 s with 8 parallel workers.
+- Judge agreement gemini-3.5-flash vs local qwen3.6-27b on 14 preserved runs: 361/392 = 92.1%. 18/31 disagreements are local-judge PARSE_FAILs (27B emitted unparseable grading output; gemini did not) → substantive disagreement ≈ 3.5%. Gemini judge adopted; 27B judgments kept as judgments-qwen27b.jsonl.
+- SCREEN results (35-Q slice, qwen3-1.7b + ministral-3-3b, all runs in analysis/scores.jsonl):
+  - Floor (no tools): fresh 0.00 (qwen) / 0.05 (ministral) — retrieval is provably required; dataset contamination controlled. The 1 floor-correct fresh item is fr-news-03 (Starmer resignation — guessable via incumbency); flagged for v2 refresh, kept in v1 (hash pinned, effect symmetric across configs).
+  - Stable floor: 0.88/1.00 — stable split is memory-answerable as designed.
+  - WINNERS (consistent on both models): td-enriched (fresh 0.95/1.00 vs shipped 0.75/0.80 — largest effect); prov-brave (0.90/0.90, ~25% fewer prompt tokens than tavily); sp-guided (0.90/0.95 but false-search 0.29 on both → guided-v2 written with explicit no-search escape hatch); read-off ≥ shipped on both with lowest tokens (read_url not earning its keep); sp-dateonly ≥ shipped on both (shipped grounding line adds little for these models).
+  - ELIMINATED (dominated: ≤ shipped on both or worse on one + more expensive): fmt-json (0.75/0.85 vs cost), fmt-compact (0.70/0.80), rc8 (0.70/0.80 + more tokens), snip-full (0.75/0.75, +50% tokens), turns8 (mixed, no gain). Kept for possible later use: rc3 (cheaper, ~neutral), snip140 (mixed), turns3 (~neutral, cheaper), readlim* (~neutral — reads are rare), fmt-markdown (0.75/0.95 — model-dependent, carried into ablate).
+  - Tool-call validity 1.00 across every screen config on both dev models — these two families have no syntax problem; the gate will matter for others in CONFIRM.
+- ABLATE launched on FULL dataset (89 Qs), 8 configs × 2 models: shipped + floor anchors; a1 td+brave; a2 +markdown; a3 +guided-v2; a4 +read-off; a5 td+guided-v2 (tavily control); a6 full combo. Log: analysis/ablate-sweep.log.
