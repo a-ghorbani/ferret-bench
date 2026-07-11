@@ -62,3 +62,11 @@ Append-only. Decisions, findings, surprises, dead ends.
 - frozen-config/ written: config.json (hash 2e5a7826…), tool_web_search.json, tool_read_url.json, system_prompt.txt (shipped grounding retained), PROVENANCE.md (per-value run-id table + anti-recommendations). guided-v2 documented as prompt-only runner-up.
 - CONFIRM sweep launched THROUGH the packaged harness (sweep.py --configs frozen --models-file models-confirm.txt): 13 <8B models + 2 large local ceiling refs, full dataset v1.
 - Floor for confirm models skipped (logged reason): floor≈0.02 established on 4 models spanning 0.6B–3.3B; per-model floors would double GPU time for no decision value.
+
+## 2026-07-11 — Judge manual validation → v2 prompt + full re-judge
+
+- Manual validation (protocol §Metrics): control agent blind-graded a stratified 40-item sample (20 CORRECT / 12 INCORRECT / 8 NOT_ATTEMPTED as judged; sample pinned in analysis/judge-validation-sample.json, seed 7). Agreement with gemini v1 judge: 38/40 = 95%.
+- Both disagreements were the same root cause: JUDGE BUG — v1 prompt omitted the dataset's acceptable_answers (e.g. "Wolfram" marked INCORRECT vs gold "Tungsten"). Fixed: v2-simpleqa-3way-acceptable includes the acceptable list; judge_run now joins acceptable_answers from the manifest-pinned dataset.
+- All 61 pre-confirm runs re-judged with v2 (482 s, parallel). ORDERING UNCHANGED: a2 wins gemma-4-e2b 0.932 / qwen3-1.7b 0.886; a3 leads qwen3-06b 0.909 vs a2 0.886; ministral top group unchanged. 4-model composite: a2 0.920 vs a3 0.898 → freeze (a2) CONFIRMED on v2 numbers.
+- Borderline judging notes (logged for transparency): st-07-type answers with wrong side details but correct key fact; graded per rubric key-fact rule.
+- TODO when confirm sweep ends: its in-process judging uses v1 (module loaded pre-fix) → re-judge confirm runs with v2 --overwrite, re-aggregate, then regenerate leaderboard.

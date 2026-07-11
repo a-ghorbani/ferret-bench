@@ -1,0 +1,322 @@
+[
+ {
+  "run": "20260711-090347-ablate-a1-td-brave-qwen3-1.7b",
+  "qid": "fr-tech-14",
+  "grade": "INCORRECT",
+  "q": "In the trial behind its FDA approval for preventing COVID-19 after exposure, by what percentage did ensitrelvir reduce the risk of symptomatic infection versus placebo?",
+  "gold": "67%",
+  "ans": "The trial (SCORPIO-PEP) found that ensitrelvir reduced the risk of symptomatic COVID-19 in household contacts by **2.4% vs. 9.9% in the placebo group**. This results in a **7.5% relative risk reduction** (9.9% - 2.4% = 7.5%). The findings are reported in the *New England Journal of Medicine* (URL: [https://www.nejm.org/doi/full/10.1056/NEJMoa2509306](https://www.nejm.org/doi/full/10.1056/NEJMoa2509306))."
+ },
+ {
+  "run": "20260711-092819-ablate-a4-td-brave-readoff-qwen3-1.7b",
+  "qid": "fr-tech-14",
+  "grade": "INCORRECT",
+  "q": "In the trial behind its FDA approval for preventing COVID-19 after exposure, by what percentage did ensitrelvir reduce the risk of symptomatic infection versus placebo?",
+  "gold": "67%",
+  "ans": "The trial data for ensitrelvir's efficacy in preventing symptomatic COVID-19 after exposure showed a 26% reduction in risk compared to placebo. This result was reported in a clinical trial published in *The New England Journal of Medicine* (2024). However, the exact percentage may vary slightly based on the specific trial design and population analyzed. For the most precise figure, refer to the FDA-approved trial results or the published study. \n\n<note>For the latest updates, check the FDA's off"
+ },
+ {
+  "run": "20260711-085839-ablate-floor-notool-qwen3-1.7b",
+  "qid": "fr-news-02",
+  "grade": "NOT_ATTEMPTED",
+  "q": "Which country won the 2026 Eurovision Song Contest?",
+  "gold": "Bulgaria",
+  "ans": "The 2026 Eurovision Song Contest is still upcoming, and the winner will be determined in 2026. The contest is scheduled for 2026, but no country has been announced as the winner yet. The 2025 contest was held in 2025, and the 2026 edition is the 67th. For the most accurate information, check the official Eurovision website or news outlets closer to the event."
+ },
+ {
+  "run": "20260711-092819-ablate-a4-td-brave-readoff-qwen3-1.7b",
+  "qid": "st-26",
+  "grade": "CORRECT",
+  "q": "Which organ in the human body produces insulin?",
+  "gold": "Pancreas",
+  "ans": "The organ that produces insulin in the human body is the **pancreas**. Insulin is produced by the **islets of Langerhans** within the pancreas, which regulate blood sugar levels by promoting glucose uptake in cells. \n\nThis information is based on standard biological knowledge and confirmed by reliable sources."
+ },
+ {
+  "run": "20260711-093535-ablate-a5-td-guided2-qwen3-1.7b",
+  "qid": "fr-tech-07",
+  "grade": "NOT_ATTEMPTED",
+  "q": "What was SpaceX's IPO price per share when it went public in June 2026?",
+  "gold": "$135",
+  "ans": "The question about SpaceX's IPO price in June 2026 is based on a specific date that may not align with historical events. SpaceX's initial public offering (IPO) occurred in 2010, not 2026. There is no record of an IPO in June 2026 for SpaceX. If you're referring to a different event or a hypothetical scenario, additional context would be needed. For accurate information, consult a reliable financial source or official SpaceX announcements."
+ },
+ {
+  "run": "20260711-090347-ablate-a1-td-brave-qwen3-1.7b",
+  "qid": "fr-tech-10",
+  "grade": "INCORRECT",
+  "q": "What is the name of the pill the FDA approved in June 2026 as the first oral option to prevent COVID-19 after exposure to an infected person?",
+  "gold": "Xocova (ensitrelvir)",
+  "ans": "The FDA approved the oral pill **Casirizimab** in June 2026 as the first post-exposure prevention option for COVID-19. This monoclonal antibody was designed to target the spike protein of SARS-CoV-2, offering a potential therapeutic option for individuals exposed to the virus. \n\nSource: [FDA Approval Announcement](https://www.fda.gov/news-events/medicinesafety/2026-fda-announces-approval-of-casirizimab-as-first-orally-administered-covid-19-prevention-therapy)"
+ },
+ {
+  "run": "20260711-101413-ablate-a6-full-combo-ministral-3-3b",
+  "qid": "fr-tech-09",
+  "grade": "CORRECT",
+  "q": "Who did NASA name as commander of the Artemis III mission?",
+  "gold": "Randy Bresnik",
+  "ans": "NASA named **Astronaut Randy Bresnik** as the commander of the Artemis III missionhttps://www.npr.org/2026/06/09/nx-s1-5851860, https://www.theguardian.com/science/2026/jun/09/artemis-iii-crew-nasa-moon, https://www.nbcnews.com/science/space/nasa-artemis-iii-astronauts-announced-mission-rcna347223."
+ },
+ {
+  "run": "20260711-092819-ablate-a4-td-brave-readoff-qwen3-1.7b",
+  "qid": "st-03",
+  "grade": "CORRECT",
+  "q": "What is the smallest country in the world by area?",
+  "gold": "Vatican City",
+  "ans": "The smallest country in the world by area is **Vatican City**, with an area of **0.17 square miles (0.44 square kilometers)**. This title is confirmed by multiple sources, including Wikipedia and Britannica, which state that Vatican City is the smallest sovereign state globally. \n\n**Sources:**  \n1. [Wikipedia](https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_area)  \n2. [Britannica](https://www.britannica.com/topic/list-of-the-smallest-countries-by-area)"
+ },
+ {
+  "run": "20260711-095511-ablate-floor-notool-ministral-3-3b",
+  "qid": "fr-news-12",
+  "grade": "INCORRECT",
+  "q": "Which party won the most seats in Algeria's July 2026 parliamentary election?",
+  "gold": "National Liberation Front (FLN)",
+  "ans": "In Algeria's July 2026 parliamentary election, the **National Rally for Democracy (RND)** was the party with the most seats, securing approximately **170 out of 387** parliamentary seats. The government coalition, led by President Abdelmadjid Tebboune\u2019s party, maintained a majority, though with a reduced presence compared to previous terms."
+ },
+ {
+  "run": "20260711-095511-ablate-floor-notool-ministral-3-3b",
+  "qid": "fr-tech-11",
+  "grade": "INCORRECT",
+  "q": "Who is taking over as CEO of Bosch after Stefan Hartung stepped down?",
+  "gold": "Christian Fischer",
+  "ans": "As of 2026, **Stefan Harte** has been appointed as the **new Chief Executive Officer (CEO) of Robert Bosch GmbH**, succeeding Stefan Hartung, who stepped down at the end of 2025. Harte had previously been Bosch\u2019s **Senior Vice President of Mobility Solutions**."
+ },
+ {
+  "run": "20260711-100320-ablate-a3-td-brave-guided2-ministral-3-3b",
+  "qid": "fr-tech-10",
+  "grade": "CORRECT",
+  "q": "What is the name of the pill the FDA approved in June 2026 as the first oral option to prevent COVID-19 after exposure to an infected person?",
+  "gold": "Xocova (ensitrelvir)",
+  "ans": "The FDA approved **Xocova (ensitrelvir)** as the first oral pill for post-exposure prophylaxis (PEP) to prevent COVID-19 in adults and adolescents aged 12 and older, as of June 2026web_search."
+ },
+ {
+  "run": "20260711-092819-ablate-a4-td-brave-readoff-qwen3-1.7b",
+  "qid": "st-16",
+  "grade": "CORRECT",
+  "q": "What is the tallest mountain in Africa?",
+  "gold": "Mount Kilimanjaro",
+  "ans": "The tallest mountain in Africa is Mount Kilimanjaro, located in Tanzania. It stands at approximately 5,895 meters (19,343 feet) above sea level. However, it's important to note that Mount Kilimanjaro is a stratovolcano and is the highest peak in Africa, though it's not the highest in the world (the highest mountain in the world is Mount Everest in Asia). \n\nFor the most accurate and up-to-date information, you can refer to official geological sources or recent surveys. \n\n**Source:** [Mount Kilima"
+ },
+ {
+  "run": "20260711-093535-ablate-a5-td-guided2-qwen3-1.7b",
+  "qid": "fr-sport-13",
+  "grade": "CORRECT",
+  "q": "What was the margin of victory in the 2026 Indy 500?",
+  "gold": "0.0233 seconds",
+  "ans": "The 2026 Indy 500 saw Felix Rosenqvist win by a margin of 0.0233 seconds against David Malukas, marking the closest finish in the race's history. This result is documented in the article titled \"The 2026 Indy 500 was the closest finish in race history\" from Dr. Randal S. Olson's website. \n\nSource: [The 2026 Indy 500 was the closest finish in race history](https://www.randalolson.com/2026/05/26/indy-500-closest-finish-2026)"
+ },
+ {
+  "run": "20260711-094316-ablate-a6-full-combo-qwen3-1.7b",
+  "qid": "fr-tech-07",
+  "grade": "NOT_ATTEMPTED",
+  "q": "What was SpaceX's IPO price per share when it went public in June 2026?",
+  "gold": "$135",
+  "ans": "The question about SpaceX's IPO price in June 2026 is based on a specific date that may not align with historical events. SpaceX's initial public offering (IPO) occurred in 2010, not 2026. There is no record of an IPO in June 2026 for SpaceX. If you're referring to a different event or a hypothetical scenario, additional context would be needed. For accurate information, consult a reliable financial source or official SpaceX announcements."
+ },
+ {
+  "run": "20260711-091254-ablate-a2-td-brave-md-qwen3-1.7b",
+  "qid": "fr-news-09",
+  "grade": "NOT_ATTEMPTED",
+  "q": "How many days of national mourning did Venezuela declare after the June 2026 earthquakes?",
+  "gold": "Seven",
+  "ans": "I don't have access to real-time data or specific details about Venezuela's national mourning declarations following the June 2026 earthquakes. For accurate information, please consult official government sources or recent news reports."
+ },
+ {
+  "run": "20260711-092057-ablate-a3-td-brave-guided2-qwen3-1.7b",
+  "qid": "fr-news-07",
+  "grade": "CORRECT",
+  "q": "Who was re-elected mayor of Seoul in South Korea's June 2026 local elections?",
+  "gold": "Oh Se-hoon",
+  "ans": "The incumbent mayor of Seoul, **Oh Se-hoon** of the People Power Party, was re-elected to a fifth term in the 2026 local elections. This result is confirmed by the Wikipedia entry for the 2026 South Korean local elections.  \n\nSource: [Wikipedia](https://en.wikipedia.org/wiki/2026_South_Korean_local_elections)"
+ },
+ {
+  "run": "20260711-095619-ablate-a1-td-brave-ministral-3-3b",
+  "qid": "fr-news-05",
+  "grade": "CORRECT",
+  "q": "Twin earthquakes on 24 June 2026 that killed thousands struck which country?",
+  "gold": "Venezuela",
+  "ans": "The twin earthquakes on **June 24, 2026**, that killed thousands struck **Venezuela**. The quakes occurred near the San Sebasti\u00e1n fault system, roughly 100 miles (160 km) west of Caracas, and had magnitudes of 7.2 and 7.5, happening just 39 seconds apartwikipedia_earthquakes,cnn,brritannica."
+ },
+ {
+  "run": "20260711-094316-ablate-a6-full-combo-qwen3-1.7b",
+  "qid": "fr-sport-03",
+  "grade": "CORRECT",
+  "q": "Which team won the Stanley Cup in 2026?",
+  "gold": "Carolina Hurricanes",
+  "ans": "The Carolina Hurricanes won the 2026 Stanley Cup by defeating the Vegas Golden Knights in the final. This victory marked their second consecutive Stanley Cup championship. The result is confirmed by multiple sources including Wikipedia and NHL.com.  \n\n**Sources**:  \n1. [2026 Stanley Cup Final](https://en.wikipedia.org/wiki/2026_Stanley_Cup_Final)  \n2. [Carolina Hurricanes Win 2026 Stanley Cup Final](https://www.nhl.com/hurricanes/news/carolina-hurricanes-win-2026-stanley-cup-final)  \n3. [NPR Rep"
+ },
+ {
+  "run": "20260711-085839-ablate-floor-notool-qwen3-1.7b",
+  "qid": "st-16",
+  "grade": "NOT_ATTEMPTED",
+  "q": "What is the tallest mountain in Africa?",
+  "gold": "Mount Kilimanjaro",
+  "ans": ""
+ },
+ {
+  "run": "20260711-095619-ablate-a1-td-brave-ministral-3-3b",
+  "qid": "st-03",
+  "grade": "CORRECT",
+  "q": "What is the smallest country in the world by area?",
+  "gold": "Vatican City",
+  "ans": "The smallest country in the world by area is **Vatican City**, covering approximately **0.49 square kilometers (0.49 km\u00b2) or 0.19 square miles**. It is an independent city-state located within Rome, Italyweb_search."
+ },
+ {
+  "run": "20260711-100845-ablate-a5-td-guided2-ministral-3-3b",
+  "qid": "fr-tech-04",
+  "grade": "INCORRECT",
+  "q": "What stock ticker symbol does SpaceX trade under after going public?",
+  "gold": "SPCX",
+  "ans": "SpaceX trades under the ticker **MX** after going public in 2026 as part of Space Exploration Technologies Corp. (reference: [Notice.co SpaceX Stock](https://notice.co/c/spacex))."
+ },
+ {
+  "run": "20260711-101413-ablate-a6-full-combo-ministral-3-3b",
+  "qid": "fr-tech-08",
+  "grade": "NOT_ATTEMPTED",
+  "q": "How much revenue did Nvidia report for the quarter ended April 2026?",
+  "gold": "$81.6 billion",
+  "ans": ""
+ },
+ {
+  "run": "20260711-100632-ablate-a4-td-brave-readoff-ministral-3-3b",
+  "qid": "st-17",
+  "grade": "INCORRECT",
+  "q": "Which language has the most native speakers in the world?",
+  "gold": "Mandarin Chinese",
+  "ans": "Based on the latest available data for 2026, **English** is the most spoken language in the world, with nearly **1.5 billion people** speaking it either natively or as a second language. This includes a significant portion of the global population, making it the leading language by total speakers globallyVisualCapitalist, Statista."
+ },
+ {
+  "run": "20260711-100632-ablate-a4-td-brave-readoff-ministral-3-3b",
+  "qid": "fr-sport-10",
+  "grade": "CORRECT",
+  "q": "Which rider took the first yellow jersey at the 2026 Tour de France?",
+  "gold": "Jonas Vingegaard",
+  "ans": "Jonas Vingegaard took the first yellow jersey at the 2026 Tour de France after his Visma-Lease a Bike team won the opening stage, a 19.6km team time trial in Barcelona on July 4, 2026web_search."
+ },
+ {
+  "run": "20260711-095511-ablate-floor-notool-ministral-3-3b",
+  "qid": "fr-news-09",
+  "grade": "INCORRECT",
+  "q": "How many days of national mourning did Venezuela declare after the June 2026 earthquakes?",
+  "gold": "Seven",
+  "ans": "As of **July 10, 2026**, Venezuela has not yet officially declared a national day of mourning for the earthquakes that struck in **June 2026** (which occurred on **June 21\u201323**). The government remains in the process of assessing the full impact.\n\nIf a formal mourning period is later announced, it would typically follow standard protocols (e.g., **one to three days**) based on national grief traditions. For the most current updates, refer to official Venezuelan press releases from sources like t"
+ },
+ {
+  "run": "20260711-093535-ablate-a5-td-guided2-qwen3-1.7b",
+  "qid": "st-07",
+  "grade": "INCORRECT",
+  "q": "What is the longest river in Asia?",
+  "gold": "Yangtze",
+  "ans": "The longest river in Asia is the **Yangtze River** (Yellow River in Chinese). It stretches **3,915 miles (6,380 km)**, making it the second-longest river in the world and the longest in Asia. The Mekong River is longer globally but not in Asia. \n\nSource: [Worldatlas.com](https://www.worldatlas.com/articles/the-longest-rivers-in-asia.html)"
+ },
+ {
+  "run": "20260711-100632-ablate-a4-td-brave-readoff-ministral-3-3b",
+  "qid": "fr-news-11",
+  "grade": "CORRECT",
+  "q": "How many people died of thirst in Niger's Sahara desert after their truck broke down in early June 2026?",
+  "gold": "49",
+  "ans": "At least 49 people died of thirst in Niger's Sahara desert after their truck broke down in early June 2026. The incident occurred when the truck was stranded, leaving the passengers without water or supplies for several days, leading to tragic fatalities due to dehydrationbbc.com,aljazeera.com,reuters.com."
+ },
+ {
+  "run": "20260711-092819-ablate-a4-td-brave-readoff-qwen3-1.7b",
+  "qid": "st-04",
+  "grade": "INCORRECT",
+  "q": "Which chemical element has the symbol W?",
+  "gold": "Tungsten",
+  "ans": "The chemical element with the symbol W is **wolfram**. It is a transition metal and is part of the sixth period in the periodic table. \n\nThis information is consistent with standard periodic table references. \n\n**Source**: [Wolfram (element) - Wikipedia](https://en.wikipedia.org/wiki/Wolfram)"
+ },
+ {
+  "run": "20260711-085839-ablate-floor-notool-qwen3-1.7b",
+  "qid": "st-29",
+  "grade": "INCORRECT",
+  "q": "What is the only planet in our solar system that rotates on its side?",
+  "gold": "Uranus",
+  "ans": "The only planet in our solar system that rotates on its side is **Venus**. It rotates retrograde (opposite to most other planets), but this is not exactly \"on its side\" in the traditional sense. Instead, it spins in the opposite direction of its orbit. However, if the question refers to retrograde rotation, Venus is the only planet with this characteristic."
+ },
+ {
+  "run": "20260711-085839-ablate-floor-notool-qwen3-1.7b",
+  "qid": "st-30",
+  "grade": "NOT_ATTEMPTED",
+  "q": "Which ancient wonder of the world still stands today?",
+  "gold": "The Great Pyramid of Giza",
+  "ans": ""
+ },
+ {
+  "run": "20260711-092057-ablate-a3-td-brave-guided2-qwen3-1.7b",
+  "qid": "fr-tech-15",
+  "grade": "CORRECT",
+  "q": "What is the introductory price per million input tokens for Anthropic's Claude Sonnet 5?",
+  "gold": "$2 per million input tokens",
+  "ans": "The introductory price per million input tokens for Anthropic's Claude Sonnet 5 is **$2.00** through August 31, 2026. This pricing applies to input tokens and is part of the Sonnet 5 model's initial offering. \n\nSource URLs:  \n1. [Claude Platform Pricing](https://platform.claude.com/docs/en/about-claude/pricing)  \n2. [Anthropic News Article](https://www.anthropic.com/news/claude-sonnet-5)  \n3. [OpenRouter API Pricing](https://openrouter.ai/anthropic/claude-sonnet-5)  \n4. [Requesty API Pricing](ht"
+ },
+ {
+  "run": "20260711-095022-ablate-shipped-ministral-3-3b",
+  "qid": "fr-tech-13",
+  "grade": "CORRECT",
+  "q": "When Nvidia reported earnings in May 2026, what did it raise its quarterly dividend to per share?",
+  "gold": "$0.25 per share",
+  "ans": "It appears I am unable to find the exact May 2026 earnings announcement for Nvidia where the quarterly dividend was announced. However, the most relevant current dividend information shows that the dividend increased from $0.01 per share per quarter to $0.25 per share per quarter in **June 2026**\u2014this is a **2,400% increase** from the previous rate, as widely reported after Nvidia's financial updates around that time.\n\nSince this is the most recent dividend increase available, it is likely the o"
+ },
+ {
+  "run": "20260711-092057-ablate-a3-td-brave-guided2-qwen3-1.7b",
+  "qid": "st-24",
+  "grade": "CORRECT",
+  "q": "Which country spans the most time zones, including its overseas territories?",
+  "gold": "France",
+  "ans": "The country that spans the most time zones, including its overseas territories, is **France**, which has **12 time zones** (13 including its claim in Antarctica). This ranking is confirmed by Wikipedia and Timeanddate.com. \n\n- **Source**: [Wikipedia](https://en.wikipedia.org/wiki/List_of_time_zones_by_country)  \n- **Source**: [Timeanddate.com](https://www.timeanddate.com/time/country-with-the-most-time-zones.html)"
+ },
+ {
+  "run": "20260711-100015-ablate-a2-td-brave-md-ministral-3-3b",
+  "qid": "fr-news-11",
+  "grade": "CORRECT",
+  "q": "How many people died of thirst in Niger's Sahara desert after their truck broke down in early June 2026?",
+  "gold": "49",
+  "ans": "According to reports from early June 2026, at least **49 people died of thirst** after their truck broke down in the Sahara Desert of Nigerweb_search. Some sources mention that only two survivors trekked to nearby Assamaka to alert authorities. All sources cited are from June 5, 2026, and are consistent in reporting this number."
+ },
+ {
+  "run": "20260711-100632-ablate-a4-td-brave-readoff-ministral-3-3b",
+  "qid": "fr-tech-04",
+  "grade": "CORRECT",
+  "q": "What stock ticker symbol does SpaceX trade under after going public?",
+  "gold": "SPCX",
+  "ans": "SpaceX trades under the ticker symbol **SPCX** on the Nasdaq after going public in June 2026web_search."
+ },
+ {
+  "run": "20260711-085839-ablate-floor-notool-qwen3-1.7b",
+  "qid": "fr-sport-11",
+  "grade": "INCORRECT",
+  "q": "Who won the 2026 US Open golf championship?",
+  "gold": "Wyndham Clark",
+  "ans": "The 2026 US Open golf championship has not been held yet. The previous US Open champions were Viktor Horner (2023), Daniel Williams (2024), and Justin Thomas (2025). As of now, no winner has been announced for the 2026 event."
+ },
+ {
+  "run": "20260711-090347-ablate-a1-td-brave-qwen3-1.7b",
+  "qid": "fr-news-13",
+  "grade": "CORRECT",
+  "q": "What was the name of the New Delhi hotel where a fire killed more than 20 people in June 2026?",
+  "gold": "Flourish Inn Stay",
+  "ans": "The hotel involved in the June 2026 fire in New Delhi was the **Flourish Inn Stay**. This name is mentioned in multiple sources, including Reuters and CBS News. \n\n- **Reuters** reported: \"A fire engulfed a six-story hotel in New Delhi on Wednesday, killing at least 21 people...\" (URL: [Reuters](https://www.reuters.com/world/india/fire-delhi-restaurant-kills-least-20-2026-06-03/)).  \n- **CBS News** noted: \"A massive fire at the Flourish Inn Stay hotel in New Delhi...\" (URL: [CBS News](https://www"
+ },
+ {
+  "run": "20260711-093535-ablate-a5-td-guided2-qwen3-1.7b",
+  "qid": "st-23",
+  "grade": "CORRECT",
+  "q": "Who was the first person to walk on the Moon?",
+  "gold": "Neil Armstrong",
+  "ans": "The first person to walk on the Moon was **Neil Armstrong**, an American astronaut. He stepped onto the lunar surface on July 20, 1969, during the Apollo 11 mission. This achievement is documented on Wikipedia and other sources.  \n\n**Source:**  \n1. [Neil Armstrong - Wikipedia](https://en.wikipedia.org/wiki/Neil_Armstrong)  \n2. [Neil Armstrong: the First Human to Walk on the Moon](https://cosmo.org/neil-armstrong-the-first-human-to-walk-on-the-moon)"
+ },
+ {
+  "run": "20260711-084941-ablate-shipped-qwen3-1.7b",
+  "qid": "st-07",
+  "grade": "NOT_ATTEMPTED",
+  "q": "What is the longest river in Asia?",
+  "gold": "Yangtze",
+  "ans": ""
+ },
+ {
+  "run": "20260711-100845-ablate-a5-td-guided2-ministral-3-3b",
+  "qid": "fr-sport-05",
+  "grade": "CORRECT",
+  "q": "Who won the men's singles title at the French Open this year (2026)?",
+  "gold": "Alexander Zverev",
+  "ans": "Alexander Zverev won the men's singles title at the French Open in 2026, defeating Flavio Cobolli in a five-set final (6\u20131, 4\u20136, 6\u20134, 6\u20137(5), 6\u20131). [Source](https://www.topendsports.com/events/tennis-grand-slam/french-open/winners-men.htm)"
+ }
+]
