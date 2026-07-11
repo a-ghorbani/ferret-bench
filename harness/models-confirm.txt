@@ -15,6 +15,3 @@ phi-4-mini
 smollm3-3b
 lfm25-1.2b
 hermes-3-3b
-# ceiling references (NOT <8B; reported separately, not ranked):
-ggml-org/Qwen3.6-27B-GGUF:Q8_0
-ggml-org/gemma-4-31B-it-GGUF:Q8_0

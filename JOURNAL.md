@@ -70,3 +70,8 @@ Append-only. Decisions, findings, surprises, dead ends.
 - All 61 pre-confirm runs re-judged with v2 (482 s, parallel). ORDERING UNCHANGED: a2 wins gemma-4-e2b 0.932 / qwen3-1.7b 0.886; a3 leads qwen3-06b 0.909 vs a2 0.886; ministral top group unchanged. 4-model composite: a2 0.920 vs a3 0.898 → freeze (a2) CONFIRMED on v2 numbers.
 - Borderline judging notes (logged for transparency): st-07-type answers with wrong side details but correct key fact; graded per rubric key-fact rule.
 - TODO when confirm sweep ends: its in-process judging uses v1 (module loaded pre-fix) → re-judge confirm runs with v2 --overwrite, re-aggregate, then regenerate leaderboard.
+
+## 2026-07-11 — Confirm wall-time diagnosis (user asked)
+
+- 13 ranked small models: ~57 min total. Ceiling refs dominate: qwen3.6-27b-Q8 took 7,496 s alone (reasoning model, 604 completion tok/question = 5× ministral, at 27B Q8 decode speed); gemma-4-31b-Q8 pacing ~95 s/question. ~80% of sweep wall time = the 2 ceiling rows. No harness pathology (0 failures, avg 1.75 turns, no retries/timeouts in log).
+- Action: split models-ceiling.txt out of models-confirm.txt — ceilings are once-per-dataset-version context rows, not part of the per-model-addition rerun path. README wording already matches (sweep re-run = models-confirm.txt).

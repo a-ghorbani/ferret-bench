@@ -1,0 +1,3 @@
+# Ceiling reference models (NOT <8B; run once per dataset version, not per model addition)
+ggml-org/Qwen3.6-27B-GGUF:Q8_0
+ggml-org/gemma-4-31B-it-GGUF:Q8_0
