@@ -54,3 +54,11 @@ Append-only. Decisions, findings, surprises, dead ends.
 - read_url: disabling it (a4) is best-or-tied on ministral but drops qwen engagement to 0.86; product-wise PocketPal ships read_url, and a2/a3 (reads available) match a4 — keep read_url available in the frozen config.
 - a2 vs a3 statistically tied → tiebreak criterion: search-ENGAGEMENT on weak models (the observed failure mode of small/weak models is never searching — cf. gemma-3-4b probe). Tiebreak sweep launched: a2/a3/shipped × qwen3-06b + gemma-4-e2b, full dataset.
 - Note: a1 (td+brave, snippets unchanged) < a2 on both models and < shipped on qwen — the screening td-enriched effect partially came through interaction with formatting/other levels; OFAT screen estimates were noisy at n=20. Full-dataset ablate is authoritative.
+
+## 2026-07-11 — TIEBREAK + FREEZE + CONFIRM launch
+
+- Tiebreak (a2 vs a3 vs shipped on weak models, full dataset): gemma-4-e2b a2=0.932 > a3=0.864 > shipped=0.841; qwen3-06b a3=0.886 ≈ a2=0.864 (within CI), both >> shipped 0.568 (engagement 0.77→0.95+). Composite over all 4 tested models: a2 0.909 vs a3 0.892 → **frozen config = a2** (enriched tool descriptions + brave + markdown formatting; all other params shipped defaults retained).
+- Caveat logged: a2 false-search on qwen3-06b 0.33 vs a3 0.20 (tiny models sometimes search for creative asks under a2); accepted — correctness on real questions weighs more than an occasional wasted search, and at 1.7B+ a2 false-search is 0.
+- frozen-config/ written: config.json (hash 2e5a7826…), tool_web_search.json, tool_read_url.json, system_prompt.txt (shipped grounding retained), PROVENANCE.md (per-value run-id table + anti-recommendations). guided-v2 documented as prompt-only runner-up.
+- CONFIRM sweep launched THROUGH the packaged harness (sweep.py --configs frozen --models-file models-confirm.txt): 13 <8B models + 2 large local ceiling refs, full dataset v1.
+- Floor for confirm models skipped (logged reason): floor≈0.02 established on 4 models spanning 0.6B–3.3B; per-model floors would double GPU time for no decision value.

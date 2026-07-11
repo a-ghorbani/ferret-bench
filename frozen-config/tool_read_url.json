@@ -1,0 +1,19 @@
+{
+  "type": "function",
+  "function": {
+    "name": "read_url",
+    "description": "Fetch the full text of one web page. Use this after web_search when a snippet mentions the answer but does not fully contain it. Pass the exact URL copied from a web_search result. Do not invent URLs.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "Exact URL copied from a web_search result."
+        }
+      },
+      "required": [
+        "url"
+      ]
+    }
+  }
+}

@@ -39,3 +39,596 @@
 [20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 38/89 fr-tech-09 ok turns=2 searches=1 reads=0
 [20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 39/89 fr-tech-10 ok turns=1 searches=0 reads=0
 [20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 40/89 fr-tech-11 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 41/89 fr-tech-12 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 42/89 fr-tech-13 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 43/89 fr-tech-14 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 44/89 fr-tech-15 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 45/89 st-01 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 46/89 st-02 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 47/89 st-03 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 48/89 st-04 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 49/89 st-05 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 50/89 st-06 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 51/89 st-07 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 52/89 st-08 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 53/89 st-09 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 54/89 st-10 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 55/89 st-11 ok turns=1 searches=0 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 56/89 st-12 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 57/89 st-13 ok turns=1 searches=0 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 58/89 st-14 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 59/89 st-15 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 60/89 st-16 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 61/89 st-17 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 62/89 st-18 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 63/89 st-19 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 64/89 st-20 ok turns=1 searches=0 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 65/89 st-21 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 66/89 st-22 ok turns=1 searches=0 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 67/89 st-23 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 68/89 st-24 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 69/89 st-25 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 70/89 st-26 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 71/89 st-27 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 72/89 st-28 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 73/89 st-29 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 74/89 st-30 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 75/89 ns-01 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 76/89 ns-02 ok turns=1 searches=0 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 77/89 ns-03 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 78/89 ns-04 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 79/89 ns-05 ok turns=1 searches=0 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 80/89 ns-06 ok turns=1 searches=0 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 81/89 ns-07 ok turns=1 searches=0 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 82/89 ns-08 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 83/89 ns-09 ok turns=1 searches=0 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 84/89 ns-10 ok turns=1 searches=0 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 85/89 ns-11 ok turns=1 searches=0 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 86/89 ns-12 ok turns=1 searches=0 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 87/89 ns-13 ok turns=2 searches=1 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 88/89 ns-14 ok turns=1 searches=0 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] 89/89 ns-15 ok turns=1 searches=0 reads=0
+[20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b] done in 231.8s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 1/89 fr-news-01 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 2/89 fr-news-02 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 3/89 fr-news-03 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 4/89 fr-news-04 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 5/89 fr-news-05 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 6/89 fr-news-06 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 7/89 fr-news-07 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 8/89 fr-news-08 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 9/89 fr-news-09 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 10/89 fr-news-10 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 11/89 fr-news-11 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 12/89 fr-news-12 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 13/89 fr-news-13 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 14/89 fr-news-14 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 15/89 fr-news-15 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 16/89 fr-sport-01 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 17/89 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 18/89 fr-sport-03 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 19/89 fr-sport-04 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 20/89 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 21/89 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 22/89 fr-sport-07 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 23/89 fr-sport-08 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 24/89 fr-sport-09 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 25/89 fr-sport-10 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 26/89 fr-sport-11 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 27/89 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 28/89 fr-sport-13 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 29/89 fr-sport-14 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 30/89 fr-tech-01 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 31/89 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 32/89 fr-tech-03 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 33/89 fr-tech-04 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 34/89 fr-tech-05 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 35/89 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 36/89 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 37/89 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 38/89 fr-tech-09 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 39/89 fr-tech-10 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 40/89 fr-tech-11 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 41/89 fr-tech-12 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 42/89 fr-tech-13 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 43/89 fr-tech-14 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 44/89 fr-tech-15 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 45/89 st-01 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 46/89 st-02 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 47/89 st-03 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 48/89 st-04 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 49/89 st-05 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 50/89 st-06 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 51/89 st-07 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 52/89 st-08 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 53/89 st-09 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 54/89 st-10 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 55/89 st-11 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 56/89 st-12 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 57/89 st-13 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 58/89 st-14 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 59/89 st-15 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 60/89 st-16 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 61/89 st-17 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 62/89 st-18 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 63/89 st-19 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 64/89 st-20 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 65/89 st-21 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 66/89 st-22 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 67/89 st-23 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 68/89 st-24 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 69/89 st-25 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 70/89 st-26 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 71/89 st-27 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 72/89 st-28 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 73/89 st-29 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 74/89 st-30 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 75/89 ns-01 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 76/89 ns-02 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 77/89 ns-03 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 78/89 ns-04 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 79/89 ns-05 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 80/89 ns-06 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 81/89 ns-07 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 82/89 ns-08 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 83/89 ns-09 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 84/89 ns-10 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 85/89 ns-11 ok turns=2 searches=1 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 86/89 ns-12 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 87/89 ns-13 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 88/89 ns-14 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] 89/89 ns-15 ok turns=1 searches=0 reads=0
+[20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b] done in 166.9s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b
+[20260711-110426-tiebreak-shipped-qwen3-06b] 1/89 fr-news-01 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 2/89 fr-news-02 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 3/89 fr-news-03 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 4/89 fr-news-04 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 5/89 fr-news-05 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 6/89 fr-news-06 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 7/89 fr-news-07 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 8/89 fr-news-08 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 9/89 fr-news-09 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 10/89 fr-news-10 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 11/89 fr-news-11 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 12/89 fr-news-12 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 13/89 fr-news-13 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 14/89 fr-news-14 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 15/89 fr-news-15 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 16/89 fr-sport-01 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 17/89 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 18/89 fr-sport-03 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 19/89 fr-sport-04 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 20/89 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 21/89 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 22/89 fr-sport-07 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 23/89 fr-sport-08 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 24/89 fr-sport-09 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 25/89 fr-sport-10 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 26/89 fr-sport-11 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 27/89 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 28/89 fr-sport-13 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 29/89 fr-sport-14 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 30/89 fr-tech-01 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 31/89 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 32/89 fr-tech-03 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 33/89 fr-tech-04 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 34/89 fr-tech-05 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 35/89 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 36/89 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 37/89 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 38/89 fr-tech-09 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 39/89 fr-tech-10 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 40/89 fr-tech-11 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 41/89 fr-tech-12 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 42/89 fr-tech-13 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 43/89 fr-tech-14 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 44/89 fr-tech-15 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 45/89 st-01 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 46/89 st-02 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 47/89 st-03 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 48/89 st-04 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 49/89 st-05 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 50/89 st-06 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 51/89 st-07 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 52/89 st-08 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 53/89 st-09 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 54/89 st-10 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 55/89 st-11 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 56/89 st-12 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 57/89 st-13 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 58/89 st-14 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 59/89 st-15 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 60/89 st-16 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 61/89 st-17 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 62/89 st-18 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 63/89 st-19 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 64/89 st-20 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 65/89 st-21 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 66/89 st-22 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 67/89 st-23 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 68/89 st-24 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 69/89 st-25 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 70/89 st-26 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 71/89 st-27 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 72/89 st-28 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 73/89 st-29 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 74/89 st-30 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 75/89 ns-01 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 76/89 ns-02 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 77/89 ns-03 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 78/89 ns-04 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 79/89 ns-05 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 80/89 ns-06 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 81/89 ns-07 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 82/89 ns-08 ok turns=2 searches=1 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 83/89 ns-09 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 84/89 ns-10 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 85/89 ns-11 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 86/89 ns-12 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 87/89 ns-13 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 88/89 ns-14 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] 89/89 ns-15 ok turns=1 searches=0 reads=0
+[20260711-110426-tiebreak-shipped-qwen3-06b] done in 193.0s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-110426-tiebreak-shipped-qwen3-06b
+=== warming gemma-4-e2b ===
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 1/89 fr-news-01 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 2/89 fr-news-02 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 3/89 fr-news-03 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 4/89 fr-news-04 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 5/89 fr-news-05 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 6/89 fr-news-06 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 7/89 fr-news-07 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 8/89 fr-news-08 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 9/89 fr-news-09 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 10/89 fr-news-10 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 11/89 fr-news-11 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 12/89 fr-news-12 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 13/89 fr-news-13 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 14/89 fr-news-14 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 15/89 fr-news-15 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 16/89 fr-sport-01 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 17/89 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 18/89 fr-sport-03 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 19/89 fr-sport-04 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 20/89 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 21/89 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 22/89 fr-sport-07 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 23/89 fr-sport-08 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 24/89 fr-sport-09 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 25/89 fr-sport-10 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 26/89 fr-sport-11 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 27/89 fr-sport-12 ok turns=3 searches=1 reads=1
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 28/89 fr-sport-13 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 29/89 fr-sport-14 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 30/89 fr-tech-01 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 31/89 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 32/89 fr-tech-03 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 33/89 fr-tech-04 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 34/89 fr-tech-05 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 35/89 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 36/89 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 37/89 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 38/89 fr-tech-09 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 39/89 fr-tech-10 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 40/89 fr-tech-11 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 41/89 fr-tech-12 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 42/89 fr-tech-13 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 43/89 fr-tech-14 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 44/89 fr-tech-15 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 45/89 st-01 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 46/89 st-02 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 47/89 st-03 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 48/89 st-04 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 49/89 st-05 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 50/89 st-06 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 51/89 st-07 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 52/89 st-08 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 53/89 st-09 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 54/89 st-10 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 55/89 st-11 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 56/89 st-12 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 57/89 st-13 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 58/89 st-14 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 59/89 st-15 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 60/89 st-16 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 61/89 st-17 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 62/89 st-18 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 63/89 st-19 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 64/89 st-20 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 65/89 st-21 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 66/89 st-22 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 67/89 st-23 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 68/89 st-24 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 69/89 st-25 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 70/89 st-26 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 71/89 st-27 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 72/89 st-28 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 73/89 st-29 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 74/89 st-30 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 75/89 ns-01 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 76/89 ns-02 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 77/89 ns-03 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 78/89 ns-04 ok turns=2 searches=1 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 79/89 ns-05 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 80/89 ns-06 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 81/89 ns-07 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 82/89 ns-08 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 83/89 ns-09 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 84/89 ns-10 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 85/89 ns-11 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 86/89 ns-12 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 87/89 ns-13 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 88/89 ns-14 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] 89/89 ns-15 ok turns=1 searches=0 reads=0
+[20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b] done in 349.8s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 1/89 fr-news-01 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 2/89 fr-news-02 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 3/89 fr-news-03 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 4/89 fr-news-04 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 5/89 fr-news-05 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 6/89 fr-news-06 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 7/89 fr-news-07 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 8/89 fr-news-08 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 9/89 fr-news-09 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 10/89 fr-news-10 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 11/89 fr-news-11 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 12/89 fr-news-12 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 13/89 fr-news-13 ok turns=3 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 14/89 fr-news-14 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 15/89 fr-news-15 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 16/89 fr-sport-01 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 17/89 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 18/89 fr-sport-03 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 19/89 fr-sport-04 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 20/89 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 21/89 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 22/89 fr-sport-07 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 23/89 fr-sport-08 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 24/89 fr-sport-09 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 25/89 fr-sport-10 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 26/89 fr-sport-11 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 27/89 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 28/89 fr-sport-13 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 29/89 fr-sport-14 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 30/89 fr-tech-01 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 31/89 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 32/89 fr-tech-03 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 33/89 fr-tech-04 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 34/89 fr-tech-05 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 35/89 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 36/89 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 37/89 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 38/89 fr-tech-09 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 39/89 fr-tech-10 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 40/89 fr-tech-11 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 41/89 fr-tech-12 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 42/89 fr-tech-13 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 43/89 fr-tech-14 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 44/89 fr-tech-15 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 45/89 st-01 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 46/89 st-02 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 47/89 st-03 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 48/89 st-04 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 49/89 st-05 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 50/89 st-06 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 51/89 st-07 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 52/89 st-08 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 53/89 st-09 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 54/89 st-10 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 55/89 st-11 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 56/89 st-12 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 57/89 st-13 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 58/89 st-14 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 59/89 st-15 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 60/89 st-16 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 61/89 st-17 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 62/89 st-18 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 63/89 st-19 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 64/89 st-20 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 65/89 st-21 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 66/89 st-22 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 67/89 st-23 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 68/89 st-24 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 69/89 st-25 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 70/89 st-26 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 71/89 st-27 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 72/89 st-28 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 73/89 st-29 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 74/89 st-30 ok turns=2 searches=1 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 75/89 ns-01 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 76/89 ns-02 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 77/89 ns-03 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 78/89 ns-04 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 79/89 ns-05 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 80/89 ns-06 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 81/89 ns-07 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 82/89 ns-08 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 83/89 ns-09 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 84/89 ns-10 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 85/89 ns-11 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 86/89 ns-12 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 87/89 ns-13 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 88/89 ns-14 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] 89/89 ns-15 ok turns=1 searches=0 reads=0
+[20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b] done in 410.9s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 1/89 fr-news-01 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 2/89 fr-news-02 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 3/89 fr-news-03 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 4/89 fr-news-04 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 5/89 fr-news-05 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 6/89 fr-news-06 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 7/89 fr-news-07 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 8/89 fr-news-08 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 9/89 fr-news-09 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 10/89 fr-news-10 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 11/89 fr-news-11 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 12/89 fr-news-12 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 13/89 fr-news-13 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 14/89 fr-news-14 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 15/89 fr-news-15 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 16/89 fr-sport-01 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 17/89 fr-sport-02 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 18/89 fr-sport-03 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 19/89 fr-sport-04 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 20/89 fr-sport-05 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 21/89 fr-sport-06 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 22/89 fr-sport-07 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 23/89 fr-sport-08 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 24/89 fr-sport-09 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 25/89 fr-sport-10 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 26/89 fr-sport-11 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 27/89 fr-sport-12 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 28/89 fr-sport-13 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 29/89 fr-sport-14 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 30/89 fr-tech-01 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 31/89 fr-tech-02 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 32/89 fr-tech-03 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 33/89 fr-tech-04 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 34/89 fr-tech-05 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 35/89 fr-tech-06 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 36/89 fr-tech-07 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 37/89 fr-tech-08 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 38/89 fr-tech-09 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 39/89 fr-tech-10 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 40/89 fr-tech-11 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 41/89 fr-tech-12 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 42/89 fr-tech-13 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 43/89 fr-tech-14 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 44/89 fr-tech-15 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 45/89 st-01 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 46/89 st-02 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 47/89 st-03 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 48/89 st-04 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 49/89 st-05 ok turns=1 searches=0 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 50/89 st-06 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 51/89 st-07 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 52/89 st-08 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 53/89 st-09 ok turns=1 searches=0 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 54/89 st-10 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 55/89 st-11 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 56/89 st-12 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 57/89 st-13 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 58/89 st-14 ok turns=3 searches=2 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 59/89 st-15 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 60/89 st-16 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 61/89 st-17 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 62/89 st-18 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 63/89 st-19 ok turns=1 searches=0 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 64/89 st-20 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 65/89 st-21 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 66/89 st-22 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 67/89 st-23 ok turns=1 searches=0 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 68/89 st-24 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 69/89 st-25 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 70/89 st-26 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 71/89 st-27 ok turns=1 searches=0 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 72/89 st-28 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 73/89 st-29 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 74/89 st-30 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 75/89 ns-01 ok turns=1 searches=0 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 76/89 ns-02 ok turns=1 searches=0 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 77/89 ns-03 ok turns=1 searches=0 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 78/89 ns-04 ok turns=2 searches=1 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 79/89 ns-05 ok turns=1 searches=0 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 80/89 ns-06 ok turns=1 searches=0 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 81/89 ns-07 ok turns=1 searches=0 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 82/89 ns-08 ok turns=1 searches=0 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 83/89 ns-09 ok turns=1 searches=0 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 84/89 ns-10 ok turns=1 searches=0 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 85/89 ns-11 ok turns=1 searches=0 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 86/89 ns-12 ok turns=1 searches=0 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 87/89 ns-13 ok turns=1 searches=0 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 88/89 ns-14 ok turns=1 searches=0 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] 89/89 ns-15 ok turns=1 searches=0 reads=0
+[20260711-112025-tiebreak-shipped-gemma-4-e2b] done in 437.5s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-112025-tiebreak-shipped-gemma-4-e2b
+=== judging ===
+20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b: {'CORRECT': 65, 'INCORRECT': 8, 'NOT_ATTEMPTED': 1, 'N/A': 15}
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b/judgments.jsonl
+20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b: {'CORRECT': 66, 'INCORRECT': 7, 'NOT_ATTEMPTED': 1, 'N/A': 15}
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b/judgments.jsonl
+20260711-110426-tiebreak-shipped-qwen3-06b: {'NOT_ATTEMPTED': 9, 'CORRECT': 48, 'INCORRECT': 17, 'N/A': 15}
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-110426-tiebreak-shipped-qwen3-06b/judgments.jsonl
+20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b: {'CORRECT': 71, 'INCORRECT': 2, 'NOT_ATTEMPTED': 1, 'N/A': 15}
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b/judgments.jsonl
+20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b: {'CORRECT': 68, 'NOT_ATTEMPTED': 2, 'INCORRECT': 4, 'N/A': 15}
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b/judgments.jsonl
+20260711-112025-tiebreak-shipped-gemma-4-e2b: {'CORRECT': 67, 'NOT_ATTEMPTED': 6, 'INCORRECT': 1, 'N/A': 15}
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260711-112025-tiebreak-shipped-gemma-4-e2b/judgments.jsonl
+=== aggregating ===
+20260710-203213-smoke-shipped-qwen3-1.7b: fresh=None stable=1.0 validity=1.0 engage=1.0
+20260710-224020-probe-shipped-gemma-3-4b: fresh=None stable=None validity=None engage=0.0
+20260710-224024-probe-shipped-ministral-3-3b: fresh=None stable=None validity=1.0 engage=1.0
+20260710-224034-probe-shipped-qwen35-4b: fresh=None stable=None validity=1.0 engage=1.0
+20260710-224310-screen-shipped-qwen3-1.7b: fresh=0.75 stable=0.75 validity=1.0 engage=0.85
+20260710-224651-screen-floor-notool-qwen3-1.7b: fresh=0.0 stable=0.875 validity=None engage=0.0
+20260710-224903-screen-screen-rc3-qwen3-1.7b: fresh=0.75 stable=0.75 validity=1.0 engage=0.85
+20260710-225215-screen-screen-rc8-qwen3-1.7b: fresh=0.7 stable=0.875 validity=1.0 engage=0.85
+20260710-225552-screen-screen-fmt-compact-qwen3-1.7b: fresh=0.7 stable=0.875 validity=1.0 engage=0.8
+20260710-225911-screen-screen-fmt-markdown-qwen3-1.7b: fresh=0.75 stable=0.875 validity=1.0 engage=0.85
+20260710-230226-screen-screen-fmt-json-qwen3-1.7b: fresh=0.75 stable=0.875 validity=1.0 engage=0.85
+20260710-230531-screen-screen-snip140-qwen3-1.7b: fresh=0.7 stable=1.0 validity=1.0 engage=0.85
+20260710-230830-screen-screen-snip-full-qwen3-1.7b: fresh=0.75 stable=0.875 validity=1.0 engage=0.85
+20260710-231149-screen-screen-sp-dateonly-qwen3-1.7b: fresh=0.85 stable=0.875 validity=1.0 engage=0.95
+20260710-231536-screen-screen-sp-guided-qwen3-1.7b: fresh=0.9 stable=0.875 validity=1.0 engage=1.0
+20260710-231840-screen-screen-td-enriched-qwen3-1.7b: fresh=0.95 stable=0.875 validity=1.0 engage=1.0
+20260710-232202-screen-screen-prov-brave-qwen3-1.7b: fresh=0.9 stable=1.0 validity=1.0 engage=0.9
+20260710-232532-screen-screen-read-off-qwen3-1.7b: fresh=0.8 stable=1.0 validity=1.0 engage=0.9
+20260710-232857-screen-screen-read-encouraged-qwen3-1.7b: fresh=0.75 stable=0.75 validity=1.0 engage=0.85
+20260710-233220-screen-screen-readlim2400-qwen3-1.7b: fresh=0.85 stable=1.0 validity=1.0 engage=0.95
+20260710-233552-screen-screen-readlim9600-qwen3-1.7b: fresh=0.85 stable=1.0 validity=1.0 engage=0.95
+20260710-233916-screen-screen-turns3-qwen3-1.7b: fresh=0.85 stable=0.875 validity=1.0 engage=0.95
+20260710-234230-screen-screen-turns8-qwen3-1.7b: fresh=0.75 stable=1.0 validity=1.0 engage=0.8
+20260710-234546-screen-shipped-ministral-3-3b: fresh=0.8 stable=1.0 validity=1.0 engage=1.0
+20260710-234748-screen-floor-notool-ministral-3-3b: fresh=0.05 stable=1.0 validity=None engage=0.0
+20260710-234816-screen-screen-rc3-ministral-3-3b: fresh=0.85 stable=0.875 validity=1.0 engage=0.95
+20260710-234943-screen-screen-rc8-ministral-3-3b: fresh=0.8 stable=1.0 validity=1.0 engage=0.95
+20260710-235143-screen-screen-fmt-compact-ministral-3-3b: fresh=0.8 stable=1.0 validity=1.0 engage=0.95
+20260710-235328-screen-screen-fmt-markdown-ministral-3-3b: fresh=0.95 stable=1.0 validity=1.0 engage=1.0
+20260710-235451-screen-screen-fmt-json-ministral-3-3b: fresh=0.85 stable=0.875 validity=1.0 engage=1.0
+20260710-235613-screen-screen-snip140-ministral-3-3b: fresh=0.85 stable=0.75 validity=1.0 engage=1.0
+20260710-235825-screen-screen-snip-full-ministral-3-3b: fresh=0.75 stable=1.0 validity=1.0 engage=0.95
+20260711-000001-screen-screen-sp-dateonly-ministral-3-3b: fresh=0.85 stable=1.0 validity=1.0 engage=0.9
+20260711-000159-screen-screen-sp-guided-ministral-3-3b: fresh=0.95 stable=1.0 validity=1.0 engage=1.0
+20260711-000342-screen-screen-td-enriched-ministral-3-3b: fresh=1.0 stable=0.875 validity=1.0 engage=1.0
+20260711-000529-screen-screen-prov-brave-ministral-3-3b: fresh=0.9 stable=1.0 validity=1.0 engage=1.0
+20260711-000648-screen-screen-read-off-ministral-3-3b: fresh=0.85 stable=1.0 validity=1.0 engage=1.0
+20260711-000759-screen-screen-read-encouraged-ministral-3-3b: fresh=0.8 stable=1.0 validity=1.0 engage=1.0
+20260711-001056-screen-screen-readlim2400-ministral-3-3b: fresh=0.9 stable=1.0 validity=1.0 engage=1.0
+20260711-001208-screen-screen-readlim9600-ministral-3-3b: fresh=0.9 stable=0.875 validity=1.0 engage=1.0
+20260711-001340-screen-screen-turns3-ministral-3-3b: fresh=0.8 stable=1.0 validity=1.0 engage=1.0
+20260711-001547-screen-screen-turns8-ministral-3-3b: fresh=0.9 stable=1.0 validity=1.0 engage=1.0
+20260711-084941-ablate-shipped-qwen3-1.7b: fresh=0.7727 stable=0.9333 validity=1.0 engage=0.9091
+20260711-085839-ablate-floor-notool-qwen3-1.7b: fresh=0.0227 stable=0.8333 validity=None engage=0.0
+20260711-090347-ablate-a1-td-brave-qwen3-1.7b: fresh=0.75 stable=0.9667 validity=1.0 engage=0.9091
+20260711-091254-ablate-a2-td-brave-md-qwen3-1.7b: fresh=0.8636 stable=0.9333 validity=1.0 engage=0.9318
+20260711-092057-ablate-a3-td-brave-guided2-qwen3-1.7b: fresh=0.8409 stable=1.0 validity=1.0 engage=0.9545
+20260711-092819-ablate-a4-td-brave-readoff-qwen3-1.7b: fresh=0.8182 stable=0.9333 validity=1.0 engage=0.8636
+20260711-093535-ablate-a5-td-guided2-qwen3-1.7b: fresh=0.7045 stable=0.9333 validity=1.0 engage=0.9545
+20260711-094316-ablate-a6-full-combo-qwen3-1.7b: fresh=0.7955 stable=0.9667 validity=1.0 engage=0.9545
+20260711-095022-ablate-shipped-ministral-3-3b: fresh=0.9773 stable=1.0 validity=1.0 engage=1.0
+20260711-095511-ablate-floor-notool-ministral-3-3b: fresh=0.0227 stable=0.9667 validity=None engage=0.0
+20260711-095619-ablate-a1-td-brave-ministral-3-3b: fresh=0.9091 stable=0.9333 validity=1.0 engage=1.0
+20260711-100015-ablate-a2-td-brave-md-ministral-3-3b: fresh=0.9773 stable=0.9667 validity=1.0 engage=1.0
+20260711-100320-ablate-a3-td-brave-guided2-ministral-3-3b: fresh=0.9773 stable=1.0 validity=1.0 engage=1.0
+20260711-100632-ablate-a4-td-brave-readoff-ministral-3-3b: fresh=1.0 stable=0.9333 validity=1.0 engage=1.0
+20260711-100845-ablate-a5-td-guided2-ministral-3-3b: fresh=0.8864 stable=0.9667 validity=1.0 engage=1.0
+20260711-101413-ablate-a6-full-combo-ministral-3-3b: fresh=0.9091 stable=1.0 validity=1.0 engage=1.0
+20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b: fresh=0.8636 stable=0.9 validity=1.0 engage=0.9773
+20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b: fresh=0.8864 stable=0.9 validity=1.0 engage=0.9545
+20260711-110426-tiebreak-shipped-qwen3-06b: fresh=0.5682 stable=0.7667 validity=1.0 engage=0.7727
+20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b: fresh=0.9318 stable=1.0 validity=1.0 engage=1.0
+20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b: fresh=0.8636 stable=1.0 validity=1.0 engage=0.9773
+20260711-112025-tiebreak-shipped-gemma-4-e2b: fresh=0.8409 stable=1.0 validity=1.0 engage=1.0
+wrote 64 rows → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/analysis/scores.jsonl
+{
+  "tag": "tiebreak",
+  "run_ids": [
+    "20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b",
+    "20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b",
+    "20260711-110426-tiebreak-shipped-qwen3-06b",
+    "20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b",
+    "20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b",
+    "20260711-112025-tiebreak-shipped-gemma-4-e2b"
+  ],
+  "failures": [],
+  "wall_seconds": 1870.6
+}
