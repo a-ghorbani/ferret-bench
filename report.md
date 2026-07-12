@@ -79,6 +79,31 @@ See `frozen-config/` (machine-readable: `config.json`, `tool_web_search.json`, `
 - **Replay cache**: pins repeated queries; model-generated queries differ across configs/models, so captures span 2026-07-10..12 and later runs could see fresher web state for novel queries. Comparability is approximate, not exact.
 - Model identity: two ranked models are community variants (huihui abliterated 2B, mlabonne 4B fine-tune); official checkpoints may differ.
 
+## Addendum (2026-07-12, post-COMPLETE) — RQ6 gate-failure taxonomy revised
+
+Root-cause work with the PocketPal implementer (PR #808) **revises RQ6's failure-mode split**. Full derivation and evidence tables in `JOURNAL.md` (entry: "RQ6 gate-failure root cause").
+
+**Mechanism.** PocketPal parses no tool calls itself; llama.cpp does, selecting a parser via a differential autoparser gated on `jinja_caps.supports_tool_calls` — computed by probe-rendering the model's chat template to see whether it ever reads `tools[]`/`tool_calls`. A template that ignores `tools` ⇒ caps false ⇒ **content-only parser ⇒ `tool_calls` is structurally always empty**, whatever the model emits. Crucially, such a template also means **the tool schemas are never rendered into the prompt**: the model knows the tools only by name (from the grounding system line) and has never been shown a signature. That is why gemma improvises Gemma-native ```tool_code``` — and why an app-side text-parser shim would *not* be sufficient (the model would still be guessing the signature). A sufficient fix must put the schema into the prompt *and* parse the syntax out; the implementer is doing this by supplying a tool-declaring chat template on the completion params.
+
+**Two classes, not one** (chat templates read from the GGUFs we ran, `tokenizer.chat_template`):
+
+| model | `tools` refs in template | class | evidence from our runs (n=89) |
+|---|---|---|---|
+| gemma-3-4b | 0 | **structural** — parser cannot see a call | 0 tool_calls; **64/89** responses contain a ```tool_code``` fence |
+| gemma-3-1b-q4 | 0 | **structural** | 0 tool_calls; 5/89 fences — and it guesses the *wrong* name (`search_web`, not `web_search`), direct evidence it never saw a schema |
+| hermes-3-3b | 0 (bare ChatML, 291 chars) | **structural** | 0 tool_calls, 0 fences — fails *silently* |
+| phi-4-mini | 3 | compliance — schema IS rendered, model refuses | 0 tool_calls; denies the capability in prose |
+| smollm3-3b | 15 | compliance | 0 tool_calls |
+
+**Corrections this forces to §RQ6 above:**
+1. **hermes-3-3b is structurally blocked, not non-compliant.** The `Hermes-3-Llama-3.2-3B.Q4_K_M` GGUF ships a bare ChatML template with zero `tools` references despite upstream Hermes-3 being marketed as tool-calling. Its "silent hallucination with plausible fake citations" (failure mode (c) above) is therefore not a model choosing to lie — it is a **structurally muzzled model failing unsafely**, where gemma fails visibly. A template override should recover it.
+2. **The template-override fix addresses 3 of the 5 gate failures** (gemma-3-1b, gemma-3-4b, hermes-3-3b), not just the Gemma family.
+3. **Only phi-4-mini and smollm3-3b are true compliance failures** — the schema reaches them and they still won't call. Different lever needed; note `tool_choice` is never set on PocketPal's local path (only the remote path), so nothing nudges a local model toward `required`.
+
+**Caveat:** caps are inferred from the GGUF-embedded template (what llama.cpp uses by default and what these runs used); a build substituting a bundled template for a known architecture could differ. The empirical column (0 tool_calls for all five) is consistent with the inference in every case.
+
+**Also corrected — RQ1's ceiling mechanism.** Our "raising result_count past ~5 is a no-op" phrasing named the wrong mechanism: the budget was charged against a differently-rendered string than the model actually received, making the drop marginal and input-dependent rather than a flat no-op. The recommendation (do not raise result_count without raising the ceiling) stands. Now moot upstream: PocketPal landed `eab95f6b` (charge the ceiling against the rendered menu) on 2026-07-12, along with `e257258c` (markdown menu) and `668e81d7` (enriched tool descriptions) — i.e. the frozen-config bundle is adopted.
+
 ## Reproducing
 
 `README.md` — quick start, re-run sweep, add a model, refresh dataset, regenerate tables (`harness/aggregate.py` + `harness/leaderboard.py`).

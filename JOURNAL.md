@@ -101,3 +101,41 @@ Append-only. Decisions, findings, surprises, dead ends.
   - [x] Limitations & not-tested present (incl. saturation, bundle-vs-factor, judge independence)
   - [x] Repo committed; history shows phase transitions and amendments
   - [x] Pushed to private GitHub (a-ghorbani/ferret-bench); full-history secret scan clean (2,918 blobs, 0 hits; public flip remains user decision)
+
+## 2026-07-12 (post-COMPLETE addendum) — RQ6 gate-failure root cause, from the PocketPal implementer's handoff + our own template probe
+
+The PocketPal implementer (PR #808) traced the gemma-3 gate failure into llama.cpp and asked us to confirm two things from our traces. We did, and the answer **revises RQ6's failure-mode taxonomy**. Recorded here rather than silently editing the frozen report; report.md carries a matching addendum.
+
+**Their mechanism (accepted).** PocketPal parses no tool calls itself — llama.cpp does, and it selects a parser via a differential autoparser gated on `jinja_caps.supports_tool_calls`, computed by probe-rendering the model's chat template to see whether it ever reads `tools[]` / `tool_calls`. A template that ignores `tools` ⇒ caps false ⇒ llama.cpp builds a **content-only parser** ⇒ `tool_calls` is structurally always empty. The old generic polyfill that used to let any model tool-call via injected schema + constrained grammar has been removed upstream, so there is no safety net.
+
+**Their key insight (accepted, and it kills the shim idea):** if the template ignores `tools`, **the tool schemas are never rendered into the prompt at all**. The model only knows the tools exist because PocketPal's grounding system line *names* them. So it has been told the names and never shown a signature — which is exactly why gemma improvises Gemma-native ```tool_code```. An app-side tool_code text-parser would therefore NOT fix it: the model would still be guessing the call signature. Any fix must do both halves (schema into the prompt + syntax parsed out). Their fix — supply a tool-declaring gemma-3 Jinja template as `chat_template` on the completion params, which llama.rn already forwards to native — does both, because the autoparser is differential (any consistent syntax works) and caps-true then buys a real PEG parser + lazy constrained grammar.
+
+**Our confirmation, from run traces (`runs/*confirm-frozen-*`, n=89 each):**
+
+| model | tool_calls emitted | responses containing a ```tool_code``` fence |
+|---|---|---|
+| gemma-3-4b | **0** | **64 / 89** |
+| gemma-3-1b-q4 | **0** | 5 / 89 |
+| phi-4-mini | 0 | 0 |
+| hermes-3-3b | 0 | 0 |
+| smollm3-3b | 0 | 0 |
+
+Confirms (a): gemma models want to search, emit a fence, and llama.cpp returns zero tool calls. Sharper still — gemma-3-1b guesses the **wrong function name** (`search_web("earthquakes 24 June 2026")` vs the real `web_search`), which is direct evidence the model never saw a schema; it is pattern-matching a plausible name, not calling a declared tool.
+
+**Our confirmation of (b) — the decisive one — by reading the chat template out of each GGUF** (the same thing llama.cpp's caps probe does; `tokenizer.chat_template` via gguf-py):
+
+| model | template length | `tools` refs | `tool_calls` refs | ⇒ caps | class |
+|---|---|---|---|---|---|
+| gemma-3-4b | 1532 | **0** | 0 | false | **structural** |
+| gemma-3-1b | 1532 | **0** | 0 | false | **structural** |
+| hermes-3-3b | **291** (bare ChatML) | **0** | 0 | false | **structural** |
+| phi-4-mini | 423 | 3 | 0 | true | compliance |
+| smollm3-3b | 5340 | 15 | 0 | true | compliance |
+
+**This revises their "fixes 2 of 5" to 3 of 5, and revises our own RQ6 taxonomy.** The `hermes-3-3b` GGUF we (and PocketPal) load — NousResearch `Hermes-3-Llama-3.2-3B.Q4_K_M` — ships a **bare ChatML template with zero `tools` references**, even though upstream Hermes-3 is marketed as a tool-calling model. So hermes is **structurally blocked, not non-compliant**: it was never shown a schema and has no way to emit a parseable call. That reframes our RQ6 failure mode (c): hermes' "silent hallucination with plausible fake citations" is not a badly-behaved model choosing to lie — it is a structurally muzzled model failing *unsafely* (unlike gemma, which fails *visibly* by improvising a fence). The template-override fix should therefore cover hermes-3-3b too.
+
+**Genuinely compliance-class (template declares tools, schema IS rendered, model still won't call):** phi-4-mini (denies the capability outright) and smollm3-3b. These need a different lever — the implementer notes `tool_choice` is never set on PocketPal's local path (only the remote OpenAI path), so nothing nudges a local model toward `required`.
+
+**Caveat on this addendum:** the caps mapping is inferred from the GGUF-embedded template, which is what llama.cpp uses by default and what these runs used; a build that substitutes a bundled template for a known architecture could differ. The empirical trace column (0 tool_calls for all five) is consistent with the inference in every case.
+
+**Their correction to our result_count/ceiling finding (accepted, and now moot):** the ceiling under-count was real but the mechanism differed from our "raising count past ~5 is a no-op" phrasing — the budget was charged against a differently-rendered string than the model received, making the drop marginal and input-dependent rather than a flat no-op. Verified against their branch: `budgetHits` now charges the ceiling against the same `formatHit` renderer used to build the menu (`origin/feature/TASK-20260625-1135`, eab95f6b "fix(search): charge the result token ceiling against the rendered menu", 2026-07-12). They also landed e257258c (markdown menu) and 668e81d7 (enriched tool descriptions) the same day — i.e. the frozen-config bundle is adopted upstream. Our RQ1 recommendation (don't raise result_count without raising the ceiling) stands; the stated reason is corrected here.
