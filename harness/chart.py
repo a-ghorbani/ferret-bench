@@ -43,7 +43,7 @@ PRETTY = {
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--tag", default="confirm")
+    ap.add_argument("--tag", default="confirm2")
     ap.add_argument("--out", default=str(REPO_DIR / "analysis" / "leaderboard.svg"))
     args = ap.parse_args()
 
@@ -56,9 +56,12 @@ def main():
     W, ROW, LEFT, RIGHT, TOP = 760, 26, 235, 60, 64
     H = TOP + ROW * len(rows) + 46
     scale = W - LEFT - RIGHT
+    # caption derives from the data — never hardcode the dataset version or n
+    ds = rows[0].get("dataset_version") or "?"
+    n_fresh = max((r["correct_fresh"]["n"] or 0) for r in rows)
     s = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" font-family="ui-sans-serif,system-ui,sans-serif">']
-    s.append(f'<text x="{LEFT}" y="24" font-size="15" font-weight="600" fill="{TEXT}">Agentic web search — fresh-question correctness (frozen config, dataset v1)</text>')
-    s.append(f'<text x="{LEFT}" y="42" font-size="11" fill="{INK}">44 retrieval-required questions · whiskers = Wilson 90% CI · no-tool floor ≈ 0.00–0.02</text>')
+    s.append(f'<text x="{LEFT}" y="24" font-size="15" font-weight="600" fill="{TEXT}">Agentic web search — fresh-question correctness (frozen config, dataset {ds})</text>')
+    s.append(f'<text x="{LEFT}" y="42" font-size="11" fill="{INK}">{n_fresh} retrieval-required questions · whiskers = Wilson 90% CI · no-tool floor ≈ 0.00–0.02</text>')
     for gx in (0.0, 0.25, 0.5, 0.75, 1.0):
         x = LEFT + gx * scale
         s.append(f'<line x1="{x:.0f}" y1="{TOP-8}" x2="{x:.0f}" y2="{H-38}" stroke="{INK}" stroke-opacity="0.25" stroke-width="1"/>')

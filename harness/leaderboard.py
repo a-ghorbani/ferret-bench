@@ -32,7 +32,7 @@ def fmt(v, spec="{}"):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--tag", default=None)
+    ap.add_argument("--tag", default="confirm2")
     ap.add_argument("--config", default=None)
     ap.add_argument("--model", default=None)
     ap.add_argument("--out", default=str(ANALYSIS / "leaderboard.md"))

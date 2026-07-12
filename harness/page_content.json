@@ -11,14 +11,14 @@
    "detail": "Qwen3.5-4B answers 49 of 53 retrieval-required questions correctly — within statistical noise of a frontier cloud model run through the identical search loop."
   },
   {
-   "value": "0.00",
-   "label": "Same models, no search",
-   "detail": "With tools switched off, those questions collapse to zero. Every point on this board is retrieval, not memorised knowledge."
+   "value": "0/53",
+   "label": "No search, no answers",
+   "detail": "Re-run with tools switched off, Qwen3.5-4B answers none of the 53 retrieval questions and Ministral-3-3B answers one. Every point on this board is earned by searching, not remembered."
   },
   {
-   "value": "1.00 vs 0.33",
+   "value": "0.88 → 0.61",
    "label": "Easy vs hard retrieval",
-   "detail": "Small models match frontier models on everyday lookups, then fall away on questions needing several sources or a second search. That gap is the real story."
+   "detail": "Pooled across the nine on-device models that can search: 0.88 when the answer is in the search results, 0.61 when it needs several sources or a follow-up. The cloud references do not drop at all."
   },
   {
    "value": "5 of 14",
@@ -109,7 +109,7 @@
  ],
  "band_note": "This board does resolve an order. Harder questions — ones needing several sources, or a second search that depends on the first — separate the models that everyday lookups could not: the top on-device model is now clearly ahead of the bottom of the working band. Neighbouring rows still sit within noise of each other, so read the groupings rather than the exact positions.",
  "floor_note": "0.00–0.02",
- "config_lift_note": "Configuration is worth as much as model choice at this size. Tuning it — richer tool descriptions, Brave, markdown-formatted results — lifted pooled correctness from 0.79 to 0.92 during screening, and nearly doubled the weakest model's score simply by getting it to search at all.",
+ "config_lift_note": "Configuration is worth as much as model choice at this size. On the earlier v1 question set, tuning it (richer tool descriptions, Brave, markdown results) lifted pooled correctness across four models from 0.79 to 0.92, and raised the weakest from 0.57 to 0.89 — mainly by getting it to search at all. The config was then frozen; these scores all use it unchanged.",
  "tier_notes": {
   "T1": "“Who won the final?” The answer is right there in the search results.",
   "T2": "The answer is inside the article, not in the search snippet, so the model has to open the page.",

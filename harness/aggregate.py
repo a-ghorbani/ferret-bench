@@ -45,17 +45,23 @@ def score_run(run_dir: Path):
     for rec in outputs:
         by_split.setdefault(rec["split"], []).append(rec)
 
+    # A PARSE_FAIL is the judge failing to emit a parseable grade — it is NOT a free pass.
+    # Dropping it from the denominator would silently inflate a model's rate and make its n
+    # differ from every other row, so it counts as not-correct (conservative) and is reported.
+    GRADED = ("CORRECT", "INCORRECT", "NOT_ATTEMPTED", "PARSE_FAIL")
+
     def correctness(split):
-        recs = [r for r in by_split.get(split, []) if grades.get(r["qid"]) in ("CORRECT", "INCORRECT", "NOT_ATTEMPTED")]
+        recs = [r for r in by_split.get(split, []) if grades.get(r["qid"]) in GRADED]
         n = len(recs)
         k = sum(1 for r in recs if grades[r["qid"]] == "CORRECT")
         lo, hi = wilson_interval(k, n)
         return {"n": n, "correct": k, "rate": round(k / n, 4) if n else None, "ci90": [lo, hi],
-                "not_attempted": sum(1 for r in recs if grades[r["qid"]] == "NOT_ATTEMPTED")}
+                "not_attempted": sum(1 for r in recs if grades[r["qid"]] == "NOT_ATTEMPTED"),
+                "judge_parse_fail": sum(1 for r in recs if grades[r["qid"]] == "PARSE_FAIL")}
 
     def correctness_tier(tier):
         recs = [r for r in by_split.get("fresh", [])
-                if tiers.get(r["qid"]) == tier and grades.get(r["qid"]) in ("CORRECT", "INCORRECT", "NOT_ATTEMPTED")]
+                if tiers.get(r["qid"]) == tier and grades.get(r["qid"]) in GRADED]
         n = len(recs)
         if n == 0:
             return None

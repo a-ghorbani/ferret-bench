@@ -1,7 +1,7 @@
 {
  "benchmark": "ferret-bench — agentic web search for small on-device LLMs",
  "source": "https://github.com/a-ghorbani/ferret-bench",
- "generated_at": "2026-07-12T16:26:13Z",
+ "generated_at": "2026-07-12T16:28:16Z",
  "sweep_tag": "confirm2",
  "dataset_version": "v2",
  "dataset_sha256": "e7544608b3369712145c692d6bb09058af41faad03601b88f5d85350145b674a",
@@ -59,14 +59,14 @@
     "detail": "Qwen3.5-4B answers 49 of 53 retrieval-required questions correctly — within statistical noise of a frontier cloud model run through the identical search loop."
    },
    {
-    "value": "0.00",
-    "label": "Same models, no search",
-    "detail": "With tools switched off, those questions collapse to zero. Every point on this board is retrieval, not memorised knowledge."
+    "value": "0/53",
+    "label": "No search, no answers",
+    "detail": "Re-run with tools switched off, Qwen3.5-4B answers none of the 53 retrieval questions and Ministral-3-3B answers one. Every point on this board is earned by searching, not remembered."
    },
    {
-    "value": "1.00 vs 0.33",
+    "value": "0.88 → 0.61",
     "label": "Easy vs hard retrieval",
-    "detail": "Small models match frontier models on everyday lookups, then fall away on questions needing several sources or a second search. That gap is the real story."
+    "detail": "Pooled across the nine on-device models that can search: 0.88 when the answer is in the search results, 0.61 when it needs several sources or a follow-up. The cloud references do not drop at all."
    },
    {
     "value": "5 of 14",
@@ -157,7 +157,7 @@
   ],
   "band_note": "This board does resolve an order. Harder questions — ones needing several sources, or a second search that depends on the first — separate the models that everyday lookups could not: the top on-device model is now clearly ahead of the bottom of the working band. Neighbouring rows still sit within noise of each other, so read the groupings rather than the exact positions.",
   "floor_note": "0.00–0.02",
-  "config_lift_note": "Configuration is worth as much as model choice at this size. Tuning it — richer tool descriptions, Brave, markdown-formatted results — lifted pooled correctness from 0.79 to 0.92 during screening, and nearly doubled the weakest model's score simply by getting it to search at all.",
+  "config_lift_note": "Configuration is worth as much as model choice at this size. On the earlier v1 question set, tuning it (richer tool descriptions, Brave, markdown results) lifted pooled correctness across four models from 0.79 to 0.92, and raised the weakest from 0.57 to 0.89 — mainly by getting it to search at all. The config was then frozen; these scores all use it unchanged.",
   "tier_notes": {
    "T1": "“Who won the final?” The answer is right there in the search results.",
    "T2": "The answer is inside the article, not in the search snippet, so the model has to open the page.",
@@ -450,7 +450,8 @@
      0.9197,
      0.9958
     ],
-    "not_attempted": 0
+    "not_attempted": 0,
+    "judge_parse_fail": 0
    },
    "fresh_by_tier": {
     "T1": {
@@ -498,7 +499,8 @@
      0.9173,
      1.0
     ],
-    "not_attempted": 0
+    "not_attempted": 0,
+    "judge_parse_fail": 0
    },
    "engagement": 1.0,
    "false_search_rate": 0.0,
@@ -520,7 +522,8 @@
      0.8666,
      0.9772
     ],
-    "not_attempted": 0
+    "not_attempted": 0,
+    "judge_parse_fail": 0
    },
    "fresh_by_tier": {
     "T1": {
@@ -568,7 +571,8 @@
      0.9173,
      1.0
     ],
-    "not_attempted": 0
+    "not_attempted": 0,
+    "judge_parse_fail": 0
    },
    "engagement": 1.0,
    "false_search_rate": 0.0,
@@ -590,7 +594,8 @@
      0.8421,
      0.9657
     ],
-    "not_attempted": 0
+    "not_attempted": 0,
+    "judge_parse_fail": 0
    },
    "fresh_by_tier": {
     "T1": {
@@ -638,7 +643,8 @@
      0.9173,
      1.0
     ],
-    "not_attempted": 0
+    "not_attempted": 0,
+    "judge_parse_fail": 0
    },
    "engagement": 1.0,
    "false_search_rate": 0.0,
@@ -660,7 +666,8 @@
      0.7299,
      0.8984
     ],
-    "not_attempted": 0
+    "not_attempted": 0,
+    "judge_parse_fail": 0
    },
    "fresh_by_tier": {
     "T1": {
@@ -708,7 +715,8 @@
      0.9173,
      1.0
     ],
-    "not_attempted": 0
+    "not_attempted": 0,
+    "judge_parse_fail": 0
    },
    "engagement": 1.0,
    "false_search_rate": 0.0667,
@@ -730,7 +738,8 @@
      0.7086,
      0.8837
     ],
-    "not_attempted": 2
+    "not_attempted": 2,
+    "judge_parse_fail": 0
    },
    "fresh_by_tier": {
     "T1": {
@@ -778,7 +787,8 @@
      0.9173,
      1.0
     ],
-    "not_attempted": 0
+    "not_attempted": 0,
+    "judge_parse_fail": 0
    },
    "engagement": 1.0,
    "false_search_rate": 0.0,
@@ -800,7 +810,8 @@
      0.6671,
      0.8535
     ],
-    "not_attempted": 6
+    "not_attempted": 6,
+    "judge_parse_fail": 0
    },
    "fresh_by_tier": {
     "T1": {
@@ -848,7 +859,8 @@
      0.9173,
      1.0
     ],
-    "not_attempted": 0
+    "not_attempted": 0,
+    "judge_parse_fail": 0
    },
    "engagement": 0.9811,
    "false_search_rate": 0.0667,
@@ -870,7 +882,8 @@
      0.5479,
      0.7573
     ],
-    "not_attempted": 5
+    "not_attempted": 5,
+    "judge_parse_fail": 0
    },
    "fresh_by_tier": {
     "T1": {
@@ -918,7 +931,8 @@
      0.8636,
      0.9925
     ],
-    "not_attempted": 0
+    "not_attempted": 0,
+    "judge_parse_fail": 0
    },
    "engagement": 0.9623,
    "false_search_rate": 0.2,
@@ -940,7 +954,8 @@
      0.5287,
      0.7406
     ],
-    "not_attempted": 13
+    "not_attempted": 13,
+    "judge_parse_fail": 0
    },
    "fresh_by_tier": {
     "T1": {
@@ -988,7 +1003,8 @@
      0.734,
      0.9387
     ],
-    "not_attempted": 4
+    "not_attempted": 4,
+    "judge_parse_fail": 0
    },
    "engagement": 1.0,
    "false_search_rate": 0.2,
@@ -1010,7 +1026,8 @@
      0.5287,
      0.7406
     ],
-    "not_attempted": 15
+    "not_attempted": 15,
+    "judge_parse_fail": 0
    },
    "fresh_by_tier": {
     "T1": {
@@ -1058,7 +1075,8 @@
      0.8173,
      0.9777
     ],
-    "not_attempted": 1
+    "not_attempted": 1,
+    "judge_parse_fail": 0
    },
    "engagement": 0.9434,
    "false_search_rate": 0.0,
@@ -1080,7 +1098,8 @@
      0.4721,
      0.6895
     ],
-    "not_attempted": 3
+    "not_attempted": 3,
+    "judge_parse_fail": 0
    },
    "fresh_by_tier": {
     "T1": {
@@ -1128,7 +1147,8 @@
      0.8173,
      0.9777
     ],
-    "not_attempted": 0
+    "not_attempted": 0,
+    "judge_parse_fail": 0
    },
    "engagement": 0.8868,
    "false_search_rate": 0.2,
@@ -1150,7 +1170,8 @@
      0.3808,
      0.6012
     ],
-    "not_attempted": 15
+    "not_attempted": 15,
+    "judge_parse_fail": 0
    },
    "fresh_by_tier": {
     "T1": {
@@ -1198,7 +1219,8 @@
      0.734,
      0.9387
     ],
-    "not_attempted": 1
+    "not_attempted": 1,
+    "judge_parse_fail": 0
    },
    "engagement": 0.8679,
    "false_search_rate": 0.0,
@@ -1220,7 +1242,8 @@
      0.0343,
      0.1579
     ],
-    "not_attempted": 14
+    "not_attempted": 14,
+    "judge_parse_fail": 0
    },
    "fresh_by_tier": {
     "T1": {
@@ -1268,7 +1291,8 @@
      0.8173,
      0.9777
     ],
-    "not_attempted": 0
+    "not_attempted": 0,
+    "judge_parse_fail": 0
    },
    "engagement": 0.0,
    "false_search_rate": 0.0,
@@ -1290,7 +1314,8 @@
      0.0126,
      0.1078
     ],
-    "not_attempted": 34
+    "not_attempted": 34,
+    "judge_parse_fail": 0
    },
    "fresh_by_tier": {
     "T1": {
@@ -1338,7 +1363,8 @@
      0.9173,
      1.0
     ],
-    "not_attempted": 0
+    "not_attempted": 0,
+    "judge_parse_fail": 0
    },
    "engagement": 0.0,
    "false_search_rate": 0.0,
@@ -1346,76 +1372,6 @@
    "avg_turns": 1.0,
    "avg_prompt_tokens": 147,
    "run_id": "20260712-161657-confirm2-frozen-smollm3-3b"
-  },
-  {
-   "model_id": "gemma-3-4b",
-   "display_name": "Gemma-3-4B",
-   "class": "official",
-   "gate_pass": false,
-   "fresh": {
-    "n": 47,
-    "correct": 1,
-    "rate": 0.0213,
-    "ci90": [
-     0.0048,
-     0.0899
-    ],
-    "not_attempted": 37
-   },
-   "fresh_by_tier": {
-    "T1": {
-     "n": 17,
-     "correct": 0,
-     "rate": 0.0,
-     "ci90": [
-      0.0,
-      0.1373
-     ]
-    },
-    "T2": {
-     "n": 10,
-     "correct": 0,
-     "rate": 0.0,
-     "ci90": [
-      0.0,
-      0.213
-     ]
-    },
-    "T3": {
-     "n": 8,
-     "correct": 0,
-     "rate": 0.0,
-     "ci90": [
-      0.0,
-      0.2528
-     ]
-    },
-    "T4": {
-     "n": 12,
-     "correct": 1,
-     "rate": 0.0833,
-     "ci90": [
-      0.0188,
-      0.3012
-     ]
-    }
-   },
-   "stable": {
-    "n": 30,
-    "correct": 5,
-    "rate": 0.1667,
-    "ci90": [
-     0.0836,
-     0.3049
-    ],
-    "not_attempted": 25
-   },
-   "engagement": 0.0,
-   "false_search_rate": 0.0,
-   "tool_call_validity": null,
-   "avg_turns": 1.0,
-   "avg_prompt_tokens": 122,
-   "run_id": "20260712-155934-confirm2-frozen-gemma-3-4b"
   },
   {
    "model_id": "gemma-3-1b-q4",
@@ -1430,7 +1386,8 @@
      0.0042,
      0.0803
     ],
-    "not_attempted": 31
+    "not_attempted": 31,
+    "judge_parse_fail": 0
    },
    "fresh_by_tier": {
     "T1": {
@@ -1478,7 +1435,8 @@
      0.6951,
      0.9164
     ],
-    "not_attempted": 4
+    "not_attempted": 4,
+    "judge_parse_fail": 0
    },
    "engagement": 0.0,
    "false_search_rate": 0.0,
@@ -1486,6 +1444,78 @@
    "avg_turns": 1.0,
    "avg_prompt_tokens": 122,
    "run_id": "20260712-155824-confirm2-frozen-gemma-3-1b-q4"
+  },
+  {
+   "model_id": "gemma-3-4b",
+   "display_name": "Gemma-3-4B",
+   "class": "official",
+   "gate_pass": false,
+   "fresh": {
+    "n": 53,
+    "correct": 1,
+    "rate": 0.0189,
+    "ci90": [
+     0.0042,
+     0.0803
+    ],
+    "not_attempted": 37,
+    "judge_parse_fail": 6
+   },
+   "fresh_by_tier": {
+    "T1": {
+     "n": 20,
+     "correct": 0,
+     "rate": 0.0,
+     "ci90": [
+      0.0,
+      0.1192
+     ]
+    },
+    "T2": {
+     "n": 12,
+     "correct": 0,
+     "rate": 0.0,
+     "ci90": [
+      0.0,
+      0.184
+     ]
+    },
+    "T3": {
+     "n": 9,
+     "correct": 0,
+     "rate": 0.0,
+     "ci90": [
+      -0.0,
+      0.2312
+     ]
+    },
+    "T4": {
+     "n": 12,
+     "correct": 1,
+     "rate": 0.0833,
+     "ci90": [
+      0.0188,
+      0.3012
+     ]
+    }
+   },
+   "stable": {
+    "n": 30,
+    "correct": 5,
+    "rate": 0.1667,
+    "ci90": [
+     0.0836,
+     0.3049
+    ],
+    "not_attempted": 25,
+    "judge_parse_fail": 0
+   },
+   "engagement": 0.0,
+   "false_search_rate": 0.0,
+   "tool_call_validity": null,
+   "avg_turns": 1.0,
+   "avg_prompt_tokens": 122,
+   "run_id": "20260712-155934-confirm2-frozen-gemma-3-4b"
   },
   {
    "model_id": "phi-4-mini",
@@ -1500,7 +1530,8 @@
      0.0,
      0.0486
     ],
-    "not_attempted": 46
+    "not_attempted": 46,
+    "judge_parse_fail": 0
    },
    "fresh_by_tier": {
     "T1": {
@@ -1548,7 +1579,8 @@
      0.5854,
      0.8427
     ],
-    "not_attempted": 4
+    "not_attempted": 4,
+    "judge_parse_fail": 0
    },
    "engagement": 0.0,
    "false_search_rate": 0.0,
