@@ -75,3 +75,12 @@ Append-only. Decisions, findings, surprises, dead ends.
 
 - 13 ranked small models: ~57 min total. Ceiling refs dominate: qwen3.6-27b-Q8 took 7,496 s alone (reasoning model, 604 completion tok/question = 5× ministral, at 27B Q8 decode speed); gemma-4-31b-Q8 pacing ~95 s/question. ~80% of sweep wall time = the 2 ceiling rows. No harness pathology (0 failures, avg 1.75 turns, no retries/timeouts in log).
 - Action: split models-ceiling.txt out of models-confirm.txt — ceilings are once-per-dataset-version context rows, not part of the per-model-addition rerun path. README wording already matches (sweep re-run = models-confirm.txt).
+
+## 2026-07-12 — CONFIRM results + report + review launched
+
+- Confirm sweep: 15/15 runs, 0 failures. Re-judged with v2 (172 s). Leaderboard (analysis/leaderboard.md):
+  - Rank 1= (0.977 fresh): huihui-qwen35-2b, qwen35-4b, ministral-3-3b — equal to gemma-4-31B ceiling (0.977), above qwen3.6-27B (0.955). Then gemma-4-e2b 0.932, lfm25-1.2b 0.909, qwen3-06b 0.886, qwen3-1.7b/mlabonne-qwen3-4b 0.841.
+  - Capability-gate failures (0 tool calls, fresh≈0): gemma-3-1b/4b, phi-4-mini, smollm3-3b, hermes-3-3b. Modes: gemma-3 emits ```tool_code``` blocks (format mismatch — app-side shim could fix); phi-4-mini denies having tools; hermes-3-3b hallucinates with fake citations.
+- report.md written: all RQ1–7 answered with run ids; limitations include ceiling-effect caveat, single-seed, EN-only.
+- Secret scan: full history (2,918 blobs), grep-based key patterns (brave/tavily/openrouter/gh/etc.): 0 hits. gitleaks unavailable on box; pattern scan logged as the method.
+- Adversarial review: fresh-context subagent launched, repo-only access, brief = invalidate conclusions; findings will be resolved in this journal before COMPLETE.
