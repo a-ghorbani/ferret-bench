@@ -8,6 +8,19 @@
 - **`report.md`** — findings for all research questions; **`analysis/leaderboard.md`** — the model ranking.
 - **`PROTOCOL.md`** — the full experimental protocol with amendment log; **`JOURNAL.md`** — decision log.
 
+## Results at a glance (dataset v1, anchored 2026-07-10)
+
+![Leaderboard](analysis/leaderboard.svg)
+
+Four things this run established (details + statistics in `report.md`):
+
+1. **Small models really can drive web search.** With the tuned config, Qwen3.5-4B, Ministral-3-3B, and an abliterated Qwen3.5-2B saturate this benchmark (0.977) — the same score as a 31B ceiling reference. Without search the same questions score ≈0 (no-tool floor), so it's retrieval, not memory.
+2. **Configuration is worth as much as parameters.** The frozen bundle — enriched tool descriptions + Brave + markdown-formatted results over PocketPal's shipped defaults — lifts pooled fresh-question correctness 0.79 → 0.92 (p=0.0004); on the weakest working model (Qwen3-0.6B) it's 0.57 → 0.89, mostly by getting it to actually search.
+3. **The failure mode that matters is not calling tools at all.** 5 of 13 candidates never execute a single tool call: Gemma-3 emits its own `tool_code` format the OpenAI-style parser can't map (app-fixable), Phi-4-mini insists it can't browse, Hermes-3-3B fabricates answers with fake citations, SmolLM3/Gemma-3-1B stay silent. A model's tool-calling *format support in the runtime* is a harder gate than its size.
+4. **Don't stack every "improvement".** A guided system prompt and markdown formatting each help alone but hurt when combined (measured anti-synergy) — see `frozen-config/PROVENANCE.md` anti-recommendations.
+
+Caveats that keep this honest: the top of the table is saturated (single-fact, single-search questions — within-band order is provisional at n=44); scores are only comparable within a dataset version; two entries are community variants, not official checkpoints. Regenerate the chart with `python3 harness/chart.py`.
+
 ## Quick start
 
 Requirements: Python 3.10+ with `requests`; an OpenAI-compatible LLM server (llama.cpp `llama-server` or llama-swap) at `http://localhost:8080` (override with `LLM_BASE_URL`); a `.env` in the repo root (gitignored):
