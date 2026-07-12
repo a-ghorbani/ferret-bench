@@ -11,6 +11,7 @@ estimates + CIs; the site must not render medal positions within a band.
 
 import argparse
 import json
+import re
 import time
 from pathlib import Path
 import sys
@@ -28,6 +29,102 @@ def roster(path):
     if not p.is_file():
         return set()
     return {l.strip() for l in p.read_text().splitlines() if l.strip() and not l.startswith("#")}
+
+
+CAPS = {"value": 12, "label": 24, "detail": 200, "config_note": 200,
+        "metric_description": 240, "mechanism": 700, "limitation": 300}
+REQUIRED_CONTENT = ("content_schema_version", "headline_findings", "config_notes", "limitations")
+_HTMLISH = re.compile(r"[<>]|&[a-z]+;|\*\*|\[.*\]\(.*\)")
+
+
+def _check_text(field, s, cap, errs):
+    if not isinstance(s, str):
+        errs.append(f"{field}: not a string")
+        return
+    if len(s) > cap:
+        errs.append(f"{field}: {len(s)} chars exceeds cap {cap}")
+    if _HTMLISH.search(s):
+        errs.append(f"{field}: contains HTML/markdown; plain text only")
+
+
+def compute_band_separation(rows):
+    """Do any two gate-passing on-device models separate at 90% CI? Ground truth for band_note."""
+    band = [r for r in rows if r["class"] in ("official", "variant") and r["gate_pass"]]
+    if len(band) < 2:
+        return {"separated": False, "detail": "fewer than two gate-passing models"}
+    band.sort(key=lambda r: -(r["fresh"]["rate"] or 0))
+    top, bottom = band[0], band[-1]
+    top_lo = top["fresh"]["ci90"][0]
+    bot_hi = bottom["fresh"]["ci90"][1]
+    separated = top_lo > bot_hi
+    return {
+        "separated": separated,
+        "detail": (f"top={top['model_id']} {top['fresh']['rate']:.3f} CI{top['fresh']['ci90']}; "
+                   f"bottom={bottom['model_id']} {bottom['fresh']['rate']:.3f} CI{bottom['fresh']['ci90']}; "
+                   f"{'non-overlapping' if separated else 'overlapping'} at 90%"),
+    }
+
+
+def load_page_content(doc_dataset_version, doc_config_hash, out_rows, config_values):
+    """Load interpretive text, validate it, and cross-check its CLAIMS against the data.
+    Hard-fails rather than shipping prose that no longer matches the runs."""
+    p = HARNESS / "page_content.json"
+    if not p.is_file():
+        raise SystemExit("harness/page_content.json missing — the export carries the prose now")
+    c = json.loads(p.read_text())
+    errs = []
+
+    for k in REQUIRED_CONTENT:
+        if k not in c:
+            errs.append(f"missing required field: {k}")
+
+    # 1. Staleness: prose must be written against exactly these runs.
+    if c.get("for_dataset_version") != doc_dataset_version:
+        errs.append(f"page_content.for_dataset_version={c.get('for_dataset_version')!r} but exporting "
+                    f"{doc_dataset_version!r} — REWRITE the prose for this dataset, then update the field")
+    if c.get("for_config_hash") != doc_config_hash:
+        errs.append(f"page_content.for_config_hash mismatch — the config changed; re-read the results "
+                    f"and rewrite the notes (expected {doc_config_hash[:12]}…)")
+
+    # 2. Shape/format constraints the consumer enforces on fetch.
+    for i, h in enumerate(c.get("headline_findings", [])):
+        _check_text(f"headline_findings[{i}].value", h.get("value"), CAPS["value"], errs)
+        _check_text(f"headline_findings[{i}].label", h.get("label"), CAPS["label"], errs)
+        _check_text(f"headline_findings[{i}].detail", h.get("detail"), CAPS["detail"], errs)
+    if not 3 <= len(c.get("headline_findings", [])) <= 5:
+        errs.append("headline_findings: expected 3-5 items")
+    for k, v in (c.get("config_notes") or {}).items():
+        if k not in config_values:
+            errs.append(f"config_notes key {k!r} is not a config value key")
+        _check_text(f"config_notes.{k}", v, CAPS["config_note"], errs)
+    for i, m in enumerate(c.get("metric_definitions", [])):
+        _check_text(f"metric_definitions[{i}].description", m.get("description"), CAPS["metric_description"], errs)
+    for i, g in enumerate(c.get("gate_failures", [])):
+        _check_text(f"gate_failures[{i}].mechanism", g.get("mechanism"), CAPS["mechanism"], errs)
+    for i, l in enumerate(c.get("limitations", [])):
+        _check_text(f"limitations[{i}]", l, CAPS["limitation"], errs)
+
+    # 3. Cross-checks: the prose's factual claims vs the exported numbers.
+    band = compute_band_separation(out_rows)
+    if "band_separated" not in c:
+        errs.append("page_content.band_separated missing — declare it; it is cross-checked against the data")
+    elif bool(c["band_separated"]) != band["separated"]:
+        errs.append(f"band_separated={c['band_separated']} contradicts the data ({band['detail']}). "
+                    f"Rewrite band_note: the dataset now "
+                    f"{'DOES separate' if band['separated'] else 'does NOT separate'} the top band")
+
+    claimed_gate_fail = {m for g in c.get("gate_failures", []) for m in g.get("models", [])}
+    actual_gate_fail = {r["display_name"] for r in out_rows if not r["gate_pass"]}
+    if claimed_gate_fail != actual_gate_fail:
+        errs.append(f"gate_failures list is stale: prose names {sorted(claimed_gate_fail)}, "
+                    f"data shows {sorted(actual_gate_fail)}")
+
+    if errs:
+        raise SystemExit("page_content.json is out of date with the results:\n  - " + "\n  - ".join(errs))
+
+    c = {k: v for k, v in c.items() if not k.startswith("_")}
+    c["band_separation_computed"] = band
+    return c
 
 
 def main():
@@ -100,6 +197,7 @@ def main():
             "tiers": {"T1": "single-search (everyday lookups)", "T2": "read-required",
                       "T3": "multi-source", "T4": "multi-hop"},
         },
+        "page_content": load_page_content(ds_version, rows[0].get("config_hash"), out_rows, config_values),
         "rows": out_rows,
     }
     out = Path(args.out)
