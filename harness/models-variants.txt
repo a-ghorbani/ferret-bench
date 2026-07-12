@@ -1,0 +1,4 @@
+# Community-variant comparison rows (explicitly labeled on the leaderboard; not the official ranking).
+# Kept where an official sibling exists for contrast (amendment #11).
+huihui-qwen35-2b
+mlabonne-qwen3-4b

@@ -8,11 +8,23 @@ import time
 import requests
 
 BASE_URL = os.environ.get("LLM_BASE_URL", "http://localhost:8080")
+OPENROUTER_BASE = "https://openrouter.ai/api"
 REQUEST_TIMEOUT_S = 600  # generous: cold loads + long prefills
 
 
 class LLMError(Exception):
     pass
+
+
+def route_model(model: str):
+    """'openrouter:<id>' → remote OpenAI-compatible endpoint; anything else → local llama-swap.
+    Returns (model_id, base_url, api_key)."""
+    if model.startswith("openrouter:"):
+        key = os.environ.get("OPENROUTER_API_KEY", "")
+        if not key:
+            raise LLMError("OPENROUTER_API_KEY not set (needed for remote models)")
+        return model[len("openrouter:"):], OPENROUTER_BASE, key
+    return model, None, None
 
 
 def list_models():
@@ -22,12 +34,18 @@ def list_models():
 
 
 def warm_model(model: str, retries: int = 5):
-    """Tiny completion to force llama-swap to load the model; retry through cold-load flakiness."""
+    """Tiny completion to force llama-swap to load the model; retry through cold-load flakiness.
+    Remote (openrouter:) models get a single connectivity check."""
+    model_id, base, key = route_model(model)
+    if base:
+        retries = 2
     last = None
     for attempt in range(retries):
         try:
-            r = requests.post(f"{BASE_URL}/v1/chat/completions", timeout=REQUEST_TIMEOUT_S, json={
-                "model": model,
+            r = requests.post(f"{base or BASE_URL}/v1/chat/completions", timeout=REQUEST_TIMEOUT_S,
+                              headers={"Authorization": f"Bearer {key}"} if key else {},
+                              json={
+                "model": model_id,
                 "messages": [{"role": "user", "content": "Say OK."}],
                 "max_tokens": 4, "temperature": 0,
             })
@@ -44,12 +62,17 @@ def chat(model: str, messages, tools=None, gen=None, retries: int = 3,
          base_url: str = None, api_key: str = None):
     """One chat completion (llama-swap by default; any OpenAI-compatible API via base_url/api_key).
     Returns the raw response dict. Retries transient failures."""
-    payload = {"model": model, "messages": messages}
+    model_id, routed_base, routed_key = route_model(model)
+    base_url = base_url or routed_base
+    api_key = api_key or routed_key
+    payload = {"model": model_id, "messages": messages}
     if tools:
         payload["tools"] = tools
         payload["tool_choice"] = "auto"
     for k, v in (gen or {}).items():
         payload[k] = v
+    if base_url:  # remote providers may reject llama.cpp-only params
+        payload.pop("seed", None)
     url = f"{base_url or BASE_URL}/v1/chat/completions"
     headers = {"Authorization": f"Bearer {api_key}"} if api_key else {}
     last = None

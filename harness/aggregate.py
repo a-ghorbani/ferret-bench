@@ -35,6 +35,12 @@ def score_run(run_dir: Path):
     jpath = run_dir / "judgments.jsonl"
     grades = {r["qid"]: r["grade"] for r in read_jsonl(jpath)} if jpath.is_file() else {}
 
+    # per-tier scoring (dataset v2+): join tier labels from the manifest-pinned dataset
+    ds_path = Path(manifest["dataset"])
+    if not ds_path.is_absolute():
+        ds_path = REPO_DIR / manifest["dataset"]
+    tiers = ({q["id"]: q.get("tier") for q in read_jsonl(ds_path)} if ds_path.is_file() else {})
+
     by_split = {}
     for rec in outputs:
         by_split.setdefault(rec["split"], []).append(rec)
@@ -46,6 +52,19 @@ def score_run(run_dir: Path):
         lo, hi = wilson_interval(k, n)
         return {"n": n, "correct": k, "rate": round(k / n, 4) if n else None, "ci90": [lo, hi],
                 "not_attempted": sum(1 for r in recs if grades[r["qid"]] == "NOT_ATTEMPTED")}
+
+    def correctness_tier(tier):
+        recs = [r for r in by_split.get("fresh", [])
+                if tiers.get(r["qid"]) == tier and grades.get(r["qid"]) in ("CORRECT", "INCORRECT", "NOT_ATTEMPTED")]
+        n = len(recs)
+        if n == 0:
+            return None
+        k = sum(1 for r in recs if grades[r["qid"]] == "CORRECT")
+        lo, hi = wilson_interval(k, n)
+        return {"n": n, "correct": k, "rate": round(k / n, 4), "ci90": [lo, hi]}
+
+    tier_scores = {t: correctness_tier(t) for t in ("T1", "T2", "T3", "T4")}
+    tier_scores = {t: v for t, v in tier_scores.items() if v} or None
 
     all_calls = [c for r in outputs for c in r["tool_calls"]]
     fresh = by_split.get("fresh", [])
@@ -60,6 +79,7 @@ def score_run(run_dir: Path):
         "judge": manifest.get("judge"),
         "n_questions": len(outputs),
         "correct_fresh": correctness("fresh"),
+        "correct_fresh_by_tier": tier_scores,
         "correct_stable": correctness("stable"),
         "tool_call_validity": round(sum(c["args_valid"] for c in all_calls) / len(all_calls), 4) if all_calls else None,
         "n_tool_calls": len(all_calls),
