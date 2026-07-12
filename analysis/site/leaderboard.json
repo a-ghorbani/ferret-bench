@@ -1,16 +1,16 @@
 {
  "benchmark": "ferret-bench — agentic web search for small on-device LLMs",
  "source": "https://github.com/a-ghorbani/ferret-bench",
- "generated_at": "2026-07-12T14:48:11Z",
- "sweep_tag": "confirm",
- "dataset_version": "v1",
- "dataset_sha256": "d350275558b05c03678cb8b23ad9070fc6123ba06b9fc03c8c14e88a7d149859",
+ "generated_at": "2026-07-12T14:56:58Z",
+ "sweep_tag": "confirm2",
+ "dataset_version": "v2",
+ "dataset_sha256": "e7544608b3369712145c692d6bb09058af41faad03601b88f5d85350145b674a",
  "dataset_counts": {
+  "no_search": 15,
   "stable": 30,
-  "fresh": 44,
-  "no_search": 15
+  "fresh": 53
  },
- "dataset_anchor_date": "2026-07-10",
+ "dataset_anchor_date": "2026-07-12",
  "judge": {
   "model": "google/gemini-3.5-flash",
   "prompt_version": "v2-simpleqa-3way-acceptable",
@@ -49,33 +49,33 @@
  },
  "page_content": {
   "content_schema_version": 1,
-  "for_dataset_version": "v1",
+  "for_dataset_version": "v2",
   "for_config_hash": "2e5a782618fe49a2ce10cb35a532e8d6cefb276c5ab570c12fca9d22cbe6a152",
-  "band_separated": false,
+  "band_separated": true,
   "headline_findings": [
    {
-    "value": "0.98",
-    "label": "Best small-model score",
-    "detail": "Qwen3.5-4B and Ministral-3-3B answer 43 of 44 retrieval-required questions correctly under the tuned config — matching a 31B reference model on this dataset."
+    "value": "0.92",
+    "label": "Best on-device score",
+    "detail": "Qwen3.5-4B answers 49 of 53 retrieval-required questions correctly — within statistical noise of a frontier cloud model run through the identical search loop."
    },
    {
-    "value": "0.02",
+    "value": "0.00",
     "label": "Same models, no search",
-    "detail": "With tools disabled, those questions collapse to near zero. The scores measure retrieval, not memorised facts."
+    "detail": "With tools switched off, those questions collapse to zero. Every point on this board is retrieval, not memorised knowledge."
    },
    {
-    "value": "5 of 13",
+    "value": "1.00 vs 0.33",
+    "label": "Easy vs hard retrieval",
+    "detail": "Small models match frontier models on everyday lookups, then fall away on questions needing several sources or a second search. That gap is the real story."
+   },
+   {
+    "value": "5 of 14",
     "label": "Models that can't search",
-    "detail": "Five candidates never execute a single tool call. This is a harder gate than model size, and it is where most of the real-world failure lives."
-   },
-   {
-    "value": "+0.13",
-    "label": "Config lift",
-    "detail": "Pooled across four models, the tuned configuration lifts fresh-question correctness from 0.79 to 0.92 — as large as the gap between many of the models themselves."
+    "detail": "Five candidates never execute a single tool call, whatever the question. This is a harder gate than model size."
    }
   ],
   "config_notes": {
-   "provider": "Brave is the recommended default: it beat Tavily in screening and used fewer prompt tokens on most models. Tavily remains fully supported.",
+   "provider": "Brave is the recommended default: it beat Tavily during configuration screening and used fewer prompt tokens on most models. Tavily remains fully supported.",
    "result_format": "Markdown-formatted results beat the shipped labelled blocks; JSON and compact numbered lists were both worse and were eliminated.",
    "tool_desc": "Enriched tool descriptions (what the tool is for, plus a hint to write short keyword queries) were the largest single effect seen in screening.",
    "result_count": "Five results is the shipped default and nothing beat it. Note that asking for more can be a no-op: the result menu is capped by a token ceiling that silently drops trailing hits.",
@@ -148,53 +148,161 @@
    }
   ],
   "limitations": [
-   "The top of this table is saturated: the questions are single-fact lookups that one good search answers, so several small models hit the same ceiling as a 31B reference. That says as much about the dataset as about the models.",
-   "Correctness is graded by an LLM judge against a verified gold answer. The judge was validated against hand-labelled samples, but it is not a human grader.",
-   "Quality is measured on a workstation running the same quantised model files a phone would run. Battery, heat and on-device latency are not measured here; turns and tokens are the stand-in.",
+   "Questions are single-fact and English-only, drawn from one eight-week news window. A model tuned on other topics or languages could rank differently.",
+   "Correctness is graded by an LLM judge against a human-verified gold answer. The judge was validated against hand-labelled samples, but it is not a human grader.",
+   "The configuration was tuned on an earlier question set and then frozen. These model scores all use that same frozen setup; they are not each model's best possible score.",
+   "Quality is measured on a workstation running the same quantised model files a phone would run. Battery, heat and on-device latency are not measured; turns and prompt size are the stand-ins.",
    "Fresh questions go stale by design. Scores are only comparable within one dataset version, which is why the version is stamped on this page.",
-   "One-shot answers only: each question is asked once, so small differences between neighbouring models are not resolved."
+   "Each question is asked once, so differences of a few points between neighbouring models are not resolved."
   ],
-  "band_note": "There is no single winner. Every model in the working band scores within statistical noise of the others at this sample size — the confidence intervals overlap from top to bottom — so we show bands rather than ranks. The one distinction this benchmark does resolve decisively is between models that can drive a search loop and models that cannot.",
+  "band_note": "This board does resolve an order. Harder questions — ones needing several sources, or a second search that depends on the first — separate the models that everyday lookups could not: the top on-device model is now clearly ahead of the bottom of the working band. Neighbouring rows still sit within noise of each other, so read the groupings rather than the exact positions.",
   "floor_note": "0.00–0.02",
-  "config_lift_note": "Configuration matters as much as model choice at this size: pooled across four models the tuned setup lifts fresh-question correctness from 0.79 to 0.92, and on the weakest working model it nearly doubles the score by getting it to search at all.",
+  "config_lift_note": "Configuration is worth as much as model choice at this size. Tuning it — richer tool descriptions, Brave, markdown-formatted results — lifted pooled correctness from 0.79 to 0.92 during screening, and nearly doubled the weakest model's score simply by getting it to search at all.",
   "band_separation_computed": {
-   "separated": false,
-   "detail": "top=huihui-qwen35-2b 0.977 CI[0.9043, 0.9949]; bottom=mlabonne-qwen3-4b 0.841 CI[0.7309, 0.9114]; overlapping at 90%"
+   "separated": true,
+   "detail": "top=qwen35-4b 0.924 CI[0.8421, 0.9657]; bottom=qwen3-1.7b 0.491 CI[0.3808, 0.6012]; non-overlapping at 90%"
   }
  },
  "rows": [
   {
-   "model_id": "huihui-qwen35-2b",
-   "display_name": "Qwen3.5-2B (huihui abliterated)",
-   "class": "variant",
+   "model_id": "openrouter:openai/gpt-5.6-sol",
+   "display_name": "GPT-5.6-sol (frontier anchor)",
+   "class": "anchor",
    "gate_pass": true,
    "fresh": {
-    "n": 44,
-    "correct": 43,
-    "rate": 0.9773,
+    "n": 53,
+    "correct": 52,
+    "rate": 0.9811,
     "ci90": [
-     0.9043,
-     0.9949
+     0.9197,
+     0.9958
     ],
     "not_attempted": 0
    },
-   "fresh_by_tier": null,
+   "fresh_by_tier": {
+    "T1": {
+     "n": 20,
+     "correct": 20,
+     "rate": 1.0,
+     "ci90": [
+      0.8808,
+      1.0
+     ]
+    },
+    "T2": {
+     "n": 12,
+     "correct": 11,
+     "rate": 0.9167,
+     "ci90": [
+      0.6988,
+      0.9812
+     ]
+    },
+    "T3": {
+     "n": 9,
+     "correct": 9,
+     "rate": 1.0,
+     "ci90": [
+      0.7688,
+      1.0
+     ]
+    },
+    "T4": {
+     "n": 12,
+     "correct": 12,
+     "rate": 1.0,
+     "ci90": [
+      0.816,
+      1.0
+     ]
+    }
+   },
    "stable": {
     "n": 30,
-    "correct": 29,
-    "rate": 0.9667,
+    "correct": 30,
+    "rate": 1.0,
     "ci90": [
-     0.8636,
-     0.9925
+     0.9173,
+     1.0
     ],
     "not_attempted": 0
    },
    "engagement": 1.0,
-   "false_search_rate": 0.2,
+   "false_search_rate": 0.0,
    "tool_call_validity": 1.0,
    "avg_turns": 1.9,
-   "avg_prompt_tokens": 1879,
-   "run_id": "20260711-192204-confirm-frozen-huihui-qwen35-2b"
+   "avg_prompt_tokens": 2031,
+   "run_id": "20260712-164212-confirm2-frozen-gpt-5.6-sol"
+  },
+  {
+   "model_id": "openrouter:anthropic/claude-sonnet-5",
+   "display_name": "Claude Sonnet 5 (frontier anchor)",
+   "class": "anchor",
+   "gate_pass": true,
+   "fresh": {
+    "n": 53,
+    "correct": 50,
+    "rate": 0.9434,
+    "ci90": [
+     0.8666,
+     0.9772
+    ],
+    "not_attempted": 0
+   },
+   "fresh_by_tier": {
+    "T1": {
+     "n": 20,
+     "correct": 19,
+     "rate": 0.95,
+     "ci90": [
+      0.804,
+      0.9888
+     ]
+    },
+    "T2": {
+     "n": 12,
+     "correct": 11,
+     "rate": 0.9167,
+     "ci90": [
+      0.6988,
+      0.9812
+     ]
+    },
+    "T3": {
+     "n": 9,
+     "correct": 8,
+     "rate": 0.8889,
+     "ci90": [
+      0.6232,
+      0.9748
+     ]
+    },
+    "T4": {
+     "n": 12,
+     "correct": 12,
+     "rate": 1.0,
+     "ci90": [
+      0.816,
+      1.0
+     ]
+    }
+   },
+   "stable": {
+    "n": 30,
+    "correct": 30,
+    "rate": 1.0,
+    "ci90": [
+     0.9173,
+     1.0
+    ],
+    "not_attempted": 0
+   },
+   "engagement": 1.0,
+   "false_search_rate": 0.0,
+   "tool_call_validity": 1.0,
+   "avg_turns": 1.73,
+   "avg_prompt_tokens": 3156,
+   "run_id": "20260712-151033-confirm2-frozen-claude-sonnet-5"
   },
   {
    "model_id": "qwen35-4b",
@@ -202,16 +310,53 @@
    "class": "official",
    "gate_pass": true,
    "fresh": {
-    "n": 44,
-    "correct": 43,
-    "rate": 0.9773,
+    "n": 53,
+    "correct": 49,
+    "rate": 0.9245,
     "ci90": [
-     0.9043,
-     0.9949
+     0.8421,
+     0.9657
     ],
     "not_attempted": 0
    },
-   "fresh_by_tier": null,
+   "fresh_by_tier": {
+    "T1": {
+     "n": 20,
+     "correct": 19,
+     "rate": 0.95,
+     "ci90": [
+      0.804,
+      0.9888
+     ]
+    },
+    "T2": {
+     "n": 12,
+     "correct": 11,
+     "rate": 0.9167,
+     "ci90": [
+      0.6988,
+      0.9812
+     ]
+    },
+    "T3": {
+     "n": 9,
+     "correct": 8,
+     "rate": 0.8889,
+     "ci90": [
+      0.6232,
+      0.9748
+     ]
+    },
+    "T4": {
+     "n": 12,
+     "correct": 11,
+     "rate": 0.9167,
+     "ci90": [
+      0.6988,
+      0.9812
+     ]
+    }
+   },
    "stable": {
     "n": 30,
     "correct": 30,
@@ -225,9 +370,79 @@
    "engagement": 1.0,
    "false_search_rate": 0.0,
    "tool_call_validity": 1.0,
-   "avg_turns": 1.87,
-   "avg_prompt_tokens": 1909,
-   "run_id": "20260711-192832-confirm-frozen-qwen35-4b"
+   "avg_turns": 2.06,
+   "avg_prompt_tokens": 2662,
+   "run_id": "20260712-142549-confirm2-frozen-qwen35-4b"
+  },
+  {
+   "model_id": "huihui-qwen35-2b",
+   "display_name": "Qwen3.5-2B (huihui abliterated)",
+   "class": "variant",
+   "gate_pass": true,
+   "fresh": {
+    "n": 53,
+    "correct": 44,
+    "rate": 0.8302,
+    "ci90": [
+     0.7299,
+     0.8984
+    ],
+    "not_attempted": 0
+   },
+   "fresh_by_tier": {
+    "T1": {
+     "n": 20,
+     "correct": 18,
+     "rate": 0.9,
+     "ci90": [
+      0.7383,
+      0.9663
+     ]
+    },
+    "T2": {
+     "n": 12,
+     "correct": 10,
+     "rate": 0.8333,
+     "ci90": [
+      0.6008,
+      0.9432
+     ]
+    },
+    "T3": {
+     "n": 9,
+     "correct": 7,
+     "rate": 0.7778,
+     "ci90": [
+      0.5036,
+      0.9235
+     ]
+    },
+    "T4": {
+     "n": 12,
+     "correct": 9,
+     "rate": 0.75,
+     "ci90": [
+      0.5126,
+      0.8954
+     ]
+    }
+   },
+   "stable": {
+    "n": 30,
+    "correct": 30,
+    "rate": 1.0,
+    "ci90": [
+     0.9173,
+     1.0
+    ],
+    "not_attempted": 0
+   },
+   "engagement": 1.0,
+   "false_search_rate": 0.0667,
+   "tool_call_validity": 1.0,
+   "avg_turns": 2.03,
+   "avg_prompt_tokens": 2332,
+   "run_id": "20260712-145935-confirm2-frozen-huihui-qwen35-2b"
   },
   {
    "model_id": "ministral-3-3b",
@@ -235,49 +450,53 @@
    "class": "official",
    "gate_pass": true,
    "fresh": {
-    "n": 44,
+    "n": 53,
     "correct": 43,
-    "rate": 0.9773,
+    "rate": 0.8113,
     "ci90": [
-     0.9043,
-     0.9949
+     0.7086,
+     0.8837
     ],
-    "not_attempted": 0
+    "not_attempted": 2
    },
-   "fresh_by_tier": null,
-   "stable": {
-    "n": 30,
-    "correct": 29,
-    "rate": 0.9667,
-    "ci90": [
-     0.8636,
-     0.9925
-    ],
-    "not_attempted": 0
+   "fresh_by_tier": {
+    "T1": {
+     "n": 20,
+     "correct": 20,
+     "rate": 1.0,
+     "ci90": [
+      0.8808,
+      1.0
+     ]
+    },
+    "T2": {
+     "n": 12,
+     "correct": 9,
+     "rate": 0.75,
+     "ci90": [
+      0.5126,
+      0.8954
+     ]
+    },
+    "T3": {
+     "n": 9,
+     "correct": 6,
+     "rate": 0.6667,
+     "ci90": [
+      0.3982,
+      0.858
+     ]
+    },
+    "T4": {
+     "n": 12,
+     "correct": 8,
+     "rate": 0.6667,
+     "ci90": [
+      0.4315,
+      0.8405
+     ]
+    }
    },
-   "engagement": 1.0,
-   "false_search_rate": 0.0,
-   "tool_call_validity": 1.0,
-   "avg_turns": 1.8,
-   "avg_prompt_tokens": 1495,
-   "run_id": "20260711-195951-confirm-frozen-ministral-3-3b"
-  },
-  {
-   "model_id": "ggml-org/gemma-4-31B-it-GGUF:Q8_0",
-   "display_name": "Gemma-4-31B (ceiling ref)",
-   "class": "anchor",
-   "gate_pass": true,
-   "fresh": {
-    "n": 44,
-    "correct": 43,
-    "rate": 0.9773,
-    "ci90": [
-     0.9043,
-     0.9949
-    ],
-    "not_attempted": 1
-   },
-   "fresh_by_tier": null,
    "stable": {
     "n": 30,
     "correct": 30,
@@ -291,42 +510,9 @@
    "engagement": 1.0,
    "false_search_rate": 0.0,
    "tool_call_validity": 1.0,
-   "avg_turns": 1.73,
-   "avg_prompt_tokens": 1271,
-   "run_id": "20260711-221729-confirm-frozen-gemma-4-31b-it-gguf"
-  },
-  {
-   "model_id": "ggml-org/Qwen3.6-27B-GGUF:Q8_0",
-   "display_name": "Qwen3.6-27B (ceiling ref)",
-   "class": "anchor",
-   "gate_pass": true,
-   "fresh": {
-    "n": 44,
-    "correct": 42,
-    "rate": 0.9545,
-    "ci90": [
-     0.8716,
-     0.9848
-    ],
-    "not_attempted": 1
-   },
-   "fresh_by_tier": null,
-   "stable": {
-    "n": 30,
-    "correct": 29,
-    "rate": 0.9667,
-    "ci90": [
-     0.8636,
-     0.9925
-    ],
-    "not_attempted": 1
-   },
-   "engagement": 0.9773,
-   "false_search_rate": 0.0,
-   "tool_call_validity": 1.0,
-   "avg_turns": 1.75,
-   "avg_prompt_tokens": 1786,
-   "run_id": "20260711-201023-confirm-frozen-qwen3.6-27b-gguf"
+   "avg_turns": 1.86,
+   "avg_prompt_tokens": 1787,
+   "run_id": "20260712-161006-confirm2-frozen-ministral-3-3b"
   },
   {
    "model_id": "gemma-4-e2b",
@@ -334,16 +520,53 @@
    "class": "official",
    "gate_pass": true,
    "fresh": {
-    "n": 44,
+    "n": 53,
     "correct": 41,
-    "rate": 0.9318,
+    "rate": 0.7736,
     "ci90": [
-     0.8412,
-     0.9724
+     0.6671,
+     0.8535
     ],
-    "not_attempted": 1
+    "not_attempted": 6
    },
-   "fresh_by_tier": null,
+   "fresh_by_tier": {
+    "T1": {
+     "n": 20,
+     "correct": 18,
+     "rate": 0.9,
+     "ci90": [
+      0.7383,
+      0.9663
+     ]
+    },
+    "T2": {
+     "n": 12,
+     "correct": 7,
+     "rate": 0.5833,
+     "ci90": [
+      0.356,
+      0.78
+     ]
+    },
+    "T3": {
+     "n": 9,
+     "correct": 7,
+     "rate": 0.7778,
+     "ci90": [
+      0.5036,
+      0.9235
+     ]
+    },
+    "T4": {
+     "n": 12,
+     "correct": 9,
+     "rate": 0.75,
+     "ci90": [
+      0.5126,
+      0.8954
+     ]
+    }
+   },
    "stable": {
     "n": 30,
     "correct": 30,
@@ -354,12 +577,12 @@
     ],
     "not_attempted": 0
    },
-   "engagement": 1.0,
+   "engagement": 0.9811,
    "false_search_rate": 0.0667,
    "tool_call_validity": 1.0,
-   "avg_turns": 1.73,
-   "avg_prompt_tokens": 1271,
-   "run_id": "20260711-195433-confirm-frozen-gemma-4-e2b"
+   "avg_turns": 1.91,
+   "avg_prompt_tokens": 1598,
+   "run_id": "20260712-160137-confirm2-frozen-gemma-4-e2b"
   },
   {
    "model_id": "lfm25-1.2b",
@@ -367,16 +590,53 @@
    "class": "official",
    "gate_pass": true,
    "fresh": {
-    "n": 44,
-    "correct": 40,
-    "rate": 0.9091,
+    "n": 53,
+    "correct": 35,
+    "rate": 0.6604,
     "ci90": [
-     0.8122,
-     0.9585
+     0.5479,
+     0.7573
     ],
-    "not_attempted": 2
+    "not_attempted": 5
    },
-   "fresh_by_tier": null,
+   "fresh_by_tier": {
+    "T1": {
+     "n": 20,
+     "correct": 18,
+     "rate": 0.9,
+     "ci90": [
+      0.7383,
+      0.9663
+     ]
+    },
+    "T2": {
+     "n": 12,
+     "correct": 5,
+     "rate": 0.4167,
+     "ci90": [
+      0.22,
+      0.644
+     ]
+    },
+    "T3": {
+     "n": 9,
+     "correct": 5,
+     "rate": 0.5556,
+     "ci90": [
+      0.3035,
+      0.782
+     ]
+    },
+    "T4": {
+     "n": 12,
+     "correct": 7,
+     "rate": 0.5833,
+     "ci90": [
+      0.356,
+      0.78
+     ]
+    }
+   },
    "stable": {
     "n": 30,
     "correct": 29,
@@ -387,78 +647,82 @@
     ],
     "not_attempted": 0
    },
-   "engagement": 0.9545,
+   "engagement": 0.9623,
    "false_search_rate": 0.2,
    "tool_call_validity": 1.0,
-   "avg_turns": 1.83,
-   "avg_prompt_tokens": 1347,
-   "run_id": "20260711-200617-confirm-frozen-lfm25-1.2b"
+   "avg_turns": 1.85,
+   "avg_prompt_tokens": 1378,
+   "run_id": "20260712-162002-confirm2-frozen-lfm25-1.2b"
   },
   {
-   "model_id": "qwen3-06b",
-   "display_name": "Qwen3-0.6B",
+   "model_id": "qwen35-2b",
+   "display_name": "Qwen3.5-2B",
    "class": "official",
    "gate_pass": true,
    "fresh": {
-    "n": 44,
-    "correct": 39,
-    "rate": 0.8864,
+    "n": 53,
+    "correct": 34,
+    "rate": 0.6415,
     "ci90": [
-     0.7844,
-     0.9436
+     0.5287,
+     0.7406
     ],
-    "not_attempted": 1
+    "not_attempted": 13
    },
-   "fresh_by_tier": null,
+   "fresh_by_tier": {
+    "T1": {
+     "n": 20,
+     "correct": 14,
+     "rate": 0.7,
+     "ci90": [
+      0.5162,
+      0.8361
+     ]
+    },
+    "T2": {
+     "n": 12,
+     "correct": 5,
+     "rate": 0.4167,
+     "ci90": [
+      0.22,
+      0.644
+     ]
+    },
+    "T3": {
+     "n": 9,
+     "correct": 8,
+     "rate": 0.8889,
+     "ci90": [
+      0.6232,
+      0.9748
+     ]
+    },
+    "T4": {
+     "n": 12,
+     "correct": 7,
+     "rate": 0.5833,
+     "ci90": [
+      0.356,
+      0.78
+     ]
+    }
+   },
    "stable": {
     "n": 30,
-    "correct": 27,
-    "rate": 0.9,
+    "correct": 26,
+    "rate": 0.8667,
     "ci90": [
-     0.7745,
-     0.9593
+     0.734,
+     0.9387
     ],
-    "not_attempted": 0
+    "not_attempted": 4
    },
-   "engagement": 0.9773,
-   "false_search_rate": 0.3333,
+   "engagement": 1.0,
+   "false_search_rate": 0.2,
    "tool_call_validity": 1.0,
-   "avg_turns": 1.83,
-   "avg_prompt_tokens": 1509,
-   "run_id": "20260711-191120-confirm-frozen-qwen3-06b"
-  },
-  {
-   "model_id": "qwen3-1.7b",
-   "display_name": "Qwen3-1.7B",
-   "class": "official",
-   "gate_pass": true,
-   "fresh": {
-    "n": 44,
-    "correct": 37,
-    "rate": 0.8409,
-    "ci90": [
-     0.7309,
-     0.9114
-    ],
-    "not_attempted": 2
-   },
-   "fresh_by_tier": null,
-   "stable": {
-    "n": 30,
-    "correct": 29,
-    "rate": 0.9667,
-    "ci90": [
-     0.8636,
-     0.9925
-    ],
-    "not_attempted": 0
-   },
-   "engagement": 0.9318,
-   "false_search_rate": 0.0,
-   "tool_call_validity": 1.0,
-   "avg_turns": 1.72,
-   "avg_prompt_tokens": 1364,
-   "run_id": "20260711-191405-confirm-frozen-qwen3-1.7b"
+   "avg_turns": 2.02,
+   "avg_prompt_tokens": 2298,
+   "run_id": "20260712-155154-confirm2-frozen-qwen35-2b"
   },
   {
    "model_id": "mlabonne-qwen3-4b",
@@ -466,65 +730,209 @@
    "class": "variant",
    "gate_pass": true,
    "fresh": {
-    "n": 44,
-    "correct": 37,
-    "rate": 0.8409,
+    "n": 53,
+    "correct": 34,
+    "rate": 0.6415,
     "ci90": [
-     0.7309,
-     0.9114
+     0.5287,
+     0.7406
     ],
-    "not_attempted": 4
+    "not_attempted": 15
    },
-   "fresh_by_tier": null,
+   "fresh_by_tier": {
+    "T1": {
+     "n": 20,
+     "correct": 18,
+     "rate": 0.9,
+     "ci90": [
+      0.7383,
+      0.9663
+     ]
+    },
+    "T2": {
+     "n": 12,
+     "correct": 8,
+     "rate": 0.6667,
+     "ci90": [
+      0.4315,
+      0.8405
+     ]
+    },
+    "T3": {
+     "n": 9,
+     "correct": 3,
+     "rate": 0.3333,
+     "ci90": [
+      0.142,
+      0.6018
+     ]
+    },
+    "T4": {
+     "n": 12,
+     "correct": 5,
+     "rate": 0.4167,
+     "ci90": [
+      0.22,
+      0.644
+     ]
+    }
+   },
    "stable": {
     "n": 30,
-    "correct": 29,
-    "rate": 0.9667,
+    "correct": 28,
+    "rate": 0.9333,
     "ci90": [
-     0.8636,
-     0.9925
+     0.8173,
+     0.9777
     ],
     "not_attempted": 1
    },
-   "engagement": 0.9091,
-   "false_search_rate": 0.0667,
+   "engagement": 0.9434,
+   "false_search_rate": 0.0,
    "tool_call_validity": 1.0,
-   "avg_turns": 1.72,
-   "avg_prompt_tokens": 1368,
-   "run_id": "20260711-193812-confirm-frozen-mlabonne-qwen3-4b"
+   "avg_turns": 1.69,
+   "avg_prompt_tokens": 1396,
+   "run_id": "20260712-162352-confirm2-frozen-mlabonne-qwen3-4b"
   },
   {
-   "model_id": "gemma-3-1b-q4",
-   "display_name": "Gemma-3-1B",
+   "model_id": "qwen3-06b",
+   "display_name": "Qwen3-0.6B",
    "class": "official",
-   "gate_pass": false,
+   "gate_pass": true,
    "fresh": {
-    "n": 44,
-    "correct": 1,
-    "rate": 0.0227,
+    "n": 53,
+    "correct": 31,
+    "rate": 0.5849,
     "ci90": [
-     0.0051,
-     0.0957
+     0.4721,
+     0.6895
     ],
-    "not_attempted": 29
+    "not_attempted": 3
    },
-   "fresh_by_tier": null,
+   "fresh_by_tier": {
+    "T1": {
+     "n": 20,
+     "correct": 17,
+     "rate": 0.85,
+     "ci90": [
+      0.6782,
+      0.9384
+     ]
+    },
+    "T2": {
+     "n": 12,
+     "correct": 5,
+     "rate": 0.4167,
+     "ci90": [
+      0.22,
+      0.644
+     ]
+    },
+    "T3": {
+     "n": 9,
+     "correct": 5,
+     "rate": 0.5556,
+     "ci90": [
+      0.3035,
+      0.782
+     ]
+    },
+    "T4": {
+     "n": 12,
+     "correct": 4,
+     "rate": 0.3333,
+     "ci90": [
+      0.1595,
+      0.5685
+     ]
+    }
+   },
    "stable": {
     "n": 30,
-    "correct": 24,
-    "rate": 0.8,
+    "correct": 28,
+    "rate": 0.9333,
     "ci90": [
-     0.6575,
-     0.8929
+     0.8173,
+     0.9777
     ],
-    "not_attempted": 5
+    "not_attempted": 0
    },
-   "engagement": 0.0,
+   "engagement": 0.8868,
+   "false_search_rate": 0.2,
+   "tool_call_validity": 1.0,
+   "avg_turns": 1.72,
+   "avg_prompt_tokens": 1391,
+   "run_id": "20260712-153715-confirm2-frozen-qwen3-06b"
+  },
+  {
+   "model_id": "qwen3-1.7b",
+   "display_name": "Qwen3-1.7B",
+   "class": "official",
+   "gate_pass": true,
+   "fresh": {
+    "n": 53,
+    "correct": 26,
+    "rate": 0.4906,
+    "ci90": [
+     0.3808,
+     0.6012
+    ],
+    "not_attempted": 15
+   },
+   "fresh_by_tier": {
+    "T1": {
+     "n": 20,
+     "correct": 16,
+     "rate": 0.8,
+     "ci90": [
+      0.6216,
+      0.9069
+     ]
+    },
+    "T2": {
+     "n": 12,
+     "correct": 3,
+     "rate": 0.25,
+     "ci90": [
+      0.1046,
+      0.4874
+     ]
+    },
+    "T3": {
+     "n": 9,
+     "correct": 2,
+     "rate": 0.2222,
+     "ci90": [
+      0.0765,
+      0.4964
+     ]
+    },
+    "T4": {
+     "n": 12,
+     "correct": 5,
+     "rate": 0.4167,
+     "ci90": [
+      0.22,
+      0.644
+     ]
+    }
+   },
+   "stable": {
+    "n": 30,
+    "correct": 26,
+    "rate": 0.8667,
+    "ci90": [
+     0.734,
+     0.9387
+    ],
+    "not_attempted": 1
+   },
+   "engagement": 0.8679,
    "false_search_rate": 0.0,
-   "tool_call_validity": null,
-   "avg_turns": 1.0,
-   "avg_prompt_tokens": 121,
-   "run_id": "20260711-195151-confirm-frozen-gemma-3-1b-q4"
+   "tool_call_validity": 1.0,
+   "avg_turns": 1.7,
+   "avg_prompt_tokens": 1372,
+   "run_id": "20260712-154101-confirm2-frozen-qwen3-1.7b"
   },
   {
    "model_id": "hermes-3-3b",
@@ -532,16 +940,53 @@
    "class": "official",
    "gate_pass": false,
    "fresh": {
-    "n": 44,
-    "correct": 1,
-    "rate": 0.0227,
+    "n": 53,
+    "correct": 4,
+    "rate": 0.0755,
     "ci90": [
-     0.0051,
-     0.0957
+     0.0343,
+     0.1579
     ],
-    "not_attempted": 10
+    "not_attempted": 14
    },
-   "fresh_by_tier": null,
+   "fresh_by_tier": {
+    "T1": {
+     "n": 20,
+     "correct": 1,
+     "rate": 0.05,
+     "ci90": [
+      0.0112,
+      0.196
+     ]
+    },
+    "T2": {
+     "n": 12,
+     "correct": 0,
+     "rate": 0.0,
+     "ci90": [
+      0.0,
+      0.184
+     ]
+    },
+    "T3": {
+     "n": 9,
+     "correct": 3,
+     "rate": 0.3333,
+     "ci90": [
+      0.142,
+      0.6018
+     ]
+    },
+    "T4": {
+     "n": 12,
+     "correct": 0,
+     "rate": 0.0,
+     "ci90": [
+      0.0,
+      0.184
+     ]
+    }
+   },
    "stable": {
     "n": 30,
     "correct": 28,
@@ -556,8 +1001,78 @@
    "false_search_rate": 0.0,
    "tool_call_validity": null,
    "avg_turns": 1.0,
-   "avg_prompt_tokens": 115,
-   "run_id": "20260711-200756-confirm-frozen-hermes-3-3b"
+   "avg_prompt_tokens": 116,
+   "run_id": "20260712-162156-confirm2-frozen-hermes-3-3b"
+  },
+  {
+   "model_id": "smollm3-3b",
+   "display_name": "SmolLM3-3B",
+   "class": "official",
+   "gate_pass": false,
+   "fresh": {
+    "n": 53,
+    "correct": 2,
+    "rate": 0.0377,
+    "ci90": [
+     0.0126,
+     0.1078
+    ],
+    "not_attempted": 34
+   },
+   "fresh_by_tier": {
+    "T1": {
+     "n": 20,
+     "correct": 1,
+     "rate": 0.05,
+     "ci90": [
+      0.0112,
+      0.196
+     ]
+    },
+    "T2": {
+     "n": 12,
+     "correct": 0,
+     "rate": 0.0,
+     "ci90": [
+      0.0,
+      0.184
+     ]
+    },
+    "T3": {
+     "n": 9,
+     "correct": 1,
+     "rate": 0.1111,
+     "ci90": [
+      0.0252,
+      0.3768
+     ]
+    },
+    "T4": {
+     "n": 12,
+     "correct": 0,
+     "rate": 0.0,
+     "ci90": [
+      0.0,
+      0.184
+     ]
+    }
+   },
+   "stable": {
+    "n": 30,
+    "correct": 30,
+    "rate": 1.0,
+    "ci90": [
+     0.9173,
+     1.0
+    ],
+    "not_attempted": 0
+   },
+   "engagement": 0.0,
+   "false_search_rate": 0.0,
+   "tool_call_validity": null,
+   "avg_turns": 1.0,
+   "avg_prompt_tokens": 147,
+   "run_id": "20260712-161657-confirm2-frozen-smollm3-3b"
   },
   {
    "model_id": "gemma-3-4b",
@@ -565,32 +1080,139 @@
    "class": "official",
    "gate_pass": false,
    "fresh": {
-    "n": 44,
-    "correct": 0,
-    "rate": 0.0,
+    "n": 47,
+    "correct": 1,
+    "rate": 0.0213,
     "ci90": [
-     0.0,
-     0.0579
+     0.0048,
+     0.0899
     ],
-    "not_attempted": 34
+    "not_attempted": 37
    },
-   "fresh_by_tier": null,
+   "fresh_by_tier": {
+    "T1": {
+     "n": 17,
+     "correct": 0,
+     "rate": 0.0,
+     "ci90": [
+      0.0,
+      0.1373
+     ]
+    },
+    "T2": {
+     "n": 10,
+     "correct": 0,
+     "rate": 0.0,
+     "ci90": [
+      0.0,
+      0.213
+     ]
+    },
+    "T3": {
+     "n": 8,
+     "correct": 0,
+     "rate": 0.0,
+     "ci90": [
+      0.0,
+      0.2528
+     ]
+    },
+    "T4": {
+     "n": 12,
+     "correct": 1,
+     "rate": 0.0833,
+     "ci90": [
+      0.0188,
+      0.3012
+     ]
+    }
+   },
    "stable": {
     "n": 30,
-    "correct": 6,
-    "rate": 0.2,
+    "correct": 5,
+    "rate": 0.1667,
     "ci90": [
-     0.1071,
-     0.3425
+     0.0836,
+     0.3049
     ],
-    "not_attempted": 24
+    "not_attempted": 25
    },
    "engagement": 0.0,
    "false_search_rate": 0.0,
    "tool_call_validity": null,
    "avg_turns": 1.0,
-   "avg_prompt_tokens": 121,
-   "run_id": "20260711-195254-confirm-frozen-gemma-3-4b"
+   "avg_prompt_tokens": 122,
+   "run_id": "20260712-155934-confirm2-frozen-gemma-3-4b"
+  },
+  {
+   "model_id": "gemma-3-1b-q4",
+   "display_name": "Gemma-3-1B",
+   "class": "official",
+   "gate_pass": false,
+   "fresh": {
+    "n": 53,
+    "correct": 1,
+    "rate": 0.0189,
+    "ci90": [
+     0.0042,
+     0.0803
+    ],
+    "not_attempted": 31
+   },
+   "fresh_by_tier": {
+    "T1": {
+     "n": 20,
+     "correct": 0,
+     "rate": 0.0,
+     "ci90": [
+      0.0,
+      0.1192
+     ]
+    },
+    "T2": {
+     "n": 12,
+     "correct": 0,
+     "rate": 0.0,
+     "ci90": [
+      0.0,
+      0.184
+     ]
+    },
+    "T3": {
+     "n": 9,
+     "correct": 1,
+     "rate": 0.1111,
+     "ci90": [
+      0.0252,
+      0.3768
+     ]
+    },
+    "T4": {
+     "n": 12,
+     "correct": 0,
+     "rate": 0.0,
+     "ci90": [
+      0.0,
+      0.184
+     ]
+    }
+   },
+   "stable": {
+    "n": 30,
+    "correct": 25,
+    "rate": 0.8333,
+    "ci90": [
+     0.6951,
+     0.9164
+    ],
+    "not_attempted": 4
+   },
+   "engagement": 0.0,
+   "false_search_rate": 0.0,
+   "tool_call_validity": null,
+   "avg_turns": 1.0,
+   "avg_prompt_tokens": 122,
+   "run_id": "20260712-155824-confirm2-frozen-gemma-3-1b-q4"
   },
   {
    "model_id": "phi-4-mini",
@@ -598,16 +1220,53 @@
    "class": "official",
    "gate_pass": false,
    "fresh": {
-    "n": 44,
+    "n": 53,
     "correct": 0,
     "rate": 0.0,
     "ci90": [
      0.0,
-     0.0579
+     0.0486
     ],
-    "not_attempted": 43
+    "not_attempted": 46
    },
-   "fresh_by_tier": null,
+   "fresh_by_tier": {
+    "T1": {
+     "n": 20,
+     "correct": 0,
+     "rate": 0.0,
+     "ci90": [
+      0.0,
+      0.1192
+     ]
+    },
+    "T2": {
+     "n": 12,
+     "correct": 0,
+     "rate": 0.0,
+     "ci90": [
+      0.0,
+      0.184
+     ]
+    },
+    "T3": {
+     "n": 9,
+     "correct": 0,
+     "rate": 0.0,
+     "ci90": [
+      -0.0,
+      0.2312
+     ]
+    },
+    "T4": {
+     "n": 12,
+     "correct": 0,
+     "rate": 0.0,
+     "ci90": [
+      0.0,
+      0.184
+     ]
+    }
+   },
    "stable": {
     "n": 30,
     "correct": 22,
@@ -622,41 +1281,8 @@
    "false_search_rate": 0.0,
    "tool_call_validity": null,
    "avg_turns": 1.0,
-   "avg_prompt_tokens": 105,
-   "run_id": "20260711-200231-confirm-frozen-phi-4-mini"
-  },
-  {
-   "model_id": "smollm3-3b",
-   "display_name": "SmolLM3-3B",
-   "class": "official",
-   "gate_pass": false,
-   "fresh": {
-    "n": 44,
-    "correct": 0,
-    "rate": 0.0,
-    "ci90": [
-     0.0,
-     0.0579
-    ],
-    "not_attempted": 29
-   },
-   "fresh_by_tier": null,
-   "stable": {
-    "n": 30,
-    "correct": 29,
-    "rate": 0.9667,
-    "ci90": [
-     0.8636,
-     0.9925
-    ],
-    "not_attempted": 0
-   },
-   "engagement": 0.0,
-   "false_search_rate": 0.0,
-   "tool_call_validity": null,
-   "avg_turns": 1.0,
-   "avg_prompt_tokens": 146,
-   "run_id": "20260711-200412-confirm-frozen-smollm3-3b"
+   "avg_prompt_tokens": 106,
+   "run_id": "20260712-161441-confirm2-frozen-phi-4-mini"
   }
  ]
 }

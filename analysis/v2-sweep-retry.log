@@ -1442,3 +1442,206 @@ wrote 86 rows → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-
 [20260712-164212-confirm2-frozen-gpt-5.6-sol] 42/98 fr2-tech-07 ok turns=2 searches=1 reads=0
 [20260712-164212-confirm2-frozen-gpt-5.6-sol] 43/98 fr2-tech-08 ok turns=3 searches=2 reads=2
 [20260712-164212-confirm2-frozen-gpt-5.6-sol] 44/98 fr2-tech-09 ok turns=2 searches=2 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 45/98 fr2-tech-10 ok turns=2 searches=1 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 46/98 fr2-tech-11 ok turns=2 searches=1 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 47/98 fr2-tech-12 ok turns=2 searches=2 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 48/98 fr2-tech-13 ok turns=3 searches=4 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 49/98 fr2-tech-14 ok turns=2 searches=2 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 50/98 fr2-tech-15 ok turns=5 searches=3 reads=1
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 51/98 fr2-tech-16 ok turns=2 searches=1 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 52/98 fr2-tech-17 ok turns=3 searches=2 reads=2
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 53/98 fr2-tech-18 ok turns=2 searches=2 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 54/98 st-01 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 55/98 st-02 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 56/98 st-03 ok turns=2 searches=1 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 57/98 st-04 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 58/98 st-05 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 59/98 st-06 ok turns=2 searches=1 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 60/98 st-07 ok turns=2 searches=1 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 61/98 st-08 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 62/98 st-09 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 63/98 st-10 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 64/98 st-11 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 65/98 st-12 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 66/98 st-13 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 67/98 st-14 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 68/98 st-15 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 69/98 st-16 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 70/98 st-17 ok turns=2 searches=1 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 71/98 st-18 ok turns=2 searches=1 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 72/98 st-19 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 73/98 st-20 ok turns=2 searches=1 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 74/98 st-21 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 75/98 st-22 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 76/98 st-23 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 77/98 st-24 ok turns=2 searches=1 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 78/98 st-25 ok turns=2 searches=1 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 79/98 st-26 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 80/98 st-27 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 81/98 st-28 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 82/98 st-29 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 83/98 st-30 ok turns=2 searches=1 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 84/98 ns-01 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 85/98 ns-02 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 86/98 ns-03 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 87/98 ns-04 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 88/98 ns-05 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 89/98 ns-06 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 90/98 ns-07 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 91/98 ns-08 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 92/98 ns-09 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 93/98 ns-10 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 94/98 ns-11 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 95/98 ns-12 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 96/98 ns-13 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 97/98 ns-14 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] 98/98 ns-15 ok turns=1 searches=0 reads=0
+[20260712-164212-confirm2-frozen-gpt-5.6-sol] done in 590.2s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260712-164212-confirm2-frozen-gpt-5.6-sol
+=== judging ===
+20260712-153715-confirm2-frozen-qwen3-06b: {'CORRECT': 59, 'INCORRECT': 21, 'NOT_ATTEMPTED': 3, 'N/A': 15}
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260712-153715-confirm2-frozen-qwen3-06b/judgments.jsonl
+20260712-154101-confirm2-frozen-qwen3-1.7b: {'CORRECT': 52, 'INCORRECT': 15, 'NOT_ATTEMPTED': 16, 'N/A': 15}
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260712-154101-confirm2-frozen-qwen3-1.7b/judgments.jsonl
+20260712-155154-confirm2-frozen-qwen35-2b: {'CORRECT': 60, 'NOT_ATTEMPTED': 17, 'INCORRECT': 6, 'N/A': 15}
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260712-155154-confirm2-frozen-qwen35-2b/judgments.jsonl
+20260712-155824-confirm2-frozen-gemma-3-1b-q4: {'INCORRECT': 22, 'NOT_ATTEMPTED': 35, 'CORRECT': 26, 'N/A': 15}
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260712-155824-confirm2-frozen-gemma-3-1b-q4/judgments.jsonl
+20260712-155934-confirm2-frozen-gemma-3-4b: {'INCORRECT': 9, 'PARSE_FAIL': 6, 'NOT_ATTEMPTED': 62, 'CORRECT': 6, 'N/A': 15}
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260712-155934-confirm2-frozen-gemma-3-4b/judgments.jsonl
+20260712-160137-confirm2-frozen-gemma-4-e2b: {'CORRECT': 71, 'NOT_ATTEMPTED': 6, 'INCORRECT': 6, 'N/A': 15}
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260712-160137-confirm2-frozen-gemma-4-e2b/judgments.jsonl
+20260712-161006-confirm2-frozen-ministral-3-3b: {'CORRECT': 73, 'INCORRECT': 8, 'NOT_ATTEMPTED': 2, 'N/A': 15}
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260712-161006-confirm2-frozen-ministral-3-3b/judgments.jsonl
+20260712-161441-confirm2-frozen-phi-4-mini: {'NOT_ATTEMPTED': 50, 'INCORRECT': 11, 'CORRECT': 22, 'N/A': 15}
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260712-161441-confirm2-frozen-phi-4-mini/judgments.jsonl
+20260712-161657-confirm2-frozen-smollm3-3b: {'NOT_ATTEMPTED': 34, 'INCORRECT': 17, 'CORRECT': 32, 'N/A': 15}
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260712-161657-confirm2-frozen-smollm3-3b/judgments.jsonl
+20260712-162002-confirm2-frozen-lfm25-1.2b: {'CORRECT': 64, 'INCORRECT': 14, 'NOT_ATTEMPTED': 5, 'N/A': 15}
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260712-162002-confirm2-frozen-lfm25-1.2b/judgments.jsonl
+20260712-162156-confirm2-frozen-hermes-3-3b: {'INCORRECT': 37, 'CORRECT': 32, 'NOT_ATTEMPTED': 14, 'N/A': 15}
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260712-162156-confirm2-frozen-hermes-3-3b/judgments.jsonl
+20260712-162352-confirm2-frozen-mlabonne-qwen3-4b: {'CORRECT': 62, 'INCORRECT': 5, 'NOT_ATTEMPTED': 16, 'N/A': 15}
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260712-162352-confirm2-frozen-mlabonne-qwen3-4b/judgments.jsonl
+20260712-164212-confirm2-frozen-gpt-5.6-sol: {'CORRECT': 82, 'INCORRECT': 1, 'N/A': 15}
+done → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260712-164212-confirm2-frozen-gpt-5.6-sol/judgments.jsonl
+=== aggregating ===
+20260710-203213-smoke-shipped-qwen3-1.7b: fresh=None stable=1.0 validity=1.0 engage=1.0
+20260710-224020-probe-shipped-gemma-3-4b: fresh=None stable=None validity=None engage=0.0
+20260710-224024-probe-shipped-ministral-3-3b: fresh=None stable=None validity=1.0 engage=1.0
+20260710-224034-probe-shipped-qwen35-4b: fresh=None stable=None validity=1.0 engage=1.0
+20260710-224310-screen-shipped-qwen3-1.7b: fresh=0.7 stable=0.875 validity=1.0 engage=0.85
+20260710-224651-screen-floor-notool-qwen3-1.7b: fresh=0.0 stable=0.875 validity=None engage=0.0
+20260710-224903-screen-screen-rc3-qwen3-1.7b: fresh=0.75 stable=0.875 validity=1.0 engage=0.85
+20260710-225215-screen-screen-rc8-qwen3-1.7b: fresh=0.65 stable=0.875 validity=1.0 engage=0.85
+20260710-225552-screen-screen-fmt-compact-qwen3-1.7b: fresh=0.7 stable=0.875 validity=1.0 engage=0.8
+20260710-225911-screen-screen-fmt-markdown-qwen3-1.7b: fresh=0.75 stable=1.0 validity=1.0 engage=0.85
+20260710-230226-screen-screen-fmt-json-qwen3-1.7b: fresh=0.75 stable=0.875 validity=1.0 engage=0.85
+20260710-230531-screen-screen-snip140-qwen3-1.7b: fresh=0.7 stable=1.0 validity=1.0 engage=0.85
+20260710-230830-screen-screen-snip-full-qwen3-1.7b: fresh=0.7 stable=1.0 validity=1.0 engage=0.85
+20260710-231149-screen-screen-sp-dateonly-qwen3-1.7b: fresh=0.8 stable=0.875 validity=1.0 engage=0.95
+20260710-231536-screen-screen-sp-guided-qwen3-1.7b: fresh=0.85 stable=0.875 validity=1.0 engage=1.0
+20260710-231840-screen-screen-td-enriched-qwen3-1.7b: fresh=0.95 stable=1.0 validity=1.0 engage=1.0
+20260710-232202-screen-screen-prov-brave-qwen3-1.7b: fresh=0.9 stable=1.0 validity=1.0 engage=0.9
+20260710-232532-screen-screen-read-off-qwen3-1.7b: fresh=0.8 stable=1.0 validity=1.0 engage=0.9
+20260710-232857-screen-screen-read-encouraged-qwen3-1.7b: fresh=0.75 stable=0.75 validity=1.0 engage=0.85
+20260710-233220-screen-screen-readlim2400-qwen3-1.7b: fresh=0.8 stable=1.0 validity=1.0 engage=0.95
+20260710-233552-screen-screen-readlim9600-qwen3-1.7b: fresh=0.8 stable=1.0 validity=1.0 engage=0.95
+20260710-233916-screen-screen-turns3-qwen3-1.7b: fresh=0.85 stable=0.875 validity=1.0 engage=0.95
+20260710-234230-screen-screen-turns8-qwen3-1.7b: fresh=0.75 stable=0.875 validity=1.0 engage=0.8
+20260710-234546-screen-shipped-ministral-3-3b: fresh=0.8 stable=1.0 validity=1.0 engage=1.0
+20260710-234748-screen-floor-notool-ministral-3-3b: fresh=0.05 stable=1.0 validity=None engage=0.0
+20260710-234816-screen-screen-rc3-ministral-3-3b: fresh=0.85 stable=0.875 validity=1.0 engage=0.95
+20260710-234943-screen-screen-rc8-ministral-3-3b: fresh=0.8 stable=1.0 validity=1.0 engage=0.95
+20260710-235143-screen-screen-fmt-compact-ministral-3-3b: fresh=0.8 stable=1.0 validity=1.0 engage=0.95
+20260710-235328-screen-screen-fmt-markdown-ministral-3-3b: fresh=0.9 stable=1.0 validity=1.0 engage=1.0
+20260710-235451-screen-screen-fmt-json-ministral-3-3b: fresh=0.85 stable=0.875 validity=1.0 engage=1.0
+20260710-235613-screen-screen-snip140-ministral-3-3b: fresh=0.85 stable=0.75 validity=1.0 engage=1.0
+20260710-235825-screen-screen-snip-full-ministral-3-3b: fresh=0.75 stable=1.0 validity=1.0 engage=0.95
+20260711-000001-screen-screen-sp-dateonly-ministral-3-3b: fresh=0.85 stable=1.0 validity=1.0 engage=0.9
+20260711-000159-screen-screen-sp-guided-ministral-3-3b: fresh=0.95 stable=1.0 validity=1.0 engage=1.0
+20260711-000342-screen-screen-td-enriched-ministral-3-3b: fresh=1.0 stable=0.875 validity=1.0 engage=1.0
+20260711-000529-screen-screen-prov-brave-ministral-3-3b: fresh=0.9 stable=1.0 validity=1.0 engage=1.0
+20260711-000648-screen-screen-read-off-ministral-3-3b: fresh=0.85 stable=1.0 validity=1.0 engage=1.0
+20260711-000759-screen-screen-read-encouraged-ministral-3-3b: fresh=0.75 stable=1.0 validity=1.0 engage=1.0
+20260711-001056-screen-screen-readlim2400-ministral-3-3b: fresh=0.9 stable=1.0 validity=1.0 engage=1.0
+20260711-001208-screen-screen-readlim9600-ministral-3-3b: fresh=0.9 stable=0.875 validity=1.0 engage=1.0
+20260711-001340-screen-screen-turns3-ministral-3-3b: fresh=0.8 stable=1.0 validity=1.0 engage=1.0
+20260711-001547-screen-screen-turns8-ministral-3-3b: fresh=0.9 stable=1.0 validity=1.0 engage=1.0
+20260711-084941-ablate-shipped-qwen3-1.7b: fresh=0.7727 stable=0.9333 validity=1.0 engage=0.9091
+20260711-085839-ablate-floor-notool-qwen3-1.7b: fresh=0.0227 stable=0.8333 validity=None engage=0.0
+20260711-090347-ablate-a1-td-brave-qwen3-1.7b: fresh=0.75 stable=0.9667 validity=1.0 engage=0.9091
+20260711-091254-ablate-a2-td-brave-md-qwen3-1.7b: fresh=0.8864 stable=0.9333 validity=1.0 engage=0.9318
+20260711-092057-ablate-a3-td-brave-guided2-qwen3-1.7b: fresh=0.8409 stable=1.0 validity=1.0 engage=0.9545
+20260711-092819-ablate-a4-td-brave-readoff-qwen3-1.7b: fresh=0.8182 stable=0.9667 validity=1.0 engage=0.8636
+20260711-093535-ablate-a5-td-guided2-qwen3-1.7b: fresh=0.7045 stable=0.9333 validity=1.0 engage=0.9545
+20260711-094316-ablate-a6-full-combo-qwen3-1.7b: fresh=0.7955 stable=0.9667 validity=1.0 engage=0.9545
+20260711-095022-ablate-shipped-ministral-3-3b: fresh=0.9773 stable=1.0 validity=1.0 engage=1.0
+20260711-095511-ablate-floor-notool-ministral-3-3b: fresh=0.0227 stable=0.9667 validity=None engage=0.0
+20260711-095619-ablate-a1-td-brave-ministral-3-3b: fresh=0.9318 stable=0.9333 validity=1.0 engage=1.0
+20260711-100015-ablate-a2-td-brave-md-ministral-3-3b: fresh=0.9773 stable=0.9667 validity=1.0 engage=1.0
+20260711-100320-ablate-a3-td-brave-guided2-ministral-3-3b: fresh=0.9773 stable=1.0 validity=1.0 engage=1.0
+20260711-100632-ablate-a4-td-brave-readoff-ministral-3-3b: fresh=1.0 stable=0.9333 validity=1.0 engage=1.0
+20260711-100845-ablate-a5-td-guided2-ministral-3-3b: fresh=0.8636 stable=0.9667 validity=1.0 engage=1.0
+20260711-101413-ablate-a6-full-combo-ministral-3-3b: fresh=0.9318 stable=1.0 validity=1.0 engage=1.0
+20260711-105748-tiebreak-a2-td-brave-md-qwen3-06b: fresh=0.8864 stable=0.9 validity=1.0 engage=0.9773
+20260711-110140-tiebreak-a3-td-brave-guided2-qwen3-06b: fresh=0.9091 stable=0.9 validity=1.0 engage=0.9545
+20260711-110426-tiebreak-shipped-qwen3-06b: fresh=0.5682 stable=0.7667 validity=1.0 engage=0.7727
+20260711-110745-tiebreak-a2-td-brave-md-gemma-4-e2b: fresh=0.9318 stable=1.0 validity=1.0 engage=1.0
+20260711-111335-tiebreak-a3-td-brave-guided2-gemma-4-e2b: fresh=0.8636 stable=1.0 validity=1.0 engage=0.9773
+20260711-112025-tiebreak-shipped-gemma-4-e2b: fresh=0.8409 stable=1.0 validity=1.0 engage=1.0
+20260711-191120-confirm-frozen-qwen3-06b: fresh=0.8864 stable=0.9 validity=1.0 engage=0.9773
+20260711-191405-confirm-frozen-qwen3-1.7b: fresh=0.8409 stable=0.9667 validity=1.0 engage=0.9318
+20260711-192204-confirm-frozen-huihui-qwen35-2b: fresh=0.9773 stable=0.9667 validity=1.0 engage=1.0
+20260711-192832-confirm-frozen-qwen35-4b: fresh=0.9773 stable=1.0 validity=1.0 engage=1.0
+20260711-193812-confirm-frozen-mlabonne-qwen3-4b: fresh=0.8409 stable=0.9667 validity=1.0 engage=0.9091
+20260711-195151-confirm-frozen-gemma-3-1b-q4: fresh=0.0227 stable=0.8 validity=None engage=0.0
+20260711-195254-confirm-frozen-gemma-3-4b: fresh=0.0 stable=0.2 validity=None engage=0.0
+20260711-195433-confirm-frozen-gemma-4-e2b: fresh=0.9318 stable=1.0 validity=1.0 engage=1.0
+20260711-195951-confirm-frozen-ministral-3-3b: fresh=0.9773 stable=0.9667 validity=1.0 engage=1.0
+20260711-200231-confirm-frozen-phi-4-mini: fresh=0.0 stable=0.7333 validity=None engage=0.0
+20260711-200412-confirm-frozen-smollm3-3b: fresh=0.0 stable=0.9667 validity=None engage=0.0
+20260711-200617-confirm-frozen-lfm25-1.2b: fresh=0.9091 stable=0.9667 validity=1.0 engage=0.9545
+20260711-200756-confirm-frozen-hermes-3-3b: fresh=0.0227 stable=0.9333 validity=None engage=0.0
+20260711-201023-confirm-frozen-qwen3.6-27b-gguf: fresh=0.9545 stable=0.9667 validity=1.0 engage=0.9773
+20260711-221729-confirm-frozen-gemma-4-31b-it-gguf: fresh=0.9773 stable=1.0 validity=1.0 engage=1.0
+20260712-083638-floorfix-floor-notool-huihui-qwen35-2b: fresh=0.0 stable=0.4333 validity=None engage=0.0
+20260712-085121-floorfix-floor-notool-qwen35-4b: fresh=0.0 stable=0.7667 validity=None engage=0.0
+20260712-135227-floor2-floor-notool-qwen35-4b: fresh=0.0 stable=0.7333 validity=None engage=0.0
+20260712-142549-confirm2-frozen-qwen35-4b: fresh=0.9245 stable=1.0 validity=1.0 engage=1.0
+20260712-145935-confirm2-frozen-huihui-qwen35-2b: fresh=0.8302 stable=1.0 validity=1.0 engage=1.0
+20260712-151033-confirm2-frozen-claude-sonnet-5: fresh=0.9434 stable=1.0 validity=1.0 engage=1.0
+20260712-153543-floor2-floor-notool-ministral-3-3b: fresh=0.0189 stable=0.9333 validity=None engage=0.0
+20260712-153715-confirm2-frozen-qwen3-06b: fresh=0.5849 stable=0.9333 validity=1.0 engage=0.8868
+20260712-154101-confirm2-frozen-qwen3-1.7b: fresh=0.4906 stable=0.8667 validity=1.0 engage=0.8679
+20260712-155154-confirm2-frozen-qwen35-2b: fresh=0.6415 stable=0.8667 validity=1.0 engage=1.0
+20260712-155824-confirm2-frozen-gemma-3-1b-q4: fresh=0.0189 stable=0.8333 validity=None engage=0.0
+20260712-155934-confirm2-frozen-gemma-3-4b: fresh=0.0213 stable=0.1667 validity=None engage=0.0
+20260712-160137-confirm2-frozen-gemma-4-e2b: fresh=0.7736 stable=1.0 validity=1.0 engage=0.9811
+20260712-161006-confirm2-frozen-ministral-3-3b: fresh=0.8113 stable=1.0 validity=1.0 engage=1.0
+20260712-161441-confirm2-frozen-phi-4-mini: fresh=0.0 stable=0.7333 validity=None engage=0.0
+20260712-161657-confirm2-frozen-smollm3-3b: fresh=0.0377 stable=1.0 validity=None engage=0.0
+20260712-162002-confirm2-frozen-lfm25-1.2b: fresh=0.6604 stable=0.9667 validity=1.0 engage=0.9623
+20260712-162156-confirm2-frozen-hermes-3-3b: fresh=0.0755 stable=0.9333 validity=None engage=0.0
+20260712-162352-confirm2-frozen-mlabonne-qwen3-4b: fresh=0.6415 stable=0.9333 validity=1.0 engage=0.9434
+20260712-164212-confirm2-frozen-gpt-5.6-sol: fresh=0.9811 stable=1.0 validity=1.0 engage=1.0
+wrote 99 rows → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/analysis/scores.jsonl
+{
+  "tag": "confirm2",
+  "run_ids": [
+    "20260712-153715-confirm2-frozen-qwen3-06b",
+    "20260712-154101-confirm2-frozen-qwen3-1.7b",
+    "20260712-155154-confirm2-frozen-qwen35-2b",
+    "20260712-155824-confirm2-frozen-gemma-3-1b-q4",
+    "20260712-155934-confirm2-frozen-gemma-3-4b",
+    "20260712-160137-confirm2-frozen-gemma-4-e2b",
+    "20260712-161006-confirm2-frozen-ministral-3-3b",
+    "20260712-161441-confirm2-frozen-phi-4-mini",
+    "20260712-161657-confirm2-frozen-smollm3-3b",
+    "20260712-162002-confirm2-frozen-lfm25-1.2b",
+    "20260712-162156-confirm2-frozen-hermes-3-3b",
+    "20260712-162352-confirm2-frozen-mlabonne-qwen3-4b",
+    "20260712-164212-confirm2-frozen-gpt-5.6-sol"
+  ],
+  "failures": [],
+  "wall_seconds": 4668.5
+}
