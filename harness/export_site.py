@@ -98,6 +98,8 @@ def load_page_content(doc_dataset_version, doc_config_hash, out_rows, config_val
             errs.append(f"config_notes key {k!r} is not a config value key")
         _check_text(f"config_notes.{k}", v, CAPS["config_note"], errs)
     for i, m in enumerate(c.get("metric_definitions", [])):
+        # label is now a COLUMN HEADER on the page — cap it like any other label
+        _check_text(f"metric_definitions[{i}].label", m.get("label"), CAPS["label"], errs)
         _check_text(f"metric_definitions[{i}].description", m.get("description"), CAPS["metric_description"], errs)
     for i, g in enumerate(c.get("gate_failures", [])):
         _check_text(f"gate_failures[{i}].mechanism", g.get("mechanism"), CAPS["mechanism"], errs)

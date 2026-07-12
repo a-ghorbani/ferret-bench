@@ -1,7 +1,7 @@
 {
  "benchmark": "ferret-bench — agentic web search for small on-device LLMs",
  "source": "https://github.com/a-ghorbani/ferret-bench",
- "generated_at": "2026-07-12T14:01:59Z",
+ "generated_at": "2026-07-12T14:48:11Z",
  "sweep_tag": "confirm",
  "dataset_version": "v1",
  "dataset_sha256": "d350275558b05c03678cb8b23ad9070fc6123ba06b9fc03c8c14e88a7d149859",
@@ -105,7 +105,7 @@
    },
    {
     "key": "false_search_rate",
-    "label": "Searches when it shouldn't",
+    "label": "Needless searches",
     "description": "How often the model searches on requests that need no web access, such as writing a haiku or doing arithmetic. Wasted latency and API calls.",
     "lower_is_better": true
    },
@@ -119,6 +119,12 @@
     "key": "avg_turns",
     "label": "Turns",
     "description": "Average round trips through the search loop per question. On a phone each turn is a full prompt re-processing, so turns dominate response time.",
+    "lower_is_better": true
+   },
+   {
+    "key": "avg_prompt_tokens",
+    "label": "Prompt size",
+    "description": "Average tokens sent to the model per question, summed across the loop. Search results and fetched pages dominate it. On a phone this is the number that sets how long an answer takes and how much context is left for the answer itself.",
     "lower_is_better": true
    }
   ],
