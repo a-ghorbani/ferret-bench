@@ -84,3 +84,20 @@ Append-only. Decisions, findings, surprises, dead ends.
 - report.md written: all RQ1–7 answered with run ids; limitations include ceiling-effect caveat, single-seed, EN-only.
 - Secret scan: full history (2,918 blobs), grep-based key patterns (brave/tavily/openrouter/gh/etc.): 0 hits. gitleaks unavailable on box; pattern scan logged as the method.
 - Adversarial review: fresh-context subagent launched, repo-only access, brief = invalidate conclusions; findings will be resolved in this journal before COMPLETE.
+
+## 2026-07-12 — Floor verification + COMPLETE
+
+- Floorfix runs (0 failures): huihui-qwen35-2b floor fresh 0/44, qwen35-4b floor fresh 0/44 (runs 20260712-083638/085121) — stronger than the pre-written 1/44 claim; report corrected to 0.000. Rank-1 results are retrieval, not memory. Review finding #5 fully closed.
+- Final aggregate + leaderboards regenerated. Setting phase=COMPLETE; checklist evidence in this entry's sibling (final reply) and below.
+- Completion Checklist:
+  - [x] Every RQ answered in report.md (RQ1–7, with evidence tiers)
+  - [x] Every numeric claim cites run ids present in runs/ (regenerated from v2 scores.jsonl post-review)
+  - [x] frozen-config/ populated with per-value provenance (bundle-tier framing)
+  - [x] Confirmation sweep executed through the packaged harness (sweep.py, runs 20260711-19*..22*-confirm-*)
+  - [x] README: re-run sweep / add model / refresh dataset / regen report — all documented
+  - [x] Adversarial review ran pre-COMPLETE; 11/11 findings accepted & addressed (journal 2026-07-12)
+  - [x] Amendment log complete (#1–#8)
+  - [x] analysis/ machine-readable (scores.jsonl); report regenerable
+  - [x] Limitations & not-tested present (incl. saturation, bundle-vs-factor, judge independence)
+  - [x] Repo committed; history shows phase transitions and amendments
+  - [x] Pushed to private GitHub (a-ghorbani/ferret-bench); full-history secret scan clean (2,918 blobs, 0 hits; public flip remains user decision)

@@ -1,5 +1,5 @@
-phase: REPORT
-updated: 2026-07-12T00:45:00Z
+phase: COMPLETE
+updated: 2026-07-12T09:30:00Z
 blocked_on: -
-next: (1) resolve adversarial-review findings (accept/rebut in JOURNAL); (2) completion checklist with evidence; (3) final commit/push, phase=COMPLETE
-progress: confirm 15/15 zero failures; leaderboard + report.md done; secret scan clean; adversarial review running
+next: (user decisions) publish repo public after final read-through; hand frozen-config/ to pocketpal-dev-team; v2 dataset refresh with harder/multi-hop items when needed
+progress: COMPLETE — frozen config (a2 bundle) with provenance; 15-model confirm sweep via packaged harness; report answers RQ1-7; adversarial review 11/11 findings resolved; secret scan clean
