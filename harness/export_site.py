@@ -225,7 +225,7 @@ def main():
     first_manifest = json.loads((REPO_DIR / "runs" / rows[0]["run_id"] / "manifest.json").read_text())
     CONFIG_VALUE_KEYS = ("provider", "result_count", "result_format", "tool_desc", "system_prompt",
                          "snippet_chars", "menu_token_ceiling", "read_url_policy",
-                         "read_content_chars", "max_turns", "untrusted_wrapper", "gen")
+                         "read_content_chars", "max_turns", "untrusted_wrapper", "enable_thinking", "gen")
     config_values = {k: first_manifest["config"].get(k) for k in CONFIG_VALUE_KEYS}
 
     # dataset counts + anchor date from the version's meta.json

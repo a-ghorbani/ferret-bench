@@ -1,114 +1,121 @@
 {
- "_README": "Interpretive text for the public leaderboard page. THESE ARE CLAIMS ABOUT RESULTS — they are only true of the runs named below. export_site.py hard-fails if for_dataset_version / for_config_hash do not match the sweep being exported, and cross-checks band_separated + floor_note against the actual data. If a re-run changes the picture, rewrite this file; do not loosen the checks.",
- "content_schema_version": 1,
- "for_dataset_version": "v2",
- "for_config_hash": "2e5a782618fe49a2ce10cb35a532e8d6cefb276c5ab570c12fca9d22cbe6a152",
- "band_separated": true,
- "headline_findings": [
-  {
-   "value": "0.92",
-   "label": "Best on-device score",
-   "detail": "Qwen3.5-4B answers 49 of 53 retrieval-required questions correctly — within statistical noise of a frontier cloud model run through the identical search loop."
+  "_README": "Interpretive text for the public leaderboard page. THESE ARE CLAIMS ABOUT RESULTS — they are only true of the runs named below. export_site.py hard-fails if for_dataset_version / for_config_hash do not match the sweep being exported, and cross-checks band_separated + floor_note against the actual data. If a re-run changes the picture, rewrite this file; do not loosen the checks.",
+  "content_schema_version": 1,
+  "for_dataset_version": "v2",
+  "for_config_hash": "bbb5cdbf1e9f18d79598d8a5f83f79e7c7a5b5b5501b4ea0351c918c19fe446c",
+  "band_separated": true,
+  "headline_findings": [
+    {
+      "value": "0.89",
+      "label": "Best on-device score",
+      "detail": "Qwen3.5-4B answers 47 of 53 retrieval questions correctly. The two cloud reference models get 52 — the gap to frontier is real, but small."
+    },
+    {
+      "value": "0/53",
+      "label": "No search, no answers",
+      "detail": "With tools switched off, Qwen3.5-4B answers none of the 53 retrieval questions and Ministral-3-3B answers one. Every point here is earned by searching."
+    },
+    {
+      "value": "0.89 → 0.55",
+      "label": "Easy vs hard retrieval",
+      "detail": "Pooled across the nine on-device models that can search: 0.89 when the answer sits in the search results, 0.55 when it needs several sources or a follow-up. The cloud references do not drop at all."
+    },
+    {
+      "value": "2–6×",
+      "label": "The cost of thinking",
+      "detail": "Turning on a model's reasoning mode generates 2–6x more tokens per question and does not measurably improve answers (+0.02, p=0.64). We run every model with thinking off."
+    },
+    {
+      "value": "5 of 14",
+      "label": "Never offered the tools",
+      "detail": "Five candidates make zero tool calls — because their chat templates never put the tool definitions into the prompt. A packaging bug, not a model verdict."
+    }
+  ],
+  "config_notes": {
+    "provider": "Brave is the recommended default: it beat Tavily during configuration screening and used fewer prompt tokens on most models. Tavily remains fully supported.",
+    "result_format": "Markdown-formatted results beat the shipped labelled blocks; JSON and compact numbered lists were both worse and were eliminated.",
+    "tool_desc": "Enriched tool descriptions (what the tool is for, plus a hint to write short keyword queries) were the largest single effect seen in screening.",
+    "result_count": "Five results is the shipped default and nothing beat it. Note that asking for more can be a no-op: the result menu is capped by a token ceiling that silently drops trailing hits.",
+    "snippet_chars": "280-character snippets retained. Shorter truncation lost information; full-length snippets cost many more tokens for no gain.",
+    "read_url_policy": "Page reading stays available but earns its keep rarely — snippets answer most questions, and models call read_url on well under half a page per question.",
+    "max_turns": "A five-turn budget is not the binding constraint: the winning configurations average under two turns per question.",
+    "system_prompt": "Shipped grounding line retained. A prescriptive 'strategy' prompt raised accuracy but triggered needless searches, and pairing it with markdown was worse than either alone.",
+    "enable_thinking": "Off. Reasoning mode costs 2-6x the generated tokens for no measurable gain in answer quality — a bad trade on a phone, in a loop already full of search results. Turning it off also makes every model comparable."
   },
-  {
-   "value": "0/53",
-   "label": "No search, no answers",
-   "detail": "Re-run with tools switched off, Qwen3.5-4B answers none of the 53 retrieval questions and Ministral-3-3B answers one. Every point on this board is earned by searching, not remembered."
+  "metric_definitions": [
+    {
+      "key": "fresh",
+      "label": "Fresh ✓",
+      "description": "Share of retrieval-required questions answered correctly. These ask about events after the models' training data, so they cannot be answered from memory. This is the primary score.",
+      "lower_is_better": false
+    },
+    {
+      "key": "stable",
+      "label": "Stable ✓",
+      "description": "Share of timeless general-knowledge questions answered correctly. Checks that adding web search does not damage what a model already knew.",
+      "lower_is_better": false
+    },
+    {
+      "key": "engagement",
+      "label": "Searches when needed",
+      "description": "How often the model actually searches on a question that requires it. The dominant failure mode for small models is not searching at all.",
+      "lower_is_better": false
+    },
+    {
+      "key": "false_search_rate",
+      "label": "Needless searches",
+      "description": "How often the model searches on requests that need no web access, such as writing a haiku or doing arithmetic. Wasted latency and API calls.",
+      "lower_is_better": true
+    },
+    {
+      "key": "tool_call_validity",
+      "label": "Valid tool calls",
+      "description": "Share of the model's tool calls that are well-formed and executable. A model that cannot produce valid calls cannot search at all.",
+      "lower_is_better": false
+    },
+    {
+      "key": "avg_turns",
+      "label": "Turns",
+      "description": "Average round trips through the search loop per question. On a phone each turn is a full prompt re-processing, so turns dominate response time.",
+      "lower_is_better": true
+    },
+    {
+      "key": "avg_prompt_tokens",
+      "label": "Prompt size",
+      "description": "Average tokens sent to the model per question, summed across the loop. Search results and fetched pages dominate it. On a phone this is the number that sets how long an answer takes and how much context is left for the answer itself.",
+      "lower_is_better": true
+    }
+  ],
+  "gate_failures": [
+    {
+      "title": "The tool definitions never reach these models",
+      "models": [
+        "Gemma-3-4B",
+        "Gemma-3-1B",
+        "Hermes-3-3B",
+        "Phi-4-mini",
+        "SmolLM3-3B"
+      ],
+      "mechanism": "All five ship chat templates that never render the tool definitions. The runtime decides whether a model supports tool calling by test-rendering its template; if the template ignores tools, the schemas are silently left out of the prompt. Measured: these five receive 105-146 tokens (system line + question); every working model receives 363-576. The missing tokens are the tool definitions. This is not a verdict on the models — they were never offered the tools. Gemma-3 fails visibly, improvising Google's tool_code syntax. Hermes-3 fails dangerously, inventing fake citations. Phi-4-mini says it cannot browse — given what it was sent, that is honest. The fix is a tool-declaring chat template."
+    }
+  ],
+  "limitations": [
+    "Questions are single-fact and English-only, drawn from one eight-week news window. A model tuned on other topics or languages could rank differently.",
+    "Correctness is graded by an LLM judge against a human-verified gold answer. The judge was validated against hand-labelled samples, but it is not a human grader.",
+    "The configuration was tuned on an earlier question set and then frozen. These scores all use that same frozen setup; they are not each model's best possible score.",
+    "Models are compared at the quantisation shown in the table. Three run at a higher or lower bit-width than the rest, which is a real difference in the weights, not just the wrapper.",
+    "Quality is measured on a workstation running the same quantised model files a phone would run. Battery, heat and on-device latency are not measured; turns and prompt size are the stand-ins.",
+    "Fresh questions go stale by design. Scores are only comparable within one dataset version, which is why the version is stamped on this page.",
+    "Each question is asked once, so differences of a few points between neighbouring models are not resolved."
+  ],
+  "band_note": "This board does resolve an order. Harder questions — ones needing several sources, or a second search that depends on the first — separate the models that everyday lookups could not: the top on-device model is now clearly ahead of the bottom of the working band. Neighbouring rows still sit within noise of each other, so read the groupings rather than the exact positions.",
+  "floor_note": "0.00–0.02",
+  "config_lift_note": "Configuration is worth as much as model choice at this size. On the earlier v1 question set, tuning it (richer tool descriptions, Brave, markdown results) lifted pooled correctness across four models from 0.79 to 0.92. The config was then frozen; these scores all use it unchanged, with reasoning mode off for every model.",
+  "tier_notes": {
+    "T1": "“Who won the final?” The answer is right there in the search results.",
+    "T2": "The answer is inside the article, not in the search snippet, so the model has to open the page.",
+    "T3": "Needs two different sources put together; no single page says it.",
+    "T4": "Needs a second search that depends on what the first one found."
   },
-  {
-   "value": "0.88 → 0.61",
-   "label": "Easy vs hard retrieval",
-   "detail": "Pooled across the nine on-device models that can search: 0.88 when the answer is in the search results, 0.61 when it needs several sources or a follow-up. The cloud references do not drop at all."
-  },
-  {
-   "value": "5 of 14",
-   "label": "Never offered the tools",
-   "detail": "Five candidates make zero tool calls — because their chat templates never put the tool definitions into the prompt. A packaging bug, not a model verdict, and the biggest failure in practice."
-  }
- ],
- "config_notes": {
-  "provider": "Brave is the recommended default: it beat Tavily during configuration screening and used fewer prompt tokens on most models. Tavily remains fully supported.",
-  "result_format": "Markdown-formatted results beat the shipped labelled blocks; JSON and compact numbered lists were both worse and were eliminated.",
-  "tool_desc": "Enriched tool descriptions (what the tool is for, plus a hint to write short keyword queries) were the largest single effect seen in screening.",
-  "result_count": "Five results is the shipped default and nothing beat it. Note that asking for more can be a no-op: the result menu is capped by a token ceiling that silently drops trailing hits.",
-  "snippet_chars": "280-character snippets retained. Shorter truncation lost information; full-length snippets cost many more tokens for no gain.",
-  "read_url_policy": "Page reading stays available but earns its keep rarely — snippets answer most questions, and models call read_url on well under half a page per question.",
-  "max_turns": "A five-turn budget is not the binding constraint: the winning configurations average under two turns per question.",
-  "system_prompt": "Shipped grounding line retained. A prescriptive 'strategy' prompt raised accuracy but triggered needless searches, and pairing it with markdown was worse than either alone."
- },
- "metric_definitions": [
-  {
-   "key": "fresh",
-   "label": "Fresh ✓",
-   "description": "Share of retrieval-required questions answered correctly. These ask about events after the models' training data, so they cannot be answered from memory. This is the primary score.",
-   "lower_is_better": false
-  },
-  {
-   "key": "stable",
-   "label": "Stable ✓",
-   "description": "Share of timeless general-knowledge questions answered correctly. Checks that adding web search does not damage what a model already knew.",
-   "lower_is_better": false
-  },
-  {
-   "key": "engagement",
-   "label": "Searches when needed",
-   "description": "How often the model actually searches on a question that requires it. The dominant failure mode for small models is not searching at all.",
-   "lower_is_better": false
-  },
-  {
-   "key": "false_search_rate",
-   "label": "Needless searches",
-   "description": "How often the model searches on requests that need no web access, such as writing a haiku or doing arithmetic. Wasted latency and API calls.",
-   "lower_is_better": true
-  },
-  {
-   "key": "tool_call_validity",
-   "label": "Valid tool calls",
-   "description": "Share of the model's tool calls that are well-formed and executable. A model that cannot produce valid calls cannot search at all.",
-   "lower_is_better": false
-  },
-  {
-   "key": "avg_turns",
-   "label": "Turns",
-   "description": "Average round trips through the search loop per question. On a phone each turn is a full prompt re-processing, so turns dominate response time.",
-   "lower_is_better": true
-  },
-  {
-   "key": "avg_prompt_tokens",
-   "label": "Prompt size",
-   "description": "Average tokens sent to the model per question, summed across the loop. Search results and fetched pages dominate it. On a phone this is the number that sets how long an answer takes and how much context is left for the answer itself.",
-   "lower_is_better": true
-  }
- ],
- "gate_failures": [
-  {
-   "title": "The tool definitions never reach these models",
-   "models": [
-    "Gemma-3-4B",
-    "Gemma-3-1B",
-    "Hermes-3-3B",
-    "Phi-4-mini",
-    "SmolLM3-3B"
-   ],
-   "mechanism": "All five ship chat templates that never render the tool definitions. The runtime decides whether a model supports tool calling by test-rendering its template; if the template ignores tools, the schemas are silently left out of the prompt. Measured: these five receive 105-146 tokens (system line + question); every working model receives 363-576. The missing tokens are the tool definitions. This is not a verdict on the models — they were never offered the tools. Gemma-3 fails visibly, improvising Google's tool_code syntax. Hermes-3 fails dangerously, inventing fake citations. Phi-4-mini says it cannot browse — given what it was sent, that is honest. The fix is a tool-declaring chat template."
-  }
- ],
- "limitations": [
-  "Questions are single-fact and English-only, drawn from one eight-week news window. A model tuned on other topics or languages could rank differently.",
-  "Correctness is graded by an LLM judge against a human-verified gold answer. The judge was validated against hand-labelled samples, but it is not a human grader.",
-  "The configuration was tuned on an earlier question set and then frozen. These model scores all use that same frozen setup; they are not each model's best possible score.",
-  "Quality is measured on a workstation running the same quantised model files a phone would run. Battery, heat and on-device latency are not measured; turns and prompt size are the stand-ins.",
-  "Fresh questions go stale by design. Scores are only comparable within one dataset version, which is why the version is stamped on this page.",
-  "Each question is asked once, so differences of a few points between neighbouring models are not resolved."
- ],
- "band_note": "This board does resolve an order. Harder questions — ones needing several sources, or a second search that depends on the first — separate the models that everyday lookups could not: the top on-device model is now clearly ahead of the bottom of the working band. Neighbouring rows still sit within noise of each other, so read the groupings rather than the exact positions.",
- "floor_note": "0.00–0.02",
- "config_lift_note": "Configuration is worth as much as model choice at this size. On the earlier v1 question set, tuning it (richer tool descriptions, Brave, markdown results) lifted pooled correctness across four models from 0.79 to 0.92, and raised the weakest from 0.57 to 0.89 — mainly by getting it to search at all. The config was then frozen; these scores all use it unchanged.",
- "tier_notes": {
-  "T1": "“Who won the final?” The answer is right there in the search results.",
-  "T2": "The answer is inside the article, not in the search snippet, so the model has to open the page.",
-  "T3": "Needs two different sources put together; no single page says it.",
-  "T4": "Needs a second search that depends on what the first one found."
- },
- "frontier_note": "The two reference models are cloud systems, shown for scale only and kept out of the ranking. The best on-device model lands close enough to them that this dataset cannot resolve the gap — which is not the same as matching them: its losses are concentrated in the hardest questions."
+  "frontier_note": "The two reference models are cloud systems, shown for scale only and kept out of the ranking. The best on-device model lands close enough to them that this dataset cannot resolve the gap — which is not the same as matching them: its losses are concentrated in the hardest questions."
 }

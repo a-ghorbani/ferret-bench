@@ -221,3 +221,75 @@ Perfectly bimodal. Every gate-failing model renders ~105–146 tokens — system
 **Provenance.** Root cause raised by the PocketPal PR #808 implementer; substring-proxy error introduced in an addendum committed to this repo by another agent while this session was idle; independently verified here against `runs/*confirm2*/outputs.jsonl` before acceptance. The earlier addendum's two-class taxonomy is superseded by this section wherever they disagree.
 
 **Numeric note.** The implementer quoted ~1646/2055 turn-1 tokens for ministral/qwen35-4b where we measure 371/576. The discrepancy is almost certainly a later-turn measurement (after the results menu enters context) or a different config; the bimodal gap and the conclusion are identical either way. Our figures are turn-1, frozen config, dataset v2.
+
+---
+
+# v3 — The clean board: thinking OFF, quantization recorded, discarded answers recovered (2026-07-12)
+
+Two uncontrolled factors and one harness bug were found *after* v2 was published. All three are fixed; **this board supersedes v2's model ranking entirely.** Runs: `20260712-*-confirm3-frozen-*` (primary), `20260712-*-thinkon-*` (ablation). Config hash `bbb5cdbf…` (thinking off). Dataset v2 unchanged.
+
+## What was wrong with v2
+
+1. **Quantization was never controlled and never recorded.** `factors.md` claimed "Q4_K_M — held constant". False: Qwen3-1.7B ran at **Q6_K**, the abliterated Qwen3.5-2B at **Q8_0**, mlabonne-Qwen3-4B at **Q4_K_S**. Manifests pinned only a model *alias*, so a score could not be traced to the weights that produced it — despite the protocol requiring exactly that. Now `resolve_weights()` records gguf path + quant + size in every manifest and **quant is a column on the leaderboard**.
+2. **Thinking was an accident of model choice, not a controlled condition.** Qwen models reasoned; Gemma/Ministral/Phi could not. Comparing them was never apples-to-apples.
+3. **The harness discarded answers.** The loop read only `content`. Thinking models sometimes end their turn *inside* the reasoning block: llama.cpp then routes the whole answer to `reasoning_content` and returns `content=''`. We scored those as NOT_ATTEMPTED. Blank-final rates: **qwen35-2b 17.3%, mlabonne-qwen3-4b 12.2%, qwen3-1.7b 7.1%, every non-thinking model 0%.** Proven, not inferred: on a blank case the model had correctly found "Ankara" — the answer was sitting in `reasoning_content` and we threw it away. Fixed (fallback + `answer_from_reasoning` / `empty_content_turns` canaries).
+
+**These three interacted to produce a false finding** (see retraction below), which is why the whole board was re-run.
+
+## RQ8 (new) — Should a phone-class model think while doing agentic search? **No.**
+
+Same models, same questions, same config; only `enable_thinking` differs.
+
+| model | fresh, thinking OFF | fresh, thinking ON | quality Δ | completion tokens OFF → ON | token tax |
+|---|---|---|---|---|---|
+| Qwen3.5-4B | 0.887 (47/53) | 0.924 (49/53) | +0.038 | 172 → 367 | **2.1×** |
+| Qwen3.5-2B | 0.717 (38/53) | 0.792 (42/53) | +0.076 | 168 → 376 | **2.2×** |
+| Qwen3-1.7B | 0.585 (31/53) | 0.491 (26/53) | −0.094 | 147 → 718 | **4.9×** |
+| Qwen3-0.6B | 0.528 (28/53) | 0.585 (31/53) | +0.057 | 89 → 503 | **5.7×** |
+| Qwen3-4B (mlabonne) | 0.604 (32/53) | 0.641 (34/53) | +0.038 | 181 → 763 | **4.2×** |
+| **pooled** | **176/265 = 0.664** | **182/265 = 0.687** | **+0.023** | — | **2–6×** |
+
+**No per-model difference is significant** (Fisher p = 0.44–0.84); pooled p = 0.64. Thinking buys **+0.023 correctness — indistinguishable from noise — for 2–6× the generated tokens.** On a phone, inside a loop whose context is already dominated by search results, that is a straight loss: more latency, more battery, more context pressure, no measurable answer gain. One model (Qwen3-1.7B) is actually *worse* with thinking on.
+
+**Recommendation: ship agentic web search with reasoning mode OFF.** It is also the only way to compare thinking-capable and non-thinking models honestly, which is why the primary board uses it.
+
+## RETRACTION — "the abliterated Qwen3.5-2B beats the official one"
+
+v2 reported this as a surprise worth replicating (0.830 vs 0.641). **It is false, and it was an artifact of our own bugs.** Two causes, both ours:
+
+- The official model *thinks*; the abliterated one does not (abliteration suppresses it). The discarded-answer bug therefore penalised **only the official model** — 17.3% of its answers were thrown away.
+- They were also compared at **different quantizations** (Q8_0 vs Q4_K_M).
+
+With thinking off and the bug fixed, at their shipped quants:
+
+| | fresh |
+|---|---|
+| Qwen3.5-2B abliterated (Q8_0) | **38/53 = 0.717** |
+| Qwen3.5-2B official (Q4_K_M) | **38/53 = 0.717** |
+
+**Identical** (p = 0.59). The abliteration effect is zero. Nobody should ship an abliterated variant on the strength of our earlier number, and the roster policy (official checkpoints rank; variants are labelled comparison rows) is vindicated.
+
+## The corrected board (thinking off, one config, quant shown)
+
+| model | quant | fresh ✓ [CI90] | T1 | T3+T4 |
+|---|---|---|---|---|
+| *Claude Sonnet 5 (cloud ref)* | — | 0.981 | 20/20 | 21/21 |
+| *GPT-5.6-sol (cloud ref)* | — | 0.981 | 20/20 | 21/21 |
+| **Qwen3.5-4B** | Q4_K_M | **0.887 [0.80,0.94]** | 19/20 | 19/21 |
+| Ministral-3-3B | Q4_K_M | 0.811 [0.71,0.88] | 20/20 | 14/21 |
+| Qwen3.5-2B | Q4_K_M | 0.717 [0.61,0.81] | 18/20 | 13/21 |
+| Qwen3.5-2B (huihui abliterated) | Q8_0 | 0.717 [0.61,0.81] | 19/20 | 12/21 |
+| Gemma-4-E2B | Q4_K_M | 0.679 [0.57,0.77] | 18/20 | 10/21 |
+| LFM2.5-1.2B | Q4_K_M | 0.660 [0.55,0.76] | 18/20 | 12/21 |
+| Qwen3-4B (mlabonne) | Q4_K_S | 0.604 [0.49,0.71] | 16/20 | 10/21 |
+| Qwen3-1.7B | Q6_K | 0.585 [0.47,0.69] | 17/20 | 9/21 |
+| Qwen3-0.6B | Q4_K_M | 0.528 [0.42,0.64] | 16/20 | 5/21 |
+| *5 models never offered the tools* | Q4_K_M | 0.00–0.08 | — | — |
+
+**Qwen3.5-4B is the recommended ship**, and the recommendation is now stronger than in v2: it is top of the on-device board (band separates from the bottom: p<0.001), it is the only small model whose accuracy does **not** collapse on hard retrieval (T1 0.95 → T3+T4 0.90), and it achieves that at Q4_K_M — the quant a phone actually runs — with thinking off. Ministral-3-3B remains the fallback for tiers where the 4B will not fit: perfect on everyday lookups (T1 20/20), materially weaker on multi-source/multi-hop (14/21).
+
+The easy-vs-hard gradient survives all corrections and is the durable finding: pooled on-device **0.89 → 0.55**, while both cloud references stay flat at ~0.98.
+
+## What this episode says about the benchmark
+
+Three published claims were wrong, and every one was our infrastructure, not the models: five models "refused to search" (never given tools), an abliterated model "won" (its sibling's answers were being deleted), and a leaderboard "held quantization constant" (it did not). Each was caught by someone asking a plain question about the data. The harness now carries canaries for the first two (`schema_not_rendered`, `empty_content_turns`) and records the weights for the third — but the general lesson is the one worth publishing: **when a benchmark says a model is bad, suspect the benchmark first.**

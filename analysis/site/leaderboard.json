@@ -1,8 +1,8 @@
 {
  "benchmark": "ferret-bench — agentic web search for small on-device LLMs",
  "source": "https://github.com/a-ghorbani/ferret-bench",
- "generated_at": "2026-07-12T16:37:47Z",
- "sweep_tag": "confirm2",
+ "generated_at": "2026-07-12T19:02:28Z",
+ "sweep_tag": "confirm3",
  "dataset_version": "v2",
  "dataset_sha256": "e7544608b3369712145c692d6bb09058af41faad03601b88f5d85350145b674a",
  "dataset_counts": {
@@ -17,7 +17,7 @@
   "temperature": 0
  },
  "config_id": "frozen",
- "config_hash": "2e5a782618fe49a2ce10cb35a532e8d6cefb276c5ab570c12fca9d22cbe6a152",
+ "config_hash": "bbb5cdbf1e9f18d79598d8a5f83f79e7c7a5b5b5501b4ea0351c918c19fe446c",
  "config_values": {
   "provider": "brave",
   "result_count": 5,
@@ -30,6 +30,7 @@
   "read_content_chars": 4800,
   "max_turns": 5,
   "untrusted_wrapper": true,
+  "enable_thinking": false,
   "gen": {
    "temperature": 0.7,
    "top_p": 0.95,
@@ -50,28 +51,33 @@
  "page_content": {
   "content_schema_version": 1,
   "for_dataset_version": "v2",
-  "for_config_hash": "2e5a782618fe49a2ce10cb35a532e8d6cefb276c5ab570c12fca9d22cbe6a152",
+  "for_config_hash": "bbb5cdbf1e9f18d79598d8a5f83f79e7c7a5b5b5501b4ea0351c918c19fe446c",
   "band_separated": true,
   "headline_findings": [
    {
-    "value": "0.92",
+    "value": "0.89",
     "label": "Best on-device score",
-    "detail": "Qwen3.5-4B answers 49 of 53 retrieval-required questions correctly — within statistical noise of a frontier cloud model run through the identical search loop."
+    "detail": "Qwen3.5-4B answers 47 of 53 retrieval questions correctly. The two cloud reference models get 52 — the gap to frontier is real, but small."
    },
    {
     "value": "0/53",
     "label": "No search, no answers",
-    "detail": "Re-run with tools switched off, Qwen3.5-4B answers none of the 53 retrieval questions and Ministral-3-3B answers one. Every point on this board is earned by searching, not remembered."
+    "detail": "With tools switched off, Qwen3.5-4B answers none of the 53 retrieval questions and Ministral-3-3B answers one. Every point here is earned by searching."
    },
    {
-    "value": "0.88 → 0.61",
+    "value": "0.89 → 0.55",
     "label": "Easy vs hard retrieval",
-    "detail": "Pooled across the nine on-device models that can search: 0.88 when the answer is in the search results, 0.61 when it needs several sources or a follow-up. The cloud references do not drop at all."
+    "detail": "Pooled across the nine on-device models that can search: 0.89 when the answer sits in the search results, 0.55 when it needs several sources or a follow-up. The cloud references do not drop at all."
+   },
+   {
+    "value": "2–6×",
+    "label": "The cost of thinking",
+    "detail": "Turning on a model's reasoning mode generates 2–6x more tokens per question and does not measurably improve answers (+0.02, p=0.64). We run every model with thinking off."
    },
    {
     "value": "5 of 14",
     "label": "Never offered the tools",
-    "detail": "Five candidates make zero tool calls — because their chat templates never put the tool definitions into the prompt. A packaging bug, not a model verdict, and the biggest failure in practice."
+    "detail": "Five candidates make zero tool calls — because their chat templates never put the tool definitions into the prompt. A packaging bug, not a model verdict."
    }
   ],
   "config_notes": {
@@ -82,7 +88,8 @@
    "snippet_chars": "280-character snippets retained. Shorter truncation lost information; full-length snippets cost many more tokens for no gain.",
    "read_url_policy": "Page reading stays available but earns its keep rarely — snippets answer most questions, and models call read_url on well under half a page per question.",
    "max_turns": "A five-turn budget is not the binding constraint: the winning configurations average under two turns per question.",
-   "system_prompt": "Shipped grounding line retained. A prescriptive 'strategy' prompt raised accuracy but triggered needless searches, and pairing it with markdown was worse than either alone."
+   "system_prompt": "Shipped grounding line retained. A prescriptive 'strategy' prompt raised accuracy but triggered needless searches, and pairing it with markdown was worse than either alone.",
+   "enable_thinking": "Off. Reasoning mode costs 2-6x the generated tokens for no measurable gain in answer quality — a bad trade on a phone, in a loop already full of search results. Turning it off also makes every model comparable."
   },
   "metric_definitions": [
    {
@@ -144,14 +151,15 @@
   "limitations": [
    "Questions are single-fact and English-only, drawn from one eight-week news window. A model tuned on other topics or languages could rank differently.",
    "Correctness is graded by an LLM judge against a human-verified gold answer. The judge was validated against hand-labelled samples, but it is not a human grader.",
-   "The configuration was tuned on an earlier question set and then frozen. These model scores all use that same frozen setup; they are not each model's best possible score.",
+   "The configuration was tuned on an earlier question set and then frozen. These scores all use that same frozen setup; they are not each model's best possible score.",
+   "Models are compared at the quantisation shown in the table. Three run at a higher or lower bit-width than the rest, which is a real difference in the weights, not just the wrapper.",
    "Quality is measured on a workstation running the same quantised model files a phone would run. Battery, heat and on-device latency are not measured; turns and prompt size are the stand-ins.",
    "Fresh questions go stale by design. Scores are only comparable within one dataset version, which is why the version is stamped on this page.",
    "Each question is asked once, so differences of a few points between neighbouring models are not resolved."
   ],
   "band_note": "This board does resolve an order. Harder questions — ones needing several sources, or a second search that depends on the first — separate the models that everyday lookups could not: the top on-device model is now clearly ahead of the bottom of the working band. Neighbouring rows still sit within noise of each other, so read the groupings rather than the exact positions.",
   "floor_note": "0.00–0.02",
-  "config_lift_note": "Configuration is worth as much as model choice at this size. On the earlier v1 question set, tuning it (richer tool descriptions, Brave, markdown results) lifted pooled correctness across four models from 0.79 to 0.92, and raised the weakest from 0.57 to 0.89 — mainly by getting it to search at all. The config was then frozen; these scores all use it unchanged.",
+  "config_lift_note": "Configuration is worth as much as model choice at this size. On the earlier v1 question set, tuning it (richer tool descriptions, Brave, markdown results) lifted pooled correctness across four models from 0.79 to 0.92. The config was then frozen; these scores all use it unchanged, with reasoning mode off for every model.",
   "tier_notes": {
    "T1": "“Who won the final?” The answer is right there in the search results.",
    "T2": "The answer is inside the article, not in the search snippet, so the model has to open the page.",
@@ -161,10 +169,34 @@
   "frontier_note": "The two reference models are cloud systems, shown for scale only and kept out of the ranking. The best on-device model lands close enough to them that this dataset cannot resolve the gap — which is not the same as matching them: its losses are concentrated in the hardest questions.",
   "band_separation_computed": {
    "separated": true,
-   "detail": "top=qwen35-4b 0.924 CI[0.8421, 0.9657]; bottom=qwen3-1.7b 0.491 CI[0.3808, 0.6012]; non-overlapping at 90%"
+   "detail": "top=qwen35-4b 0.887 CI[0.7957, 0.9403]; bottom=qwen3-06b 0.528 CI[0.4169, 0.637]; non-overlapping at 90%"
   }
  },
  "tier_gradient": [
+  {
+   "model_id": "openrouter:anthropic/claude-sonnet-5",
+   "display_name": "Claude Sonnet 5 (frontier anchor)",
+   "class": "anchor",
+   "easy_T1": {
+    "correct": 20,
+    "n": 20,
+    "rate": 1.0,
+    "ci90": [
+     0.8808,
+     1.0
+    ]
+   },
+   "hard_T3_T4": {
+    "correct": 21,
+    "n": 21,
+    "rate": 1.0,
+    "ci90": [
+     0.8859,
+     1.0
+    ]
+   },
+   "drop": 0.0
+  },
   {
    "model_id": "openrouter:openai/gpt-5.6-sol",
    "display_name": "GPT-5.6-sol (frontier anchor)",
@@ -188,30 +220,6 @@
     ]
    },
    "drop": 0.0
-  },
-  {
-   "model_id": "openrouter:anthropic/claude-sonnet-5",
-   "display_name": "Claude Sonnet 5 (frontier anchor)",
-   "class": "anchor",
-   "easy_T1": {
-    "correct": 19,
-    "n": 20,
-    "rate": 0.95,
-    "ci90": [
-     0.804,
-     0.9888
-    ]
-   },
-   "hard_T3_T4": {
-    "correct": 20,
-    "n": 21,
-    "rate": 0.9524,
-    "ci90": [
-     0.8122,
-     0.9893
-    ]
-   },
-   "drop": -0.0024
   },
   {
    "model_id": "qwen35-4b",
@@ -238,30 +246,6 @@
    "drop": 0.0452
   },
   {
-   "model_id": "huihui-qwen35-2b",
-   "display_name": "Qwen3.5-2B (huihui abliterated)",
-   "class": "variant",
-   "easy_T1": {
-    "correct": 18,
-    "n": 20,
-    "rate": 0.9,
-    "ci90": [
-     0.7383,
-     0.9663
-    ]
-   },
-   "hard_T3_T4": {
-    "correct": 16,
-    "n": 21,
-    "rate": 0.7619,
-    "ci90": [
-     0.585,
-     0.879
-    ]
-   },
-   "drop": 0.1381
-  },
-  {
    "model_id": "ministral-3-3b",
    "display_name": "Ministral-3-3B",
    "class": "official",
@@ -286,6 +270,54 @@
    "drop": 0.3333
   },
   {
+   "model_id": "qwen35-2b",
+   "display_name": "Qwen3.5-2B",
+   "class": "official",
+   "easy_T1": {
+    "correct": 18,
+    "n": 20,
+    "rate": 0.9,
+    "ci90": [
+     0.7383,
+     0.9663
+    ]
+   },
+   "hard_T3_T4": {
+    "correct": 13,
+    "n": 21,
+    "rate": 0.619,
+    "ci90": [
+     0.4408,
+     0.7701
+    ]
+   },
+   "drop": 0.281
+  },
+  {
+   "model_id": "huihui-qwen35-2b",
+   "display_name": "Qwen3.5-2B (huihui abliterated)",
+   "class": "variant",
+   "easy_T1": {
+    "correct": 19,
+    "n": 20,
+    "rate": 0.95,
+    "ci90": [
+     0.804,
+     0.9888
+    ]
+   },
+   "hard_T3_T4": {
+    "correct": 12,
+    "n": 21,
+    "rate": 0.5714,
+    "ci90": [
+     0.3959,
+     0.7307
+    ]
+   },
+   "drop": 0.3786
+  },
+  {
    "model_id": "gemma-4-e2b",
    "display_name": "Gemma-4-E2B",
    "class": "official",
@@ -299,15 +331,15 @@
     ]
    },
    "hard_T3_T4": {
-    "correct": 16,
+    "correct": 10,
     "n": 21,
-    "rate": 0.7619,
+    "rate": 0.4762,
     "ci90": [
-     0.585,
-     0.879
+     0.3101,
+     0.6477
     ]
    },
-   "drop": 0.1381
+   "drop": 0.4238
   },
   {
    "model_id": "lfm25-1.2b",
@@ -334,56 +366,32 @@
    "drop": 0.3286
   },
   {
-   "model_id": "qwen35-2b",
-   "display_name": "Qwen3.5-2B",
-   "class": "official",
-   "easy_T1": {
-    "correct": 14,
-    "n": 20,
-    "rate": 0.7,
-    "ci90": [
-     0.5162,
-     0.8361
-    ]
-   },
-   "hard_T3_T4": {
-    "correct": 15,
-    "n": 21,
-    "rate": 0.7143,
-    "ci90": [
-     0.5352,
-     0.8444
-    ]
-   },
-   "drop": -0.0143
-  },
-  {
    "model_id": "mlabonne-qwen3-4b",
    "display_name": "Qwen3-4B (mlabonne)",
    "class": "variant",
    "easy_T1": {
-    "correct": 18,
+    "correct": 16,
     "n": 20,
-    "rate": 0.9,
+    "rate": 0.8,
     "ci90": [
-     0.7383,
-     0.9663
+     0.6216,
+     0.9069
     ]
    },
    "hard_T3_T4": {
-    "correct": 8,
+    "correct": 10,
     "n": 21,
-    "rate": 0.381,
+    "rate": 0.4762,
     "ci90": [
-     0.2299,
-     0.5592
+     0.3101,
+     0.6477
     ]
    },
-   "drop": 0.519
+   "drop": 0.3238
   },
   {
-   "model_id": "qwen3-06b",
-   "display_name": "Qwen3-0.6B",
+   "model_id": "qwen3-1.7b",
+   "display_name": "Qwen3-1.7B",
    "class": "official",
    "easy_T1": {
     "correct": 17,
@@ -406,8 +414,8 @@
    "drop": 0.4214
   },
   {
-   "model_id": "qwen3-1.7b",
-   "display_name": "Qwen3-1.7B",
+   "model_id": "qwen3-06b",
+   "display_name": "Qwen3-0.6B",
    "class": "official",
    "easy_T1": {
     "correct": 16,
@@ -419,22 +427,23 @@
     ]
    },
    "hard_T3_T4": {
-    "correct": 7,
+    "correct": 5,
     "n": 21,
-    "rate": 0.3333,
+    "rate": 0.2381,
     "ci90": [
-     0.192,
-     0.5128
+     0.121,
+     0.415
     ]
    },
-   "drop": 0.4667
+   "drop": 0.5619
   }
  ],
  "rows": [
   {
-   "model_id": "openrouter:openai/gpt-5.6-sol",
-   "display_name": "GPT-5.6-sol (frontier anchor)",
+   "model_id": "openrouter:anthropic/claude-sonnet-5",
+   "display_name": "Claude Sonnet 5 (frontier anchor)",
    "class": "anchor",
+   "quant": null,
    "gate_pass": true,
    "fresh": {
     "n": 53,
@@ -499,22 +508,23 @@
    "engagement": 1.0,
    "false_search_rate": 0.0,
    "tool_call_validity": 1.0,
-   "avg_turns": 1.9,
-   "avg_prompt_tokens": 2031,
-   "run_id": "20260712-164212-confirm2-frozen-gpt-5.6-sol"
+   "avg_turns": 1.72,
+   "avg_prompt_tokens": 3272,
+   "run_id": "20260712-194938-confirm3-frozen-claude-sonnet-5"
   },
   {
-   "model_id": "openrouter:anthropic/claude-sonnet-5",
-   "display_name": "Claude Sonnet 5 (frontier anchor)",
+   "model_id": "openrouter:openai/gpt-5.6-sol",
+   "display_name": "GPT-5.6-sol (frontier anchor)",
    "class": "anchor",
+   "quant": null,
    "gate_pass": true,
    "fresh": {
     "n": 53,
-    "correct": 50,
-    "rate": 0.9434,
+    "correct": 52,
+    "rate": 0.9811,
     "ci90": [
-     0.8666,
-     0.9772
+     0.9197,
+     0.9958
     ],
     "not_attempted": 0,
     "judge_parse_fail": 0
@@ -522,11 +532,11 @@
    "fresh_by_tier": {
     "T1": {
      "n": 20,
-     "correct": 19,
-     "rate": 0.95,
+     "correct": 20,
+     "rate": 1.0,
      "ci90": [
-      0.804,
-      0.9888
+      0.8808,
+      1.0
      ]
     },
     "T2": {
@@ -540,11 +550,11 @@
     },
     "T3": {
      "n": 9,
-     "correct": 8,
-     "rate": 0.8889,
+     "correct": 9,
+     "rate": 1.0,
      "ci90": [
-      0.6232,
-      0.9748
+      0.7688,
+      1.0
      ]
     },
     "T4": {
@@ -571,22 +581,23 @@
    "engagement": 1.0,
    "false_search_rate": 0.0,
    "tool_call_validity": 1.0,
-   "avg_turns": 1.73,
-   "avg_prompt_tokens": 3156,
-   "run_id": "20260712-151033-confirm2-frozen-claude-sonnet-5"
+   "avg_turns": 1.91,
+   "avg_prompt_tokens": 1981,
+   "run_id": "20260712-200227-confirm3-frozen-gpt-5.6-sol"
   },
   {
    "model_id": "qwen35-4b",
    "display_name": "Qwen3.5-4B",
    "class": "official",
+   "quant": "Q4_K_M",
    "gate_pass": true,
    "fresh": {
     "n": 53,
-    "correct": 49,
-    "rate": 0.9245,
+    "correct": 47,
+    "rate": 0.8868,
     "ci90": [
-     0.8421,
-     0.9657
+     0.7957,
+     0.9403
     ],
     "not_attempted": 0,
     "judge_parse_fail": 0
@@ -603,11 +614,11 @@
     },
     "T2": {
      "n": 12,
-     "correct": 11,
-     "rate": 0.9167,
+     "correct": 9,
+     "rate": 0.75,
      "ci90": [
-      0.6988,
-      0.9812
+      0.5126,
+      0.8954
      ]
     },
     "T3": {
@@ -643,86 +654,15 @@
    "engagement": 1.0,
    "false_search_rate": 0.0,
    "tool_call_validity": 1.0,
-   "avg_turns": 2.06,
-   "avg_prompt_tokens": 2662,
-   "run_id": "20260712-142549-confirm2-frozen-qwen35-4b"
-  },
-  {
-   "model_id": "huihui-qwen35-2b",
-   "display_name": "Qwen3.5-2B (huihui abliterated)",
-   "class": "variant",
-   "gate_pass": true,
-   "fresh": {
-    "n": 53,
-    "correct": 44,
-    "rate": 0.8302,
-    "ci90": [
-     0.7299,
-     0.8984
-    ],
-    "not_attempted": 0,
-    "judge_parse_fail": 0
-   },
-   "fresh_by_tier": {
-    "T1": {
-     "n": 20,
-     "correct": 18,
-     "rate": 0.9,
-     "ci90": [
-      0.7383,
-      0.9663
-     ]
-    },
-    "T2": {
-     "n": 12,
-     "correct": 10,
-     "rate": 0.8333,
-     "ci90": [
-      0.6008,
-      0.9432
-     ]
-    },
-    "T3": {
-     "n": 9,
-     "correct": 7,
-     "rate": 0.7778,
-     "ci90": [
-      0.5036,
-      0.9235
-     ]
-    },
-    "T4": {
-     "n": 12,
-     "correct": 9,
-     "rate": 0.75,
-     "ci90": [
-      0.5126,
-      0.8954
-     ]
-    }
-   },
-   "stable": {
-    "n": 30,
-    "correct": 30,
-    "rate": 1.0,
-    "ci90": [
-     0.9173,
-     1.0
-    ],
-    "not_attempted": 0,
-    "judge_parse_fail": 0
-   },
-   "engagement": 1.0,
-   "false_search_rate": 0.0667,
-   "tool_call_validity": 1.0,
-   "avg_turns": 2.03,
-   "avg_prompt_tokens": 2332,
-   "run_id": "20260712-145935-confirm2-frozen-huihui-qwen35-2b"
+   "avg_turns": 1.94,
+   "avg_prompt_tokens": 2391,
+   "run_id": "20260712-191603-confirm3-frozen-qwen35-4b"
   },
   {
    "model_id": "ministral-3-3b",
    "display_name": "Ministral-3-3B",
    "class": "official",
+   "quant": "Q4_K_M",
    "gate_pass": true,
    "fresh": {
     "n": 53,
@@ -789,22 +729,23 @@
    "tool_call_validity": 1.0,
    "avg_turns": 1.86,
    "avg_prompt_tokens": 1787,
-   "run_id": "20260712-161006-confirm2-frozen-ministral-3-3b"
+   "run_id": "20260712-192728-confirm3-frozen-ministral-3-3b"
   },
   {
-   "model_id": "gemma-4-e2b",
-   "display_name": "Gemma-4-E2B",
+   "model_id": "qwen35-2b",
+   "display_name": "Qwen3.5-2B",
    "class": "official",
+   "quant": "Q4_K_M",
    "gate_pass": true,
    "fresh": {
     "n": 53,
-    "correct": 41,
-    "rate": 0.7736,
+    "correct": 38,
+    "rate": 0.717,
     "ci90": [
-     0.6671,
-     0.8535
+     0.6066,
+     0.8063
     ],
-    "not_attempted": 6,
+    "not_attempted": 1,
     "judge_parse_fail": 0
    },
    "fresh_by_tier": {
@@ -828,11 +769,11 @@
     },
     "T3": {
      "n": 9,
-     "correct": 7,
-     "rate": 0.7778,
+     "correct": 4,
+     "rate": 0.4444,
      "ci90": [
-      0.5036,
-      0.9235
+      0.218,
+      0.6965
      ]
     },
     "T4": {
@@ -847,6 +788,152 @@
    },
    "stable": {
     "n": 30,
+    "correct": 29,
+    "rate": 0.9667,
+    "ci90": [
+     0.8636,
+     0.9925
+    ],
+    "not_attempted": 0,
+    "judge_parse_fail": 0
+   },
+   "engagement": 1.0,
+   "false_search_rate": 0.3333,
+   "tool_call_validity": 1.0,
+   "avg_turns": 1.99,
+   "avg_prompt_tokens": 2163,
+   "run_id": "20260712-191254-confirm3-frozen-qwen35-2b"
+  },
+  {
+   "model_id": "huihui-qwen35-2b",
+   "display_name": "Qwen3.5-2B (huihui abliterated)",
+   "class": "variant",
+   "quant": "Q8_0",
+   "gate_pass": true,
+   "fresh": {
+    "n": 53,
+    "correct": 38,
+    "rate": 0.717,
+    "ci90": [
+     0.6066,
+     0.8063
+    ],
+    "not_attempted": 0,
+    "judge_parse_fail": 0
+   },
+   "fresh_by_tier": {
+    "T1": {
+     "n": 20,
+     "correct": 19,
+     "rate": 0.95,
+     "ci90": [
+      0.804,
+      0.9888
+     ]
+    },
+    "T2": {
+     "n": 12,
+     "correct": 7,
+     "rate": 0.5833,
+     "ci90": [
+      0.356,
+      0.78
+     ]
+    },
+    "T3": {
+     "n": 9,
+     "correct": 5,
+     "rate": 0.5556,
+     "ci90": [
+      0.3035,
+      0.782
+     ]
+    },
+    "T4": {
+     "n": 12,
+     "correct": 7,
+     "rate": 0.5833,
+     "ci90": [
+      0.356,
+      0.78
+     ]
+    }
+   },
+   "stable": {
+    "n": 30,
+    "correct": 29,
+    "rate": 0.9667,
+    "ci90": [
+     0.8636,
+     0.9925
+    ],
+    "not_attempted": 0,
+    "judge_parse_fail": 0
+   },
+   "engagement": 1.0,
+   "false_search_rate": 0.0667,
+   "tool_call_validity": 1.0,
+   "avg_turns": 1.77,
+   "avg_prompt_tokens": 1795,
+   "run_id": "20260712-194118-confirm3-frozen-huihui-qwen35-2b"
+  },
+  {
+   "model_id": "gemma-4-e2b",
+   "display_name": "Gemma-4-E2B",
+   "class": "official",
+   "quant": "Q4_K_M",
+   "gate_pass": true,
+   "fresh": {
+    "n": 53,
+    "correct": 36,
+    "rate": 0.6792,
+    "ci90": [
+     0.5673,
+     0.7738
+    ],
+    "not_attempted": 14,
+    "judge_parse_fail": 0
+   },
+   "fresh_by_tier": {
+    "T1": {
+     "n": 20,
+     "correct": 18,
+     "rate": 0.9,
+     "ci90": [
+      0.7383,
+      0.9663
+     ]
+    },
+    "T2": {
+     "n": 12,
+     "correct": 8,
+     "rate": 0.6667,
+     "ci90": [
+      0.4315,
+      0.8405
+     ]
+    },
+    "T3": {
+     "n": 9,
+     "correct": 6,
+     "rate": 0.6667,
+     "ci90": [
+      0.3982,
+      0.858
+     ]
+    },
+    "T4": {
+     "n": 12,
+     "correct": 4,
+     "rate": 0.3333,
+     "ci90": [
+      0.1595,
+      0.5685
+     ]
+    }
+   },
+   "stable": {
+    "n": 30,
     "correct": 30,
     "rate": 1.0,
     "ci90": [
@@ -856,17 +943,18 @@
     "not_attempted": 0,
     "judge_parse_fail": 0
    },
-   "engagement": 0.9811,
-   "false_search_rate": 0.0667,
+   "engagement": 1.0,
+   "false_search_rate": 0.0,
    "tool_call_validity": 1.0,
-   "avg_turns": 1.91,
-   "avg_prompt_tokens": 1598,
-   "run_id": "20260712-160137-confirm2-frozen-gemma-4-e2b"
+   "avg_turns": 1.86,
+   "avg_prompt_tokens": 1494,
+   "run_id": "20260712-192514-confirm3-frozen-gemma-4-e2b"
   },
   {
    "model_id": "lfm25-1.2b",
    "display_name": "LFM2.5-1.2B",
    "class": "official",
+   "quant": "Q4_K_M",
    "gate_pass": true,
    "fresh": {
     "n": 53,
@@ -876,7 +964,7 @@
      0.5479,
      0.7573
     ],
-    "not_attempted": 5,
+    "not_attempted": 6,
     "judge_parse_fail": 0
    },
    "fresh_by_tier": {
@@ -933,156 +1021,86 @@
    "tool_call_validity": 1.0,
    "avg_turns": 1.85,
    "avg_prompt_tokens": 1378,
-   "run_id": "20260712-162002-confirm2-frozen-lfm25-1.2b"
-  },
-  {
-   "model_id": "qwen35-2b",
-   "display_name": "Qwen3.5-2B",
-   "class": "official",
-   "gate_pass": true,
-   "fresh": {
-    "n": 53,
-    "correct": 34,
-    "rate": 0.6415,
-    "ci90": [
-     0.5287,
-     0.7406
-    ],
-    "not_attempted": 13,
-    "judge_parse_fail": 0
-   },
-   "fresh_by_tier": {
-    "T1": {
-     "n": 20,
-     "correct": 14,
-     "rate": 0.7,
-     "ci90": [
-      0.5162,
-      0.8361
-     ]
-    },
-    "T2": {
-     "n": 12,
-     "correct": 5,
-     "rate": 0.4167,
-     "ci90": [
-      0.22,
-      0.644
-     ]
-    },
-    "T3": {
-     "n": 9,
-     "correct": 8,
-     "rate": 0.8889,
-     "ci90": [
-      0.6232,
-      0.9748
-     ]
-    },
-    "T4": {
-     "n": 12,
-     "correct": 7,
-     "rate": 0.5833,
-     "ci90": [
-      0.356,
-      0.78
-     ]
-    }
-   },
-   "stable": {
-    "n": 30,
-    "correct": 26,
-    "rate": 0.8667,
-    "ci90": [
-     0.734,
-     0.9387
-    ],
-    "not_attempted": 4,
-    "judge_parse_fail": 0
-   },
-   "engagement": 1.0,
-   "false_search_rate": 0.2,
-   "tool_call_validity": 1.0,
-   "avg_turns": 2.02,
-   "avg_prompt_tokens": 2298,
-   "run_id": "20260712-155154-confirm2-frozen-qwen35-2b"
+   "run_id": "20260712-193514-confirm3-frozen-lfm25-1.2b"
   },
   {
    "model_id": "mlabonne-qwen3-4b",
    "display_name": "Qwen3-4B (mlabonne)",
    "class": "variant",
+   "quant": "Q4_K_S",
    "gate_pass": true,
    "fresh": {
     "n": 53,
-    "correct": 34,
-    "rate": 0.6415,
+    "correct": 32,
+    "rate": 0.6038,
     "ci90": [
-     0.5287,
-     0.7406
+     0.4908,
+     0.7067
     ],
-    "not_attempted": 15,
+    "not_attempted": 7,
     "judge_parse_fail": 0
    },
    "fresh_by_tier": {
     "T1": {
      "n": 20,
-     "correct": 18,
-     "rate": 0.9,
+     "correct": 16,
+     "rate": 0.8,
      "ci90": [
-      0.7383,
-      0.9663
+      0.6216,
+      0.9069
      ]
     },
     "T2": {
      "n": 12,
-     "correct": 8,
-     "rate": 0.6667,
+     "correct": 6,
+     "rate": 0.5,
      "ci90": [
-      0.4315,
-      0.8405
+      0.2855,
+      0.7145
      ]
     },
     "T3": {
      "n": 9,
-     "correct": 3,
-     "rate": 0.3333,
+     "correct": 4,
+     "rate": 0.4444,
      "ci90": [
-      0.142,
-      0.6018
+      0.218,
+      0.6965
      ]
     },
     "T4": {
      "n": 12,
-     "correct": 5,
-     "rate": 0.4167,
+     "correct": 6,
+     "rate": 0.5,
      "ci90": [
-      0.22,
-      0.644
+      0.2855,
+      0.7145
      ]
     }
    },
    "stable": {
     "n": 30,
-    "correct": 28,
-    "rate": 0.9333,
+    "correct": 27,
+    "rate": 0.9,
     "ci90": [
-     0.8173,
-     0.9777
+     0.7745,
+     0.9593
     ],
-    "not_attempted": 1,
+    "not_attempted": 0,
     "judge_parse_fail": 0
    },
-   "engagement": 0.9434,
+   "engagement": 0.9057,
    "false_search_rate": 0.0,
    "tool_call_validity": 1.0,
-   "avg_turns": 1.69,
-   "avg_prompt_tokens": 1396,
-   "run_id": "20260712-162352-confirm2-frozen-mlabonne-qwen3-4b"
+   "avg_turns": 1.51,
+   "avg_prompt_tokens": 1169,
+   "run_id": "20260712-194432-confirm3-frozen-mlabonne-qwen3-4b"
   },
   {
-   "model_id": "qwen3-06b",
-   "display_name": "Qwen3-0.6B",
+   "model_id": "qwen3-1.7b",
+   "display_name": "Qwen3-1.7B",
    "class": "official",
+   "quant": "Q6_K",
    "gate_pass": true,
    "fresh": {
     "n": 53,
@@ -1092,7 +1110,7 @@
      0.4721,
      0.6895
     ],
-    "not_attempted": 3,
+    "not_attempted": 8,
     "judge_parse_fail": 0
    },
    "fresh_by_tier": {
@@ -1144,27 +1162,28 @@
     "not_attempted": 0,
     "judge_parse_fail": 0
    },
-   "engagement": 0.8868,
-   "false_search_rate": 0.2,
+   "engagement": 0.9245,
+   "false_search_rate": 0.0667,
    "tool_call_validity": 1.0,
-   "avg_turns": 1.72,
-   "avg_prompt_tokens": 1391,
-   "run_id": "20260712-153715-confirm2-frozen-qwen3-06b"
+   "avg_turns": 1.55,
+   "avg_prompt_tokens": 1224,
+   "run_id": "20260712-191007-confirm3-frozen-qwen3-1.7b"
   },
   {
-   "model_id": "qwen3-1.7b",
-   "display_name": "Qwen3-1.7B",
+   "model_id": "qwen3-06b",
+   "display_name": "Qwen3-0.6B",
    "class": "official",
+   "quant": "Q4_K_M",
    "gate_pass": true,
    "fresh": {
     "n": 53,
-    "correct": 26,
-    "rate": 0.4906,
+    "correct": 28,
+    "rate": 0.5283,
     "ci90": [
-     0.3808,
-     0.6012
+     0.4169,
+     0.637
     ],
-    "not_attempted": 15,
+    "not_attempted": 4,
     "judge_parse_fail": 0
    },
    "fresh_by_tier": {
@@ -1179,11 +1198,11 @@
     },
     "T2": {
      "n": 12,
-     "correct": 3,
-     "rate": 0.25,
+     "correct": 7,
+     "rate": 0.5833,
      "ci90": [
-      0.1046,
-      0.4874
+      0.356,
+      0.78
      ]
     },
     "T3": {
@@ -1197,36 +1216,37 @@
     },
     "T4": {
      "n": 12,
-     "correct": 5,
-     "rate": 0.4167,
+     "correct": 3,
+     "rate": 0.25,
      "ci90": [
-      0.22,
-      0.644
+      0.1046,
+      0.4874
      ]
     }
    },
    "stable": {
     "n": 30,
-    "correct": 26,
-    "rate": 0.8667,
+    "correct": 25,
+    "rate": 0.8333,
     "ci90": [
-     0.734,
-     0.9387
+     0.6951,
+     0.9164
     ],
     "not_attempted": 1,
     "judge_parse_fail": 0
    },
-   "engagement": 0.8679,
-   "false_search_rate": 0.0,
+   "engagement": 0.9434,
+   "false_search_rate": 0.2667,
    "tool_call_validity": 1.0,
-   "avg_turns": 1.7,
-   "avg_prompt_tokens": 1372,
-   "run_id": "20260712-154101-confirm2-frozen-qwen3-1.7b"
+   "avg_turns": 1.72,
+   "avg_prompt_tokens": 1402,
+   "run_id": "20260712-190834-confirm3-frozen-qwen3-06b"
   },
   {
    "model_id": "hermes-3-3b",
    "display_name": "Hermes-3-3B",
    "class": "official",
+   "quant": "Q4_K_M",
    "gate_pass": false,
    "fresh": {
     "n": 53,
@@ -1293,12 +1313,13 @@
    "tool_call_validity": null,
    "avg_turns": 1.0,
    "avg_prompt_tokens": 116,
-   "run_id": "20260712-162156-confirm2-frozen-hermes-3-3b"
+   "run_id": "20260712-193635-confirm3-frozen-hermes-3-3b"
   },
   {
    "model_id": "smollm3-3b",
    "display_name": "SmolLM3-3B",
    "class": "official",
+   "quant": "Q4_K_M",
    "gate_pass": false,
    "fresh": {
     "n": 53,
@@ -1308,54 +1329,54 @@
      0.0126,
      0.1078
     ],
-    "not_attempted": 34,
+    "not_attempted": 37,
     "judge_parse_fail": 0
    },
    "fresh_by_tier": {
     "T1": {
      "n": 20,
-     "correct": 1,
-     "rate": 0.05,
+     "correct": 0,
+     "rate": 0.0,
      "ci90": [
-      0.0112,
-      0.196
+      0.0,
+      0.1192
      ]
     },
     "T2": {
      "n": 12,
-     "correct": 0,
-     "rate": 0.0,
+     "correct": 1,
+     "rate": 0.0833,
      "ci90": [
-      0.0,
-      0.184
+      0.0188,
+      0.3012
      ]
     },
     "T3": {
      "n": 9,
-     "correct": 1,
-     "rate": 0.1111,
+     "correct": 0,
+     "rate": 0.0,
      "ci90": [
-      0.0252,
-      0.3768
+      -0.0,
+      0.2312
      ]
     },
     "T4": {
      "n": 12,
-     "correct": 0,
-     "rate": 0.0,
+     "correct": 1,
+     "rate": 0.0833,
      "ci90": [
-      0.0,
-      0.184
+      0.0188,
+      0.3012
      ]
     }
    },
    "stable": {
     "n": 30,
-    "correct": 30,
-    "rate": 1.0,
+    "correct": 29,
+    "rate": 0.9667,
     "ci90": [
-     0.9173,
-     1.0
+     0.8636,
+     0.9925
     ],
     "not_attempted": 0,
     "judge_parse_fail": 0
@@ -1364,13 +1385,14 @@
    "false_search_rate": 0.0,
    "tool_call_validity": null,
    "avg_turns": 1.0,
-   "avg_prompt_tokens": 147,
-   "run_id": "20260712-161657-confirm2-frozen-smollm3-3b"
+   "avg_prompt_tokens": 153,
+   "run_id": "20260712-193244-confirm3-frozen-smollm3-3b"
   },
   {
    "model_id": "gemma-3-1b-q4",
    "display_name": "Gemma-3-1B",
    "class": "official",
+   "quant": "Q4_K_M",
    "gate_pass": false,
    "fresh": {
     "n": 53,
@@ -1437,12 +1459,13 @@
    "tool_call_validity": null,
    "avg_turns": 1.0,
    "avg_prompt_tokens": 122,
-   "run_id": "20260712-155824-confirm2-frozen-gemma-3-1b-q4"
+   "run_id": "20260712-192208-confirm3-frozen-gemma-3-1b-q4"
   },
   {
    "model_id": "gemma-3-4b",
    "display_name": "Gemma-3-4B",
    "class": "official",
+   "quant": "Q4_K_M",
    "gate_pass": false,
    "fresh": {
     "n": 53,
@@ -1452,8 +1475,8 @@
      0.0042,
      0.0803
     ],
-    "not_attempted": 37,
-    "judge_parse_fail": 6
+    "not_attempted": 43,
+    "judge_parse_fail": 0
    },
    "fresh_by_tier": {
     "T1": {
@@ -1509,12 +1532,13 @@
    "tool_call_validity": null,
    "avg_turns": 1.0,
    "avg_prompt_tokens": 122,
-   "run_id": "20260712-155934-confirm2-frozen-gemma-3-4b"
+   "run_id": "20260712-192318-confirm3-frozen-gemma-3-4b"
   },
   {
    "model_id": "phi-4-mini",
    "display_name": "Phi-4-mini",
    "class": "official",
+   "quant": "Q4_K_M",
    "gate_pass": false,
    "fresh": {
     "n": 53,
@@ -1581,7 +1605,7 @@
    "tool_call_validity": null,
    "avg_turns": 1.0,
    "avg_prompt_tokens": 106,
-   "run_id": "20260712-161441-confirm2-frozen-phi-4-mini"
+   "run_id": "20260712-193034-confirm3-frozen-phi-4-mini"
   }
  ]
 }
