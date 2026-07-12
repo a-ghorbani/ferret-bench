@@ -1,5 +1,18 @@
 # Report — Agentic web search for small on-device LLMs
 
+> ## ⚠️ Read this first: two rounds, and the current result is v2
+>
+> This report is append-only and documents **two rounds** of the experiment.
+>
+> - **Part 1 (below)** is **v1** — 44 single-fact questions. It **saturated**: eight models tied near 0.98 and the board could not separate them. Its config findings (the frozen bundle) remain current and shipped; its *model ranking* is superseded.
+> - **[Part 2 — v2](#v2--tiered-dataset--frontier-anchors-2026-07-12)** (bottom of this file) is the **current model leaderboard**: 53 questions across four retrieval-difficulty tiers, plus frontier anchors. It de-saturates the board and produces the headline finding — small models are frontier-grade on everyday lookups and degrade on hard retrieval.
+>
+> **If you only read one part, read v2.** The v1 executive summary immediately below is retained for provenance; where it and v2 disagree about model standings, **v2 supersedes it**.
+
+---
+
+## Part 1 — v1 (superseded for model ranking; config findings still current)
+
 **Experiment**: `2026-07-10-web-search-agentic-config` (ferret-bench) · **Dataset**: v1 (sha256 `d3502755…`, 44 fresh / 30 stable / 15 no_search, anchor 2026-07-10) · **Judge**: google/gemini-3.5-flash, prompt `v2-simpleqa-3way-acceptable`, temp 0 (validation below) · **Loop**: faithful replica of PocketPal PR #808 (`harness/CONTRACT.md`) · All tables regenerable from `analysis/scores.jsonl` (v2-judge numbers throughout); every number traces to `runs/<run-id>/`. Statistical tests are one-sided Fisher exact on correct-counts unless noted; with 17 screening arms tested, screening p-values are uncorrected and treated as hypothesis-generating only.
 
 ## Executive summary
