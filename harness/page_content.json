@@ -109,5 +109,12 @@
  ],
  "band_note": "This board does resolve an order. Harder questions — ones needing several sources, or a second search that depends on the first — separate the models that everyday lookups could not: the top on-device model is now clearly ahead of the bottom of the working band. Neighbouring rows still sit within noise of each other, so read the groupings rather than the exact positions.",
  "floor_note": "0.00–0.02",
- "config_lift_note": "Configuration is worth as much as model choice at this size. Tuning it — richer tool descriptions, Brave, markdown-formatted results — lifted pooled correctness from 0.79 to 0.92 during screening, and nearly doubled the weakest model's score simply by getting it to search at all."
+ "config_lift_note": "Configuration is worth as much as model choice at this size. Tuning it — richer tool descriptions, Brave, markdown-formatted results — lifted pooled correctness from 0.79 to 0.92 during screening, and nearly doubled the weakest model's score simply by getting it to search at all.",
+ "tier_notes": {
+  "T1": "“Who won the final?” The answer is right there in the search results.",
+  "T2": "The answer is inside the article, not in the search snippet, so the model has to open the page.",
+  "T3": "Needs two different sources put together; no single page says it.",
+  "T4": "Needs a second search that depends on what the first one found."
+ },
+ "frontier_note": "The two reference models are cloud systems, shown for scale only and kept out of the ranking. The best on-device model lands close enough to them that this dataset cannot resolve the gap — which is not the same as matching them: its losses are concentrated in the hardest questions."
 }

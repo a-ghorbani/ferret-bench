@@ -32,7 +32,8 @@ def roster(path):
 
 
 CAPS = {"value": 12, "label": 24, "detail": 200, "config_note": 200,
-        "metric_description": 240, "mechanism": 700, "limitation": 300}
+        "metric_description": 240, "mechanism": 700, "limitation": 300, "tier_note": 160}
+TIER_KEYS = ("T1", "T2", "T3", "T4")
 REQUIRED_CONTENT = ("content_schema_version", "headline_findings", "config_notes", "limitations")
 _HTMLISH = re.compile(r"[<>]|&[a-z]+;|\*\*|\[.*\]\(.*\)")
 
@@ -45,6 +46,35 @@ def _check_text(field, s, cap, errs):
         errs.append(f"{field}: {len(s)} chars exceeds cap {cap}")
     if _HTMLISH.search(s):
         errs.append(f"{field}: contains HTML/markdown; plain text only")
+
+
+def compute_tier_gradient(rows):
+    """T1 (everyday lookup) vs T3+T4 (multi-source/multi-hop), per model, WITH Wilson CIs.
+
+    Emitted as data, not prose: the site renders intervals everywhere, so a bare pooled point
+    estimate would be the one unrigorous number on the page. Returns None if the dataset is untiered.
+    """
+    from aggregate import wilson_interval
+
+    def pooled(tiers, keys):
+        c = sum(tiers[k]["correct"] for k in keys if k in tiers)
+        n = sum(tiers[k]["n"] for k in keys if k in tiers)
+        if n == 0:
+            return None
+        lo, hi = wilson_interval(c, n)
+        return {"correct": c, "n": n, "rate": round(c / n, 4), "ci90": [lo, hi]}
+
+    out = []
+    for r in rows:
+        tiers = r.get("fresh_by_tier")
+        if not tiers or not r["gate_pass"]:
+            continue
+        easy, hard = pooled(tiers, ["T1"]), pooled(tiers, ["T3", "T4"])
+        if not (easy and hard):
+            continue
+        out.append({"model_id": r["model_id"], "display_name": r["display_name"], "class": r["class"],
+                    "easy_T1": easy, "hard_T3_T4": hard, "drop": round(easy["rate"] - hard["rate"], 4)})
+    return out or None
 
 
 def compute_band_separation(rows):
@@ -105,6 +135,18 @@ def load_page_content(doc_dataset_version, doc_config_hash, out_rows, config_val
         _check_text(f"gate_failures[{i}].mechanism", g.get("mechanism"), CAPS["mechanism"], errs)
     for i, l in enumerate(c.get("limitations", [])):
         _check_text(f"limitations[{i}]", l, CAPS["limitation"], errs)
+
+    # tier_notes: required when the dataset is tiered; keys must match presentation_rules.tiers
+    tiered = any(r.get("fresh_by_tier") for r in out_rows)
+    if tiered:
+        tn = c.get("tier_notes")
+        if not tn:
+            errs.append("dataset is tiered but page_content.tier_notes is missing")
+        else:
+            if set(tn) != set(TIER_KEYS):
+                errs.append(f"tier_notes keys {sorted(tn)} != tier keys {sorted(TIER_KEYS)}")
+            for k, v in tn.items():
+                _check_text(f"tier_notes.{k}", v, CAPS["tier_note"], errs)
 
     # 3. Cross-checks: the prose's factual claims vs the exported numbers.
     band = compute_band_separation(out_rows)
@@ -200,6 +242,7 @@ def main():
                       "T3": "multi-source", "T4": "multi-hop"},
         },
         "page_content": load_page_content(ds_version, rows[0].get("config_hash"), out_rows, config_values),
+        "tier_gradient": compute_tier_gradient(out_rows),
         "rows": out_rows,
     }
     out = Path(args.out)
