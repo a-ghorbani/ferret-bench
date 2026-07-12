@@ -146,3 +146,26 @@ Confirms (a): gemma models want to search, emit a fence, and llama.cpp returns z
 - Known reuse: a handful of T1 facts also appeared in v1 (WWDC, SpaceX, Nvidia, PSG, Knicks…) — harmless (model weights unaffected by v1), noted for variety in v3.
 - v2 sweep chain launched: floor2 (qwen35-4b + ministral no-tool contamination check) then confirm2 (12 official + 2 variants + 2 frontier anchors via OpenRouter × 98 Qs, frozen config). Tier validation is post-hoc from telemetry (searches/reads/turns per question): any T3/T4 item broadly solved with a single search gets flagged for demotion.
 - Watcher fixed to an anchored pgrep pattern (python3 sweep[.]py) so it can't match itself (root cause of the 4 zombie shells the user spotted).
+
+## 2026-07-12 — INCIDENT: llama.cpp ABI split broke every new model load (v2 sweep, 13/16 cells)
+
+**Symptom.** confirm2 failed 13 of 16 local cells with `HTTP 500: model name=<x> failed to load`. Only qwen35-4b and huihui-qwen35-2b succeeded, plus the remote anchors.
+
+**Two wrong hypotheses, both discarded on evidence.**
+1. "Another agent's llama-server processes are hogging VRAM." Wrong: `ps -o ppid` showed pids 1548183/1585867 had PPID 769874 — they were llama-swap's OWN child models. The agent I accused (be339af0) said so and was correct; corrected and apologized via agistry. Lesson: check PPID before blaming a neighbour process.
+2. "VRAM exhaustion." Wrong: after unloading both children via llama-swap's `POST /models/unload {"model": "<id>"}`, GPU held only 170 MiB and loads STILL failed. 75 GB RAM free throughout.
+
+**Actual root cause: ABI split in /home/aghorbani/Dev/llama.cpp/build/bin.**
+- `libggml*.so`, `libllama-common.so` → rebuilt **Jul 12 10:10–10:12** (another agent's work).
+- `llama-server` + impl `.so`s → still **Jun 24 11:32**.
+- Old binary + new libs ⇒ instant SIGSEGV (exit 139, zero stdout) on *every* new llama-server process, in models-preset AND plain single-model mode.
+
+**Why the symptom looked like a memory/contention problem.** The llama-swap parent (up 14 days) had the OLD libs already mapped, so children spawned *before* 10:10 kept serving indefinitely. My 08:36/08:51 floor runs loaded qwen35-4b + huihui-qwen35-2b; those two stayed resident (elapsed ~6.6–6.8 h) and are exactly the two models that "worked" at 14:25/14:59 — they were never re-spawned. Everything needing a fresh spawn after 10:10 segfaulted. So the server had been half-dead box-wide for ~5 hours before my sweep noticed.
+
+**My own error compounding it.** I unloaded the two surviving children (chasing the VRAM hypothesis), which removed the last working models, then killed and restarted the llama-swap parent — which could not come back, because the on-disk binary segfaults. Net: :8080 fully down until rebuilt. Should have diagnosed the crash (`exit 139`) before touching a shared service. Also note an earlier misread: a standalone load appeared to "succeed" only because I read the exit code of `grep` at the end of a pipe, not of llama-server.
+
+**Fix.** llama.cpp tree was clean (no uncommitted work at risk) → full `cmake --build build -j 8` to make binary+libs consistent, then relaunch llama-swap with its original cmdline (`--models-preset /home/aghorbani/llama-models.ini --host 0.0.0.0 --port 8080 --models-max 3`), detached via setsid. Notified the two llama.cpp-working agents via agistry.
+
+**Harness bug found in the same pass (unrelated, real):** `warm_model` sent `max_tokens: 4`; OpenAI rejects < 16, so the gpt-5.6-sol anchor failed at warm-up with HTTP 400 while the model itself works fine through the loop (verified: sol/terra/luna all search + answer correctly). Fixed to 16.
+
+**Durable lessons for the protocol.** (a) A shared llama.cpp checkout is a benchmark dependency: pin/verify `build/bin` consistency (binary vs lib mtimes) before a sweep, and treat "model failed to load" as a *binary health* signal, not only a resource signal. (b) Never restart shared infrastructure before reproducing the failure standalone and reading the real exit code.

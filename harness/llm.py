@@ -47,7 +47,8 @@ def warm_model(model: str, retries: int = 5):
                               json={
                 "model": model_id,
                 "messages": [{"role": "user", "content": "Say OK."}],
-                "max_tokens": 4, "temperature": 0,
+                # 16 is the minimum some remote providers accept (OpenAI rejects < 16)
+                "max_tokens": 16, "temperature": 0,
             })
             if r.status_code == 200:
                 return True
