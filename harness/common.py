@@ -13,11 +13,11 @@ CHARS_PER_TOKEN = 4  # PocketPal searchBudget.ts
 
 
 def load_env(paths=None):
-    """Load KEY=VALUE lines from the first existing .env; env vars already set win."""
-    candidates = paths or [
-        REPO_DIR / ".env",
-        Path.home() / "Dev/rd-team/.env",
-    ]
+    """Load KEY=VALUE lines from the first existing .env; env vars already set win.
+
+    Looks in the repo root, or wherever FERRET_ENV points.
+    """
+    candidates = paths or [p for p in (os.environ.get("FERRET_ENV"), REPO_DIR / ".env") if p]
     for p in candidates:
         if Path(p).is_file():
             for line in Path(p).read_text().splitlines():
