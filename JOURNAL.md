@@ -192,3 +192,26 @@ The other agent re-checked their own tip and retracted half of it; their retract
 - qwen35-4b vs GPT-5.6: 49/53 vs 52/53, Fisher p=0.18 — NOT significant, but deliberately framed as "the dataset cannot resolve the gap", not as parity. The tier table shows the losses are concentrated in T4.
 - **Surprise, reported not acted on:** abliterated Qwen3.5-2B (0.830) >> official Qwen3.5-2B (0.641). Large, driven by T1/T2. No mechanism, single run, higher needless-search rate on the variant. Flagged for dedicated replication; roster policy (amendment #11) stays — official checkpoints rank, variants are labelled comparison rows.
 - Gate-failure taxonomy unchanged: same 5 models, 0 tool calls (exporter cross-check enforced this against the run data).
+
+## 2026-07-12 — Pre-launch adversarial review: 4 blockers + 8 should-fixes, all accepted
+
+Independent fresh-context reviewer, repo-only, briefed to find what would embarrass us once thousands of people read it. It found real defects — including one live on the deployed page. All accepted, none rebutted.
+
+**BLOCKERS**
+1. **The entire v2 report section was orphaned.** My `cat >> report.md` ran with cwd=harness/, so 63 lines of v2 write-up landed in `harness/report.md`. Worse: I had already pushed a banner in `report.md` linking to `#v2--tiered-dataset…` — a **dead anchor**. A reader arriving from the website hit a v1-only report whose exec summary still said "0.977 / same score as the 31B / 5 of 13", with the superseding text nowhere. Merged into report.md; orphan removed. (Same class of cwd bug as the earlier misplaced staging file — third occurrence. Lesson: `cd` into the repo root explicitly in every write command, never rely on inherited cwd.)
+2. **Hero chart showed v2 numbers under a hardcoded "dataset v1 / 44 questions" caption** — directly under a README heading saying v2. Caption now derives from the data (`dataset_version`, `n`); it cannot desync again.
+3. `analysis/leaderboard.md` (linked from README as "the model ranking") was still v1-only, 0 v2 rows. Regenerated; duplicate `leaderboard-confirm.md` deleted.
+4. **LIVE INTEGRITY BUG: the site's headline stat "1.00 vs 0.33" was a cross-model cherry-pick** — 1.00 is Ministral's T1, 0.33 is Qwen3-1.7B's T3+T4. No model goes 1.00→0.33, and the card's plural subject invited reading it as one population. Replaced with the honest pooled figure over the same 9 on-device models: **0.88 → 0.61** (anchors 0.97 → 0.98). This was already rendering on the public page; fixed and pushed within the hour, web-dev notified.
+
+**SHOULD-FIX (all applied)**
+- `config_lift_note` said "during screening" — wrong: 0.79→0.92 came from the full-n ablate/tiebreak arms, **on dataset v1**. Neither fact was disclosed on a page whose top card also reads "0.92" (v2, a different number). Now attributed and dated.
+- "nearly doubled the weakest model's score": actually 0.568→0.886 = **+56% relative**, not a doubling. Corrected.
+- **PARSE_FAIL silently dropped from the denominator** (`aggregate.py`): gemma-3-4b shipped `n=47` while every other row was `n=53`. Harmless here (gate-fail model) but the rule would *inflate* a top model's rate if it ever hit a parse fail. Now counted as not-correct and reported as `judge_parse_fail`. All rows are n=53.
+- **Multiplicity**: the "5 models show a statistically real drop" claim was 9 uncorrected comparisons. Under Holm, LFM2.5-1.2B (p=0.020, adj 0.100) drops out → **4 of 9 survive**. README now says so. (The repo already flags uncorrected p-values elsewhere; this was inconsistent with our own standard.)
+- Floor card said "same models… collapse to zero" — the v2 floor was run on **2 of 9** models. Card now names them.
+- README: "5 of the 11 working models" counted the 2 cloud anchors as on-device; "89 questions" (v1) → 98; `configs/` dir missing for the documented example; bare `aggregate && leaderboard` regenerated **v1** because tags defaulted to `confirm`. All fixed; defaults now `confirm2`.
+- v1 exec-summary #4 ("three failure modes… fixable with an app-side shim") is contradicted by our own Addendum (two classes; a shim is *not* sufficient). Marked revised inline — the banner only superseded *model standings*.
+
+**Clean, verified by the reviewer:** secrets (full-history scan, zero hits; Brave key is header-only and never persisted; Tavily key redacted in all 1,936 cached records), dataset v2 quality (7 items spot-checked; tier justifications hold), the p=0.18 frontier framing, the abliteration finding's responsible handling, and MIT LICENSE now present.
+
+Meta: the reviewer's single most valuable catch (B4) was a claim *I* introduced while trying to make the finding punchier. Compression toward a headline is exactly where honesty leaks.
