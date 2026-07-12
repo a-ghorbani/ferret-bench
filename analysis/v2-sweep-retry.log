@@ -699,3 +699,9 @@ wrote 86 rows → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-
 [20260712-155934-confirm2-frozen-gemma-3-4b] done in 117.0s → /home/aghorbani/Dev/rd-team/evaluation/experiments/2026-07-10-web-search-agentic-config/runs/20260712-155934-confirm2-frozen-gemma-3-4b
 === warming gemma-4-e2b ===
 [20260712-160137-confirm2-frozen-gemma-4-e2b] 1/98 fr2-news-01 ok turns=2 searches=1 reads=0
+[20260712-160137-confirm2-frozen-gemma-4-e2b] 2/98 fr2-news-02 ok turns=2 searches=1 reads=0
+[20260712-160137-confirm2-frozen-gemma-4-e2b] 3/98 fr2-news-03 ok turns=2 searches=1 reads=0
+[20260712-160137-confirm2-frozen-gemma-4-e2b] 4/98 fr2-news-04 ok turns=2 searches=1 reads=0
+[20260712-160137-confirm2-frozen-gemma-4-e2b] 5/98 fr2-news-06 ok turns=1 searches=0 reads=0
+[20260712-160137-confirm2-frozen-gemma-4-e2b] 6/98 fr2-news-07 ok turns=2 searches=1 reads=0
+[20260712-160137-confirm2-frozen-gemma-4-e2b] 7/98 fr2-news-08 ok turns=2 searches=1 reads=0

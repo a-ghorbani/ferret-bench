@@ -4,7 +4,6 @@
  "for_dataset_version": "v1",
  "for_config_hash": "2e5a782618fe49a2ce10cb35a532e8d6cefb276c5ab570c12fca9d22cbe6a152",
  "band_separated": false,
-
  "headline_findings": [
   {
    "value": "0.98",
@@ -18,7 +17,7 @@
   },
   {
    "value": "5 of 13",
-   "label": "Models that cannot search",
+   "label": "Models that can't search",
    "detail": "Five candidates never execute a single tool call. This is a harder gate than model size, and it is where most of the real-world failure lives."
   },
   {
@@ -27,7 +26,6 @@
    "detail": "Pooled across four models, the tuned configuration lifts fresh-question correctness from 0.79 to 0.92 — as large as the gap between many of the models themselves."
   }
  ],
-
  "config_notes": {
   "provider": "Brave is the recommended default: it beat Tavily in screening and used fewer prompt tokens on most models. Tavily remains fully supported.",
   "result_format": "Markdown-formatted results beat the shipped labelled blocks; JSON and compact numbered lists were both worse and were eliminated.",
@@ -36,31 +34,65 @@
   "snippet_chars": "280-character snippets retained. Shorter truncation lost information; full-length snippets cost many more tokens for no gain.",
   "read_url_policy": "Page reading stays available but earns its keep rarely — snippets answer most questions, and models call read_url on well under half a page per question.",
   "max_turns": "A five-turn budget is not the binding constraint: the winning configurations average under two turns per question.",
-  "system_prompt": "The shipped grounding line is retained. A prescriptive 'strategy' prompt raised accuracy but triggered searches on questions needing none, and pairing it with markdown formatting was worse than either alone."
+  "system_prompt": "Shipped grounding line retained. A prescriptive 'strategy' prompt raised accuracy but triggered needless searches, and pairing it with markdown was worse than either alone."
  },
-
  "metric_definitions": [
-  {"key": "fresh", "label": "Fresh ✓", "description": "Share of retrieval-required questions answered correctly. These ask about events after the models' training data, so they cannot be answered from memory. This is the primary score.", "lower_is_better": false},
-  {"key": "stable", "label": "Stable ✓", "description": "Share of timeless general-knowledge questions answered correctly. Checks that adding web search does not damage what a model already knew.", "lower_is_better": false},
-  {"key": "engagement", "label": "Searches when needed", "description": "How often the model actually searches on a question that requires it. The dominant failure mode for small models is not searching at all.", "lower_is_better": false},
-  {"key": "false_search_rate", "label": "Searches when it shouldn't", "description": "How often the model searches on requests that need no web access, such as writing a haiku or doing arithmetic. Wasted latency and API calls.", "lower_is_better": true},
-  {"key": "tool_call_validity", "label": "Valid tool calls", "description": "Share of the model's tool calls that are well-formed and executable. A model that cannot produce valid calls cannot search at all.", "lower_is_better": false},
-  {"key": "avg_turns", "label": "Turns", "description": "Average round trips through the search loop per question. On a phone each turn is a full prompt re-processing, so turns dominate response time.", "lower_is_better": true}
+  {
+   "key": "fresh",
+   "label": "Fresh ✓",
+   "description": "Share of retrieval-required questions answered correctly. These ask about events after the models' training data, so they cannot be answered from memory. This is the primary score.",
+   "lower_is_better": false
+  },
+  {
+   "key": "stable",
+   "label": "Stable ✓",
+   "description": "Share of timeless general-knowledge questions answered correctly. Checks that adding web search does not damage what a model already knew.",
+   "lower_is_better": false
+  },
+  {
+   "key": "engagement",
+   "label": "Searches when needed",
+   "description": "How often the model actually searches on a question that requires it. The dominant failure mode for small models is not searching at all.",
+   "lower_is_better": false
+  },
+  {
+   "key": "false_search_rate",
+   "label": "Searches when it shouldn't",
+   "description": "How often the model searches on requests that need no web access, such as writing a haiku or doing arithmetic. Wasted latency and API calls.",
+   "lower_is_better": true
+  },
+  {
+   "key": "tool_call_validity",
+   "label": "Valid tool calls",
+   "description": "Share of the model's tool calls that are well-formed and executable. A model that cannot produce valid calls cannot search at all.",
+   "lower_is_better": false
+  },
+  {
+   "key": "avg_turns",
+   "label": "Turns",
+   "description": "Average round trips through the search loop per question. On a phone each turn is a full prompt re-processing, so turns dominate response time.",
+   "lower_is_better": true
+  }
  ],
-
  "gate_failures": [
   {
    "title": "Structural — the model is never shown the tools",
-   "models": ["Gemma-3-4B", "Gemma-3-1B", "Hermes-3-3B"],
+   "models": [
+    "Gemma-3-4B",
+    "Gemma-3-1B",
+    "Hermes-3-3B"
+   ],
    "mechanism": "These models ship chat templates that never mention tools. The runtime decides a model supports tool calling by probe-rendering its template, so a template that ignores tools means the tool definitions are never written into the prompt at all, and the parser installed can never emit a tool call. Gemma-3 fails visibly: it tries to search, improvises Google's own tool_code syntax, and guesses the function name wrong — proof it never saw a signature. Hermes-3 fails silently and worse: it fabricates an answer with plausible-looking citations. The fix is a tool-declaring chat template, not a text parser."
   },
   {
    "title": "Compliance — the tools are declared, the model still refuses",
-   "models": ["Phi-4-mini", "SmolLM3-3B"],
+   "models": [
+    "Phi-4-mini",
+    "SmolLM3-3B"
+   ],
    "mechanism": "These templates do declare tools, so the model genuinely sees the schemas — and still never calls them. Phi-4-mini states outright that it cannot browse the web and answers from stale memory instead. This is an alignment prior overriding the tools that are visibly in front of it, and it needs a different lever than a template fix."
   }
  ],
-
  "limitations": [
   "The top of this table is saturated: the questions are single-fact lookups that one good search answers, so several small models hit the same ceiling as a 31B reference. That says as much about the dataset as about the models.",
   "Correctness is graded by an LLM judge against a verified gold answer. The judge was validated against hand-labelled samples, but it is not a human grader.",
@@ -68,7 +100,6 @@
   "Fresh questions go stale by design. Scores are only comparable within one dataset version, which is why the version is stamped on this page.",
   "One-shot answers only: each question is asked once, so small differences between neighbouring models are not resolved."
  ],
-
  "band_note": "There is no single winner. Every model in the working band scores within statistical noise of the others at this sample size — the confidence intervals overlap from top to bottom — so we show bands rather than ranks. The one distinction this benchmark does resolve decisively is between models that can drive a search loop and models that cannot.",
  "floor_note": "0.00–0.02",
  "config_lift_note": "Configuration matters as much as model choice at this size: pooled across four models the tuned setup lifts fresh-question correctness from 0.79 to 0.92, and on the weakest working model it nearly doubles the score by getting it to search at all."
