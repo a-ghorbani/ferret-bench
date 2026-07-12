@@ -35,6 +35,9 @@ PRETTY = {
     "hermes-3-3b": "Hermes-3-3B",
     "ggml-org/Qwen3.6-27B-GGUF:Q8_0": "Qwen3.6-27B (ceiling ref)",
     "ggml-org/gemma-4-31B-it-GGUF:Q8_0": "Gemma-4-31B (ceiling ref)",
+    "qwen35-2b": "Qwen3.5-2B",
+    "openrouter:anthropic/claude-sonnet-5": "Claude Sonnet 5 (frontier anchor)",
+    "openrouter:openai/gpt-5.6-sol": "GPT-5.6-sol (frontier anchor)",
 }
 
 
@@ -46,7 +49,7 @@ def main():
 
     rows = [r for r in read_jsonl(REPO_DIR / "analysis" / "scores.jsonl") if f"-{args.tag}-" in r["run_id"]]
     for r in rows:
-        r["_ceil"] = "Q8_0" in r["model"]
+        r["_ceil"] = "Q8_0" in r["model"] or r["model"].startswith("openrouter:")
         r["_fail"] = (r["engagement_fresh"] or 0) == 0
     rows.sort(key=lambda r: (r["_fail"], r["_ceil"], -(r["correct_fresh"]["rate"] or 0)))
 

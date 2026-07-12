@@ -1,0 +1,15 @@
+{"id": "ns-01", "split": "no_search", "question": "Write a haiku about autumn leaves.", "gold_answer": null, "category": "creative", "difficulty": "easy"}
+{"id": "ns-02", "split": "no_search", "question": "What is 17 times 24?", "gold_answer": "408", "category": "math", "difficulty": "easy"}
+{"id": "ns-03", "split": "no_search", "question": "How do you say 'good morning' in French?", "gold_answer": "Bonjour", "category": "language", "difficulty": "easy"}
+{"id": "ns-04", "split": "no_search", "question": "Give me three tips for falling asleep faster.", "gold_answer": null, "category": "advice", "difficulty": "easy"}
+{"id": "ns-05", "split": "no_search", "question": "Summarize the plot of Romeo and Juliet in two sentences.", "gold_answer": null, "category": "literature", "difficulty": "easy"}
+{"id": "ns-06", "split": "no_search", "question": "Write a short thank-you note to a colleague who helped me move apartments.", "gold_answer": null, "category": "writing", "difficulty": "easy"}
+{"id": "ns-07", "split": "no_search", "question": "If I have 3 apples and eat one, how many do I have left?", "gold_answer": "2", "category": "math", "difficulty": "easy"}
+{"id": "ns-08", "split": "no_search", "question": "Brainstorm five names for a cat-themed coffee shop.", "gold_answer": null, "category": "creative", "difficulty": "easy"}
+{"id": "ns-09", "split": "no_search", "question": "Explain recursion to a 10-year-old.", "gold_answer": null, "category": "explain", "difficulty": "easy"}
+{"id": "ns-10", "split": "no_search", "question": "Rewrite this sentence more formally: 'gonna grab food, brb'.", "gold_answer": null, "category": "writing", "difficulty": "easy"}
+{"id": "ns-11", "split": "no_search", "question": "What's a good synonym for 'happy'?", "gold_answer": null, "category": "language", "difficulty": "easy"}
+{"id": "ns-12", "split": "no_search", "question": "Help me draft a polite message to reschedule tomorrow's meeting.", "gold_answer": null, "category": "writing", "difficulty": "easy"}
+{"id": "ns-13", "split": "no_search", "question": "Convert 100 centimeters to meters.", "gold_answer": "1 meter", "category": "math", "difficulty": "easy"}
+{"id": "ns-14", "split": "no_search", "question": "Tell me a joke about programmers.", "gold_answer": null, "category": "creative", "difficulty": "easy"}
+{"id": "ns-15", "split": "no_search", "question": "Explain the difference between 'affect' and 'effect'.", "gold_answer": null, "category": "language", "difficulty": "easy"}

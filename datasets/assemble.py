@@ -52,6 +52,12 @@ def validate(rows, anchor_date):
                 errs.append(f"{r['id']}: fresh event_date {ed!r} missing or not before anchor {anchor_date}")
             if not r.get("gold_answer"):
                 errs.append(f"{r['id']}: fresh item without gold_answer")
+            tier = r.get("tier")
+            if tier is not None:  # v2+ tiered datasets
+                if tier not in ("T1", "T2", "T3", "T4"):
+                    errs.append(f"{r['id']}: bad tier {tier!r}")
+                if tier in ("T3", "T4") and not r.get("hops"):
+                    warns.append(f"{r['id']}: {tier} item without hops description")
         if r["split"] != "no_search" and r.get("gold_answer") and len(str(r["gold_answer"]).split()) > 12:
             warns.append(f"{r['id']}: long gold answer ({r['gold_answer']!r})")
     qs = [r["question"].lower() for r in rows]
