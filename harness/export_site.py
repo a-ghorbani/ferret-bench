@@ -48,7 +48,10 @@ def main():
     for r in sorted(rows, key=lambda r: -(r["correct_fresh"]["rate"] or 0)):
         m = r["model"]
         klass = ("official" if m in official else "variant" if m in variants
-                 else "anchor" if m in anchors else "unknown")
+                 else "anchor" if m in anchors
+                 # heuristic fallback: v1's local ceiling refs (Q8_0 GGUFs) and any remote
+                 # model are reference rows, never on-device ranking entries
+                 else "anchor" if ("Q8_0" in m or m.startswith("openrouter:")) else "unknown")
         gate_fail = (r["engagement_fresh"] or 0) == 0
         out_rows.append({
             "model_id": m,
@@ -66,16 +69,31 @@ def main():
             "run_id": r["run_id"],
         })
 
+    # config values, authoritative from the first row's run manifest (full config dump)
+    first_manifest = json.loads((REPO_DIR / "runs" / rows[0]["run_id"] / "manifest.json").read_text())
+    CONFIG_VALUE_KEYS = ("provider", "result_count", "result_format", "tool_desc", "system_prompt",
+                         "snippet_chars", "menu_token_ceiling", "read_url_policy",
+                         "read_content_chars", "max_turns", "untrusted_wrapper", "gen")
+    config_values = {k: first_manifest["config"].get(k) for k in CONFIG_VALUE_KEYS}
+
+    # dataset counts + anchor date from the version's meta.json
+    ds_version = rows[0].get("dataset_version")
+    meta_path = REPO_DIR / "datasets" / (ds_version or "") / "meta.json"
+    ds_meta = json.loads(meta_path.read_text()) if meta_path.is_file() else {}
+
     doc = {
         "benchmark": "ferret-bench — agentic web search for small on-device LLMs",
         "source": "https://github.com/a-ghorbani/ferret-bench",
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "sweep_tag": args.tag,
-        "dataset_version": rows[0].get("dataset_version"),
+        "dataset_version": ds_version,
         "dataset_sha256": rows[0].get("dataset_sha256"),
+        "dataset_counts": ds_meta.get("counts"),
+        "dataset_anchor_date": ds_meta.get("anchor_date"),
         "judge": rows[0].get("judge"),
         "config_id": rows[0].get("config_id"),
         "config_hash": rows[0].get("config_hash"),
+        "config_values": config_values,
         "presentation_rules": {
             "bands_not_ranks": "CIs overlap within the working band; do not render medal positions",
             "cross_version": "scores are only comparable within a dataset_version",
