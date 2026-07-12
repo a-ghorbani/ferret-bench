@@ -183,3 +183,41 @@ Frontier models do not degrade with retrieval difficulty on this set; small mode
 - T3 has only 9 items; per-tier CIs are wide. The T1-vs-T3+T4 gradient is the robust claim, not any single tier's rate.
 - Frontier anchors run through the same loop but on their own serving stacks; their latency/turn numbers are not comparable to local runs.
 - One roster model (Gemma-4-E2B) carries an unused vision tower that is loaded to VRAM by the runtime; this affects memory accounting only, not numerics (see JOURNAL 2026-07-12).
+
+
+---
+
+# Correction (2026-07-12, post-publication) — RQ6 gate-failure taxonomy: **one class, not two**
+
+**What was published and is now withdrawn.** The v1 Addendum and the first v2 write-up split the five gate failures into *structural* (Gemma-3-1B/4B, Hermes-3-3B — template never declares tools) and *compliance* (Phi-4-mini, SmolLM3-3B — "schemas rendered, model refuses"). **The compliance class does not exist.** All five are structural.
+
+**Why the error happened.** The compliance claim rested on counting `tools` substrings in `tokenizer.chat_template` as a proxy for tool-calling capability. That proxy is wrong: llama.cpp computes capability by *probe-rendering* the template with a synthetic tools array and checking whether it ever reads `tools[].function.name`. Phi-4-mini and SmolLM3 *mention* the variable but never render it under the actual invocation. A substring is not a render.
+
+**The decisive evidence — from our own run data, which had it all along.** `usage.prompt_tokens` on turn 1 is the cleanest capability probe in this repo: it is exactly what the runtime tokenized.
+
+| model | median turn-1 prompt tokens | tool calls |
+|---|---|---|
+| phi-4-mini | 105 | 0 |
+| hermes-3-3b | 116 | 0 |
+| gemma-3-1b | 122 | 0 |
+| gemma-3-4b | 122 | 0 |
+| smollm3-3b | 146 | 0 |
+| gemma-4-e2b | 363 | 89 |
+| ministral-3-3b | 371 | 94 |
+| qwen3-1.7b | 452 | 72 |
+| qwen35-4b | 576 | 116 |
+
+Perfectly bimodal. Every gate-failing model renders ~105–146 tokens — system line plus question, with no room for the `web_search`/`read_url` schemas. The 250–450-token gap **is** the schema. Phi-4-mini and SmolLM3 never saw the tools either. Runs: `20260712-*-confirm2-frozen-*`.
+
+**What this changes.**
+
+1. **One failure class.** The tool-declaring-chat-template fix is worth **5 of 5**, not 3 of 5.
+2. **Phi-4-mini was not refusing.** Its "I can't perform web searches in real-time" is a model *honestly reporting it has no tools* — because it had none. We read a structural bug as a behavioural one and published it as model misbehaviour. That was wrong and is retracted.
+3. **`tool_choice: "required"` is moot** for these models — you cannot require a tool the model was never shown. (Recommendation withdrawn.)
+4. **Severity differs only in failure *mode*, not cause** — by user harm: Hermes-3 (fabricates with fake citations — **unsafe**) > Gemma-3 (improvises a visible `tool_code` fence) > Phi-4-mini (honest disclosure — arguably the *correct* behaviour given its prompt).
+5. **The leaderboard label was defamatory and is fixed.** "Models that can't search" flattened five very different models into a verdict about *them*, when it was an artifact of *our* prompt rendering. The tell was in our own data: Gemma-3-4B scores 0.20 on the stable split while SmolLM3 scores 0.97 — these are not the same kind of model, and neither was ever given a tool. The row group is now labelled **"the tool definitions never reach these models"**.
+6. **The gate recommendation gets stronger:** gate on *rendered capability*, never on a model-family allowlist. A runtime canary — *tools were passed, but the rendered prompt is < ~300 tokens ⇒ the schemas did not land* — catches all five and any future GGUF repack that silently drops the tool template. The harness now asserts exactly this (`harness/agent_loop.py`); it would have caught this on day one.
+
+**Provenance.** Root cause raised by the PocketPal PR #808 implementer; substring-proxy error introduced in an addendum committed to this repo by another agent while this session was idle; independently verified here against `runs/*confirm2*/outputs.jsonl` before acceptance. The earlier addendum's two-class taxonomy is superseded by this section wherever they disagree.
+
+**Numeric note.** The implementer quoted ~1646/2055 turn-1 tokens for ministral/qwen35-4b where we measure 371/576. The discrepancy is almost certainly a later-turn measurement (after the results menu enters context) or a different config; the bimodal gap and the conclusion are identical either way. Our figures are turn-1, frozen config, dataset v2.

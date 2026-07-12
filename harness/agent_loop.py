@@ -15,6 +15,10 @@ from talents import exec_read_url, exec_web_search
 FORCED_FINAL_NUDGE = ("(Tool budget exhausted. Answer now using only the information gathered above; "
                       "if it is insufficient, say what is missing.)")
 
+# The web_search + read_url schemas cost ~250-450 rendered tokens. A turn-1 prompt below this,
+# with tools passed, means the chat template never rendered them (see report.md RQ6 correction).
+SCHEMA_RENDERED_MIN_TOKENS = 300
+
 
 def _normalize_tool_calls(raw, seed):
     """Backfill synthetic ids like PocketPal normalizeToolCallIds."""
@@ -59,6 +63,7 @@ def run_agent(question: str, model: str, cfg: dict, anchor_date: str, http_mode:
         {"role": "user", "content": question},
     ]
     telemetry = {}
+    schema_not_rendered = False
     turns, tool_call_log, usage_total = [], [], {"prompt_tokens": 0, "completion_tokens": 0}
     final_answer, hit_max_turns, force_final, error = None, False, False, None
     turn = 0
@@ -74,6 +79,13 @@ def run_agent(question: str, model: str, cfg: dict, anchor_date: str, http_mode:
         usage = resp.get("usage") or {}
         usage_total["prompt_tokens"] += usage.get("prompt_tokens", 0)
         usage_total["completion_tokens"] += usage.get("completion_tokens", 0)
+
+        # CANARY: if we passed tools but the runtime rendered a prompt too short to contain the
+        # schemas, the model's chat template silently dropped them — it was never offered the tools.
+        # Five models failed this way and we misread it as them refusing to comply. Never again.
+        if turn == 0 and turn_tools and usage.get("prompt_tokens"):
+            if usage["prompt_tokens"] < SCHEMA_RENDERED_MIN_TOKENS:
+                schema_not_rendered = True
         content = msg.get("content") or ""
         raw_calls = msg.get("tool_calls") or []
         calls = _normalize_tool_calls(raw_calls, seed=f"{seed}_{turn}")
@@ -108,6 +120,7 @@ def run_agent(question: str, model: str, cfg: dict, anchor_date: str, http_mode:
         "n_turns": len(turns),
         "hit_max_turns": hit_max_turns,
         "tool_calls": tool_call_log,
+        "schema_not_rendered": schema_not_rendered,  # tools passed but template dropped them
         "n_searches": len(telemetry.get("searches", [])),
         "n_reads": len(telemetry.get("reads", [])),
         "telemetry": telemetry,

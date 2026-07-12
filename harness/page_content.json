@@ -22,8 +22,8 @@
   },
   {
    "value": "5 of 14",
-   "label": "Models that can't search",
-   "detail": "Five candidates never execute a single tool call, whatever the question. This is a harder gate than model size."
+   "label": "Never offered the tools",
+   "detail": "Five candidates make zero tool calls — because their chat templates never put the tool definitions into the prompt. A packaging bug, not a model verdict, and the biggest failure in practice."
   }
  ],
  "config_notes": {
@@ -82,21 +82,15 @@
  ],
  "gate_failures": [
   {
-   "title": "Structural — the model is never shown the tools",
+   "title": "The tool definitions never reach these models",
    "models": [
     "Gemma-3-4B",
     "Gemma-3-1B",
-    "Hermes-3-3B"
-   ],
-   "mechanism": "These models ship chat templates that never mention tools. The runtime decides a model supports tool calling by probe-rendering its template, so a template that ignores tools means the tool definitions are never written into the prompt at all, and the parser installed can never emit a tool call. Gemma-3 fails visibly: it tries to search, improvises Google's own tool_code syntax, and guesses the function name wrong — proof it never saw a signature. Hermes-3 fails silently and worse: it fabricates an answer with plausible-looking citations. The fix is a tool-declaring chat template, not a text parser."
-  },
-  {
-   "title": "Compliance — the tools are declared, the model still refuses",
-   "models": [
+    "Hermes-3-3B",
     "Phi-4-mini",
     "SmolLM3-3B"
    ],
-   "mechanism": "These templates do declare tools, so the model genuinely sees the schemas — and still never calls them. Phi-4-mini states outright that it cannot browse the web and answers from stale memory instead. This is an alignment prior overriding the tools that are visibly in front of it, and it needs a different lever than a template fix."
+   "mechanism": "All five ship chat templates that never render the tool definitions. The runtime decides whether a model supports tool calling by test-rendering its template; if the template ignores tools, the schemas are silently left out of the prompt. Measured: these five receive 105-146 tokens (system line + question); every working model receives 363-576. The missing tokens are the tool definitions. This is not a verdict on the models — they were never offered the tools. Gemma-3 fails visibly, improvising Google's tool_code syntax. Hermes-3 fails dangerously, inventing fake citations. Phi-4-mini says it cannot browse — given what it was sent, that is honest. The fix is a tool-declaring chat template."
   }
  ],
  "limitations": [

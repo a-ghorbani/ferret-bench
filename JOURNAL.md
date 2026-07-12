@@ -215,3 +215,22 @@ Independent fresh-context reviewer, repo-only, briefed to find what would embarr
 **Clean, verified by the reviewer:** secrets (full-history scan, zero hits; Brave key is header-only and never persisted; Tavily key redacted in all 1,936 cached records), dataset v2 quality (7 items spot-checked; tier justifications hold), the p=0.18 frontier framing, the abliteration finding's responsible handling, and MIT LICENSE now present.
 
 Meta: the reviewer's single most valuable catch (B4) was a claim *I* introduced while trying to make the finding punchier. Compression toward a headline is exactly where honesty leaks.
+
+## 2026-07-12 — RETRACTION: the "compliance" gate-failure class does not exist. All 5 are structural.
+
+**What I published and now withdraw.** Two failure classes — *structural* (Gemma-3-1B/4B, Hermes-3-3B) and *compliance* (Phi-4-mini, SmolLM3-3B: "shown the tools and refuse anyway"). The compliance class is **false**. All five never receive the tool schemas.
+
+**How the error entered.** The claim rested on counting `tools` substrings in the GGUF's `tokenizer.chat_template` as a proxy for capability. llama.cpp instead *probe-renders* the template and checks whether it ever reads `tools[].function.name`. Phi-4-mini and SmolLM3 mention the variable but never render it. **A substring is not a render.** The proxy came in via an addendum another agent committed to this repo while this session was idle (disclosed by them); I inherited it into report.md, README and the live site payload without re-deriving it. My failure, not theirs: I published a mechanism I had not verified.
+
+**The evidence was in our own data the whole time.** `usage.prompt_tokens` on turn 1 is exactly what the runtime tokenized — the cleanest capability probe in the repo, and we log it on every run. Verified on `runs/*confirm2*`: gate failures render **105–146 tokens** (system + question); working models **363–576**. Perfectly bimodal. The 250–450-token gap **is** the schema.
+
+**Consequences, all now corrected in report.md / README / the live page:**
+1. One class, not two. The tool-declaring-template fix is worth **5 of 5**.
+2. **Phi-4-mini was not refusing — it was being honest.** "I can't perform web searches in real-time" is a *correct* statement for a model that was sent no tools. I published it as misbehaviour. That is a retraction, not a nuance: we defamed a model for a bug in our own prompt rendering.
+3. `tool_choice: "required"` is moot — you cannot require a tool the model was never shown. Recommendation withdrawn.
+4. The leaderboard's "models that can't search" label flattened five very different models into a verdict about *them*. Our own data contradicted it: Gemma-3-4B scores 0.20 on the stable split, SmolLM3 0.97 — not the same kind of model, and neither was ever offered a tool. Relabelled: "the tool definitions never reach these models."
+5. Gate on **rendered capability**, never a model allowlist.
+
+**Harness change so this cannot recur:** `agent_loop.py` now sets `schema_not_rendered` when tools were passed but the turn-1 prompt is < 300 tokens. It would have caught this on day one, from data we were already collecting.
+
+**Meta.** Three of my worst errors this run share one shape: I accepted a plausible mechanism (mtmd nondeterminism, the substring proxy, the "1.00 vs 0.33" headline) without deriving it from the data I already had. Two were caught by others; one by a reviewer. The data was sitting in `outputs.jsonl` every time. **Check the telemetry before theorising about the cause.**
