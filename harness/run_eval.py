@@ -8,6 +8,8 @@ Usage:
 
 import argparse
 import json
+import os
+import re
 import subprocess
 import sys
 import time
@@ -34,6 +36,32 @@ def git_rev():
         return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=REPO_DIR, text=True).strip()
     except Exception:
         return None
+
+
+MODELS_INI = os.environ.get("LLAMA_MODELS_INI", str(Path.home() / "llama-models.ini"))
+
+
+def resolve_weights(model: str):
+    """Resolve a model alias to the actual GGUF: path + quantization + size.
+
+    The protocol requires manifests to pin the weights, not just an alias. They did not, and it
+    let an uncontrolled quantization difference (Q8_0 vs Q4_K_M) into a published comparison.
+    Never ship a run whose weights cannot be identified from its manifest.
+    """
+    if model.startswith("openrouter:"):
+        return {"kind": "remote", "model_id": model.split(":", 1)[1], "quant": None}
+    try:
+        ini = Path(MODELS_INI).read_text()
+        m = re.search(rf"^\[{re.escape(model)}\]\s*\n(?:.*\n)*?model\s*=\s*(\S+)", ini, re.M)
+        if not m:
+            return {"kind": "local", "quant": "UNKNOWN", "gguf_path": None, "warning": f"{model} not in {MODELS_INI}"}
+        p = Path(m.group(1))
+        q = re.search(r"(IQ\d[_A-Za-z0-9]*|Q\d[_A-Za-z0-9]*|BF16|F16|F32)", p.name, re.I)
+        return {"kind": "local", "gguf_path": str(p), "gguf_name": p.name,
+                "quant": q.group(1) if q else "UNKNOWN",
+                "size_bytes": p.stat().st_size if p.is_file() else None}
+    except Exception as e:
+        return {"kind": "local", "quant": "UNKNOWN", "error": str(e)}
 
 
 def run_one(config_name, model, dataset, *, limit=None, split=None, qids_file=None,
@@ -68,6 +96,7 @@ def run_one(config_name, model, dataset, *, limit=None, split=None, qids_file=No
         "config_hash": cfg["config_hash"],
         "config": cfg,
         "model": model,
+        "weights": resolve_weights(model),
         "dataset": str(dataset_path.relative_to(REPO_DIR)) if str(dataset_path).startswith(str(REPO_DIR)) else str(dataset_path),
         "dataset_sha256": sha256_file(dataset_path),
         "dataset_version": ds_meta.get("version"),

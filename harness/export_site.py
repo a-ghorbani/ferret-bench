@@ -31,8 +31,13 @@ def roster(path):
     return {l.strip() for l in p.read_text().splitlines() if l.strip() and not l.startswith("#")}
 
 
-CAPS = {"value": 12, "label": 24, "detail": 200, "config_note": 200,
-        "metric_description": 240, "mechanism": 700, "limitation": 300, "tier_note": 160}
+# Mirrored EXACTLY from the consumer's validator (raised 2026-07-12 after a 3-char overflow
+# rejected a correction payload and pinned production to the wrong copy). Never trim a
+# correction to fit a cap — ask for the cap to be raised.
+CAPS = {"value": 12, "label": 32, "detail": 240, "config_note": 240,
+        "metric_label": 32, "metric_description": 280, "gate_title": 90, "mechanism": 800,
+        "limitation": 360, "tier_note": 160, "band_note": 600, "floor_note": 32,
+        "config_lift_note": 600, "frontier_note": 400, "gate_failure_takeaway": 240}
 TIER_KEYS = ("T1", "T2", "T3", "T4")
 REQUIRED_CONTENT = ("content_schema_version", "headline_findings", "config_notes", "limitations")
 _HTMLISH = re.compile(r"[<>]|&[a-z]+;|\*\*|\[.*\]\(.*\)")
@@ -129,12 +134,17 @@ def load_page_content(doc_dataset_version, doc_config_hash, out_rows, config_val
         _check_text(f"config_notes.{k}", v, CAPS["config_note"], errs)
     for i, m in enumerate(c.get("metric_definitions", [])):
         # label is now a COLUMN HEADER on the page — cap it like any other label
-        _check_text(f"metric_definitions[{i}].label", m.get("label"), CAPS["label"], errs)
+        _check_text(f"metric_definitions[{i}].label", m.get("label"), CAPS["metric_label"], errs)
         _check_text(f"metric_definitions[{i}].description", m.get("description"), CAPS["metric_description"], errs)
     for i, g in enumerate(c.get("gate_failures", [])):
+        _check_text(f"gate_failures[{i}].title", g.get("title"), CAPS["gate_title"], errs)
         _check_text(f"gate_failures[{i}].mechanism", g.get("mechanism"), CAPS["mechanism"], errs)
     for i, l in enumerate(c.get("limitations", [])):
         _check_text(f"limitations[{i}]", l, CAPS["limitation"], errs)
+
+    for f in ("band_note", "floor_note", "config_lift_note", "frontier_note", "gate_failure_takeaway"):
+        if f in c:
+            _check_text(f, c[f], CAPS[f], errs)
 
     # tier_notes: required when the dataset is tiered; keys must match presentation_rules.tiers
     tiered = any(r.get("fresh_by_tier") for r in out_rows)
@@ -198,6 +208,7 @@ def main():
             "model_id": m,
             "display_name": PRETTY.get(m, m.replace("openrouter:", "")),
             "class": klass,
+            "quant": r.get("quant"),
             "gate_pass": not gate_fail,
             "fresh": r["correct_fresh"],
             "fresh_by_tier": r.get("correct_fresh_by_tier"),

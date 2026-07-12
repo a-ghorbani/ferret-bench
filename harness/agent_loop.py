@@ -64,6 +64,8 @@ def run_agent(question: str, model: str, cfg: dict, anchor_date: str, http_mode:
     ]
     telemetry = {}
     schema_not_rendered = False
+    answer_from_reasoning = False
+    empty_content_turns = 0
     turns, tool_call_log, usage_total = [], [], {"prompt_tokens": 0, "completion_tokens": 0}
     final_answer, hit_max_turns, force_final, error = None, False, False, None
     turn = 0
@@ -71,7 +73,8 @@ def run_agent(question: str, model: str, cfg: dict, anchor_date: str, http_mode:
     while turn < cfg["max_turns"] or force_final:
         turn_tools = None if (force_final or not tools) else tools
         try:
-            resp = chat(model, messages, tools=turn_tools, gen=cfg["gen"])
+            resp = chat(model, messages, tools=turn_tools,
+                        gen={**cfg["gen"], "enable_thinking": cfg.get("enable_thinking", False)})
         except LLMError as e:
             error = str(e)
             break
@@ -87,14 +90,31 @@ def run_agent(question: str, model: str, cfg: dict, anchor_date: str, http_mode:
             if usage["prompt_tokens"] < SCHEMA_RENDERED_MIN_TOKENS:
                 schema_not_rendered = True
         content = msg.get("content") or ""
+        reasoning = msg.get("reasoning_content") or ""
         raw_calls = msg.get("tool_calls") or []
+
+        # CANARY 2: the model generated tokens but delivered no visible content and no tool call.
+        # Thinking models sometimes end their turn inside the reasoning block: llama.cpp routes the
+        # whole answer to reasoning_content and `content` comes back empty. Reading only `content`
+        # discards an answer the model actually produced — and penalises thinking models specifically
+        # (it is why an abliterated variant appeared to beat its official sibling). See report.md.
+        if (usage.get("completion_tokens") or 0) > 0 and not content.strip() and not raw_calls:
+            empty_content_turns += 1
         calls = _normalize_tool_calls(raw_calls, seed=f"{seed}_{turn}")
         turns.append({"turn": turn, "content": content, "n_tool_calls": len(calls),
                       "prompt_tokens": usage.get("prompt_tokens"), "completion_tokens": usage.get("completion_tokens"),
                       "forced_final": force_final})
 
         if force_final or not calls:
-            final_answer = content
+            # capability measurement: if the answer only exists in the reasoning block, use it,
+            # but flag it — "delivered to the user" and "produced by the model" are different claims.
+            if content.strip():
+                final_answer = content
+            elif reasoning.strip():
+                final_answer = reasoning
+                answer_from_reasoning = True
+            else:
+                final_answer = content
             break
 
         assistant_msg = {"role": "assistant", "content": content, "tool_calls": calls}
@@ -121,6 +141,8 @@ def run_agent(question: str, model: str, cfg: dict, anchor_date: str, http_mode:
         "hit_max_turns": hit_max_turns,
         "tool_calls": tool_call_log,
         "schema_not_rendered": schema_not_rendered,  # tools passed but template dropped them
+        "answer_from_reasoning": answer_from_reasoning,  # answer recovered from reasoning_content
+        "empty_content_turns": empty_content_turns,
         "n_searches": len(telemetry.get("searches", [])),
         "n_reads": len(telemetry.get("reads", [])),
         "telemetry": telemetry,

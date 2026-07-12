@@ -14,6 +14,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from common import REPO_DIR, read_jsonl
+from run_eval import resolve_weights
 
 RUNS_DIR = REPO_DIR / "runs"
 ANALYSIS = REPO_DIR / "analysis"
@@ -78,6 +79,7 @@ def score_run(run_dir: Path):
     row = {
         "run_id": manifest["run_id"],
         "model": manifest["model"],
+        "quant": (manifest.get("weights") or resolve_weights(manifest["model"])).get("quant"),
         "config_id": manifest["config_id"],
         "config_hash": manifest["config_hash"],
         "dataset_version": manifest.get("dataset_version"),

@@ -72,6 +72,9 @@ def chat(model: str, messages, tools=None, gen=None, retries: int = 3,
         payload["tool_choice"] = "auto"
     for k, v in (gen or {}).items():
         payload[k] = v
+    thinking = payload.pop("enable_thinking", None)
+    if thinking is not None and not base_url:  # llama.cpp-only; remote models manage their own reasoning
+        payload["chat_template_kwargs"] = {"enable_thinking": bool(thinking)}
     if base_url:  # remote providers may reject llama.cpp-only params
         payload.pop("seed", None)
     url = f"{base_url or BASE_URL}/v1/chat/completions"

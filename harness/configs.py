@@ -25,6 +25,9 @@ SHIPPED_DEFAULTS = {
     "system_prompt": "shipped",       # date-only | shipped | guided
     "tool_desc": "shipped",           # shipped | enriched
     "untrusted_wrapper": True,
+    "enable_thinking": False,   # FACTOR. Off = all models comparable + phone-realistic token cost.
+                                # Thinking-capable models otherwise burn a large reasoning budget
+                                # inside a loop already full of search results (see report.md).
     "gen": {"temperature": 0.7, "top_p": 0.95, "max_tokens": 1024, "seed": 42},
 }
 

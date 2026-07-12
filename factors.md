@@ -14,6 +14,7 @@ DECOMPOSE output. Levels marked *(shipped)* mirror PocketPal PR #808 and form th
 | `provider` | brave / tavily | Tavily returns LLM-ready content chunks; hypothesis: helps small models more than large | cheap to vary, metered API |
 | `read_url_policy` | disabled (snippet-only) / available *(shipped)* / prompt-encouraged | Reading pages should improve grounding iff content truncation is right | cheap |
 | `read_content_limit` | 2400 / 4800 *(shipped: 1200 tok × 4 chars)* / 9600 chars | Page text is the biggest context consumer; small-ctx models need low limits | cheap |
+| `enable_thinking` | **false (primary board)** / true (ablation arm) | Thinking-capable models otherwise burn a large reasoning budget inside a loop already full of search results. Off makes every model comparable and matches the on-device cost reality (amendment #13) | cheap |
 | `max_turns` | 3 / 5 *(shipped, incl. forced final)* / 8 | Higher caps rescue hard questions but risk loops; on-device each turn = full prefill | cheap |
 
 ## Sweep factor (CONFIRM)
@@ -30,7 +31,7 @@ DECOMPOSE output. Levels marked *(shipped)* mirror PocketPal PR #808 and form th
 | Untrusted-content wrapper | shipped `wrapUntrusted` markers + note on every tool result | Security-load-bearing in the app; ~90 tokens overhead accepted as constant |
 | Search-menu token ceiling | 1000 tokens (`recommendedContextTokens`) unless co-varied with `result_count` | Shipped value |
 | Context size | 8192 (with prompt-size telemetry so 4k feasibility is derivable) | Phone-realistic ceiling |
-| Quantization | Q4_K_M class | What phones actually run |
+| ~~Quantization~~ | ~~Q4_K_M class~~ | **NOT ACTUALLY CONSTANT — see amendment #12.** 3 of 14 models ran at Q6_K / Q8_0 / Q4_K_S. Quant is now recorded per run and reported per row. |
 | Judge | frozen model+prompt, temp 0, versioned in manifests | Comparability |
 | Dataset version | pinned by hash per run | Comparability |
 | Web state | record-replay HTTP cache | Comparability + API budget |

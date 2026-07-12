@@ -1,0 +1,7 @@
+{
+  "config_id": "frozen-thinking-on",
+  "tool_desc": "enriched",
+  "provider": "brave",
+  "result_format": "markdown",
+  "enable_thinking": true
+}
