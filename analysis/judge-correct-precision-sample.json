@@ -1,0 +1,246 @@
+{
+ "seed": 11,
+ "auto_verified": [
+  {
+   "run": "20260711-200617-confirm-frozen-lfm25-1.2b",
+   "qid": "fr-tech-01"
+  },
+  {
+   "run": "20260711-195951-confirm-frozen-ministral-3-3b",
+   "qid": "fr-tech-14"
+  },
+  {
+   "run": "20260711-193812-confirm-frozen-mlabonne-qwen3-4b",
+   "qid": "fr-tech-04"
+  },
+  {
+   "run": "20260711-200617-confirm-frozen-lfm25-1.2b",
+   "qid": "fr-tech-08"
+  },
+  {
+   "run": "20260711-195951-confirm-frozen-ministral-3-3b",
+   "qid": "fr-sport-01"
+  },
+  {
+   "run": "20260711-221729-confirm-frozen-gemma-4-31b-it-gguf",
+   "qid": "fr-news-13"
+  },
+  {
+   "run": "20260711-192832-confirm-frozen-qwen35-4b",
+   "qid": "fr-sport-01"
+  },
+  {
+   "run": "20260711-192832-confirm-frozen-qwen35-4b",
+   "qid": "fr-news-13"
+  },
+  {
+   "run": "20260711-195951-confirm-frozen-ministral-3-3b",
+   "qid": "fr-sport-03"
+  },
+  {
+   "run": "20260711-200617-confirm-frozen-lfm25-1.2b",
+   "qid": "fr-tech-14"
+  },
+  {
+   "run": "20260711-221729-confirm-frozen-gemma-4-31b-it-gguf",
+   "qid": "fr-tech-07"
+  },
+  {
+   "run": "20260711-221729-confirm-frozen-gemma-4-31b-it-gguf",
+   "qid": "fr-sport-13"
+  },
+  {
+   "run": "20260711-193812-confirm-frozen-mlabonne-qwen3-4b",
+   "qid": "fr-tech-11"
+  },
+  {
+   "run": "20260711-192832-confirm-frozen-qwen35-4b",
+   "qid": "fr-news-14"
+  },
+  {
+   "run": "20260711-191120-confirm-frozen-qwen3-06b",
+   "qid": "fr-news-06"
+  },
+  {
+   "run": "20260711-200617-confirm-frozen-lfm25-1.2b",
+   "qid": "fr-sport-10"
+  },
+  {
+   "run": "20260711-192204-confirm-frozen-huihui-qwen35-2b",
+   "qid": "fr-tech-03"
+  },
+  {
+   "run": "20260711-191120-confirm-frozen-qwen3-06b",
+   "qid": "fr-tech-04"
+  },
+  {
+   "run": "20260711-191120-confirm-frozen-qwen3-06b",
+   "qid": "fr-news-04"
+  },
+  {
+   "run": "20260711-195951-confirm-frozen-ministral-3-3b",
+   "qid": "fr-tech-02"
+  },
+  {
+   "run": "20260711-195433-confirm-frozen-gemma-4-e2b",
+   "qid": "fr-sport-11"
+  },
+  {
+   "run": "20260711-221729-confirm-frozen-gemma-4-31b-it-gguf",
+   "qid": "fr-tech-09"
+  },
+  {
+   "run": "20260711-201023-confirm-frozen-qwen3.6-27b-gguf",
+   "qid": "fr-sport-07"
+  },
+  {
+   "run": "20260711-221729-confirm-frozen-gemma-4-31b-it-gguf",
+   "qid": "fr-sport-02"
+  },
+  {
+   "run": "20260711-191405-confirm-frozen-qwen3-1.7b",
+   "qid": "fr-tech-12"
+  },
+  {
+   "run": "20260711-195433-confirm-frozen-gemma-4-e2b",
+   "qid": "fr-news-04"
+  },
+  {
+   "run": "20260711-193812-confirm-frozen-mlabonne-qwen3-4b",
+   "qid": "fr-news-07"
+  },
+  {
+   "run": "20260711-221729-confirm-frozen-gemma-4-31b-it-gguf",
+   "qid": "fr-sport-14"
+  },
+  {
+   "run": "20260711-195433-confirm-frozen-gemma-4-e2b",
+   "qid": "fr-news-02"
+  },
+  {
+   "run": "20260711-191120-confirm-frozen-qwen3-06b",
+   "qid": "fr-tech-14"
+  },
+  {
+   "run": "20260711-221729-confirm-frozen-gemma-4-31b-it-gguf",
+   "qid": "fr-tech-04"
+  },
+  {
+   "run": "20260711-201023-confirm-frozen-qwen3.6-27b-gguf",
+   "qid": "fr-news-08"
+  },
+  {
+   "run": "20260711-195951-confirm-frozen-ministral-3-3b",
+   "qid": "fr-sport-11"
+  },
+  {
+   "run": "20260711-201023-confirm-frozen-qwen3.6-27b-gguf",
+   "qid": "fr-tech-06"
+  },
+  {
+   "run": "20260711-201023-confirm-frozen-qwen3.6-27b-gguf",
+   "qid": "fr-tech-03"
+  },
+  {
+   "run": "20260711-201023-confirm-frozen-qwen3.6-27b-gguf",
+   "qid": "fr-sport-04"
+  },
+  {
+   "run": "20260711-192832-confirm-frozen-qwen35-4b",
+   "qid": "fr-tech-14"
+  },
+  {
+   "run": "20260711-221729-confirm-frozen-gemma-4-31b-it-gguf",
+   "qid": "fr-sport-05"
+  },
+  {
+   "run": "20260711-201023-confirm-frozen-qwen3.6-27b-gguf",
+   "qid": "fr-sport-01"
+  },
+  {
+   "run": "20260711-193812-confirm-frozen-mlabonne-qwen3-4b",
+   "qid": "fr-tech-03"
+  },
+  {
+   "run": "20260711-200617-confirm-frozen-lfm25-1.2b",
+   "qid": "fr-tech-07"
+  },
+  {
+   "run": "20260711-192204-confirm-frozen-huihui-qwen35-2b",
+   "qid": "fr-tech-15"
+  },
+  {
+   "run": "20260711-200617-confirm-frozen-lfm25-1.2b",
+   "qid": "fr-sport-06"
+  },
+  {
+   "run": "20260711-221729-confirm-frozen-gemma-4-31b-it-gguf",
+   "qid": "fr-news-15"
+  },
+  {
+   "run": "20260711-192832-confirm-frozen-qwen35-4b",
+   "qid": "fr-sport-05"
+  },
+  {
+   "run": "20260711-195951-confirm-frozen-ministral-3-3b",
+   "qid": "fr-sport-06"
+  },
+  {
+   "run": "20260711-192832-confirm-frozen-qwen35-4b",
+   "qid": "fr-tech-10"
+  },
+  {
+   "run": "20260711-221729-confirm-frozen-gemma-4-31b-it-gguf",
+   "qid": "fr-tech-12"
+  },
+  {
+   "run": "20260711-192204-confirm-frozen-huihui-qwen35-2b",
+   "qid": "fr-sport-11"
+  },
+  {
+   "run": "20260711-195951-confirm-frozen-ministral-3-3b",
+   "qid": "fr-news-11"
+  },
+  {
+   "run": "20260711-201023-confirm-frozen-qwen3.6-27b-gguf",
+   "qid": "fr-news-03"
+  },
+  {
+   "run": "20260711-195433-confirm-frozen-gemma-4-e2b",
+   "qid": "fr-news-09"
+  },
+  {
+   "run": "20260711-191120-confirm-frozen-qwen3-06b",
+   "qid": "fr-news-01"
+  },
+  {
+   "run": "20260711-200617-confirm-frozen-lfm25-1.2b",
+   "qid": "fr-tech-04"
+  },
+  {
+   "run": "20260711-195433-confirm-frozen-gemma-4-e2b",
+   "qid": "fr-news-05"
+  },
+  {
+   "run": "20260711-192204-confirm-frozen-huihui-qwen35-2b",
+   "qid": "fr-sport-03"
+  },
+  {
+   "run": "20260711-200617-confirm-frozen-lfm25-1.2b",
+   "qid": "fr-news-04"
+  },
+  {
+   "run": "20260711-195951-confirm-frozen-ministral-3-3b",
+   "qid": "fr-tech-09"
+  },
+  {
+   "run": "20260711-195151-confirm-frozen-gemma-3-1b-q4",
+   "qid": "fr-tech-05"
+  },
+  {
+   "run": "20260711-195433-confirm-frozen-gemma-4-e2b",
+   "qid": "fr-tech-06"
+  }
+ ],
+ "manual_review": []
+}

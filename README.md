@@ -61,7 +61,7 @@ Everything in `report.md` is derived from `analysis/scores.jsonl`; every numeric
 
 ## Reproducibility
 
-- **Web state is pinned**: all provider/reader HTTP goes through a record-replay cache (`cache/http/`, capture-on-miss, API keys stripped at capture). `--http-mode replay-only` forces strict replay.
+- **Web state is pinned for repeated queries**: all provider/reader HTTP goes through a record-replay cache (`cache/http/`, capture-on-miss, API keys stripped at capture). Model-generated queries differ across configs/models, so novel queries hit the live web at first sight — cross-run comparability is approximate. `--http-mode replay-only` forces strict replay (novel queries error instead).
 - **Run manifests** pin config hash + full dump, model id, dataset sha256, judge model + prompt version, seeds, timestamps.
 - **The grounding prompt's "today"** is the dataset `anchor_date`, not wall clock, so replayed evidence stays consistent.
 

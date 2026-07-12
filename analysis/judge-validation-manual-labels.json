@@ -1,0 +1,286 @@
+{
+ "labeler": "control-agent (Claude Fable 5), blind to grades order; recorded 2026-07-11 pre-v2",
+ "note": "disagreements with v1 at idx 25 (st-07 Yangtze key-fact) and 27 (st-04 Wolfram acceptable-alternate) motivated judge prompt v2",
+ "labels": [
+  {
+   "idx": 0,
+   "run": "20260711-090347-ablate-a1-td-brave-qwen3-1.7b",
+   "qid": "fr-tech-14",
+   "manual_label": "INCORRECT",
+   "judge_v1_grade": "INCORRECT"
+  },
+  {
+   "idx": 1,
+   "run": "20260711-092819-ablate-a4-td-brave-readoff-qwen3-1.7b",
+   "qid": "fr-tech-14",
+   "manual_label": "INCORRECT",
+   "judge_v1_grade": "INCORRECT"
+  },
+  {
+   "idx": 2,
+   "run": "20260711-085839-ablate-floor-notool-qwen3-1.7b",
+   "qid": "fr-news-02",
+   "manual_label": "NOT_ATTEMPTED",
+   "judge_v1_grade": "NOT_ATTEMPTED"
+  },
+  {
+   "idx": 3,
+   "run": "20260711-092819-ablate-a4-td-brave-readoff-qwen3-1.7b",
+   "qid": "st-26",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  },
+  {
+   "idx": 4,
+   "run": "20260711-093535-ablate-a5-td-guided2-qwen3-1.7b",
+   "qid": "fr-tech-07",
+   "manual_label": "NOT_ATTEMPTED",
+   "judge_v1_grade": "NOT_ATTEMPTED"
+  },
+  {
+   "idx": 5,
+   "run": "20260711-090347-ablate-a1-td-brave-qwen3-1.7b",
+   "qid": "fr-tech-10",
+   "manual_label": "INCORRECT",
+   "judge_v1_grade": "INCORRECT"
+  },
+  {
+   "idx": 6,
+   "run": "20260711-101413-ablate-a6-full-combo-ministral-3-3b",
+   "qid": "fr-tech-09",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  },
+  {
+   "idx": 7,
+   "run": "20260711-092819-ablate-a4-td-brave-readoff-qwen3-1.7b",
+   "qid": "st-03",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  },
+  {
+   "idx": 8,
+   "run": "20260711-095511-ablate-floor-notool-ministral-3-3b",
+   "qid": "fr-news-12",
+   "manual_label": "INCORRECT",
+   "judge_v1_grade": "INCORRECT"
+  },
+  {
+   "idx": 9,
+   "run": "20260711-095511-ablate-floor-notool-ministral-3-3b",
+   "qid": "fr-tech-11",
+   "manual_label": "INCORRECT",
+   "judge_v1_grade": "INCORRECT"
+  },
+  {
+   "idx": 10,
+   "run": "20260711-100320-ablate-a3-td-brave-guided2-ministral-3-3b",
+   "qid": "fr-tech-10",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  },
+  {
+   "idx": 11,
+   "run": "20260711-092819-ablate-a4-td-brave-readoff-qwen3-1.7b",
+   "qid": "st-16",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  },
+  {
+   "idx": 12,
+   "run": "20260711-093535-ablate-a5-td-guided2-qwen3-1.7b",
+   "qid": "fr-sport-13",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  },
+  {
+   "idx": 13,
+   "run": "20260711-094316-ablate-a6-full-combo-qwen3-1.7b",
+   "qid": "fr-tech-07",
+   "manual_label": "NOT_ATTEMPTED",
+   "judge_v1_grade": "NOT_ATTEMPTED"
+  },
+  {
+   "idx": 14,
+   "run": "20260711-091254-ablate-a2-td-brave-md-qwen3-1.7b",
+   "qid": "fr-news-09",
+   "manual_label": "NOT_ATTEMPTED",
+   "judge_v1_grade": "NOT_ATTEMPTED"
+  },
+  {
+   "idx": 15,
+   "run": "20260711-092057-ablate-a3-td-brave-guided2-qwen3-1.7b",
+   "qid": "fr-news-07",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  },
+  {
+   "idx": 16,
+   "run": "20260711-095619-ablate-a1-td-brave-ministral-3-3b",
+   "qid": "fr-news-05",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  },
+  {
+   "idx": 17,
+   "run": "20260711-094316-ablate-a6-full-combo-qwen3-1.7b",
+   "qid": "fr-sport-03",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  },
+  {
+   "idx": 18,
+   "run": "20260711-085839-ablate-floor-notool-qwen3-1.7b",
+   "qid": "st-16",
+   "manual_label": "NOT_ATTEMPTED",
+   "judge_v1_grade": "NOT_ATTEMPTED"
+  },
+  {
+   "idx": 19,
+   "run": "20260711-095619-ablate-a1-td-brave-ministral-3-3b",
+   "qid": "st-03",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  },
+  {
+   "idx": 20,
+   "run": "20260711-100845-ablate-a5-td-guided2-ministral-3-3b",
+   "qid": "fr-tech-04",
+   "manual_label": "INCORRECT",
+   "judge_v1_grade": "INCORRECT"
+  },
+  {
+   "idx": 21,
+   "run": "20260711-101413-ablate-a6-full-combo-ministral-3-3b",
+   "qid": "fr-tech-08",
+   "manual_label": "NOT_ATTEMPTED",
+   "judge_v1_grade": "NOT_ATTEMPTED"
+  },
+  {
+   "idx": 22,
+   "run": "20260711-100632-ablate-a4-td-brave-readoff-ministral-3-3b",
+   "qid": "st-17",
+   "manual_label": "INCORRECT",
+   "judge_v1_grade": "INCORRECT"
+  },
+  {
+   "idx": 23,
+   "run": "20260711-100632-ablate-a4-td-brave-readoff-ministral-3-3b",
+   "qid": "fr-sport-10",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  },
+  {
+   "idx": 24,
+   "run": "20260711-095511-ablate-floor-notool-ministral-3-3b",
+   "qid": "fr-news-09",
+   "manual_label": "INCORRECT",
+   "judge_v1_grade": "INCORRECT"
+  },
+  {
+   "idx": 25,
+   "run": "20260711-093535-ablate-a5-td-guided2-qwen3-1.7b",
+   "qid": "st-07",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "INCORRECT"
+  },
+  {
+   "idx": 26,
+   "run": "20260711-100632-ablate-a4-td-brave-readoff-ministral-3-3b",
+   "qid": "fr-news-11",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  },
+  {
+   "idx": 27,
+   "run": "20260711-092819-ablate-a4-td-brave-readoff-qwen3-1.7b",
+   "qid": "st-04",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "INCORRECT"
+  },
+  {
+   "idx": 28,
+   "run": "20260711-085839-ablate-floor-notool-qwen3-1.7b",
+   "qid": "st-29",
+   "manual_label": "INCORRECT",
+   "judge_v1_grade": "INCORRECT"
+  },
+  {
+   "idx": 29,
+   "run": "20260711-085839-ablate-floor-notool-qwen3-1.7b",
+   "qid": "st-30",
+   "manual_label": "NOT_ATTEMPTED",
+   "judge_v1_grade": "NOT_ATTEMPTED"
+  },
+  {
+   "idx": 30,
+   "run": "20260711-092057-ablate-a3-td-brave-guided2-qwen3-1.7b",
+   "qid": "fr-tech-15",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  },
+  {
+   "idx": 31,
+   "run": "20260711-095022-ablate-shipped-ministral-3-3b",
+   "qid": "fr-tech-13",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  },
+  {
+   "idx": 32,
+   "run": "20260711-092057-ablate-a3-td-brave-guided2-qwen3-1.7b",
+   "qid": "st-24",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  },
+  {
+   "idx": 33,
+   "run": "20260711-100015-ablate-a2-td-brave-md-ministral-3-3b",
+   "qid": "fr-news-11",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  },
+  {
+   "idx": 34,
+   "run": "20260711-100632-ablate-a4-td-brave-readoff-ministral-3-3b",
+   "qid": "fr-tech-04",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  },
+  {
+   "idx": 35,
+   "run": "20260711-085839-ablate-floor-notool-qwen3-1.7b",
+   "qid": "fr-sport-11",
+   "manual_label": "INCORRECT",
+   "judge_v1_grade": "INCORRECT"
+  },
+  {
+   "idx": 36,
+   "run": "20260711-090347-ablate-a1-td-brave-qwen3-1.7b",
+   "qid": "fr-news-13",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  },
+  {
+   "idx": 37,
+   "run": "20260711-093535-ablate-a5-td-guided2-qwen3-1.7b",
+   "qid": "st-23",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  },
+  {
+   "idx": 38,
+   "run": "20260711-084941-ablate-shipped-qwen3-1.7b",
+   "qid": "st-07",
+   "manual_label": "NOT_ATTEMPTED",
+   "judge_v1_grade": "NOT_ATTEMPTED"
+  },
+  {
+   "idx": 39,
+   "run": "20260711-100845-ablate-a5-td-guided2-ministral-3-3b",
+   "qid": "fr-sport-05",
+   "manual_label": "CORRECT",
+   "judge_v1_grade": "CORRECT"
+  }
+ ]
+}
