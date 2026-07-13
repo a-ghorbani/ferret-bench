@@ -6,11 +6,6 @@
   "band_separated": true,
   "headline_findings": [
     {
-      "value": "0.89",
-      "label": "Best on-device score",
-      "detail": "Qwen3.5-4B answers 47 of 53. The two cloud references get 52."
-    },
-    {
       "value": "0/53",
       "label": "No search, no answers",
       "detail": "With tools off it answers none of them. Every point here is earned by searching."
@@ -24,11 +19,6 @@
       "value": "2–6×",
       "label": "The cost of thinking",
       "detail": "Reasoning mode: 2–6x the tokens for +0.02 correctness (p=0.64). We run it off."
-    },
-    {
-      "value": "5 of 14",
-      "label": "Never offered the tools",
-      "detail": "Their chat templates never put the tool schemas in the prompt. Our bug, not their failure."
     }
   ],
   "config_notes": {
@@ -118,5 +108,6 @@
     "T4": "Needs a second search that depends on what the first one found."
   },
   "frontier_note": "The two reference models are cloud systems, shown for scale only and kept out of the ranking. The best on-device model lands close enough to them that this dataset cannot resolve the gap — which is not the same as matching them: its losses are concentrated in the hardest questions.",
-  "variants_note": "We also tested an abliterated community variant of Qwen3.5-2B against the official checkpoint under identical conditions. They scored exactly the same (38 of 53 each). Abliteration buys nothing here, so we rank official checkpoints only."
+  "variants_note": "We also tested an abliterated community variant of Qwen3.5-2B against the official checkpoint under identical conditions. They scored exactly the same (38 of 53 each). Abliteration buys nothing here, so we rank official checkpoints only.",
+  "gate_failure_takeaway": "Gate on rendered capability, never on a model allowlist. If you pass tools and the rendered prompt comes back under ~300 tokens, the schemas never made it in — the model was never offered the tools. One assertion catches all five, and any future repack that drops the tool template."
 }
