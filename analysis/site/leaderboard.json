@@ -1,7 +1,7 @@
 {
  "benchmark": "ferret-bench — agentic web search for small on-device LLMs",
  "source": "https://github.com/a-ghorbani/ferret-bench",
- "generated_at": "2026-07-13T13:22:47Z",
+ "generated_at": "2026-07-13T13:52:02Z",
  "sweep_tag": "confirm3",
  "dataset_version": "v2",
  "dataset_sha256": "e7544608b3369712145c692d6bb09058af41faad03601b88f5d85350145b674a",
@@ -57,27 +57,27 @@
    {
     "value": "0.89",
     "label": "Best on-device score",
-    "detail": "Qwen3.5-4B answers 47 of 53 retrieval questions correctly. The two cloud reference models get 52 — the gap to frontier is real, but small."
+    "detail": "Qwen3.5-4B answers 47 of 53. The two cloud references get 52."
    },
    {
     "value": "0/53",
     "label": "No search, no answers",
-    "detail": "With tools switched off, Qwen3.5-4B answers none of the 53 retrieval questions and Ministral-3-3B answers one. Every point here is earned by searching."
+    "detail": "With tools off it answers none of them. Every point here is earned by searching."
    },
    {
     "value": "0.89 → 0.55",
     "label": "Easy vs hard retrieval",
-    "detail": "Pooled across the nine on-device models that can search: 0.89 when the answer sits in the search results, 0.55 when it needs several sources or a follow-up. The cloud references do not drop at all."
+    "detail": "Pooled over nine on-device models. The cloud references do not drop at all."
    },
    {
     "value": "2–6×",
     "label": "The cost of thinking",
-    "detail": "Turning on a model's reasoning mode generates 2–6x more tokens per question and does not measurably improve answers (+0.02, p=0.64). We run every model with thinking off."
+    "detail": "Reasoning mode: 2–6x the tokens for +0.02 correctness (p=0.64). We run it off."
    },
    {
     "value": "5 of 14",
     "label": "Never offered the tools",
-    "detail": "Five candidates make zero tool calls — because their chat templates never put the tool definitions into the prompt. A packaging bug, not a model verdict."
+    "detail": "Their chat templates never put the tool schemas in the prompt. Our bug, not their failure."
    }
   ],
   "config_notes": {

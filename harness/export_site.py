@@ -45,6 +45,19 @@ REQUIRED_CONTENT = ("content_schema_version", "headline_findings", "config_notes
 _HTMLISH = re.compile(r"[<>]|&[a-z]+;|\*\*|\[.*\]\(.*\)")
 
 
+# DESIGN targets (soft): exceeding one prints a warning, it never blocks an export.
+# A hard cap tight enough to trip on ordinary prose blocks CORRECTIONS — that is how the
+# retracted gate-failure copy stayed live for an hour. Layout limits hard-fail; design
+# limits nag. Never trim a claim to fit a number.
+SOFT_TARGETS = {"headline_detail": 100}
+
+
+def _soft_check(field, s, target, warns):
+    if isinstance(s, str) and len(s) > target:
+        warns.append(f"{field}: {len(s)} chars over the {target}-char design target "
+                     f"(export still proceeds — shorten it, or accept it if shortening would cost a caveat)")
+
+
 def _check_text(field, s, cap, errs):
     if not isinstance(s, str):
         errs.append(f"{field}: not a string")
@@ -109,7 +122,7 @@ def load_page_content(doc_dataset_version, doc_config_hash, out_rows, config_val
     if not p.is_file():
         raise SystemExit("harness/page_content.json missing — the export carries the prose now")
     c = json.loads(p.read_text())
-    errs = []
+    errs, warns = [], []
 
     for k in REQUIRED_CONTENT:
         if k not in c:
@@ -128,6 +141,7 @@ def load_page_content(doc_dataset_version, doc_config_hash, out_rows, config_val
         _check_text(f"headline_findings[{i}].value", h.get("value"), CAPS["value"], errs)
         _check_text(f"headline_findings[{i}].label", h.get("label"), CAPS["label"], errs)
         _check_text(f"headline_findings[{i}].detail", h.get("detail"), CAPS["detail"], errs)
+        _soft_check(f"headline_findings[{i}].detail", h.get("detail"), SOFT_TARGETS["headline_detail"], warns)
     if not 3 <= len(c.get("headline_findings", [])) <= 5:
         errs.append("headline_findings: expected 3-5 items")
     for k, v in (c.get("config_notes") or {}).items():
@@ -175,6 +189,8 @@ def load_page_content(doc_dataset_version, doc_config_hash, out_rows, config_val
         errs.append(f"gate_failures list is stale: prose names {sorted(claimed_gate_fail)}, "
                     f"data shows {sorted(actual_gate_fail)}")
 
+    for w in warns:
+        print(f"WARNING: {w}")
     if errs:
         raise SystemExit("page_content.json is out of date with the results:\n  - " + "\n  - ".join(errs))
 
