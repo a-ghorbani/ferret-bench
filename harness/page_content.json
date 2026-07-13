@@ -109,5 +109,5 @@
   },
   "frontier_note": "The two reference models are cloud systems, shown for scale only and kept out of the ranking. The best on-device model lands close enough to them that this dataset cannot resolve the gap — which is not the same as matching them: its losses are concentrated in the hardest questions.",
   "variants_note": "We also tested an abliterated community variant of Qwen3.5-2B against the official checkpoint under identical conditions. They scored exactly the same (38 of 53 each). Abliteration buys nothing here, so we rank official checkpoints only.",
-  "gate_failure_takeaway": "Gate on rendered capability, never on a model allowlist. If you pass tools and the rendered prompt comes back under ~300 tokens, the schemas never made it in — the model was never offered the tools. One assertion catches all five, and any future repack that drops the tool template."
+  "gate_failure_takeaway": "Gate on rendered capability, never a model allowlist. Pass tools, then check the rendered prompt: under ~300 tokens means the schemas never landed and the model was never offered them. One assertion catches all five — and any future repack that drops the template."
 }
