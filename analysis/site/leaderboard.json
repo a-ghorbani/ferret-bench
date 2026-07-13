@@ -1,7 +1,7 @@
 {
  "benchmark": "ferret-bench — agentic web search for small on-device LLMs",
  "source": "https://github.com/a-ghorbani/ferret-bench",
- "generated_at": "2026-07-13T13:52:02Z",
+ "generated_at": "2026-07-13T13:58:02Z",
  "sweep_tag": "confirm3",
  "dataset_version": "v2",
  "dataset_sha256": "e7544608b3369712145c692d6bb09058af41faad03601b88f5d85350145b674a",
@@ -55,11 +55,6 @@
   "band_separated": true,
   "headline_findings": [
    {
-    "value": "0.89",
-    "label": "Best on-device score",
-    "detail": "Qwen3.5-4B answers 47 of 53. The two cloud references get 52."
-   },
-   {
     "value": "0/53",
     "label": "No search, no answers",
     "detail": "With tools off it answers none of them. Every point here is earned by searching."
@@ -73,11 +68,6 @@
     "value": "2–6×",
     "label": "The cost of thinking",
     "detail": "Reasoning mode: 2–6x the tokens for +0.02 correctness (p=0.64). We run it off."
-   },
-   {
-    "value": "5 of 14",
-    "label": "Never offered the tools",
-    "detail": "Their chat templates never put the tool schemas in the prompt. Our bug, not their failure."
    }
   ],
   "config_notes": {
@@ -168,6 +158,7 @@
   },
   "frontier_note": "The two reference models are cloud systems, shown for scale only and kept out of the ranking. The best on-device model lands close enough to them that this dataset cannot resolve the gap — which is not the same as matching them: its losses are concentrated in the hardest questions.",
   "variants_note": "We also tested an abliterated community variant of Qwen3.5-2B against the official checkpoint under identical conditions. They scored exactly the same (38 of 53 each). Abliteration buys nothing here, so we rank official checkpoints only.",
+  "gate_failure_takeaway": "Gate on rendered capability, never a model allowlist. Pass tools, then check the rendered prompt: under ~300 tokens means the schemas never landed. One assertion catches all five, and any future repack that drops the tool template.",
   "band_separation_computed": {
    "separated": true,
    "detail": "top=qwen35-4b 0.887 CI[0.7957, 0.9403]; bottom=qwen3-06b 0.528 CI[0.4169, 0.637]; non-overlapping at 90%"
