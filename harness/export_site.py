@@ -35,7 +35,9 @@ def roster(path):
 # rejected a correction payload and pinned production to the wrong copy). Never trim a
 # correction to fit a cap — ask for the cap to be raised.
 CAPS = {"value": 12, "label": 32, "detail": 240, "config_note": 240,
-        "metric_label": 32, "metric_description": 280, "gate_title": 90, "mechanism": 800,
+        # metric_label is a COLUMN HEADER: keep it terse (the full description renders under
+        # the table). 16 is a design limit; the consumer's 32 is only a layout-safety limit.
+        "metric_label": 16, "metric_description": 280, "gate_title": 90, "mechanism": 800,
         "limitation": 360, "tier_note": 160, "band_note": 600, "floor_note": 32,
         "config_lift_note": 600, "frontier_note": 400, "gate_failure_takeaway": 240}
 TIER_KEYS = ("T1", "T2", "T3", "T4")
