@@ -39,7 +39,7 @@ CAPS = {"value": 12, "label": 32, "detail": 240, "config_note": 240,
         # the table). 16 is a design limit; the consumer's 32 is only a layout-safety limit.
         "metric_label": 16, "metric_description": 280, "gate_title": 90, "mechanism": 800,
         "limitation": 360, "tier_note": 160, "band_note": 600, "floor_note": 32,
-        "config_lift_note": 600, "frontier_note": 400, "gate_failure_takeaway": 240}
+        "config_lift_note": 600, "frontier_note": 400, "gate_failure_takeaway": 240, "variants_note": 300}
 TIER_KEYS = ("T1", "T2", "T3", "T4")
 REQUIRED_CONTENT = ("content_schema_version", "headline_findings", "config_notes", "limitations")
 _HTMLISH = re.compile(r"[<>]|&[a-z]+;|\*\*|\[.*\]\(.*\)")
@@ -144,7 +144,7 @@ def load_page_content(doc_dataset_version, doc_config_hash, out_rows, config_val
     for i, l in enumerate(c.get("limitations", [])):
         _check_text(f"limitations[{i}]", l, CAPS["limitation"], errs)
 
-    for f in ("band_note", "floor_note", "config_lift_note", "frontier_note", "gate_failure_takeaway"):
+    for f in ("band_note", "floor_note", "config_lift_note", "frontier_note", "gate_failure_takeaway", "variants_note"):
         if f in c:
             _check_text(f, c[f], CAPS[f], errs)
 
@@ -194,6 +194,10 @@ def main():
     anchors = roster("models-ceiling.txt")
 
     rows = [r for r in read_jsonl(REPO_DIR / "analysis" / "scores.jsonl") if f"-{args.tag}-" in r["run_id"]]
+    # Community variants are ABLATIONS, not leaderboard entries: a variant row without its official
+    # sibling at matched conditions invites a false verdict on the family it is named after.
+    # Their results live in report.md and in page_content.variants_note.
+    rows = [r for r in rows if r["model"] not in variants]
     if not rows:
         raise SystemExit(f"no rows for tag {args.tag} in analysis/scores.jsonl")
 

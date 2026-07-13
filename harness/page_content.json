@@ -117,5 +117,6 @@
     "T3": "Needs two different sources put together; no single page says it.",
     "T4": "Needs a second search that depends on what the first one found."
   },
-  "frontier_note": "The two reference models are cloud systems, shown for scale only and kept out of the ranking. The best on-device model lands close enough to them that this dataset cannot resolve the gap — which is not the same as matching them: its losses are concentrated in the hardest questions."
+  "frontier_note": "The two reference models are cloud systems, shown for scale only and kept out of the ranking. The best on-device model lands close enough to them that this dataset cannot resolve the gap — which is not the same as matching them: its losses are concentrated in the hardest questions.",
+  "variants_note": "We also tested an abliterated community variant of Qwen3.5-2B against the official checkpoint under identical conditions. They scored exactly the same (38 of 53 each). Abliteration buys nothing here, so we rank official checkpoints only."
 }

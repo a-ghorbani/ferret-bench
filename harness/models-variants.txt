@@ -1,4 +1,15 @@
-# Community-variant comparison rows (explicitly labeled on the leaderboard; not the official ranking).
-# Kept where an official sibling exists for contrast (amendment #11).
+# Community-variant ABLATION rows — NOT leaderboard entries.
+#
+# Rule (amendment #11, tightened by #15): a variant is only worth running when its OFFICIAL
+# sibling is on the board at matched conditions. Otherwise it is compared against nothing, and
+# its row invites a false verdict on the family it is named after.
+#
+# These ids are listed so the exporter can IDENTIFY and EXCLUDE them from the published board.
+# Their results are reported in report.md and summarised in page_content.variants_note.
+#
+# huihui-qwen35-2b  ABLATION COMPLETE: vs official qwen35-2b at matched conditions (thinking off)
+#                   = 38/53 vs 38/53. Abliteration effect ZERO. Question answered; no longer a row.
+# mlabonne-qwen3-4b DROPPED: official Qwen3-4B is not on the board, so this row compared against
+#                   nothing and implied a verdict on Qwen3-4B we never measured.
 huihui-qwen35-2b
 mlabonne-qwen3-4b

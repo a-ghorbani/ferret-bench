@@ -13,6 +13,17 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from common import REPO_DIR, read_jsonl
 
+
+def _variants():
+    """Community variants are ablations, not board entries — excluded from published views."""
+    p = REPO_DIR / "harness" / "models-variants.txt"
+    if not p.is_file():
+        return set()
+    return {l.strip() for l in p.read_text().splitlines() if l.strip() and not l.startswith("#")}
+
+
+VARIANTS = _variants()
+
 BAR = "#3b82f6"        # ranked models
 CEIL = "#9ca3af"       # ceiling references
 FAIL = "#ef4444"       # capability-gate failures
@@ -48,6 +59,7 @@ def main():
     args = ap.parse_args()
 
     rows = [r for r in read_jsonl(REPO_DIR / "analysis" / "scores.jsonl") if f"-{args.tag}-" in r["run_id"]]
+    rows = [r for r in rows if r["model"] not in VARIANTS]
     for r in rows:
         r["_ceil"] = "Q8_0" in r["model"] or r["model"].startswith("openrouter:")
         r["_fail"] = (r["engagement_fresh"] or 0) == 0

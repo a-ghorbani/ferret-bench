@@ -1,7 +1,7 @@
 {
  "benchmark": "ferret-bench — agentic web search for small on-device LLMs",
  "source": "https://github.com/a-ghorbani/ferret-bench",
- "generated_at": "2026-07-13T06:53:03Z",
+ "generated_at": "2026-07-13T13:22:47Z",
  "sweep_tag": "confirm3",
  "dataset_version": "v2",
  "dataset_sha256": "e7544608b3369712145c692d6bb09058af41faad03601b88f5d85350145b674a",
@@ -167,6 +167,7 @@
    "T4": "Needs a second search that depends on what the first one found."
   },
   "frontier_note": "The two reference models are cloud systems, shown for scale only and kept out of the ranking. The best on-device model lands close enough to them that this dataset cannot resolve the gap — which is not the same as matching them: its losses are concentrated in the hardest questions.",
+  "variants_note": "We also tested an abliterated community variant of Qwen3.5-2B against the official checkpoint under identical conditions. They scored exactly the same (38 of 53 each). Abliteration buys nothing here, so we rank official checkpoints only.",
   "band_separation_computed": {
    "separated": true,
    "detail": "top=qwen35-4b 0.887 CI[0.7957, 0.9403]; bottom=qwen3-06b 0.528 CI[0.4169, 0.637]; non-overlapping at 90%"
@@ -294,30 +295,6 @@
    "drop": 0.281
   },
   {
-   "model_id": "huihui-qwen35-2b",
-   "display_name": "Qwen3.5-2B (huihui abliterated)",
-   "class": "variant",
-   "easy_T1": {
-    "correct": 19,
-    "n": 20,
-    "rate": 0.95,
-    "ci90": [
-     0.804,
-     0.9888
-    ]
-   },
-   "hard_T3_T4": {
-    "correct": 12,
-    "n": 21,
-    "rate": 0.5714,
-    "ci90": [
-     0.3959,
-     0.7307
-    ]
-   },
-   "drop": 0.3786
-  },
-  {
    "model_id": "gemma-4-e2b",
    "display_name": "Gemma-4-E2B",
    "class": "official",
@@ -364,30 +341,6 @@
     ]
    },
    "drop": 0.3286
-  },
-  {
-   "model_id": "mlabonne-qwen3-4b",
-   "display_name": "Qwen3-4B (mlabonne)",
-   "class": "variant",
-   "easy_T1": {
-    "correct": 16,
-    "n": 20,
-    "rate": 0.8,
-    "ci90": [
-     0.6216,
-     0.9069
-    ]
-   },
-   "hard_T3_T4": {
-    "correct": 10,
-    "n": 21,
-    "rate": 0.4762,
-    "ci90": [
-     0.3101,
-     0.6477
-    ]
-   },
-   "drop": 0.3238
   },
   {
    "model_id": "qwen3-1.7b",
@@ -805,79 +758,6 @@
    "run_id": "20260712-191254-confirm3-frozen-qwen35-2b"
   },
   {
-   "model_id": "huihui-qwen35-2b",
-   "display_name": "Qwen3.5-2B (huihui abliterated)",
-   "class": "variant",
-   "quant": "Q8_0",
-   "gate_pass": true,
-   "fresh": {
-    "n": 53,
-    "correct": 38,
-    "rate": 0.717,
-    "ci90": [
-     0.6066,
-     0.8063
-    ],
-    "not_attempted": 0,
-    "judge_parse_fail": 0
-   },
-   "fresh_by_tier": {
-    "T1": {
-     "n": 20,
-     "correct": 19,
-     "rate": 0.95,
-     "ci90": [
-      0.804,
-      0.9888
-     ]
-    },
-    "T2": {
-     "n": 12,
-     "correct": 7,
-     "rate": 0.5833,
-     "ci90": [
-      0.356,
-      0.78
-     ]
-    },
-    "T3": {
-     "n": 9,
-     "correct": 5,
-     "rate": 0.5556,
-     "ci90": [
-      0.3035,
-      0.782
-     ]
-    },
-    "T4": {
-     "n": 12,
-     "correct": 7,
-     "rate": 0.5833,
-     "ci90": [
-      0.356,
-      0.78
-     ]
-    }
-   },
-   "stable": {
-    "n": 30,
-    "correct": 29,
-    "rate": 0.9667,
-    "ci90": [
-     0.8636,
-     0.9925
-    ],
-    "not_attempted": 0,
-    "judge_parse_fail": 0
-   },
-   "engagement": 1.0,
-   "false_search_rate": 0.0667,
-   "tool_call_validity": 1.0,
-   "avg_turns": 1.77,
-   "avg_prompt_tokens": 1795,
-   "run_id": "20260712-194118-confirm3-frozen-huihui-qwen35-2b"
-  },
-  {
    "model_id": "gemma-4-e2b",
    "display_name": "Gemma-4-E2B",
    "class": "official",
@@ -1022,79 +902,6 @@
    "avg_turns": 1.85,
    "avg_prompt_tokens": 1378,
    "run_id": "20260712-193514-confirm3-frozen-lfm25-1.2b"
-  },
-  {
-   "model_id": "mlabonne-qwen3-4b",
-   "display_name": "Qwen3-4B (mlabonne)",
-   "class": "variant",
-   "quant": "Q4_K_S",
-   "gate_pass": true,
-   "fresh": {
-    "n": 53,
-    "correct": 32,
-    "rate": 0.6038,
-    "ci90": [
-     0.4908,
-     0.7067
-    ],
-    "not_attempted": 7,
-    "judge_parse_fail": 0
-   },
-   "fresh_by_tier": {
-    "T1": {
-     "n": 20,
-     "correct": 16,
-     "rate": 0.8,
-     "ci90": [
-      0.6216,
-      0.9069
-     ]
-    },
-    "T2": {
-     "n": 12,
-     "correct": 6,
-     "rate": 0.5,
-     "ci90": [
-      0.2855,
-      0.7145
-     ]
-    },
-    "T3": {
-     "n": 9,
-     "correct": 4,
-     "rate": 0.4444,
-     "ci90": [
-      0.218,
-      0.6965
-     ]
-    },
-    "T4": {
-     "n": 12,
-     "correct": 6,
-     "rate": 0.5,
-     "ci90": [
-      0.2855,
-      0.7145
-     ]
-    }
-   },
-   "stable": {
-    "n": 30,
-    "correct": 27,
-    "rate": 0.9,
-    "ci90": [
-     0.7745,
-     0.9593
-    ],
-    "not_attempted": 0,
-    "judge_parse_fail": 0
-   },
-   "engagement": 0.9057,
-   "false_search_rate": 0.0,
-   "tool_call_validity": 1.0,
-   "avg_turns": 1.51,
-   "avg_prompt_tokens": 1169,
-   "run_id": "20260712-194432-confirm3-frozen-mlabonne-qwen3-4b"
   },
   {
    "model_id": "qwen3-1.7b",

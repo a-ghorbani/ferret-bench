@@ -278,10 +278,8 @@ With thinking off and the bug fixed, at their shipped quants:
 | **Qwen3.5-4B** | Q4_K_M | **0.887 [0.80,0.94]** | 19/20 | 19/21 |
 | Ministral-3-3B | Q4_K_M | 0.811 [0.71,0.88] | 20/20 | 14/21 |
 | Qwen3.5-2B | Q4_K_M | 0.717 [0.61,0.81] | 18/20 | 13/21 |
-| Qwen3.5-2B (huihui abliterated) | Q8_0 | 0.717 [0.61,0.81] | 19/20 | 12/21 |
 | Gemma-4-E2B | Q4_K_M | 0.679 [0.57,0.77] | 18/20 | 10/21 |
 | LFM2.5-1.2B | Q4_K_M | 0.660 [0.55,0.76] | 18/20 | 12/21 |
-| Qwen3-4B (mlabonne) | Q4_K_S | 0.604 [0.49,0.71] | 16/20 | 10/21 |
 | Qwen3-1.7B | Q6_K | 0.585 [0.47,0.69] | 17/20 | 9/21 |
 | Qwen3-0.6B | Q4_K_M | 0.528 [0.42,0.64] | 16/20 | 5/21 |
 | *5 models never offered the tools* | Q4_K_M | 0.00–0.08 | — | — |
@@ -293,3 +291,15 @@ The easy-vs-hard gradient survives all corrections and is the durable finding: p
 ## What this episode says about the benchmark
 
 Three published claims were wrong, and every one was our infrastructure, not the models: five models "refused to search" (never given tools), an abliterated model "won" (its sibling's answers were being deleted), and a leaderboard "held quantization constant" (it did not). Each was caught by someone asking a plain question about the data. The harness now carries canaries for the first two (`schema_not_rendered`, `empty_content_turns`) and records the weights for the third — but the general lesson is the one worth publishing: **when a benchmark says a model is bad, suspect the benchmark first.**
+
+
+---
+
+## Addendum (2026-07-13) — community variants removed from the board
+
+The two community-variant rows are gone from the published leaderboard, chart and site payload. They were ablations pretending to be entries.
+
+- **`mlabonne-qwen3-4b`: dropped outright.** It violated our own rule (amendment #11: keep a variant *only* where its official sibling is on the board). **Official Qwen3-4B was never on the board** — so the row was compared against nothing, while sitting third from bottom under the name "Qwen3-4B" and implying a verdict on a model we never measured. That is the same failure as labelling five models "can't search" when we never gave them tools: a reader draws a conclusion about a *model* from an artifact of *our roster*.
+- **`huihui-qwen35-2b` (abliterated): retained in `runs/`, removed as a row.** Its comparison was legitimate and it is now **answered**: at matched conditions, 38/53 vs the official checkpoint's 38/53 — abliteration is worth exactly nothing. An answered question belongs in a sentence, not in a permanent row that invites someone to ship an abliterated model on the strength of a number that no longer says what it appeared to say.
+
+The published board now contains only **official checkpoints** (the things PocketPal could actually ship) plus two clearly-marked cloud references. Variant results remain in `report.md` and in the site's `variants_note`. Nothing is hidden; it is simply not *ranked*.

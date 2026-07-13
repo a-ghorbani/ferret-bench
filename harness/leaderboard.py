@@ -16,6 +16,17 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from common import REPO_DIR, read_jsonl
 
+
+def _variants():
+    """Community variants are ablations, not board entries — excluded from published views."""
+    p = REPO_DIR / "harness" / "models-variants.txt"
+    if not p.is_file():
+        return set()
+    return {l.strip() for l in p.read_text().splitlines() if l.strip() and not l.startswith("#")}
+
+
+VARIANTS = _variants()
+
 ANALYSIS = REPO_DIR / "analysis"
 
 
@@ -39,6 +50,7 @@ def main():
     args = ap.parse_args()
 
     rows = read_jsonl(ANALYSIS / "scores.jsonl")
+    rows = [r for r in rows if r["model"] not in VARIANTS]
     if args.tag:
         rows = [r for r in rows if f"-{args.tag}-" in r["run_id"]]
     if args.config:
