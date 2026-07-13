@@ -1,5 +1,4 @@
 {
-  "config_id": "frozen",
   "tools_enabled": true,
   "provider": "brave",
   "result_count": 5,
@@ -12,10 +11,13 @@
   "system_prompt": "shipped",
   "tool_desc": "enriched",
   "untrusted_wrapper": true,
+  "enable_thinking": false,
   "gen": {
     "temperature": 0.7,
     "top_p": 0.95,
     "max_tokens": 1024,
     "seed": 42
-  }
+  },
+  "config_hash": "bbb5cdbf1e9f18d79598d8a5f83f79e7c7a5b5b5501b4ea0351c918c19fe446c",
+  "_note": "Frozen configuration for PocketPal agentic web search. Every value is justified in PROVENANCE.md with the run ids that produced it. config_hash identifies this exact parameter set."
 }
