@@ -1,0 +1,10 @@
+=== warming qwen35-4b ===
+[20260713-164225-revalidate-rv-toolsdesc-shipped-qwen35-4b] 1/98 fr2-news-01 ok turns=2 searches=1 reads=0
+[20260713-164225-revalidate-rv-toolsdesc-shipped-qwen35-4b] 2/98 fr2-news-02 ok turns=2 searches=1 reads=0
+[20260713-164225-revalidate-rv-toolsdesc-shipped-qwen35-4b] 3/98 fr2-news-03 ok turns=2 searches=1 reads=0
+[20260713-164225-revalidate-rv-toolsdesc-shipped-qwen35-4b] 4/98 fr2-news-04 ok turns=2 searches=1 reads=0
+[20260713-164225-revalidate-rv-toolsdesc-shipped-qwen35-4b] 5/98 fr2-news-06 ok turns=3 searches=2 reads=0
+[20260713-164225-revalidate-rv-toolsdesc-shipped-qwen35-4b] 6/98 fr2-news-07 ok turns=2 searches=1 reads=0
+[20260713-164225-revalidate-rv-toolsdesc-shipped-qwen35-4b] 7/98 fr2-news-08 MAX turns=6 searches=4 reads=1
+[20260713-164225-revalidate-rv-toolsdesc-shipped-qwen35-4b] 8/98 fr2-news-09 MAX turns=6 searches=5 reads=0
+[20260713-164225-revalidate-rv-toolsdesc-shipped-qwen35-4b] 9/98 fr2-news-10 ok turns=2 searches=1 reads=0

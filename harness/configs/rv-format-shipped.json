@@ -1,0 +1,7 @@
+{
+  "config_id": "rv-format-shipped",
+  "tool_desc": "enriched",
+  "provider": "brave",
+  "result_format": "shipped",
+  "enable_thinking": false
+}

@@ -1,0 +1,7 @@
+{
+  "config_id": "rv-toolsdesc-shipped",
+  "tool_desc": "shipped",
+  "provider": "brave",
+  "result_format": "markdown",
+  "enable_thinking": false
+}

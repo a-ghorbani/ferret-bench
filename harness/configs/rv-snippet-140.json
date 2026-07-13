@@ -1,0 +1,8 @@
+{
+  "config_id": "rv-snippet-140",
+  "tool_desc": "enriched",
+  "provider": "brave",
+  "result_format": "markdown",
+  "enable_thinking": false,
+  "snippet_chars": 140
+}

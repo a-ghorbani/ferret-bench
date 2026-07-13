@@ -1,0 +1,8 @@
+{
+  "config_id": "rv-count-3",
+  "tool_desc": "enriched",
+  "provider": "brave",
+  "result_format": "markdown",
+  "enable_thinking": false,
+  "result_count": 3
+}

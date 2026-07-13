@@ -1,0 +1,7 @@
+{
+  "config_id": "rv-provider-tavily",
+  "tool_desc": "enriched",
+  "provider": "tavily",
+  "result_format": "markdown",
+  "enable_thinking": false
+}

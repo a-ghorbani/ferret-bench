@@ -1,0 +1,8 @@
+{
+  "config_id": "frozen-guided2",
+  "tool_desc": "enriched",
+  "provider": "brave",
+  "result_format": "markdown",
+  "enable_thinking": false,
+  "system_prompt": "guided-v2"
+}

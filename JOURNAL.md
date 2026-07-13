@@ -234,3 +234,21 @@ Meta: the reviewer's single most valuable catch (B4) was a claim *I* introduced 
 **Harness change so this cannot recur:** `agent_loop.py` now sets `schema_not_rendered` when tools were passed but the turn-1 prompt is < 300 tokens. It would have caught this on day one, from data we were already collecting.
 
 **Meta.** Three of my worst errors this run share one shape: I accepted a plausible mechanism (mtmd nondeterminism, the substring proxy, the "1.00 vs 0.33" headline) without deriving it from the data I already had. Two were caught by others; one by a reviewer. The data was sitting in `outputs.jsonl` every time. **Check the telemetry before theorising about the cause.**
+
+## 2026-07-13 — The hardest question of the campaign: "if PocketPal needs its own research, why do we exist?"
+
+The user asked why PocketPal ships a system prompt we never properly tested — and then pushed further: if our work does not settle PocketPal's choices, and they have to do their own research anyway, what is the point of us.
+
+**The criticism lands, and the honest version is worse than the question.**
+
+1. **"Retained shipped default" was an abdication dressed as a finding.** It appears 8 times in `frozen-config/PROVENANCE.md`. Each instance reads like a decision; each is the absence of one. We inherited PocketPal's value and reported the inheritance as a result. A benchmark that takes its defaults from the system it is supposed to advise is not a source of truth — it is a mirror.
+
+2. **It is not only the prompt. The whole config is contaminated.** Checked the evidence base: screening, ablation and tiebreak each used **2 dev models, exactly 1 of which was thinking-capable** — i.e. a model whose answers the harness was silently deleting 7–17% of the time, with thinking uncontrolled. So **half the evidence behind every config decision** (result count, snippet length, formatting, provider, tool descriptions, read_url, turn cap, prompt) was produced under conditions we have since proven broken. The config was frozen on partly-fabricated data.
+
+3. **We were reactive, not authoritative.** I only examined the system prompt because the user asked. The whole point of this benchmark is that PocketPal should not have to ask.
+
+**What is genuinely ours** (stated without defensiveness, because the record should be accurate): the tool-schema gate failure (PocketPal was shipping five models that structurally cannot search), the blank-answer bug (user-facing: ~1 in 6 searches on a thinking model renders an empty bubble), the reasoning-token tax (2–6× for +0.02), and the config bundle they adopted upstream on 07-12. None of those were findable from inside the app.
+
+**What changes.** Amendment #16: "retained shipped default" is abolished as an outcome — every value must be derived under the current regime, and agreeing with the shipped value is a *result* that must cite the runs proving it. Amendment #17: the entire config is being re-derived under the clean regime (8 OFAT arms × 3 models: top / fallback / weakest) rather than only the prompt.
+
+**The lesson worth keeping:** the failure was not laziness, it was deference. We treated the app's existing choices as the null hypothesis and only tested departures from them. A benchmark must derive the null, not inherit it.
