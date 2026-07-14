@@ -45,6 +45,15 @@ def validate(rows, anchor_date):
             errs.append(f"duplicate id {r['id']}")
         ids.add(r["id"])
         if r["split"] == "unanswerable":
+            # EXPIRY: an "undetermined" item stops being unanswerable the moment the event happens.
+            # Running it afterwards would score a CORRECT model as hallucinating — a scoring
+            # inversion, and the benchmark is explicitly designed to be re-run. Hard requirement.
+            exp = r.get("expires_on")
+            if not exp:
+                errs.append(f"{r['id']}: unanswerable item needs expires_on (use 2099-01-01 if it can never become answerable)")
+            elif exp <= anchor_date:
+                errs.append(f"{r['id']}: EXPIRED — expires_on {exp} is not after anchor {anchor_date}. "
+                            f"This item is now ANSWERABLE and would punish a correct model.")
             # the ONLY correct behaviour is refusal — a wrong item here punishes a model for being right
             if r.get("gold_answer") != "NOT_FOUND":
                 errs.append(f"{r['id']}: unanswerable item must have gold_answer 'NOT_FOUND'")
@@ -95,7 +104,7 @@ def main():
             print(f"ERROR: {e}")
         sys.exit(f"{len(errs)} errors — not assembling")
 
-    order = {"fresh": 0, "stable": 1, "no_search": 2}
+    order = {"fresh": 0, "unanswerable": 1, "stable": 2, "no_search": 3}
     rows.sort(key=lambda r: (order[r["split"]], r["id"]))
     out = vdir / "questions.jsonl"
     with open(out, "w") as f:

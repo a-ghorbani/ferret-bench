@@ -77,6 +77,18 @@ def run_one(config_name, model, dataset, *, limit=None, split=None, qids_file=No
     ds_meta = json.loads(meta_path.read_text()) if meta_path.is_file() else {}
     anchor_date = ds_meta.get("anchor_date") or time.strftime("%Y-%m-%d")
 
+    # EXPIRY GUARD (runtime): the dataset may have been assembled months ago. An "undetermined"
+    # unanswerable item becomes ANSWERABLE once the event occurs; scoring it then would mark a
+    # correct model as a hallucinator. Refuse rather than silently invert the metric.
+    today = time.strftime("%Y-%m-%d")
+    expired = [q["id"] for q in questions
+               if q.get("split") == "unanswerable" and q.get("expires_on", "2099-01-01") <= today]
+    if expired:
+        raise SystemExit(
+            f"REFUSING TO RUN: {len(expired)} unanswerable item(s) have expired as of {today}: {expired}\n"
+            f"They are now answerable, so grading a correct answer as a fabrication would invert the metric.\n"
+            f"Refresh the dataset (datasets/README.md) or drop these items.")
+
     if qids_file:
         keep_ids = {l.strip() for l in Path(qids_file).read_text().splitlines() if l.strip()}
         questions = [q for q in questions if q["id"] in keep_ids]
