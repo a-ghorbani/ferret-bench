@@ -123,7 +123,8 @@ def run_one(config_name, model, dataset, *, limit=None, split=None, qids_file=No
     for i, q in enumerate(questions):
         rec = run_agent(q["question"], model, cfg, anchor_date, http_mode, seed=seed + i)
         rec = {"qid": q["id"], "split": q["split"], "question": q["question"],
-               "gold_answer": q.get("gold_answer"), **rec}
+               "gold_answer": q.get("gold_answer"), "dated": q.get("dated"),
+               "acceptable_behaviour": q.get("acceptable_behaviour"), **rec}
         with open(out_path, "a") as f:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
         status = "ERR" if rec["error"] else ("MAX" if rec["hit_max_turns"] else "ok")

@@ -73,6 +73,19 @@ def score_run(run_dir: Path):
     tier_scores = {t: correctness_tier(t) for t in ("T1", "T2", "T3", "T4")}
     tier_scores = {t: v for t, v in tier_scores.items() if v} or None
 
+    # HALLUCINATION UNDER RETRIEVAL FAILURE — the worst user outcome, and previously unmeasured.
+    # On the `unanswerable` split there IS no answer: refusing is correct, inventing one is not.
+    unans = by_split.get("unanswerable", [])
+    fab = sum(1 for r in unans if grades.get(r["qid"]) == "INCORRECT")   # fabricated an answer
+    ref = sum(1 for r in unans if grades.get(r["qid"]) == "CORRECT")     # correctly said "not found"
+    unanswerable_score = (
+        {"n": len(unans), "refused": ref, "fabricated": fab,
+         "fabrication_rate": round(fab / len(unans), 4),
+         "refusal_rate": round(ref / len(unans), 4)} if unans else None)
+
+    # DATE DEPENDENCE — questions with no date cue need the model to know what "now" is.
+    undated = [r for r in by_split.get("fresh", []) if r.get("dated") is False]
+
     all_calls = [c for r in outputs for c in r["tool_calls"]]
     fresh = by_split.get("fresh", [])
     nosearch = by_split.get("no_search", [])
@@ -89,6 +102,7 @@ def score_run(run_dir: Path):
         "correct_fresh": correctness("fresh"),
         "correct_fresh_by_tier": tier_scores,
         "correct_stable": correctness("stable"),
+        "unanswerable": unanswerable_score,
         "tool_call_validity": round(sum(c["args_valid"] for c in all_calls) / len(all_calls), 4) if all_calls else None,
         "n_tool_calls": len(all_calls),
         "engagement_fresh": round(sum(1 for r in fresh if r["n_searches"] > 0) / len(fresh), 4) if fresh else None,

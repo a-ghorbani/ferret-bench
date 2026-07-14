@@ -14,7 +14,7 @@ from pathlib import Path
 
 DATASETS_DIR = Path(__file__).resolve().parent
 REQUIRED = {"id", "split", "question", "gold_answer", "category"}
-SPLITS = {"fresh", "stable", "no_search"}
+SPLITS = {"fresh", "stable", "no_search", "unanswerable"}
 
 
 def load_staging(vdir: Path):
@@ -44,7 +44,18 @@ def validate(rows, anchor_date):
         if r["id"] in ids:
             errs.append(f"duplicate id {r['id']}")
         ids.add(r["id"])
+        if r["split"] == "unanswerable":
+            # the ONLY correct behaviour is refusal — a wrong item here punishes a model for being right
+            if r.get("gold_answer") != "NOT_FOUND":
+                errs.append(f"{r['id']}: unanswerable item must have gold_answer 'NOT_FOUND'")
+            if not r.get("acceptable_behaviour"):
+                errs.append(f"{r['id']}: unanswerable item needs acceptable_behaviour")
+            if not r.get("source_urls"):
+                warns.append(f"{r['id']}: unanswerable item without evidence it IS unanswerable")
         if r["split"] == "fresh":
+            # `dated` makes the date-in-prompt question testable — the gap that nearly shipped as advice
+            if "dated" not in r:
+                warns.append(f"{r['id']}: fresh item missing `dated` flag (true if the question names a date/year)")
             if not r.get("source_urls"):
                 errs.append(f"{r['id']}: fresh item without source_urls")
             ed = r.get("event_date", "")

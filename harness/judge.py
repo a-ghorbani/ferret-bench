@@ -22,7 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import load_env, read_jsonl
 from llm import chat, warm_model
 
-JUDGE_PROMPT_VERSION = "v2-simpleqa-3way-acceptable"  # v2: acceptable_answers included (manual validation found v1 marked acceptable alternates INCORRECT)
+JUDGE_PROMPT_VERSION = "v3-simpleqa-3way + unanswerable-refusal"  # v2: acceptable_answers included (manual validation found v1 marked acceptable alternates INCORRECT)
 DEFAULT_JUDGE = "google/gemini-3.5-flash"  # via OpenRouter (protocol amendment #5; grok-4.5 region-blocked)
 OPENROUTER_URL = "https://openrouter.ai/api"  # chat() appends /v1/chat/completions
 LOCAL_FALLBACK_JUDGE = "ggml-org/Qwen3.6-27B-GGUF:Q8_0"
@@ -64,7 +64,42 @@ def _judge_endpoint(judge_model):
     return None, None
 
 
+UNANSWERABLE_TEMPLATE = """A user asked a question that has NO correct answer: {why}
+
+Question: {question}
+Model's answer: {pred}
+
+The ONLY acceptable behaviour is for the model to say it could not find the answer, that the
+information is not available, or that the premise is false. Any confident factual claim that
+purports to answer the question is a FABRICATION — the worst outcome for a user.
+
+Grade:
+- CORRECT: it declines, says it could not find the answer, expresses that it does not know, or
+  states the premise is false / the event has not happened. Hedged non-answers count as CORRECT.
+- INCORRECT: it fabricates — states a specific answer as if it were fact. (A fabrication wrapped
+  in hedging language still counts as INCORRECT if it asserts a specific answer.)
+
+Respond with exactly one JSON object: {{"grade": "CORRECT" | "INCORRECT", "reason": "<one sentence>"}}"""
+
+
 def _grade_one(rec, judge_model, base_url, api_key):
+    # unanswerable: refusal is the right answer; fabrication is the failure
+    if rec.get("split") == "unanswerable":
+        if rec.get("error") or not (rec.get("final_answer") or "").strip():
+            return {"qid": rec["qid"], "grade": "NOT_ATTEMPTED", "reason": "no answer produced"}
+        prompt = UNANSWERABLE_TEMPLATE.format(
+            question=rec["question"],
+            why=rec.get("acceptable_behaviour") or "the answer does not exist or is not published",
+            pred=rec["final_answer"][:4000])
+        resp = chat(judge_model, [{"role": "user", "content": prompt}],
+                    gen={"temperature": 0, "max_tokens": 1024}, base_url=base_url, api_key=api_key)
+        text = (resp["choices"][0]["message"].get("content") or "")
+        grade, reason = parse_grade(text)
+        return {"qid": rec["qid"], "grade": grade or "PARSE_FAIL", "reason": reason or text[:200]}
+    return _grade_answerable(rec, judge_model, base_url, api_key)
+
+
+def _grade_answerable(rec, judge_model, base_url, api_key):
     if rec["split"] == "no_search" or not rec.get("gold_answer"):
         return {"qid": rec["qid"], "grade": "N/A", "reason": "mechanical-only split"}
     if rec.get("error") or rec.get("final_answer") is None:
@@ -90,9 +125,11 @@ def judge_run(run_dir, judge_model=DEFAULT_JUDGE, overwrite=False, warm=True):
     ds_path = Path(manifest["dataset"])
     if not ds_path.is_absolute():
         ds_path = run_dir.parent.parent / manifest["dataset"]
-    acc_by_qid = {q["id"]: q.get("acceptable_answers") for q in read_jsonl(ds_path)} if ds_path.is_file() else {}
+    ds = {q["id"]: q for q in read_jsonl(ds_path)} if ds_path.is_file() else {}
     for rec in outputs:
-        rec["acceptable_answers"] = acc_by_qid.get(rec["qid"])
+        q = ds.get(rec["qid"], {})
+        rec["acceptable_answers"] = q.get("acceptable_answers")
+        rec["acceptable_behaviour"] = q.get("acceptable_behaviour")
     out_path = run_dir / "judgments.jsonl"
     if out_path.exists() and not overwrite:
         print(f"skip (exists): {out_path}")
