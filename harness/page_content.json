@@ -22,14 +22,14 @@
     }
   ],
   "config_notes": {
-    "provider": "Brave is the recommended default: it beat Tavily during configuration screening and used fewer prompt tokens on most models. Tavily remains fully supported.",
-    "result_format": "Markdown-formatted results beat the shipped labelled blocks; JSON and compact numbered lists were both worse and were eliminated.",
-    "tool_desc": "Enriched tool descriptions (what the tool is for, plus a hint to write short keyword queries) were the largest single effect seen in screening.",
+    "provider": "Brave. The one configuration choice that clearly matters: 0.74 vs 0.59 against Tavily (p=0.004). Everything else in this table is worth less than it looks.",
+    "result_format": "Markdown. Also cannot be proven alone (+0.02, p=0.63). Like the tool descriptions, it earns its place only as part of the bundle.",
+    "tool_desc": "Enriched: tell the model what the tool is for and to write short keyword queries. Cannot be proven alone (+0.03, p=0.48) — but it is part of a bundle that doubles quality, so do not cherry-pick it out.",
     "result_count": "Five results is the shipped default and nothing beat it. Note that asking for more can be a no-op: the result menu is capped by a token ceiling that silently drops trailing hits.",
     "snippet_chars": "280-character snippets retained. Shorter truncation lost information; full-length snippets cost many more tokens for no gain.",
     "read_url_policy": "Page reading stays available but earns its keep rarely — snippets answer most questions, and models call read_url on well under half a page per question.",
     "max_turns": "A five-turn budget is not the binding constraint: the winning configurations average under two turns per question.",
-    "system_prompt": "Shipped grounding line retained. A prescriptive 'strategy' prompt raised accuracy but triggered needless searches, and pairing it with markdown was worse than either alone.",
+    "system_prompt": "Kept, but it earns nothing. Stripping every instruction from it — leaving only 'You are a helpful assistant' — scored identically (p=0.90). The tool description, not the system prompt, is what makes a model search.",
     "enable_thinking": "Off. Reasoning mode costs 2-6x the generated tokens for no measurable gain in answer quality — a bad trade on a phone, in a loop already full of search results. Turning it off also makes every model comparable."
   },
   "metric_definitions": [
@@ -100,7 +100,7 @@
   ],
   "band_note": "This board does resolve an order. Harder questions — ones needing several sources, or a second search that depends on the first — separate the models that everyday lookups could not: the top on-device model is now clearly ahead of the bottom of the working band. Neighbouring rows still sit within noise of each other, so read the groupings rather than the exact positions.",
   "floor_note": "0.00–0.02",
-  "config_lift_note": "Configuration is worth as much as model choice at this size. On the earlier v1 question set, tuning it (richer tool descriptions, Brave, markdown results) lifted pooled correctness across four models from 0.79 to 0.92. The config was then frozen; these scores all use it unchanged, with reasoning mode off for every model.",
+  "config_lift_note": "The whole bundle — enriched tool descriptions, Brave, markdown results — is worth 0.74 vs 0.36 against the app's original settings (p under 0.0001): it roughly doubles answer quality. But almost none of that survives being taken apart. Only the search provider is individually significant. The changes compound; ship them together or not at all.",
   "tier_notes": {
     "T1": "“Who won the final?” The answer is right there in the search results.",
     "T2": "The answer is inside the article, not in the search snippet, so the model has to open the page.",

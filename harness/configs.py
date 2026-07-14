@@ -105,6 +105,10 @@ def build_system_prompt(cfg: dict, anchor_date: str) -> str:
     budget = cfg["max_turns"] - 1
     has_read = cfg["read_url_policy"] != "disabled"
     variant = cfg["system_prompt"]
+    if variant == "bare":
+        # NO date, no guidance — just the assistant line. The counterfactual we never ran:
+        # every other variant contained the date, so the date's own effect was never isolated.
+        return BASE_SYSTEM
     if variant == "date-only":
         return f"{BASE_SYSTEM} Today's date is {anchor_date}."
     if variant == "shipped":

@@ -1,0 +1,8 @@
+{
+  "config_id": "rv-prompt-bare",
+  "tool_desc": "enriched",
+  "provider": "brave",
+  "result_format": "markdown",
+  "enable_thinking": false,
+  "system_prompt": "bare"
+}
