@@ -8,7 +8,7 @@
     {
       "value": "8–69%",
       "label": "They invent answers",
-      "detail": "When there is no answer to find. And it does not track skill: the top scorer fabricates 31%, a weaker 2B just 8%."
+      "detail": "When there is no answer. It does not track skill: the top scorer fabricates 31%, a weaker 2B just 8%."
     },
     {
       "value": "+17 pts",
@@ -121,5 +121,5 @@
   "frontier_note": "The two reference models are cloud systems, shown for scale only and kept out of the ranking. The best on-device model lands close enough to them that this dataset cannot resolve the gap — which is not the same as matching them: its losses are concentrated in the hardest questions.",
   "variants_note": "We also tested an abliterated community variant of Qwen3.5-2B against the official checkpoint under identical conditions. They scored exactly the same (38 of 53 each). Abliteration buys nothing here, so we rank official checkpoints only.",
   "gate_failure_takeaway": "Gate on rendered capability, never a model allowlist. Pass tools, then check the rendered prompt: under ~300 tokens means the schemas never landed. One assertion catches all five, and any future repack that drops the tool template.",
-  "fabrication_note": "We also ask 13 questions that have NO answer — a deal that never happened, a prize not yet awarded, a fact nobody published. The only correct behaviour is to say so. Inventing an answer instead is the worst thing a search assistant can do — and it does not track accuracy. The most accurate model on this board fabricates four times more often than a weaker one. This is the number that should change which model you ship."
+  "fabrication_note": "We also ask 13 questions that have NO answer — a deal that never happened, a prize not yet awarded, a fact nobody published. The only correct behaviour is to say so; inventing one instead is the worst thing a search assistant can do. It does not track accuracy: the most accurate model here fabricates four times more often than a weaker one. This is the number that should change which model you ship."
 }
