@@ -303,3 +303,59 @@ The two community-variant rows are gone from the published leaderboard, chart an
 - **`huihui-qwen35-2b` (abliterated): retained in `runs/`, removed as a row.** Its comparison was legitimate and it is now **answered**: at matched conditions, 38/53 vs the official checkpoint's 38/53 — abliteration is worth exactly nothing. An answered question belongs in a sentence, not in a permanent row that invites someone to ship an abliterated model on the strength of a number that no longer says what it appeared to say.
 
 The published board now contains only **official checkpoints** (the things PocketPal could actually ship) plus two clearly-marked cloud references. Variant results remain in `report.md` and in the site's `variants_note`. Nothing is hidden; it is simply not *ranked*.
+
+---
+
+# v4 — Config re-derived from scratch under the clean regime (2026-07-14)
+
+Every frozen value was re-tested under the clean regime (thinking off, dataset v2, discarded-answer bug fixed), because **half the original evidence base was contaminated**: screening, ablation and tiebreak each used 2 dev models, exactly 1 of which was a thinking model whose answers the harness was silently deleting. Amendments #16–#17. Gate: `harness/check_provenance.py` now PASSES — every value has a real counterfactual. Runs tagged `revalidate` / `prompt3`.
+
+## 1. The decisive test we should have run on day one
+
+| | fresh correctness (3 models, n=159) |
+|---|---|
+| **Our recommended bundle** | **118/159 = 0.742** |
+| PocketPal's original shipped config | 57/159 = 0.358 |
+
+**+0.384, p < 0.0001.** The recommendation roughly **doubles** answer quality. PocketPal was right to merge it, and this is the first time that has been shown without contaminated data.
+
+## 2. But the *story* was wrong: the changes compound, they don't stack
+
+One-factor-at-a-time from the frozen bundle (n=159, and n=371 for the two borderline factors):
+
+| factor removed | effect of our change | p | individually? |
+|---|---|---|---|
+| provider → Tavily | **+0.157** | **0.004** | **PROVEN** |
+| tool_desc → shipped | +0.027 | 0.475 | not provable |
+| result_format → shipped | +0.019 | 0.633 | not provable |
+| result_count 5 → 3 / 8 | +0.057 / −0.006 | 0.32 / 1.00 | no effect |
+| snippet 280 → 140 | +0.044 | 0.454 | no effect |
+| read_url on → off | +0.025 | 0.705 | no effect |
+| max_turns 5 → 3 | +0.044 | 0.454 | no effect |
+
+The individual effects sum to roughly +0.28; the bundle delivers **+0.384**. **They are super-additive.** Only the provider stands on its own.
+
+**Consequence for anyone adopting this: ship the bundle whole.** Cherry-picking "the one that's significant" gets you a fraction of the benefit, and cherry-picking the other two gets you something we cannot distinguish from noise.
+
+## 3. The system prompt is decoration (RQ3, overturned)
+
+| system prompt | score (n=159) |
+|---|---|
+| shipped: date + "search first / cite sources / don't guess / budget of 4" | 0.742 |
+| date-only | 0.730 |
+| guided-v2 (explicit strategy) | 0.698 |
+| **bare: "You are a helpful assistant." — no date, no guidance** | **0.742** |
+
+**A bare prompt ties the fully-engineered one exactly** (p=0.90). Search engagement stays at 0.97–0.99 across every arm. **The tool description, not the system prompt, is what makes a model search** — it already says "use this for anything that may have changed since your training data," and the model needs nothing more.
+
+**Actionable:** PocketPal can drop the ~90-token grounding guidance from every turn at no measured cost.
+
+**But NOT the date — and this is a limitation of our own dataset, caught before it shipped as advice.** 91% of our fresh questions contain their own date ("in June 2026", "the 2026 World Cup"). The model never needed the system date because the *question* supplied it. Real users ask *"who won the election?"* — undated. **Our benchmark structurally cannot measure the date's value**, so "the date does nothing" is unsupported and we do not claim it. Dataset v3 must contain undated questions; this is now the top dataset gap.
+
+## 4. Everything else genuinely does not matter
+
+Result count (3 / 5 / 8), snippet length (140 / 280), page-reading on/off, turn cap (3 / 5): **no significant difference, any of them.** This is a useful negative result — it tells an implementer where *not* to spend effort. The exception is the provider, which is where all the leverage is.
+
+## 5. Operational defect worth reporting
+
+The `read_url` path (Jina reader) returns **HTTP 403 on 8% of fetches** (24/300) — real sites blocking it. It did not affect conclusions (page-reading is barely used and disabling it changes nothing, p=0.71), but PocketPal ships this feature and roughly one in twelve page-opens fails in the wild.
