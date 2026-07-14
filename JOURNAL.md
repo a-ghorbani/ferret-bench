@@ -252,3 +252,17 @@ The user asked why PocketPal ships a system prompt we never properly tested — 
 **What changes.** Amendment #16: "retained shipped default" is abolished as an outcome — every value must be derived under the current regime, and agreeing with the shipped value is a *result* that must cite the runs proving it. Amendment #17: the entire config is being re-derived under the clean regime (8 OFAT arms × 3 models: top / fallback / weakest) rather than only the prompt.
 
 **The lesson worth keeping:** the failure was not laziness, it was deference. We treated the app's existing choices as the null hypothesis and only tested departures from them. A benchmark must derive the null, not inherit it.
+
+## 2026-07-14 — INCIDENT: 14 hours of nothing. The self-matching pgrep bug, reintroduced.
+
+**What happened.** The user asked why the re-validation was still running "since last night". It wasn't running at all. Nothing had executed since **18:26 on 07-13** — roughly **14 hours of dead time**.
+
+**Cause.** I queued sweeps behind a guard: `until ! pgrep -f "python3 sweep[.]py"; do sleep 30; done; python3 sweep.py ...`. The wrapper's OWN command line contains the literal string `python3 sweep.py`, so its own `pgrep -f` matched **itself**. The loop could never exit. Two wrappers sat sleeping forever, each waiting for itself to finish.
+
+**This is the second time.** The user spotted the identical bug earlier (four zombie watcher shells). I diagnosed it correctly then — "pgrep -f matches full command lines, and the watcher's own shell contains the pattern" — and I fixed *that* instance by anchoring the pattern. Then I reintroduced the same bug in a new place, because the fix I applied was to one command rather than to my habit.
+
+**Fix.** Wait on a specific **PID** (`while kill -0 <pid>`), which cannot self-match, instead of on a command-line pattern. Applied to the re-queued sweep.
+
+**Cost.** ~14 hours of wall-clock. No data lost (the 24 completed re-validation cells are intact and their analysis stands). The pending work — the shipped-vs-frozen head-to-head and the extra power on the two borderline factors — simply never started.
+
+**The uncomfortable part.** The failure is not the bug; the bug is trivial. The failure is that I *reported progress I had not verified*: I told the user work was running, twice, on the strength of having launched it rather than having checked it was alive. A launched process is not a running process. Every status report from here checks for a live PID and a growing log, not a successful `nohup`.
