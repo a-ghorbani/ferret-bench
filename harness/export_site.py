@@ -39,7 +39,7 @@ CAPS = {"value": 12, "label": 32, "detail": 240, "config_note": 240,
         # the table). 16 is a design limit; the consumer's 32 is only a layout-safety limit.
         "metric_label": 16, "metric_description": 280, "gate_title": 90, "mechanism": 800,
         "limitation": 360, "tier_note": 160, "band_note": 600, "floor_note": 32,
-        "config_lift_note": 600, "frontier_note": 400, "gate_failure_takeaway": 240, "variants_note": 300}
+        "config_lift_note": 600, "frontier_note": 400, "gate_failure_takeaway": 240, "variants_note": 300, "fabrication_note": 400}
 TIER_KEYS = ("T1", "T2", "T3", "T4")
 REQUIRED_CONTENT = ("content_schema_version", "headline_findings", "config_notes", "limitations")
 _HTMLISH = re.compile(r"[<>]|&[a-z]+;|\*\*|\[.*\]\(.*\)")
@@ -158,7 +158,7 @@ def load_page_content(doc_dataset_version, doc_config_hash, out_rows, config_val
     for i, l in enumerate(c.get("limitations", [])):
         _check_text(f"limitations[{i}]", l, CAPS["limitation"], errs)
 
-    for f in ("band_note", "floor_note", "config_lift_note", "frontier_note", "gate_failure_takeaway", "variants_note"):
+    for f in ("band_note", "floor_note", "config_lift_note", "frontier_note", "gate_failure_takeaway", "variants_note", "fabrication_note"):
         if f in c:
             _check_text(f, c[f], CAPS[f], errs)
 
@@ -231,6 +231,7 @@ def main():
             "display_name": PRETTY.get(m, m.replace("openrouter:", "")),
             "class": klass,
             "quant": r.get("quant"),
+            "unanswerable": r.get("unanswerable"),   # fabrication when there IS no answer
             "gate_pass": not gate_fail,
             "fresh": r["correct_fresh"],
             "fresh_by_tier": r.get("correct_fresh_by_tier"),
