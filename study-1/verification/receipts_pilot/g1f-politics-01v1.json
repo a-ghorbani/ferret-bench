@@ -1,0 +1,54 @@
+{
+ "id": "g1f-politics-01v1",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "Where did the G7 leaders meet in June 2026?",
+ "gold_answer": "Evian-les-Bains",
+ "verdict": "needs_human",
+ "reason": "gold_disputed_panel_agrees_other",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:anthropic/claude-sonnet-5": {
+     "answer": "Évian, France",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "Évian, France",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_disputed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "Where did the G7 leaders meet in June 2026",
+   "queries_tried": [
+    "Where did the G7 leaders meet in June 2026",
+    "did the G7 leaders meet in June 2026"
+   ],
+   "n_snippets": 2
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 28,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:anthropic/claude-sonnet-5",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}
