@@ -1,0 +1,60 @@
+{
+ "id": "fr2-news-16",
+ "split": "fresh",
+ "origin_tier": "T4",
+ "question": "Who took over as UK defence secretary after the minister who quit over armed forces funding in June 2026?",
+ "gold_answer": "Dan Jarvis",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": true,
+  "memorable": null
+ },
+ "fact_id": "fact_007",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:anthropic/claude-sonnet-5": {
+     "answer": "John Healey resigned as UK Defence Secretary on 11 June 2026 over a dispute with Prime Minister Keir Starmer regarding insufficient military spending. He was succeeded by **Dan Jarvis**, who had been serving as security minister and was named Healey's successor that same evening.\n\nSource: The Guardian, https://www.theguardian.com/politics/2026/jun/11/john-healey-resigns-defence-secretary-military-spending",
+     "matches_gold": true,
+     "n_turns": 2,
+     "n_searches": 2,
+     "n_reads": 0
+    },
+    "openrouter:openai/gpt-5.6-sol": {
+     "answer": "Dan Jarvis, previously the UK security minister, took over as defence secretary after John Healey resigned in June 2026 over armed forces funding.\n\nSource: [Reuters](https://www.reuters.com/world/uk/british-defence-minister-healey-resigns-over-defence-spending-2026-06-11/)",
+     "matches_gold": true,
+     "n_turns": 2,
+     "n_searches": 1,
+     "n_reads": 0
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "agentic",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "Who took over as UK defence secretary after the minister who quit over armed forces funding in June 2026",
+   "queries_tried": [
+    "Who took over as UK defence secretary after the minister who quit over armed forces funding in June 2026",
+    "took over as UK defence secretary after the minister who quit over armed forces funding in June 2026"
+   ],
+   "n_snippets": 1
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 33,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:anthropic/claude-sonnet-5",
+  "openrouter:openai/gpt-5.6-sol"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

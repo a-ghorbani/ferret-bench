@@ -1,0 +1,60 @@
+{
+ "id": "fr2-sport-13",
+ "split": "fresh",
+ "origin_tier": "T3",
+ "question": "Which team clinched its title first in June 2026 - the NBA champion or the Stanley Cup champion?",
+ "gold_answer": "New York Knicks",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": true,
+  "memorable": null
+ },
+ "fact_id": "fact_010",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:anthropic/claude-sonnet-5": {
+     "answer": "The **New York Knicks** clinched the NBA title first — they won the 2026 NBA Finals on **June 13, 2026**, beating the San Antonio Spurs 4–1 ([NBA.com](https://www.nba.com/news/2026-nba-finals-schedule), [Wikipedia](https://en.wikipedia.org/wiki/2026_NBA_Finals)).\n\nThe **Carolina Hurricanes** won the Stanley Cup a day later, on **June 14, 2026**, defeating the Vegas Golden Knights 4–2 in the series ([NHL.com](https://www.nhl.com/hurricanes/news/carolina-hurricanes-win-2026-stanley-cup-final), [Wikipedia](https://en.wikipedia.org/wiki/2026_Stanley_Cup_playoffs)).\n\nSo the NBA champion (Knicks) cl",
+     "matches_gold": true,
+     "n_turns": 2,
+     "n_searches": 2,
+     "n_reads": 0
+    },
+    "openrouter:openai/gpt-5.6-sol": {
+     "answer": "The **NBA champion clinched first**. The **New York Knicks** won the NBA title on **June 13, 2026**, while the **Carolina Hurricanes** secured the Stanley Cup on **June 14**—one day later.\n\nSources: [NBA](https://www.nba.com/news/2026-nba-finals-schedule) · [NHL](https://www.nhl.com/news/2026-stanley-cup-final-schedule-television-results)",
+     "matches_gold": true,
+     "n_turns": 2,
+     "n_searches": 2,
+     "n_reads": 0
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "agentic",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "Which team clinched its title first in June 2026 - the NBA champion or the Stanley Cup champion",
+   "queries_tried": [
+    "Which team clinched its title first in June 2026 - the NBA champion or the Stanley Cup champion",
+    "team clinched its title first in June 2026 - the NBA champion or the Stanley Cup champion"
+   ],
+   "n_snippets": 1
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 30,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:anthropic/claude-sonnet-5",
+  "openrouter:openai/gpt-5.6-sol"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

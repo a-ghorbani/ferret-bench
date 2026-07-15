@@ -1,0 +1,54 @@
+{
+ "id": "fr3-col-03",
+ "split": "fresh",
+ "origin_tier": "T2",
+ "question": "what was that openai model the government made them hold back",
+ "gold_answer": "GPT-5.6 Sol",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_025",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:anthropic/claude-sonnet-5": {
+     "answer": "GPT-5.6 (Sol, Terra and Luna)",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-sol": {
+     "answer": "GPT-5.6 Sol",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "what was that openai model the government made them hold back",
+   "queries_tried": [
+    "what was that openai model the government made them hold back",
+    "was that openai model the government made them hold back"
+   ],
+   "n_snippets": 2
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 18,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:anthropic/claude-sonnet-5",
+  "openrouter:openai/gpt-5.6-sol"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

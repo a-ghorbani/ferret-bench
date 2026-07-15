@@ -1,0 +1,38 @@
+{
+ "id": "st-11",
+ "split": "stable",
+ "origin_tier": null,
+ "question": "Who painted The Persistence of Memory?",
+ "gold_answer": "Salvador Dalí",
+ "verdict": "admit",
+ "reason": "gold_confirmed",
+ "attributes": {
+  "answer_only_in_body": null,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_063",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:anthropic/claude-sonnet-5": {
+     "answer": "Salvador Dalí",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-sol": {
+     "answer": "Salvador Dalí",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  }
+ },
+ "curator_panel": [
+  "openrouter:anthropic/claude-sonnet-5",
+  "openrouter:openai/gpt-5.6-sol"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

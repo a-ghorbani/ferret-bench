@@ -1,0 +1,41 @@
+{
+ "id": "un-fp-05",
+ "split": "unanswerable",
+ "origin_tier": null,
+ "question": "How many seats did Reform UK win in the June 2026 UK general election?",
+ "gold_answer": "NOT_FOUND",
+ "verdict": "needs_human",
+ "reason": "unanswerable_confirmed_awaiting_negative_signoff",
+ "attributes": {
+  "answer_only_in_body": null,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "unanswerable_verify": {
+   "panel": {
+    "openrouter:anthropic/claude-sonnet-5": {
+     "answer": "NObodyKNOWS",
+     "declined": true,
+     "error": false
+    },
+    "openrouter:openai/gpt-5.6-sol": {
+     "answer": "NObodyKNOWS",
+     "declined": true,
+     "error": false
+    }
+   },
+   "all_declined": true,
+   "found_answer": false,
+   "source_urls_present": true,
+   "expires_on_valid": true
+  }
+ },
+ "curator_panel": [
+  "openrouter:anthropic/claude-sonnet-5",
+  "openrouter:openai/gpt-5.6-sol"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

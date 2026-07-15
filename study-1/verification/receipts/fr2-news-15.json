@@ -1,0 +1,60 @@
+{
+ "id": "fr2-news-15",
+ "split": "fresh",
+ "origin_tier": "T4",
+ "question": "Who will serve as vice president under the winner of Colombia's 2026 presidential election?",
+ "gold_answer": "Jose Manuel Restrepo",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": true,
+  "memorable": null
+ },
+ "fact_id": "fact_001",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:anthropic/claude-sonnet-5": {
+     "answer": "Abelardo de la Espriella won Colombia's 2026 presidential runoff on June 21, 2026, defeating Iván Cepeda. His running mate — and thus the incoming vice president — is **José Manuel Restrepo Abondano**, a former Colombian Finance Minister (under President Iván Duque) and former rector of the EIA university, who was announced as De la Espriella's vice-presidential candidate in March 2026 ahead of the election.\n\nSources:\n- https://en.wikipedia.org/wiki/2026_Colombian_presidential_election\n- https://es.wikipedia.org/wiki/Jos%C3%A9_Manuel_Restrepo_Abondano\n- https://www.semana.com/politica/articulo",
+     "matches_gold": true,
+     "n_turns": 3,
+     "n_searches": 2,
+     "n_reads": 0
+    },
+    "openrouter:openai/gpt-5.6-sol": {
+     "answer": "**José Manuel Restrepo**, a former finance minister, will serve as vice president under President-elect **Abelardo de la Espriella** for Colombia’s 2026–2030 term. ([The Guardian](https://www.theguardian.com/world/2026/jun/21/far-right-millionaire-abelardo-de-la-espriella-wins-colombia-presidential-runoff), [Edelman](https://www.edelman.com/insights/colombia-2026-2030-presidential-elections-results-first-100-days))",
+     "matches_gold": true,
+     "n_turns": 3,
+     "n_searches": 2,
+     "n_reads": 0
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "agentic",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "Who will serve as vice president under the winner of Colombia's 2026 presidential election",
+   "queries_tried": [
+    "Who will serve as vice president under the winner of Colombia's 2026 presidential election",
+    "will serve as vice president under the winner of Colombia's 2026 presidential election"
+   ],
+   "n_snippets": 2
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 23,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:anthropic/claude-sonnet-5",
+  "openrouter:openai/gpt-5.6-sol"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

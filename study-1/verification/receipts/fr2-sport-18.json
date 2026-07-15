@@ -1,0 +1,60 @@
+{
+ "id": "fr2-sport-18",
+ "split": "fresh",
+ "origin_tier": "T4",
+ "question": "Who wrote the music and lyrics for the show that won Best Musical at the 2026 Tony Awards?",
+ "gold_answer": "Cinco Paul",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": true,
+  "memorable": null
+ },
+ "fact_id": "fact_012",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:anthropic/claude-sonnet-5": {
+     "answer": "\"Schmigadoon!\" won Best Musical at the 2026 Tony Awards, and its book, music, and lyrics were written by Cinco Paul.\n\nSources: https://americantheatrewing.org/news-events/2026-tony-award-winners/ and https://en.wikipedia.org/wiki/Schmigadoon!_(musical)",
+     "matches_gold": true,
+     "n_turns": 3,
+     "n_searches": 2,
+     "n_reads": 0
+    },
+    "openrouter:openai/gpt-5.6-sol": {
+     "answer": "**Cinco Paul** wrote both the music and lyrics for *Schmigadoon!*, which won Best Musical at the 2026 Tony Awards. Sources: [American Theatre Wing](https://americantheatrewing.org/news-events/2026-tony-award-winners/), [NPR](https://www.npr.org/2026/06/07/nx-s1-5843086/tony-awards-winners-list-2026).",
+     "matches_gold": true,
+     "n_turns": 3,
+     "n_searches": 3,
+     "n_reads": 0
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "agentic",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "Who wrote the music and lyrics for the show that won Best Musical at the 2026 Tony Awards",
+   "queries_tried": [
+    "Who wrote the music and lyrics for the show that won Best Musical at the 2026 Tony Awards",
+    "wrote the music and lyrics for the show that won Best Musical at the 2026 Tony Awards"
+   ],
+   "n_snippets": 1
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 37,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:anthropic/claude-sonnet-5",
+  "openrouter:openai/gpt-5.6-sol"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

@@ -1,0 +1,53 @@
+{
+ "id": "fr3-und-10",
+ "split": "fresh",
+ "origin_tier": "T1",
+ "question": "what's the latest claude sonnet model?",
+ "gold_answer": "Claude Sonnet 5",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_019",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:anthropic/claude-sonnet-5": {
+     "answer": "Claude Sonnet 5",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-sol": {
+     "answer": "Claude Sonnet 5",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "what's the latest claude sonnet model",
+   "queries_tried": [
+    "what's the latest claude sonnet model"
+   ],
+   "n_snippets": 1
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 14,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:anthropic/claude-sonnet-5",
+  "openrouter:openai/gpt-5.6-sol"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

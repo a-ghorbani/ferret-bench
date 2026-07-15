@@ -1,0 +1,59 @@
+{
+ "id": "fr2-tech-16",
+ "split": "fresh",
+ "origin_tier": "T4",
+ "question": "The pilot NASA assigned to Artemis III in June 2026 — which space agency does he belong to?",
+ "gold_answer": "European Space Agency (ESA)",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": true,
+  "memorable": null
+ },
+ "fact_id": "fact_022",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:anthropic/claude-sonnet-5": {
+     "answer": "The pilot assigned to Artemis III in June 2026, **Luca Parmitano**, belongs to the **European Space Agency (ESA)** — he is an Italian ESA astronaut, marking the first time a European has been assigned to an Artemis crew ([Wikipedia](https://en.wikipedia.org/wiki/Artemis_III); [NPR](https://www.npr.org/2026/06/09/nx-s1-5851860/nasa-artemis-iii-crew); [SpaceDaily](https://spacedaily.com/sd-on-june-9-2026-nasa-named-italian-astronaut-luca-parmitano-as-pilot-of-artemis-3-making-him-the-first-european-ever-assigned-to-an-artemis-crew-and-within-hours-esas-director-general/)).",
+     "matches_gold": true,
+     "n_turns": 2,
+     "n_searches": 1,
+     "n_reads": 0
+    },
+    "openrouter:openai/gpt-5.6-sol": {
+     "answer": "He belongs to the **European Space Agency (ESA)**. The pilot is Italian astronaut **Luca Parmitano**.  \nSource: [ESA](https://www.esa.int/ESA_Multimedia/Videos/2026/06/Artemis_III_NASA_announcement_highlights_Luca_Parmitano_assigned_as_pilot)",
+     "matches_gold": true,
+     "n_turns": 2,
+     "n_searches": 1,
+     "n_reads": 0
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "agentic",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "The pilot NASA assigned to Artemis III in June 2026 — which space agency does he belong to",
+   "queries_tried": [
+    "The pilot NASA assigned to Artemis III in June 2026 — which space agency does he belong to"
+   ],
+   "n_snippets": 1
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 35,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:anthropic/claude-sonnet-5",
+  "openrouter:openai/gpt-5.6-sol"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

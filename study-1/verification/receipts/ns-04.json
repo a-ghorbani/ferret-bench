@@ -1,0 +1,26 @@
+{
+ "id": "ns-04",
+ "split": "no_search",
+ "origin_tier": null,
+ "question": "Give me three tips for falling asleep faster.",
+ "gold_answer": null,
+ "verdict": "admit",
+ "reason": "mechanical_no_search_admit",
+ "attributes": {
+  "answer_only_in_body": null,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_041",
+ "probes": {
+  "no_search": {
+   "note": "mechanical false-positive probe; no gold to verify"
+  }
+ },
+ "curator_panel": [
+  "openrouter:anthropic/claude-sonnet-5",
+  "openrouter:openai/gpt-5.6-sol"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

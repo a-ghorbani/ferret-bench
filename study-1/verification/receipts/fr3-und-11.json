@@ -1,0 +1,53 @@
+{
+ "id": "fr3-und-11",
+ "split": "fresh",
+ "origin_tier": "T1",
+ "question": "what's the new macos called?",
+ "gold_answer": "macOS Golden Gate",
+ "verdict": "needs_human",
+ "reason": "gold_disputed_panel_agrees_other",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:anthropic/claude-sonnet-5": {
+     "answer": "macOS 26 Tahoe",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-sol": {
+     "answer": "macOS 26 Tahoe",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_disputed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "what's the new macos called",
+   "queries_tried": [
+    "what's the new macos called"
+   ],
+   "n_snippets": 4
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 36,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:anthropic/claude-sonnet-5",
+  "openrouter:openai/gpt-5.6-sol"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

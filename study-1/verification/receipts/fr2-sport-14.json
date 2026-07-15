@@ -1,0 +1,60 @@
+{
+ "id": "fr2-sport-14",
+ "split": "fresh",
+ "origin_tier": "T3",
+ "question": "How many goals were scored in total across the three UEFA men's club finals in 2026 (Champions League, Europa League, Conference League), not counting penalty shootouts?",
+ "gold_answer": "6",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": true,
+  "dependent_search": true,
+  "memorable": null
+ },
+ "fact_id": "fact_009",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:anthropic/claude-sonnet-5": {
+     "answer": "Across the three 2026 UEFA men's club finals, a total of **6 goals** were scored in regular/extra time (excluding penalty shootouts):\n\n- **Champions League:** Paris Saint-Germain 1–1 Arsenal (PSG won 4–3 on penalties) → 2 goals ([Olympics.com](https://www.olympics.com/en/news/football-uefa-mens-champions-league-final-2026-arsenal-psg-results), [CNN](https://www.cnn.com/2026/05/30/sport/live-news/arsenal-psg-champions-league-final-score))\n- **Europa League:** Freiburg 0–3 Aston Villa → 3 goals ([The Guardian](https://www.theguardian.com/football/live/2026/may/20/freiburg-v-aston-villa-europa-le",
+     "matches_gold": true,
+     "n_turns": 3,
+     "n_searches": 3,
+     "n_reads": 0
+    },
+    "openrouter:openai/gpt-5.6-sol": {
+     "answer": "**6 goals** in total:\n\n- Champions League: PSG 1–1 Arsenal — **2 goals** ([Olympics.com](https://www.olympics.com/en/news/football-uefa-mens-champions-league-final-2026-arsenal-psg-results))\n- Europa League: Aston Villa 3–0 Freiburg — **3 goals** ([source](https://en.wikipedia.org/wiki/2026_UEFA_Europa_League_final))\n- Conference League: Crystal Palace 1–0 Rayo Vallecano — **1 goal** ([source](https://en.wikipedia.org/wiki/2026_UEFA_Conference_League_final))\n\n**Total: 2 + 3 + 1 = 6**, excluding PSG’s 4–3 penalty-shootout win.",
+     "matches_gold": true,
+     "n_turns": 3,
+     "n_searches": 3,
+     "n_reads": 1
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "agentic",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": false,
+   "matched_query": null,
+   "queries_tried": [
+    "How many goals were scored in total across the three UEFA men's club finals in 2026 (Champions League, Europa League, Conference League), not counting penalty shootouts",
+    "goals were scored in total across the three UEFA men's club finals in 2026 (Champions League, Europa League, Conference League), not counting penalty shootouts"
+   ],
+   "n_snippets": 10
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 45,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:anthropic/claude-sonnet-5",
+  "openrouter:openai/gpt-5.6-sol"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

@@ -52,3 +52,48 @@ temporal_guard.py (mechanical, dates only) on 85 fresh candidates, anchor 2026-0
   stale (>60d): 0   |   recurring needing valid_until: 9 (nba/stanley/UCL/french open/... )  |  clean: 76
 The 9 recurring items are the silent-rot risk v3 shipped unguarded; each proposed valid_until
 ~+1yr, flagged HUMAN-confirm. Pipeline proposes expiry, never auto-sets a gold's window.
+
+## 2026-07-15 — full admission pass (validate.py orchestrator)
+
+Ran `study-1/validate.py` over all 143 candidates (anchor 2026-07-14, provider brave,
+mode replay-or-live, panel = claude-sonnet-5 + gpt-5.6-sol). One receipt per item in
+`verification/receipts/<id>.json`. New probe added: `probes/gold_verify_agentic.py` — for
+multi-hop candidates (origin_tier T3/T4, 21 fresh items) it runs the SHIPPED ReAct loop
+(harness/agent_loop.run_agent) with real web_search+read_url instead of single-shot snippets,
+then matches the final answer to gold. Verified live: e.g. fr2-news-12 ran 2 turns / 2 searches
+per model and both converged on the gold. T1/T2 fresh + all stable used single-shot gold_verify.
+
+Headline: **115 admit / 0 drop / 28 needs_human** (143 total).
+  fresh   85 -> 70 admit, 15 needs_human, 0 drop
+  stable  30 -> 30 admit
+  unanswerable 13 -> 13 needs_human (all genuinely unanswerable: panel unanimously declined WITH
+                    search; none answerable, so 0 drops. Await human negative-signoff.)
+  no_search 15 -> 15 admit (mechanical false-positive probes)
+
+Splits by fact_id (never by prompt): 81 distinct admitted fact_ids -> dev 81 items / 57 facts,
+holdout.sealed 34 items / 24 facts (~30% of facts). Zero fact_id overlap (partitioned by fact).
+
+needs_human queue (28): 13 unanswerable negatives, 9 recurring-event items needing valid_until,
+5 gold_disputed (panel agrees on a different answer), 1 gold_uncertain (panel split).
+
+Two things the human must decide (recorded, not auto-resolved — no methodology change mid-run):
+1. Two disputed golds look genuinely WRONG, not matcher noise:
+   - fr3-und-11 "what's the new macos called?" our gold 'macOS Golden Gate' vs panel-unanimous
+     'macOS 26 Tahoe'.
+   - fr2-tech-08 Nvidia next-quarter forecast: our gold '$91 billion' vs panel '$78.0 billion'.
+2. Three of the six disputes are gold-MATCHER artifacts, effectively true matches the substring/
+   ascii normalizer missed — human should confirm-admit, not fix:
+   - fr2-news-02 'Evian-les-Bains' vs panel 'Évian-les-Bains' (diacritic dropped by [^a-z0-9] norm).
+   - fr2-tech-14 both models DO say "Salesforce buying Fin first" (= our gold) but word-order
+     defeats the substring match -> falsely gold_uncertain.
+   - fr2-news-08 / fr3-col-02 the panel declined from snippets (NObodyKNOWS) rather than disputing;
+     single-shot snippet limitation, human review.
+   The normalizer is unicode-naive and substring-based; leaving it unchanged per "implement, don't
+   redesign" — flagged for study-2.
+
+Clustering caveat (surfaced in HUMAN_QUEUE §5, 15 multi-item clusters): comparison-style questions
+("which vote happened first, Malta's or Colombia's?") share source_urls with BOTH events and, via
+union-find, transitively bridge two distinct facts into one cluster (e.g. fact_001 merges Malta +
+Colombia items). This OVER-merges — the safe direction for holdout (never leaks a variant across
+dev/holdout) but it understates the independent-fact count. Human should split bridged clusters.
+No ambiguous near-threshold (0.80-0.85) pairs were found.

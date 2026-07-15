@@ -1,0 +1,60 @@
+{
+ "id": "fr2-news-13",
+ "split": "fresh",
+ "origin_tier": "T3",
+ "question": "Which vote happened first in 2026: Malta's snap general election or the first round of Colombia's presidential election?",
+ "gold_answer": "Malta's election",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": true,
+  "memorable": null
+ },
+ "fact_id": "fact_001",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:anthropic/claude-sonnet-5": {
+     "answer": "Malta's snap general election happened first. It was held on **30 May 2026**, one day before Colombia's presidential election first round on **31 May 2026** ([Reuters](https://www.reuters.com/world/voting-starts-malta-parliamentary-elections-ruling-party-set-win-2026-05-30/); [Congress.gov CRS](https://www.congress.gov/crs-product/IN12689)).",
+     "matches_gold": true,
+     "n_turns": 2,
+     "n_searches": 2,
+     "n_reads": 0
+    },
+    "openrouter:openai/gpt-5.6-sol": {
+     "answer": "**Malta’s snap general election happened first**, on **May 30, 2026**. Colombia’s first-round presidential vote followed on **May 31, 2026**—one day later.\n\nSources: [Reuters](https://www.reuters.com/world/voting-starts-malta-parliamentary-elections-ruling-party-set-win-2026-05-30/) and [U.S. Congress](https://www.congress.gov/crs-product/IN12689).",
+     "matches_gold": true,
+     "n_turns": 2,
+     "n_searches": 2,
+     "n_reads": 0
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "agentic",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "Which vote happened first in 2026: Malta's snap general election or the first round of Colombia's presidential election",
+   "queries_tried": [
+    "Which vote happened first in 2026: Malta's snap general election or the first round of Colombia's presidential election",
+    "vote happened first in 2026: Malta's snap general election or the first round of Colombia's presidential election"
+   ],
+   "n_snippets": 2
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 45,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:anthropic/claude-sonnet-5",
+  "openrouter:openai/gpt-5.6-sol"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

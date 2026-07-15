@@ -1,0 +1,57 @@
+{
+ "id": "fr3-und-08",
+ "split": "fresh",
+ "origin_tier": "T2",
+ "question": "who won le mans?",
+ "gold_answer": "Toyota #7 (Conway, Kobayashi, de Vries)",
+ "verdict": "needs_human",
+ "reason": "recurring_needs_valid_until",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:anthropic/claude-sonnet-5": {
+     "answer": "Toyota",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-sol": {
+     "answer": "Toyota",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "who won le mans",
+   "queries_tried": [
+    "who won le mans",
+    "won le mans"
+   ],
+   "n_snippets": 3
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 30,
+   "recurring": true,
+   "valid_until": null,
+   "flags": [
+    "recurring_needs_valid_until"
+   ],
+   "proposed_valid_until": "2027-06-07"
+  }
+ },
+ "curator_panel": [
+  "openrouter:anthropic/claude-sonnet-5",
+  "openrouter:openai/gpt-5.6-sol"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

@@ -1,0 +1,54 @@
+{
+ "id": "fr2-news-08",
+ "split": "fresh",
+ "origin_tier": "T2",
+ "question": "Which country's president was invited to the July 2026 NATO summit in Ankara but did not attend?",
+ "gold_answer": "Azerbaijan",
+ "verdict": "needs_human",
+ "reason": "gold_disputed_panel_agrees_other",
+ "attributes": {
+  "answer_only_in_body": true,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:anthropic/claude-sonnet-5": {
+     "answer": "NObodyKNOWS",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-sol": {
+     "answer": "NObodyKNOWS",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_disputed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": false,
+   "matched_query": null,
+   "queries_tried": [
+    "Which country's president was invited to the July 2026 NATO summit in Ankara but did not attend",
+    "country's president was invited to the July 2026 NATO summit in Ankara but did not attend"
+   ],
+   "n_snippets": 10
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 7,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:anthropic/claude-sonnet-5",
+  "openrouter:openai/gpt-5.6-sol"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}
