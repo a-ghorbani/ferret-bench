@@ -4,14 +4,14 @@
  "origin_tier": null,
  "question": "How many strides did John Korir take over the full course while winning the 2026 Boston Marathon?",
  "gold_answer": "NOT_FOUND",
- "verdict": "needs_human",
+ "verdict": "admit",
  "reason": "unanswerable_confirmed_awaiting_negative_signoff",
  "attributes": {
   "answer_only_in_body": null,
   "dependent_search": false,
   "memorable": null
  },
- "fact_id": null,
+ "fact_id": "fact_094",
  "probes": {
   "unanswerable_verify": {
    "panel": {
@@ -37,5 +37,20 @@
   "openrouter:openai/gpt-5.6-sol"
  ],
  "anchor": "2026-07-14",
- "human_signed": false
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "panel declined with search -> admit as unanswerable (gold=NOT_FOUND)",
+ "resolution_probe": {
+  "mode": "agentic_tryhard",
+  "panel": {
+   "openrouter:anthropic/claude-sonnet-5": {
+    "answer": "I could not find any official or credible source that reports an exact total stride count for John Korir's 2026 Boston Marathon victory. Race analyses (e.g., Runner's World, ESPN, World Marathon Majors, and a biomechanical breakdown from posemethod.com) discuss his pacing, splits, cadence, and stride length in detail, but none publish a cumulative \"total strides taken\" figure for the full 26.2-mil",
+    "specific": false
+   },
+   "openrouter:openai/gpt-5.6-sol": {
+    "answer": "No credible public source gives John Korir’s **total stride count** for the full 2026 Boston Marathon.\n\nWhat is documented:\n\n- Korir won in a course-record **2:01:52**, according to World Athletics:  \n  https://worldathletics.org/competitions/world-athletics-label-road-races/news/korir-lokedi-course-record-boston-marathon\n- A Pose Method biomechanical analysis reports that his cadence ranged from ",
+    "specific": false
+   }
+  }
+ }
 }

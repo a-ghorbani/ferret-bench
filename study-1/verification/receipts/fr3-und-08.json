@@ -4,14 +4,14 @@
  "origin_tier": "T2",
  "question": "who won le mans?",
  "gold_answer": "Toyota #7 (Conway, Kobayashi, de Vries)",
- "verdict": "needs_human",
+ "verdict": "admit",
  "reason": "recurring_needs_valid_until",
  "attributes": {
   "answer_only_in_body": false,
   "dependent_search": false,
   "memorable": null
  },
- "fact_id": null,
+ "fact_id": "fact_033",
  "probes": {
   "gold_verify": {
    "panel": {
@@ -53,5 +53,8 @@
   "openrouter:openai/gpt-5.6-sol"
  ],
  "anchor": "2026-07-14",
- "human_signed": false
+ "human_signed": false,
+ "auto_resolved": true,
+ "valid_until": "2027-06-07",
+ "resolution": "recurring; valid_until=2027-06-07 (fallback_proposed_+358d); lookup='The 2026 24 Hours of Le Mans (94th edition) has al'"
 }

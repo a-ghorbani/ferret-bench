@@ -4,14 +4,14 @@
  "origin_tier": "T1",
  "question": "who won the french open?",
  "gold_answer": "Alexander Zverev",
- "verdict": "needs_human",
+ "verdict": "admit",
  "reason": "recurring_needs_valid_until",
  "attributes": {
   "answer_only_in_body": false,
   "dependent_search": false,
   "memorable": null
  },
- "fact_id": null,
+ "fact_id": "fact_011",
  "probes": {
   "gold_verify": {
    "panel": {
@@ -53,5 +53,8 @@
   "openrouter:openai/gpt-5.6-sol"
  ],
  "anchor": "2026-07-14",
- "human_signed": false
+ "human_signed": false,
+ "auto_resolved": true,
+ "valid_until": "2027-06-06",
+ "resolution": "recurring; valid_until=2027-06-06 (agentic_lookup); lookup='2027-06-06'"
 }

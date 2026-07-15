@@ -97,3 +97,47 @@ union-find, transitively bridge two distinct facts into one cluster (e.g. fact_0
 Colombia items). This OVER-merges — the safe direction for holdout (never leaks a variant across
 dev/holdout) but it understates the independent-fact count. Human should split bridged clusters.
 No ambiguous near-threshold (0.80-0.85) pairs were found.
+
+## 2026-07-15 — auto-resolution of the 28 needs_human items (resolve.py)
+
+Ran `resolve.py`: cleared the human queue with an agentic panel + small-LLM judges, no human review. Owner rule applied — anything that did not cleanly settle was DROPPED.
+- **9 resolved-admit, 0 dropped** across disputed / recurring / unanswerable.
+- Golds overwritten (panel oracle): none.
+- Rebuilt splits from ALL admitted items: dev=95 items/67 facts, holdout.sealed=46 items/28 facts (split by fact_id, ~30% facts to holdout).
+- Method: disputed -> agentic panel re-run + small-LLM equality (Évian==Evian) -> converge = overwrite gold+admit else drop; recurring -> agentic next-occurrence lookup -> set valid_until (fallback +358d) + admit; unanswerable -> agentic try-hard panel -> all decline = admit NOT_FOUND, any specific answer = drop.
+
+## 2026-07-15 — auto-resolution of the 28 needs_human items (resolve.py)
+
+Ran `resolve.py`: cleared the human queue with an agentic panel + small-LLM judges, no human review. Owner rule applied — anything that did not cleanly settle was DROPPED.
+- **22 resolved-admit, 3 dropped** across disputed / recurring / unanswerable.
+- Golds overwritten (panel oracle): fr2-tech-08 '$91 billion'->'$91.0 billion, plus or minus 2%'; fr2-tech-14 'Salesforce's Fin acquisition'->'Salesforce buying Fin'.
+- Rebuilt splits from ALL admitted items: dev=93 items/66 facts, holdout.sealed=47 items/28 facts (split by fact_id, ~30% facts to holdout).
+- Method: disputed -> agentic panel re-run + small-LLM equality (Évian==Evian) -> converge = overwrite gold+admit else drop; recurring -> agentic next-occurrence lookup -> set valid_until (fallback +358d) + admit; unanswerable -> agentic try-hard panel -> all decline = admit NOT_FOUND, any specific answer = drop.
+
+## 2026-07-15 — auto-resolution of the 28 needs_human items (resolve.py)
+
+Ran `resolve.py`: cleared the human queue with an agentic panel + small-LLM judges, no human review. Owner rule applied — anything that did not cleanly settle was DROPPED.
+- **11 resolved-admit, 0 dropped** across disputed / recurring / unanswerable.
+- Golds overwritten (panel oracle): none.
+- Rebuilt splits from ALL admitted items: dev=93 items/67 facts, holdout.sealed=49 items/29 facts (split by fact_id, ~30% facts to holdout).
+- Method: disputed -> agentic panel re-run + small-LLM equality (Évian==Evian) -> converge = overwrite gold+admit else drop; recurring -> agentic next-occurrence lookup -> set valid_until (fallback +358d) + admit; unanswerable -> agentic try-hard panel -> all decline = admit NOT_FOUND, any specific answer = drop.
+
+## 2026-07-15 — auto-resolution of the 28 needs_human items (resolve.py)
+
+Ran `resolve.py`: cleared the human queue with an agentic panel + small-LLM judges, no human review. Owner rule applied — anything that did not cleanly settle was DROPPED.
+- **27 resolved-admit, 1 dropped** across disputed / recurring / unanswerable.
+- Golds overwritten (panel oracle): fr2-news-02 'Evian-les-Bains, France'->'Évian-les-Bains, France'; fr2-tech-08 '$91 billion'->'$91.0 billion, plus or minus 2%'; fr2-tech-14 'Salesforce's Fin acquisition'->'Salesforce buying Fin'; fr3-col-02 'Google Gemini'->'Siri AI powered by Apple and Google Gemini'; fr3-und-11 'macOS Golden Gate'->'macOS 27 Golden Gate'.
+- Rebuilt splits from ALL admitted items: dev=93 items/67 facts, holdout.sealed=49 items/29 facts (split by fact_id, ~30% facts to holdout).
+- Method: disputed -> agentic panel re-run + small-LLM equality (Évian==Evian) -> converge = overwrite gold+admit else drop; recurring -> agentic next-occurrence lookup -> set valid_until (fallback +358d) + admit; unanswerable -> agentic try-hard panel -> all decline = admit NOT_FOUND, any specific answer = drop.
+
+## 2026-07-15 — resolver completion, gold-trim audit, and study-2 notes
+
+- **Resolver ran to completion in the FOREGROUND.** Final receipt state: **142 admit / 1 drop / 0 needs_human**. `RESOLUTION_SUMMARY.md` written. The 12 remaining `needs_human` were all the slow `unanswerable_confirmed_*` items (agentic search per item); all admitted as unanswerable (gold=NOT_FOUND) after the try-hard panel declined.
+- **Gold-trim audit (quality fix).** The resolver had adopted the panel's full verbose sentence as the new gold, which is too wordy for judging. Audited all 5 overwrites; every one was the SAME fact as the original, merely wordier, so the crisp original gold was kept and the verbose form preserved on each receipt as `resolved_gold_verbatim`:
+  - fr2-news-02: `Evian-les-Bains, France` (verbatim `Évian-les-Bains, France`) — diacritic only
+  - fr2-tech-08: `$91 billion` (verbatim `$91.0 billion, plus or minus 2%`)
+  - fr2-tech-14: `Salesforce's Fin acquisition` (verbatim `Salesforce buying Fin`)
+  - fr3-col-02: `Google Gemini` (verbatim `Siri AI powered by Apple and Google Gemini`)
+  - fr3-und-11: `macOS Golden Gate` (verbatim `macOS 27 Golden Gate`)
+  None were a genuinely different fact; no new value was adopted. Splits rebuilt after the trim: **dev 96 items / 67 facts, holdout.sealed 46 items / 28 facts**, no fact_id in both (counts shifted from pre-audit 93/49 because clustering keys partly on gold text).
+- **study-2 notes (do NOT implement now).** Running `resolve.py` in the BACKGROUND repeatedly got auto-backgrounded/killed partway through the slow agentic `unanswerable` checks. For study-2: (a) the resolver needs a **retry-on-empty** wrapper so a killed/empty pass resumes cleanly from remaining `needs_human`; (b) the unanswerable check should be **single-shot-with-search, not full agentic**, to be fast and robust (the full ReAct loop per item is what makes the pass slow enough to get killed). Also fold the gold-trim (crisp canonical, keep verbatim) into the resolver itself so overwrites are crisp by construction.

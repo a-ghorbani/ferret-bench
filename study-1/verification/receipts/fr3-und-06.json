@@ -4,14 +4,14 @@
  "origin_tier": "T1",
  "question": "who won the british grand prix?",
  "gold_answer": "Charles Leclerc",
- "verdict": "needs_human",
+ "verdict": "admit",
  "reason": "recurring_needs_valid_until",
  "attributes": {
   "answer_only_in_body": false,
   "dependent_search": false,
   "memorable": null
  },
- "fact_id": null,
+ "fact_id": "fact_029",
  "probes": {
   "gold_verify": {
    "panel": {
@@ -53,5 +53,8 @@
   "openrouter:openai/gpt-5.6-sol"
  ],
  "anchor": "2026-07-14",
- "human_signed": false
+ "human_signed": false,
+ "auto_resolved": true,
+ "valid_until": "2027-07-04",
+ "resolution": "recurring; valid_until=2027-07-04 (agentic_lookup); lookup='The next British Grand Prix (2027 edition) is expe'"
 }

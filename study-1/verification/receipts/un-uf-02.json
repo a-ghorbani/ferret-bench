@@ -4,14 +4,14 @@
  "origin_tier": null,
  "question": "Exactly how many parameters does OpenAI's GPT-5 have?",
  "gold_answer": "NOT_FOUND",
- "verdict": "needs_human",
+ "verdict": "admit",
  "reason": "unanswerable_confirmed_awaiting_negative_signoff",
  "attributes": {
   "answer_only_in_body": null,
   "dependent_search": false,
   "memorable": null
  },
- "fact_id": null,
+ "fact_id": "fact_092",
  "probes": {
   "unanswerable_verify": {
    "panel": {
@@ -37,5 +37,20 @@
   "openrouter:openai/gpt-5.6-sol"
  ],
  "anchor": "2026-07-14",
- "human_signed": false
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "panel declined with search -> admit as unanswerable (gold=NOT_FOUND)",
+ "resolution_probe": {
+  "mode": "agentic_tryhard",
+  "panel": {
+   "openrouter:anthropic/claude-sonnet-5": {
+    "answer": "OpenAI has not officially disclosed the exact number of parameters in GPT‑5. No confirmed figure exists in OpenAI's technical documentation or announcements.\n\nWhat's out there instead are third-party estimates and speculation, which vary widely:\n\n- **Dr. Alan D. Thompson (LifeArchitect.ai)** estimates a range of **300B–3T parameters** ([lifearchitect.ai/gpt-5](https://lifearchitect.ai/gpt-5/)).\n- ",
+    "specific": false
+   },
+   "openrouter:openai/gpt-5.6-sol": {
+    "answer": "**There is no publicly disclosed, credible exact parameter count for OpenAI’s GPT‑5.**\n\nAs of **July 14, 2026**, OpenAI’s official **60-page GPT‑5 System Card** discusses the models, training, evaluations, and safety measures but does **not** state a parameter count or enough architectural dimensions to calculate one.  \nSource: [OpenAI — GPT‑5 System Card](https://cdn.openai.com/gpt-5-system-card.",
+    "specific": false
+   }
+  }
+ }
 }

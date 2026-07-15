@@ -4,14 +4,14 @@
  "origin_tier": null,
  "question": "Who won the 2026 Nobel Peace Prize?",
  "gold_answer": "NOT_FOUND",
- "verdict": "needs_human",
+ "verdict": "admit",
  "reason": "unanswerable_confirmed_awaiting_negative_signoff",
  "attributes": {
   "answer_only_in_body": null,
   "dependent_search": false,
   "memorable": null
  },
- "fact_id": null,
+ "fact_id": "fact_089",
  "probes": {
   "unanswerable_verify": {
    "panel": {
@@ -37,5 +37,20 @@
   "openrouter:openai/gpt-5.6-sol"
  ],
  "anchor": "2026-07-14",
- "human_signed": false
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "panel declined with search -> admit as unanswerable (gold=NOT_FOUND)",
+ "resolution_probe": {
+  "mode": "agentic_tryhard",
+  "panel": {
+   "openrouter:anthropic/claude-sonnet-5": {
+    "answer": "The 2026 Nobel Peace Prize has not been awarded yet. According to the official Nobel Prize organization and Wikipedia, the laureate(s) will be announced on **Friday, 9 October 2026**, with the award ceremony taking place on **10 December 2026** in Oslo, Norway.\n\nSources:\n- https://en.wikipedia.org/wiki/2026_Nobel_Peace_Prize\n- https://www.nobelpeaceprize.org/press/press-releases/nominations-for-th",
+    "specific": false
+   },
+   "openrouter:openai/gpt-5.6-sol": {
+    "answer": "No one has won the **2026 Nobel Peace Prize yet**. As of **14 July 2026**, the laureate has not been announced.\n\nThe Norwegian Nobel Committee will announce the winner on **Friday, 9 October 2026 at 11:00 CEST** in Oslo. Any names currently circulating are nominations or speculation, not confirmed winners.\n\nOfficial sources:\n\n- [Nobel Prize announcement dates](https://www.nobelprize.org/prizes/abo",
+    "specific": false
+   }
+  }
+ }
 }

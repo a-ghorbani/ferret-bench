@@ -4,14 +4,14 @@
  "origin_tier": null,
  "question": "How much did OpenAI pay to acquire Perplexity AI, and when did the deal close?",
  "gold_answer": "NOT_FOUND",
- "verdict": "needs_human",
+ "verdict": "admit",
  "reason": "unanswerable_confirmed_awaiting_negative_signoff",
  "attributes": {
   "answer_only_in_body": null,
   "dependent_search": false,
   "memorable": null
  },
- "fact_id": null,
+ "fact_id": "fact_085",
  "probes": {
   "unanswerable_verify": {
    "panel": {
@@ -37,5 +37,20 @@
   "openrouter:openai/gpt-5.6-sol"
  ],
  "anchor": "2026-07-14",
- "human_signed": false
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "panel declined with search -> admit as unanswerable (gold=NOT_FOUND)",
+ "resolution_probe": {
+  "mode": "agentic_tryhard",
+  "panel": {
+   "openrouter:anthropic/claude-sonnet-5": {
+    "answer": "I found no evidence that OpenAI has acquired Perplexity AI. Based on thorough searching, there is no such deal in reality:\n\n- Perplexity AI remains an independent company, and in fact it has been the *acquirer* in several deals (e.g., acquiring the Visual Electric team in October 2025) and made its own unsolicited $34.5 billion bid to buy **Google's Chrome browser** in August 2025 — not the other ",
+    "specific": false
+   },
+   "openrouter:openai/gpt-5.6-sol": {
+    "answer": "**OpenAI did not acquire Perplexity AI.** Therefore, there is **no acquisition price and no closing date**.\n\nMultiple checks found no announcement or credible report of such a transaction:\n\n- Reuters reported in January 2026 that Perplexity independently signed a **$750 million, three-year cloud-services agreement with Microsoft**—not an acquisition by OpenAI: https://www.reuters.com/business/perp",
+    "specific": false
+   }
+  }
+ }
 }

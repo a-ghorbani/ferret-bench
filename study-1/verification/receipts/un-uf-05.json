@@ -4,14 +4,14 @@
  "origin_tier": null,
  "question": "What exactly did Mexico's head coach say to his players in the dressing room at half-time of the World Cup opening match against South Africa?",
  "gold_answer": "NOT_FOUND",
- "verdict": "needs_human",
+ "verdict": "admit",
  "reason": "unanswerable_confirmed_awaiting_negative_signoff",
  "attributes": {
   "answer_only_in_body": null,
   "dependent_search": false,
   "memorable": null
  },
- "fact_id": null,
+ "fact_id": "fact_095",
  "probes": {
   "unanswerable_verify": {
    "panel": {
@@ -37,5 +37,20 @@
   "openrouter:openai/gpt-5.6-sol"
  ],
  "anchor": "2026-07-14",
- "human_signed": false
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "panel declined with search -> admit as unanswerable (gold=NOT_FOUND)",
+ "resolution_probe": {
+  "mode": "agentic_tryhard",
+  "panel": {
+   "openrouter:anthropic/claude-sonnet-5": {
+    "answer": "Based on my research, I could not find any credible, specific report of the exact words Javier Aguirre said to his Mexico players inside the dressing room at half-time of the World Cup opener against South Africa (June 11, 2026, a 2-0 Mexico win).\n\nWhat I did find are Aguirre's **public post-match comments**, not verbatim half-time dressing-room quotes:\n\n- After the game, Aguirre praised his side'",
+    "specific": false
+   },
+   "openrouter:openai/gpt-5.6-sol": {
+    "answer": "I could not find a credible, specific record of Javier Aguirre’s actual half-time dressing-room speech.\n\nThis is true for both possible matches your wording could mean:\n\n- **The 2026 opener**, which Mexico won 2–0: post-match reporting quotes Aguirre saying some players—particularly younger ones—were affected by the occasion and that Mexico had now put its nerves aside. But none of the AP, ESPN/EF",
+    "specific": false
+   }
+  }
+ }
 }
