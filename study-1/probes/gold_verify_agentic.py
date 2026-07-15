@@ -26,7 +26,7 @@ from agent_loop import run_agent            # noqa: E402  the shipped ReAct loop
 from configs import load_config             # noqa: E402
 from gold_verify import _matches            # noqa: E402  identical gold matcher
 
-PANEL = ["openrouter:anthropic/claude-sonnet-5", "openrouter:openai/gpt-5.6-sol"]
+PANEL = ["openrouter:anthropic/claude-sonnet-5", "openrouter:openai/gpt-5.6-luna"]
 
 
 def _agentic_cfg():

@@ -42,7 +42,7 @@ The no-tool floor is **guessability insurance**, not the primary freshness gate:
 | **Contamination / retrieval-need** | can *our shipped model* answer from memory? | the **actual scored model**, measured **at eval time** as retrieval-lift (with-tool − no-tool). NOT a curation filter — frontier over-knows; contamination is relative to the model being ranked. |
 
 Consequences:
-- **Gold admission:** the frontier panel (≥2 models, e.g. `openrouter:anthropic/claude-sonnet-5`, `openrouter:openai/gpt-5.6-sol`, + a third) run with search must **unanimously converge** on the gold. Disagreement → drop or human. Unanimity guards against one model's confident hallucination.
+- **Gold admission:** the frontier panel (≥2 models, e.g. `openrouter:anthropic/claude-sonnet-5`, `openrouter:openai/gpt-5.6-luna`, + a third) run with search must **unanimously converge** on the gold. Disagreement → drop or human. Unanimity guards against one model's confident hallucination.
 - **Curator ⟂ scored:** models that curate are disjoint from models on the leaderboard, else the board is selected to flatter them. Same rule as gold-verifier ⟂ judge.
 - **Gold-verifier ⟂ judge:** the scoring judge (`gemini-3.5-flash`) must not also verify golds — shared blindspots would be invisible.
 
@@ -84,6 +84,25 @@ Auto-flag every item where a **ranked** model is correct but the **frontier refe
 1. Consensus filtering keeps only items *clean for current models* → this is a **controlled probe**, not a representative sample of user queries. Report which one you claim.
 2. Cleanliness decays as models improve; the filter is **re-run on any roster change** (re-anchoring). The dataset is a function of the pinned curator panel.
 3. Query battery is verified over a defined query set, not all conceivable queries — hence the runtime backstop.
+
+## Declared estimand — target size and distribution
+
+We have no PocketPal query logs (privacy), so we cannot claim population-representativeness. Instead we **declare** strata + weights up front and enforce them as generator quotas; we report **both** macro (equal-weight per category) and weighted scores.
+
+**Target size (distinct facts, the unit that counts — variants of one fact add no statistical n):**
+
+| split | dev | holdout.sealed | rationale |
+|---|---|---|---|
+| fresh (primary) | ~300 | ~200 | holdout powered for ~7-pt paired confirmation; dev finer |
+| unanswerable | ~60 | ~40 | fabrication rate to ±~0.10 |
+| stable | ~40 | ~30 | |
+| no_search | ~30 | ~20 | |
+| **total** | **~430** | **~290** | **≈700 facts** |
+
+Power basis: proportion CI half-width ≈ 0.98/√(facts); paired (McNemar) detection of a 10-pt gap needs ~200 facts, a 5-pt gap ~800. Current ~95 facts → need ~7× more.
+
+**Category weights (generator quotas; a declared choice, not a measured population):**
+current events/news ~20%, sports ~12%, tech/AI ~12%, business/finance ~12%, science/health ~12%, entertainment ~10%, politics/world ~10%, geography/local ~7%, other ~5%. Enforced as strata so we stop inheriting v3's sports skew by accident.
 
 ## Splits (built after admission)
 

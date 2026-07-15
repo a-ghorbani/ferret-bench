@@ -47,7 +47,7 @@ RECEIPTS_DIR = STUDY / "verification" / "receipts"
 DEV = STUDY / "datasets" / "dev" / "questions.jsonl"
 HOLDOUT = STUDY / "datasets" / "holdout.sealed" / "questions.jsonl"
 
-PANEL = ["openrouter:anthropic/claude-sonnet-5", "openrouter:openai/gpt-5.6-sol"]
+PANEL = ["openrouter:anthropic/claude-sonnet-5", "openrouter:openai/gpt-5.6-luna"]
 EQ_JUDGE = "openrouter:openai/gpt-4o-mini"   # small LLM, disjoint family for equality/credibility calls
 ANCHOR = "2026-07-14"
 ANCHOR_DATE = datetime.date.fromisoformat(ANCHOR)
@@ -321,7 +321,7 @@ def write_summary(receipts, cand_by_id, cat_counts, overwritten, n_dev, f_dev, n
     L = ["# study-1 — RESOLUTION SUMMARY", "",
          f"Anchor {ANCHOR}. Auto-resolution of the 28 `needs_human` items — NO human review "
          "(owner rule: anything that does not cleanly settle is DROPPED). Panel (agentic, "
-         "search+read) = openrouter:anthropic/claude-sonnet-5 + openrouter:openai/gpt-5.6-sol; "
+         "search+read) = openrouter:anthropic/claude-sonnet-5 + openrouter:openai/gpt-5.6-luna; "
          "equality/credibility judge = openrouter:openai/gpt-4o-mini.", "",
          "## Resolved per queue category", "",
          "| category | admit | drop |", "|---|---|---|"]

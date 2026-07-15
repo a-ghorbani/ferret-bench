@@ -12,7 +12,7 @@ Verdict per item:
   unanimous but != gold         -> gold_disputed  (panel agrees on a DIFFERENT answer -> human)
   not unanimous                 -> gold_uncertain (drop or human)
 
-Panel default: claude-sonnet-5 + gpt-5.6-sol (both != gemini judge). Reuses harness search+chat.
+Panel default: claude-sonnet-5 + gpt-5.6-luna (both != gemini judge). Reuses harness search+chat.
 """
 import argparse
 import json
@@ -26,7 +26,7 @@ from common import load_env            # noqa: E402
 from providers import search           # noqa: E402
 from llm import chat                    # noqa: E402
 
-PANEL = ["openrouter:anthropic/claude-sonnet-5", "openrouter:openai/gpt-5.6-sol"]
+PANEL = ["openrouter:anthropic/claude-sonnet-5", "openrouter:openai/gpt-5.6-luna"]
 
 ANSWER_PROMPT = """Answer the question using ONLY the search results below. Be concise: reply with just the answer (a name, number, or short phrase). If the results do not contain the answer, reply exactly NObodyKNOWS.
 

@@ -1,4 +1,4 @@
 # Frontier anchor rows via OpenRouter, run through the SAME harness/config (amendment #10).
 # Run once per dataset version. NOT part of the <8B ranking. Judge model excluded (no self-grading).
 openrouter:anthropic/claude-sonnet-5
-openrouter:openai/gpt-5.6-sol
+openrouter:openai/gpt-5.6-luna
