@@ -10,6 +10,30 @@ The dataset is the **output of a validator**, not a hand-authored list. An item 
 
 Curation freedom is a feature: we may drop any ambiguous item. Dropping costs yield, never validity. Keep only items whose property is **unambiguously exhibited**.
 
+## Temporal validity — every fresh item is bracketed by a window
+
+A fresh item is only a valid retrieval test inside a time window. Two hard validator gates:
+
+```
+anchor − FRESHNESS_WINDOW  ≤  event_date  <  anchor          # freshness floor
+gold stays correct until    →  valid_until  (> anchor)        # expiry ceiling
+```
+
+- **Freshness floor** (`FRESHNESS_WINDOW = 60 days`, default): the event must have happened within ~2 months of the anchor. This is the **primary contamination guard**, and it is strong, not a weak proxy: training data is frozen months before a model ships (data → filter → train → eval → release), so an event this recent is post-cutoff for essentially every model — on-device models most of all. The old validator only checked `event_date < anchor` (in the past), never recency; v3 satisfied ~60 days only by hand.
+- **Expiry ceiling** (`valid_until`): time-relative / recurring-event questions ("who won the nba finals?") have a gold valid only until the next occurrence. Past `valid_until` a *correct* model answering the new result is scored wrong against a stale gold — the same inversion the `unanswerable` split already guards with `expires_on`, now required for recurring-event fresh items too. The validator refuses to run (or auto-quarantines) any item past its `valid_until`.
+
+Recurring-event items are a distinct sub-type (`temporal: recurring`): most valuable (they test whether the model knows *today's date* — the whole date-dependence finding) and fastest to rot (tightest expiry discipline).
+
+## Three contamination paths — matched guards
+
+| path | guarded by |
+|---|---|
+| event is in training data | **freshness floor (~60d)** — strong on its own (release→cutoff lag) |
+| answer guessable from priors, no retrieval | **per-model no-tool floor at eval** — the only thing that catches this |
+| model trained on *our benchmark* as it publishes/ages | **sealed holdout** — the other two do nothing here |
+
+The no-tool floor is **guessability insurance**, not the primary freshness gate: recency does the heavy lifting for "is it post-cutoff"; the floor catches lucky-prior answers (favourite wins) that recency cannot; the sealed holdout covers benchmark self-leakage.
+
 ## Two oracles — never confuse them
 
 | Axis | Question | Who answers it |

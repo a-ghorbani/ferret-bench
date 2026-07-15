@@ -35,3 +35,20 @@ Pilot 8 items: 6 gold_confirmed, 2 flagged (both correct):
 FINDING (probe design): single-shot gold-verify confirms single-search golds but UNDER-POWERS
 multi-hop. T3/T4 candidates need an AGENTIC gold-verify (panel with real search tools, multi-turn).
 Next: add agentic mode, then full 143 admission pass, then fact_id clustering + dev/holdout split.
+
+## 2026-07-15 (cont) — temporal guards added
+
+Owner raised: is there a guard that fresh events aren't too old (1-2 months)? There was NOT —
+assemble.py only checked event_date < anchor, never recency. v3 satisfied ~60d by hand only.
+Also (prior turn): undated recurring-event items had expires_on=(none) -> silent stale-gold rot.
+
+Agreed reasoning: recency window is a STRONG contamination guard, not a weak proxy — training
+data freezes months before release, so a <=60d event is post-cutoff for essentially all models.
+No-tool floor is reframed as GUESSABILITY insurance (lucky-prior answers recency can't catch),
+not the primary freshness gate. Sealed holdout covers benchmark self-leakage. Three paths, three
+matched guards — written into CURATION-SPEC §Temporal validity + §Three contamination paths.
+
+temporal_guard.py (mechanical, dates only) on 85 fresh candidates, anchor 2026-07-14, window 60d:
+  stale (>60d): 0   |   recurring needing valid_until: 9 (nba/stanley/UCL/french open/... )  |  clean: 76
+The 9 recurring items are the silent-rot risk v3 shipped unguarded; each proposed valid_until
+~+1yr, flagged HUMAN-confirm. Pipeline proposes expiry, never auto-sets a gold's window.
