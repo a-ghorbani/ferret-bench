@@ -18,6 +18,7 @@ import argparse
 import json
 import re
 import sys
+import unicodedata
 from pathlib import Path
 
 HARNESS = Path(__file__).resolve().parents[2] / "harness"
@@ -39,7 +40,9 @@ Answer (short):"""
 
 
 def _norm(s):
-    return re.sub(r"[^a-z0-9]+", " ", (s or "").lower()).strip()
+    # fold accents (Évian -> Evian) BEFORE stripping non-alnum, else 'é' is dropped and 'évian'->'vian'
+    s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode("ascii")
+    return re.sub(r"[^a-z0-9]+", " ", s.lower()).strip()
 
 
 def _matches(pred, golds):

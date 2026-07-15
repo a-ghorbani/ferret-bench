@@ -159,3 +159,27 @@ Built `generate.py` (scalable candidate generator) and `admit_pilot.py` (isolate
 - `g1f-politics-01` (G7 city = Evian-les-Bains) + 2 variants -> **needs_human / gold_disputed**: BOTH panel models answered "Évian-les-Bains" (accent é), but the reused `gold_verify._norm` strips the accented é ("évian"->"vian") so `_matches` spuriously returns False. This is a real accent-insensitivity in the probe matcher; `resolve.py`'s small-LLM equality judge (Évian==Evian) is exactly designed to recover it on the agentic re-run — but that path is agentic (credit-heavy) so it was not run under the exhausted balance. Snippet_leak flagged gold-in-snippet (not read-required) and temporal_guard passed (28d old, fresh).
 
 STOPPED per coordinator for pilot review. NOT re-split, NOT merged. Full batch remains blocked on (a) OpenRouter credit top-up and (b) confirming the salvage/quorum fixes on a fresh run.
+
+## 2026-07-15 (overnight) — pilot reviewed; BLOCKED on OpenRouter credits
+
+Owner asleep; authorized me to review the pilot, fix bugs, and scale if clean.
+
+PILOT (isolated, committed 6dbdfe6): only 2 fresh facts generated (G7-2026-Evian, Japan PM Takaichi)
+before the run stalled. Quality of what generated is GOOD — real independent sources, crisp golds,
+sensible dated/undated/colloquial variants. Admission: 3 admit, 3 needs_human (the Évian accent bug).
+
+BUGS:
+1. FIXED by me — gold_verify._norm stripped accents ('Évian'->'vian') so any accented gold spuriously
+   disputed. Now NFKD-folds ('Évian'->'evian'); verified José/Évian match, controls hold. Propagates to
+   gold_verify_agentic + resolve (they import it). This is the "study-2" matcher weakness, fixed now.
+2. Generator JSON-truncation bug — worker already fixed (_salvage_objects brace-depth parser + resumable
+   state); reviewed, looks sound. Not re-run (blocked).
+
+BLOCKER (hard, user-only): OpenRouter total_credits 560 / total_usage 560.17 -> remaining -0.17.
+1-token calls slip through a grace but real panel/eval runs will 402. Cannot scale generation, cannot
+run eval (both the frontier panel AND the gemini judge are OpenRouter). NOT starting a big run that
+would fail midway. Did NOT do a premature partial eval — the dataset will change once we scale, so
+eval belongs AFTER scaling.
+
+STATE: blocked_on = "top up OpenRouter credits". On top-up: re-run full ~24 pilot -> review -> scale to
+~700 -> eval on dev (holdout stays sealed). Everything staged; nothing pushed.
