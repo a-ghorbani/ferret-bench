@@ -50,7 +50,15 @@ MODE = "replay-or-live"
 GEN_MODEL = "openrouter:deepseek/deepseek-v4-flash"   # drafting model (in the panel)
 GEN2_MODEL = "openrouter:openai/gpt-5.6-luna"         # second drafter, for a subset (diversity)
 GEN = {"temperature": 0, "max_tokens": 2000, "reasoning": {"enabled": False}}  # draft = reasoning off (else it eats the JSON budget)
+# drafting a full batch of facts+variants needs more room than the 2000-token shared budget
+DRAFT_GEN = {"temperature": 0, "max_tokens": 3000, "reasoning": {"enabled": False}}
 ORIGIN = "gen1"
+
+# fresh-scaling knobs: expand queries -> big deduped pool -> multi-round batched drafting
+N_EXPAND = 25        # diverse specific queries generated per category
+POOL_K = 6           # hits per query (modest, to control cost); pooled+deduped across queries
+DRAFT_BATCH = 20     # hits fed to each draft call
+MAX_PER_BATCH = 12   # facts asked for per draft call (rest of n comes from later batches)
 
 CAND_DIR = STUDY / "datasets" / "candidates"
 
@@ -181,9 +189,14 @@ def _parse_json_array(text):
     return _salvage_objects(text)
 
 
-def _gen(model, prompt):
-    resp = chat(model, [{"role": "user", "content": prompt}], gen=GEN)
+def _gen(model, prompt, gen=None):
+    resp = chat(model, [{"role": "user", "content": prompt}], gen=gen or GEN)
     return (resp["choices"][0]["message"].get("content") or "").strip()
+
+
+def _norm(s):
+    """Normalized key for dedup: lowercased, whitespace-collapsed."""
+    return re.sub(r"\s+", " ", (s or "").strip().lower())
 
 
 def in_window(ed):
@@ -263,76 +276,163 @@ RECURRING_NOTE = ("- At least one item should be a RECURRING annual event (a cha
                   "but NOT the year (e.g. \"who won the french open men's singles?\"), with "
                   "\"dated\": false and \"recurring\": true.\n")
 
+QUERY_EXPAND_PROMPT = """You are building a web-search query set to find REAL, specific events in the
+"{cat}" category that happened between {wstart} and {wend} (the ~8 weeks before {anchor}). Today is {anchor}.
+
+Produce {nq} DIVERSE, SPECIFIC search queries that will surface DISTINCT recent events in this
+category during that window. Make each query specific — name plausible sub-topics, regions, leagues,
+competitions, companies, organizations, agencies, event types, or sub-events — and include the month
+(May 2026 / June 2026 / July 2026) so results are date-scoped. Each query must target a DIFFERENT
+slice so that together they cover MANY distinct events. AVOID generic queries like "major news June
+2026". Do NOT presume an outcome — query for the event, not a guessed result.
+
+Return ONLY a JSON array of {nq} query strings (no objects, no prose)."""
+
+
+def expand_queries(cat):
+    """Ask GEN_MODEL for ~N_EXPAND specific window-scoped queries; merge with the static seeds, dedup.
+    Falls back to the static seeds if expansion fails or returns nothing."""
+    seeds = list(FRESH_QUERIES.get(cat, []))
+    prompt = QUERY_EXPAND_PROMPT.format(
+        cat=cat, wstart=WINDOW_START.isoformat(), wend=ANCHOR, anchor=ANCHOR, nq=N_EXPAND)
+    generated = []
+    try:
+        for item in _parse_json_array(_gen(GEN_MODEL, prompt)):
+            if isinstance(item, str) and item.strip():
+                generated.append(item.strip())
+    except Exception as e:  # never kill the batch — fall back to seeds
+        print(f"    [query expansion failed {cat}: {e}; using static seeds]", flush=True)
+    out, seen = [], set()
+    for q in seeds + generated:
+        k = _norm(q)
+        if k and k not in seen:
+            seen.add(k)
+            out.append(q)
+    return out
+
+
+def _emit_fact(cp, cat, kept, f, pool_urls):
+    """Validate + write one drafted fact (+ its variants). Returns True if a base fact was written."""
+    if not isinstance(f, dict):
+        return False
+    q = (f.get("question") or "").strip()
+    gold = (f.get("gold_answer") or "").strip()
+    ed = f.get("event_date")
+    if not q or not gold or not in_window(ed):
+        return False
+    urls = [u for u in (f.get("source_urls") or []) if u in pool_urls]
+    if len({_domain(u) for u in urls}) < 2:   # need >=2 distinct-domain cited urls from the pool
+        return False
+    fid = f"g1f-{cat}-{kept + 1:02d}"
+    base = {
+        "id": fid, "split": "fresh", "question": q,
+        "gold_answer": gold,
+        "acceptable_answers": [a for a in (f.get("acceptable_answers") or []) if a][:6],
+        "category": cat, "source_urls": urls[:4], "event_date": ed,
+        "dated": bool(f.get("dated", True)), "origin": ORIGIN,
+        "origin_tier": None, "fact_id": fid,
+        "notes": f"generated from {len(urls)} sources; recurring={bool(f.get('recurring'))}",
+        "attributes": {}, "receipt": None,
+    }
+    cp.append(base)
+    # variants (share fact_id) — separate rows, own dated/recurring flags
+    for vi, v in enumerate(f.get("variants") or [], 1):
+        if vi > 2:
+            break
+        vq = (v.get("question") or "").strip()
+        if not vq or vq.lower() == q.lower():
+            continue
+        var = dict(base)
+        var["id"] = f"{fid}v{vi}"
+        var["question"] = vq
+        var["dated"] = bool(v.get("dated", False))
+        var["notes"] = f"phrasing variant of {fid} (not a new fact)"
+        cp.append(var)
+    return True
+
 
 def gen_fresh(cp, quota_map):
+    # preload existing rows so a resumed category continues numbering / dedup instead of clobbering.
+    existing = []
+    if cp.out_path.exists():
+        existing = [json.loads(l) for l in cp.out_path.read_text().splitlines() if l.strip()]
     for cat, n in quota_map.items():
         key = f"fresh:{cat}"
         if n <= 0 or cp.chunk_done(key):
             print(f"  skip fresh/{cat} (done or n=0)", flush=True)
             continue
-        print(f"  fresh/{cat}: target {n} facts", flush=True)
-        pool = collect_hits(FRESH_QUERIES.get(cat, []))
+        # seed kept-count + fact dedup set from anything already written for this category (resume)
+        prior = [r for r in existing if r.get("split") == "fresh" and r.get("category") == cat
+                 and re.match(rf"^g1f-{re.escape(cat)}-\d+$", r.get("id", ""))]
+        kept = len(prior)
+        seen_facts = {(_norm(r.get("gold_answer")), _norm(r.get("question"))) for r in prior}
+        if kept >= n:
+            print(f"  fresh/{cat}: already have {kept}>={n}; marking done", flush=True)
+            cp.mark(key)
+            continue
+        print(f"  fresh/{cat}: target {n} facts (have {kept})", flush=True)
+
+        # 1. expand to a diverse query set  2. collect a big deduped hit pool
+        queries = expand_queries(cat)
+        pool = collect_hits(queries, k=POOL_K)
+        print(f"    {len(queries)} queries -> pool of {len(pool)} deduped hits", flush=True)
         if not pool:
             print(f"    no hits for {cat}; skipping", flush=True)
             cp.mark(key)
             continue
-        results = "\n".join(f"- {h['title']} — {h['snippet']} — {h['url']} — {h.get('publishedAt')}"
-                            for h in pool)
         pool_urls = {h["url"] for h in pool}
-        prompt = FRESH_PROMPT.format(
-            anchor=ANCHOR, n=n + 1, cat=cat, wstart=WINDOW_START.isoformat(),
-            wend=ANCHOR, results=results,
-            recurring_note=RECURRING_NOTE if cat in RECURRING_HINT_CATS else "")
+        recurring_note = RECURRING_NOTE if cat in RECURRING_HINT_CATS else ""
         model = GEN_MODEL if cat not in {"tech", "business", "geography"} else GEN2_MODEL
-        try:
-            facts = _parse_json_array(_gen(model, prompt))
-        except Exception as e:
-            # gen call itself failed (e.g. 402/transient) -> do NOT mark done, so a re-run retries
-            print(f"    [gen failed {cat}: {e}] (chunk left unmarked for resume)", flush=True)
-            continue
-        kept = 0
-        for f in facts:
+
+        # 3. multi-round drafting: feed the pool in batches, accumulate DISTINCT facts until n or empty.
+        batches = [pool[i:i + DRAFT_BATCH] for i in range(0, len(pool), DRAFT_BATCH)]
+        gen_error = False
+        recurring_asked = False
+        for bi, batch in enumerate(batches, 1):
             if kept >= n:
                 break
-            if not isinstance(f, dict):
+            ask = min(n - kept, MAX_PER_BATCH)
+            results = "\n".join(f"- {h['title']} — {h['snippet']} — {h['url']} — {h.get('publishedAt')}"
+                                for h in batch)
+            prompt = FRESH_PROMPT.format(
+                anchor=ANCHOR, n=ask, cat=cat, wstart=WINDOW_START.isoformat(), wend=ANCHOR,
+                results=results,
+                # only solicit a recurring undated variant once per category
+                recurring_note=recurring_note if (recurring_note and not recurring_asked) else "")
+            recurring_asked = recurring_asked or bool(recurring_note)
+            try:
+                facts = _parse_json_array(_gen(model, prompt, gen=DRAFT_GEN))
+            except Exception as e:  # transient (e.g. 402) -> skip batch, leave chunk unmarked for resume
+                print(f"    [gen failed {cat} batch {bi}/{len(batches)}: {e}]", flush=True)
+                gen_error = True
                 continue
-            q = (f.get("question") or "").strip()
-            gold = (f.get("gold_answer") or "").strip()
-            ed = f.get("event_date")
-            if not q or not gold or not in_window(ed):
-                continue
-            urls = [u for u in (f.get("source_urls") or []) if u in pool_urls]
-            if len({_domain(u) for u in urls}) < 2:
-                # try to backfill from pool by keeping any >=2 distinct-domain cited urls
-                continue
-            fid = f"g1f-{cat}-{kept + 1:02d}"
-            base = {
-                "id": fid, "split": "fresh", "question": q,
-                "gold_answer": gold,
-                "acceptable_answers": [a for a in (f.get("acceptable_answers") or []) if a][:6],
-                "category": cat, "source_urls": urls[:4], "event_date": ed,
-                "dated": bool(f.get("dated", True)), "origin": ORIGIN,
-                "origin_tier": None, "fact_id": fid,
-                "notes": f"generated from {len(urls)} sources; recurring={bool(f.get('recurring'))}",
-                "attributes": {}, "receipt": None,
-            }
-            cp.append(base)
-            # variants (share fact_id) — separate rows, own dated/recurring flags
-            for vi, v in enumerate(f.get("variants") or [], 1):
-                if vi > 2:
+            newly = 0
+            for f in facts:
+                if kept >= n:
                     break
-                vq = (v.get("question") or "").strip()
-                if not vq or vq.lower() == q.lower():
+                if not isinstance(f, dict):
                     continue
-                var = dict(base)
-                var["id"] = f"{fid}v{vi}"
-                var["question"] = vq
-                var["dated"] = bool(v.get("dated", False))
-                var["notes"] = f"phrasing variant of {fid} (not a new fact)"
-                cp.append(var)
-            kept += 1
-        print(f"    kept {kept}/{n} facts for {cat}", flush=True)
-        cp.mark(key)
+                dk = (_norm(f.get("gold_answer")), _norm(f.get("question")))
+                if not dk[0] or dk in seen_facts:   # empty gold or duplicate fact
+                    continue
+                if _emit_fact(cp, cat, kept, f, pool_urls):
+                    seen_facts.add(dk)
+                    kept += 1
+                    newly += 1
+            print(f"    batch {bi}/{len(batches)}: +{newly} distinct (kept {kept}/{n})", flush=True)
+
+        if kept >= n:
+            print(f"    done: kept {kept}/{n} facts for {cat}", flush=True)
+            cp.mark(key)
+        elif gen_error:
+            # made progress but hit a transient gen failure -> leave unmarked so a re-run retries
+            print(f"    SHORT {kept}/{n} for {cat} WITH gen errors; chunk left unmarked for resume",
+                  flush=True)
+        else:
+            # pool/queries genuinely exhausted -> this is as many distinct facts as exist; done.
+            print(f"    SHORT {kept}/{n} for {cat} (pool exhausted, {len(pool)} hits); marking done",
+                  flush=True)
+            cp.mark(key)
 
 
 # ------------------------------------------------------------------ UNANSWERABLE
@@ -505,6 +605,9 @@ def main():
     ap.add_argument("--preset", choices=list(PRESETS), default="pilot")
     ap.add_argument("--out", default="", help="override output filename (in datasets/candidates/)")
     ap.add_argument("--only", default="", help="comma splits to gen (fresh,unanswerable,stable,no_search)")
+    ap.add_argument("--cats", default="", help="restrict fresh to these categories (comma list; test/debug)")
+    ap.add_argument("--fresh-per-cat", type=int, default=0,
+                    help="override: set every selected fresh category's target to this (test/debug)")
     args = ap.parse_args()
     load_env()
 
@@ -519,6 +622,11 @@ def main():
 
     if "fresh" in only:
         qm = quotas(cfg["fresh"], FRESH_WEIGHTS)
+        if args.cats:
+            want = {c.strip() for c in args.cats.split(",") if c.strip()}
+            qm = {c: v for c, v in qm.items() if c in want}
+        if args.fresh_per_cat > 0:
+            qm = {c: args.fresh_per_cat for c in qm}
         print("fresh quotas:", qm, flush=True)
         gen_fresh(cp, qm)
     if "unanswerable" in only:
