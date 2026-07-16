@@ -23,7 +23,7 @@ from common import load_env, read_jsonl
 from llm import chat, warm_model
 
 JUDGE_PROMPT_VERSION = "v3-simpleqa-3way + unanswerable-refusal"  # v2: acceptable_answers included (manual validation found v1 marked acceptable alternates INCORRECT)
-DEFAULT_JUDGE = "google/gemini-3.5-flash"  # via OpenRouter (protocol amendment #5; grok-4.5 region-blocked)
+DEFAULT_JUDGE = "deepseek/deepseek-v4-flash"  # via OpenRouter (protocol amendment #5; grok-4.5 region-blocked)
 OPENROUTER_URL = "https://openrouter.ai/api"  # chat() appends /v1/chat/completions
 LOCAL_FALLBACK_JUDGE = "ggml-org/Qwen3.6-27B-GGUF:Q8_0"
 JUDGE_WORKERS = 8
@@ -92,7 +92,7 @@ def _grade_one(rec, judge_model, base_url, api_key):
             why=rec.get("acceptable_behaviour") or "the answer does not exist or is not published",
             pred=rec["final_answer"][:4000])
         resp = chat(judge_model, [{"role": "user", "content": prompt}],
-                    gen={"temperature": 0, "max_tokens": 1024}, base_url=base_url, api_key=api_key)
+                    gen={"temperature": 0, "max_tokens": 1024, "reasoning": {"enabled": False}}, base_url=base_url, api_key=api_key)
         text = (resp["choices"][0]["message"].get("content") or "")
         grade, reason = parse_grade(text)
         return {"qid": rec["qid"], "grade": grade or "PARSE_FAIL", "reason": reason or text[:200]}
@@ -109,7 +109,7 @@ def _grade_answerable(rec, judge_model, base_url, api_key):
     prompt = JUDGE_TEMPLATE.format(question=rec["question"], gold=rec["gold_answer"],
                                    acceptable=acc_line, pred=rec["final_answer"][:4000])
     resp = chat(judge_model, [{"role": "user", "content": prompt}],
-                gen={"temperature": 0, "max_tokens": 1024}, base_url=base_url, api_key=api_key)
+                gen={"temperature": 0, "max_tokens": 1024, "reasoning": {"enabled": False}}, base_url=base_url, api_key=api_key)
     text = (resp["choices"][0]["message"].get("content") or "")
     grade, reason = parse_grade(text)
     return {"qid": rec["qid"], "grade": grade or "PARSE_FAIL", "reason": reason or text[:200]}

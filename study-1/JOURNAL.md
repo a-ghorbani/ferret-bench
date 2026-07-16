@@ -183,3 +183,26 @@ eval belongs AFTER scaling.
 
 STATE: blocked_on = "top up OpenRouter credits". On top-up: re-run full ~24 pilot -> review -> scale to
 ~700 -> eval on dev (holdout stays sealed). Everything staged; nothing pushed.
+
+## 2026-07-16 — recommended cost-optimized model setup wired in + smoke-tested (credits restored ~$100)
+
+Config (data-driven from OpenRouter Artificial Analysis agentic_index):
+- Panel oracle: gpt-5.6-luna (agentic 45.6) + z-ai/glm-5.2 (43.1) — near-frontier agentic at ~1/3 price.
+- Judge + drafting + equality: deepseek/deepseek-v4-flash (beats gpt-4o-mini on every axis + price).
+- Dropped: gpt-4o-mini (agentic 1.0, obsolete), gemini-3.5-flash judge (mediocre agentic + overpriced).
+
+KEY FINDING — glm-5.2 (and deepseek-v4) are REASONING models. Handling is role-dependent:
+- reasoning:{enabled:False} is the clean off-switch (effort:'low' does NOT work — still truncates).
+- JUDGE/DRAFT: reasoning OFF — simple tasks, cheap (glm answered in 6 tokens vs 1589). Applied.
+- ORACLE PANEL: reasoning ON + max_tokens 2048. Reasoning-OFF made glm hallucinate a prior
+  ("Real Madrid" for the CL winner instead of reading "PSG" from results). Accuracy > cost for the
+  oracle. Cost: glm burns 400-1600 reasoning tok/call (real, but affordable in $100 budget).
+
+SMOKE TEST (8 single-shot + 2 agentic multi-hop):
+- Clean convergence on good items (Colombia, Fed, PSG, Knicks, Evian). Accent fix confirmed (Évian match).
+- Agentic: glm-5.2 drives the ReAct loop fine (3-4 turns, multi-search); converged with luna on both
+  multi-hop golds (Elon Musk, Isao Teshirogi).
+- Disputes flagged (Nvidia: panel leans $78B vs our $91B gold; macOS: Tahoe vs our Golden Gate) —
+  the oracle correctly questioning v3 golds that may be wrong. Unanimity nets glm's occasional
+  empty-on-pathological-item into a harmless dispute.
+Verdict: recommended setup VALIDATED and working. Ready to scale generation on credit restore.

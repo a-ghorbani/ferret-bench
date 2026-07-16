@@ -27,7 +27,7 @@ from common import load_env            # noqa: E402
 from providers import search           # noqa: E402
 from llm import chat                    # noqa: E402
 
-PANEL = ["openrouter:anthropic/claude-sonnet-5", "openrouter:openai/gpt-5.6-luna"]
+PANEL = ["openrouter:z-ai/glm-5.2", "openrouter:openai/gpt-5.6-luna"]
 
 ANSWER_PROMPT = """Answer the question using ONLY the search results below. Be concise: reply with just the answer (a name, number, or short phrase). If the results do not contain the answer, reply exactly NObodyKNOWS.
 
@@ -67,8 +67,10 @@ def probe_item(item, panel, provider="brave", mode="replay-or-live"):
     panel_out = {}
     for m in panel:
         try:
+            # oracle: reasoning ON (accuracy — reasoning-off made glm-5.2 hallucinate priors instead
+            # of reading results); big budget so glm's reasoning tokens don't starve the answer.
             resp = chat(m, [{"role": "user", "content": prompt}],
-                        gen={"temperature": 0, "max_tokens": 120})
+                        gen={"temperature": 0, "max_tokens": 2048})
             ans = (resp["choices"][0]["message"].get("content") or "").strip()
         except Exception as e:
             ans = f"[error: {e}]"

@@ -47,7 +47,7 @@ WINDOW_DAYS = 60
 WINDOW_START = ANCHOR_DATE - datetime.timedelta(days=WINDOW_DAYS)   # 2026-05-15
 PROVIDER = "brave"
 MODE = "replay-or-live"
-GEN_MODEL = "openrouter:anthropic/claude-sonnet-5"   # drafting model (in the panel)
+GEN_MODEL = "openrouter:deepseek/deepseek-v4-flash"   # drafting model (in the panel)
 GEN2_MODEL = "openrouter:openai/gpt-5.6-luna"         # second drafter, for a subset (diversity)
 GEN = {"temperature": 0, "max_tokens": 2000}
 ORIGIN = "gen1"

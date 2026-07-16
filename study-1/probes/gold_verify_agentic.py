@@ -26,14 +26,14 @@ from agent_loop import run_agent            # noqa: E402  the shipped ReAct loop
 from configs import load_config             # noqa: E402
 from gold_verify import _matches            # noqa: E402  identical gold matcher
 
-PANEL = ["openrouter:anthropic/claude-sonnet-5", "openrouter:openai/gpt-5.6-luna"]
+PANEL = ["openrouter:z-ai/glm-5.2", "openrouter:openai/gpt-5.6-luna"]
 
 
 def _agentic_cfg():
     """frozen config (provider=brave, enriched tools, markdown, read_url available, 5 turns),
     but temperature 0 and a small token budget for lean, deterministic curation."""
     cfg = load_config("frozen")
-    cfg["gen"] = {"temperature": 0, "max_tokens": 512}
+    cfg["gen"] = {"temperature": 0, "max_tokens": 2048}
     return cfg
 
 
