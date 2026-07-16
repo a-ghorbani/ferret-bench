@@ -206,3 +206,25 @@ SMOKE TEST (8 single-shot + 2 agentic multi-hop):
   the oracle correctly questioning v3 golds that may be wrong. Unanimity nets glm's occasional
   empty-on-pathological-item into a harmless dispute.
 Verdict: recommended setup VALIDATED and working. Ready to scale generation on credit restore.
+
+## PENDING (blocked on HuggingFace outage 2026-07-16) — models to add when HF is back
+HF API returning 504 on all calls (confirmed by owner). Deferred downloads:
+1. LFM2-2.6B Q4_K_M  — repo likely LiquidAI/LFM2-2.6B-GGUF (unverified; 504'd). 
+2. Bonsai 27B Q1_0.
+For each, when HF recovers: (a) hf download the Q<x> gguf into ~/.lmstudio/models/,
+(b) add alias to ~/llama-models.ini with model=<path> (filename must contain the quant so
+resolve_weights can read it), (c) add the alias line to harness/models-confirm.txt.
+Do NOT add the roster line before the file exists — eval would fail on a missing gguf.
+
+## 2026-07-16 — drop-on-dispute (disable gold-overwrite recovery)
+Pilot showed resolve's gold-overwrite "recovery" is net-harmful: recovered 6 fresh golds but at
+least one wrong+inconsistent (entertainment-02 base admitted as "Morgan Wallen" while its own
+variants dropped; panel actually split Post Malone/Morgan Wallen). resolve_disputed now DROPS
+disputed/uncertain golds outright — no agentic re-run, no overwrite. Cheaper (skips the re-run) and
+can't break fact_id consistency. resolve keeps only its safe jobs: unanswerable-confirm + equality
+(Évian==Evian) + recurring valid_until lookup. Rationale: generation is cheap; generate another fact
+rather than rescue a doubtful one.
+
+Note (diagram correction): the eval judge (deepseek-v4-flash) is NOT part of curation. It runs in the
+separate EVAL phase, grading the 12 on-device models' answers vs the curated gold. Curation golds are
+set by the panel (luna+glm-5.2); deepseek appears in curation only as resolve's equality checker.

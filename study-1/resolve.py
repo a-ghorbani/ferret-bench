@@ -134,22 +134,13 @@ def is_specific(question, ans):
 # each returns (verdict, patch) where patch may hold resolved_gold / valid_until / resolution / probe
 
 def resolve_disputed(item, rc):
-    q = item["question"]
-    a1, r1 = _agentic(q, PANEL[0])
-    a2, r2 = _agentic(q, PANEL[1])
-    probe = {"mode": "agentic", "panel": {
-        PANEL[0]: {"answer": (a1 or "[error]")[:400], "n_reads": (r1 or {}).get("n_reads")},
-        PANEL[1]: {"answer": (a2 or "[error]")[:400], "n_reads": (r2 or {}).get("n_reads")}}}
-    if is_decline(a1) or is_decline(a2):
-        return "drop", {"resolution": f"agentic panel did not both produce a specific answer "
-                        f"(a='{(a1 or '')[:40]}', b='{(a2 or '')[:40]}') -> drop", "resolution_probe": probe}
-    if answers_equal(a1, a2):
-        gold = concise_gold(q, a1, a2)
-        return "admit", {"resolved_gold": gold, "resolution":
-                         f"agentic panel converged; gold overwritten '{item['gold_answer']}' -> '{gold}'",
-                         "resolution_probe": probe}
-    return "drop", {"resolution": f"agentic panel disagreed (a='{(a1 or '')[:40]}', "
-                    f"b='{(a2 or '')[:40]}') -> drop", "resolution_probe": probe}
+    # DROP-ON-DISPUTE (owner decision 2026-07-16). A gold the panel did not cleanly confirm is
+    # dropped, never overwritten. Overwrite-recovery was unreliable: it adopted a shakily-agreed
+    # panel answer and broke fact_id consistency (pilot: entertainment-02 base admitted as
+    # "Morgan Wallen" while its own variants dropped, panel actually split Post Malone/Morgan Wallen).
+    # Generation is cheap, so we generate another fact instead of rescuing a doubtful one. No agentic
+    # re-run here — that cost bought nothing safe.
+    return "drop", {"resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"}
 
 
 def resolve_recurring(item, rc):
