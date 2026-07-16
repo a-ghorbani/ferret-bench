@@ -89,17 +89,19 @@ Auto-flag every item where a **ranked** model is correct but the **frontier refe
 
 We have no PocketPal query logs (privacy), so we cannot claim population-representativeness. Instead we **declare** strata + weights up front and enforce them as generator quotas; we report **both** macro (equal-weight per category) and weighted scores.
 
-**Target size (distinct facts, the unit that counts — variants of one fact add no statistical n):**
+**Target size (distinct facts, the unit that counts — variants of one fact add no statistical n). Target = ~400 (owner decision 2026-07-16): enough for the PRIMARY goals (config decision + banded model ranking + the large headline effects), NOT for fine ordering of models within ~7-10 pts or per-category/sub-split claims. The dataset is growable — extend toward 700 later only if adjacent-model CIs overlap where it matters.**
 
 | split | dev | holdout.sealed | rationale |
 |---|---|---|---|
-| fresh (primary) | ~300 | ~200 | holdout powered for ~7-pt paired confirmation; dev finer |
-| unanswerable | ~60 | ~40 | fabrication rate to ±~0.10 |
-| stable | ~40 | ~30 | |
-| no_search | ~30 | ~20 | |
-| **total** | **~430** | **~290** | **≈700 facts** |
+| fresh (primary) | ~160 | ~100 | holdout ±0.08, detects ~12-pt paired gaps |
+| unanswerable | ~40 | ~20 | |
+| stable | ~30 | ~15 | |
+| no_search | ~25 | ~10 | |
+| **total** | **~255** | **~145** | **≈400 facts** |
 
-Power basis: proportion CI half-width ≈ 0.98/√(facts); paired (McNemar) detection of a 10-pt gap needs ~200 facts, a 5-pt gap ~800. Current ~95 facts → need ~7× more.
+Power basis: proportion CI half-width ≈ 0.98/√(facts); 400 → ±0.05 (~7-pt paired detection); 100 → ±0.10. Supports the config choice (effect ~doubling) and top/mid/bottom model tiers; near-neighbour models stay ties.
+
+**Declared composition skew (accepted, owner decision):** the drop mechanism removes vague/range golds, which disproportionately kills the news category (casualty counts) → the admitted set leans sports/tech/business, June-heavy. This is a *representativeness* skew, not a validity one (every model faces the same mix; relative ranking unaffected). REPORT the actual category/domain/date distribution in the dataset card; SCOPE claims to "crisp-fact retrieval" and make no per-category or news-specific claims. Not fixed via generator engineering (avoided over-engineering); growable later with a crisp-news batch if needed.
 
 **Category weights (generator quotas; a declared choice, not a measured population):**
 current events/news ~20%, sports ~12%, tech/AI ~12%, business/finance ~12%, science/health ~12%, entertainment ~10%, politics/world ~10%, geography/local ~7%, other ~5%. Enforced as strata so we stop inheriting v3's sports skew by accident.

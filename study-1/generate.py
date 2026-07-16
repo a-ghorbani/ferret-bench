@@ -63,7 +63,9 @@ FRESH_WEIGHTS = {
 
 PRESETS = {
     "pilot": {"out": "pilot.jsonl", "fresh": 24, "unanswerable": 6, "stable": 4, "no_search": 4},
-    "full":  {"out": "generated_batch1.jsonl", "fresh": 150, "unanswerable": 30, "stable": 20, "no_search": 15},
+    # scale400: candidate targets sized so ~400 SURVIVE admission (fresh ~72%, unanswerable ~58% incl.
+    # the built-in 2x over-gen, stable/no_search ~100%). Nets ~260 fresh + ~58 unans + 45 + 35 ≈ 400 facts.
+    "full":  {"out": "scale400.jsonl", "fresh": 360, "unanswerable": 50, "stable": 45, "no_search": 35},
 }
 
 # category -> search queries scoped to the window (May-Jul 2026)
