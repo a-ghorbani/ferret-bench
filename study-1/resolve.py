@@ -251,6 +251,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--ids", default="", help="comma-separated receipt ids (smoke test subset)")
     ap.add_argument("--no-rebuild", action="store_true", help="resolve only, skip split rebuild")
+    ap.add_argument("--candidates", default=str(CANDIDATES),
+                    help="path to the candidate .jsonl (default: datasets/candidates/candidates.jsonl)")
     args = ap.parse_args()
     load_env()
 
@@ -258,7 +260,7 @@ def main():
     for p in sorted(RECEIPTS_DIR.glob("*.json")):
         rc = json.loads(p.read_text())
         receipts[rc["id"]] = rc
-    cand_by_id = {r["id"]: r for r in (json.loads(l) for l in open(CANDIDATES) if l.strip())}
+    cand_by_id = {r["id"]: r for r in (json.loads(l) for l in open(Path(args.candidates)) if l.strip())}
 
     todo = [i for i, rc in receipts.items() if rc["verdict"] == "needs_human"]
     if args.ids:

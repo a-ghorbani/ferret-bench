@@ -228,3 +228,10 @@ rather than rescue a doubtful one.
 Note (diagram correction): the eval judge (deepseek-v4-flash) is NOT part of curation. It runs in the
 separate EVAL phase, grading the 12 on-device models' answers vs the curated gold. Curation golds are
 set by the panel (luna+glm-5.2); deepseek appears in curation only as resolve's equality checker.
+
+## 2026-07-16 — admission pipeline parameterized for scale400-only, reset + smoke-tested
+
+Owner chose "scale400 only": the new candidate set is `datasets/candidates/scale400.jsonl` (871 rows: 775 fresh, 45 stable, 16 unanswerable, 35 no_search). The old 142 v3-derived receipts/splits are dropped (recoverable from git history).
+- **Wiring change (minimal, reversible):** added `--candidates <path>` to BOTH `validate.py` and `resolve.py`, defaulting to the previous hardcoded `datasets/candidates/candidates.jsonl` so existing behavior is unchanged. All candidate-file reads in each `main()` now route through the arg (validate: probe-list + `cand_by_id`; resolve: `cand_by_id`). No probe / resolve / clustering logic touched. validate remains resumable (skips items whose receipt exists unless `--force`).
+- **Reset for scale400:** cleared all `verification/receipts/*.json` (143 files) and emptied `datasets/dev/questions.jsonl` + `datasets/holdout.sealed/questions.jsonl` via pathlib. `verification/receipts_pilot/` and the candidates files untouched.
+- **Smoke test (5 items, ~a few cents, NOT the full admission):** `validate.py --candidates .../scale400.jsonl --ids g1f-news-01,g1f-news-02,g1u-01,g1s-01,g1n-01` -> wrote 5 receipts, panel (luna+glm-5.2) ran on fresh/stable/unanswerable. Verdicts: g1f-news-01 needs_human (gold_uncertain_panel_split), g1f-news-02 needs_human (gold_disputed_panel_agrees_other), g1u-01 drop (panel found confident answer -> answerable), g1s-01 admit (gold_confirmed), g1n-01 admit (mechanical no_search). Then `resolve.py --candidates .../scale400.jsonl --ids <same>` dropped the 2 disputed and rebuilt a mini split (dev=1 / holdout=1). Wiring proven end-to-end; smoke-test receipts + summaries re-cleared afterward so the committed state is a clean reset for the owner's full run.

@@ -312,11 +312,14 @@ def main():
     ap.add_argument("--only", default="", help="comma-separated split filter (e.g. fresh,stable)")
     ap.add_argument("--ids", default="", help="comma-separated ids (debug subset)")
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--candidates", default=str(CANDIDATES),
+                    help="path to the candidate .jsonl (default: datasets/candidates/candidates.jsonl)")
     args = ap.parse_args()
+    candidates_path = Path(args.candidates)
     load_env()
     RECEIPTS_DIR.mkdir(parents=True, exist_ok=True)
 
-    rows = [json.loads(l) for l in open(CANDIDATES) if l.strip()]
+    rows = [json.loads(l) for l in open(candidates_path) if l.strip()]
     if args.only:
         want = set(args.only.split(","))
         rows = [r for r in rows if r.get("split") in want]
@@ -350,7 +353,7 @@ def main():
     for p in sorted(RECEIPTS_DIR.glob("*.json")):
         rc = json.loads(p.read_text())
         receipts[rc["id"]] = rc
-    cand_by_id = {r["id"]: r for r in (json.loads(l) for l in open(CANDIDATES) if l.strip())}
+    cand_by_id = {r["id"]: r for r in (json.loads(l) for l in open(candidates_path) if l.strip())}
 
     admitted = [cand_by_id[i] for i, rc in receipts.items() if rc["verdict"] == "admit" and i in cand_by_id]
     fact_by_id, clusters, ambiguous_pairs = cluster_fact_ids(admitted)
