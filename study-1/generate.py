@@ -49,7 +49,7 @@ PROVIDER = "brave"
 MODE = "replay-or-live"
 GEN_MODEL = "openrouter:deepseek/deepseek-v4-flash"   # drafting model (in the panel)
 GEN2_MODEL = "openrouter:openai/gpt-5.6-luna"         # second drafter, for a subset (diversity)
-GEN = {"temperature": 0, "max_tokens": 2000}
+GEN = {"temperature": 0, "max_tokens": 2000, "reasoning": {"enabled": False}}  # draft = reasoning off (else it eats the JSON budget)
 ORIGIN = "gen1"
 
 CAND_DIR = STUDY / "datasets" / "candidates"
@@ -336,25 +336,38 @@ def gen_fresh(cp, quota_map):
 # ------------------------------------------------------------------ UNANSWERABLE
 
 UNANS_PROMPT = """You are curating UNANSWERABLE probes for a retrieval benchmark. Today is {anchor}.
-Produce {n} questions that CANNOT be truthfully answered, of these flavours:
-  - false_premise: presupposes an event/deal/record that never happened,
-  - unfindable: asks for a specific fact that is not publicly available,
-  - undetermined: asks for something not yet decided as of the anchor.
-Use the REAL topics/entities in the search results so the questions are about real things but have
-no true answer. For each, cite 1-2 real URLs FROM THE LIST as NEGATIVE evidence (pages that show the
-true state of the entity, contradicting the false premise / showing the fact is absent).
+Produce {n} questions that a diligent researcher WITH web search genuinely CANNOT answer.
+
+THE TEST — apply to every question: if someone with Google could find the answer, it is NOT
+unanswerable; discard it. A specific-but-PUBLISHED fact is findable and MUST NOT be used.
+  DO NOT ask for: company revenue or revenue %, official death/injury tolls, announced dates,
+  product prices, disclosed deal values, election results that occurred, released specs — all findable.
+
+Reliably-unanswerable flavours (use these):
+  - false_premise: presupposes a SPECIFIC event/deal/signing/record that NEVER happened.
+      e.g. "Which player did Manchester United sign from Real Madrid on 1 July 2026?" (no such transfer)
+  - unfindable_private: genuinely private / never-published info.
+      e.g. "What did Tim Cook tell the board privately before the June 2026 keynote?"
+  - never_measured: a precise detail nobody recorded or published.
+      e.g. "Exactly how many steps did the winner take during the 2026 Boston Marathon?"
+  - undetermined: not yet decided as of {anchor} (set a future expires_on).
+      e.g. "Who will win the 2026 Nobel Peace Prize?" (announced later)
+
+Anchor questions on REAL entities from the results so they are about real things but have no true
+answer. For each, cite 1-2 real URLs FROM THE LIST as NEGATIVE evidence (a page showing the true
+state — contradicting the false premise, or showing the detail was never published).
 
 Return ONLY a JSON array; each element:
 {{
   "question": "...",
-  "flavour": "false_premise | unfindable | undetermined",
+  "flavour": "false_premise | unfindable_private | never_measured | undetermined",
   "acceptable_behaviour": "says it cannot find an answer / the premise is false / it is undetermined",
   "source_urls": ["https://..."],
   "expires_on": "2099-01-01",
-  "category": "one of news/sports/tech/business/science/entertainment/politics/geography/other"
+  "category": "news/sports/tech/business/science/entertainment/politics/geography/other"
 }}
-Use expires_on 2099-01-01 for things that will NEVER be answerable; for 'undetermined' use a plausible
-future date AFTER {anchor}.
+Use expires_on 2099-01-01 for things that can NEVER become answerable; for 'undetermined' use a
+plausible date AFTER {anchor}.
 
 Search results (title — snippet — url):
 {results}
@@ -372,7 +385,10 @@ def gen_unanswerable(cp, n):
                          "sports transfer news June 2026", "science research June 2026"], k=6)
     results = "\n".join(f"- {h['title']} — {h['snippet']} — {h['url']}" for h in pool)
     pool_urls = {h["url"] for h in pool}
-    prompt = UNANS_PROMPT.format(anchor=ANCHOR, n=n + 2, results=results)
+    # over-generate 2x: admission's panel-can't-find gate is the authority and will drop any that
+    # turn out answerable, so we need a surplus to still hit n after that empirical filter.
+    n_gen = 2 * n
+    prompt = UNANS_PROMPT.format(anchor=ANCHOR, n=n_gen, results=results)
     try:
         items = _parse_json_array(_gen(GEN_MODEL, prompt))
     except Exception as e:
@@ -380,7 +396,7 @@ def gen_unanswerable(cp, n):
         return
     kept = 0
     for it in items:
-        if kept >= n or not isinstance(it, dict):
+        if kept >= n_gen or not isinstance(it, dict):  # keep the whole surplus; admission drops answerable ones
             continue
         q = (it.get("question") or "").strip()
         if not q:
