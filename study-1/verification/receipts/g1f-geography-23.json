@@ -1,0 +1,53 @@
+{
+ "id": "g1f-geography-23",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "Since what year was Amazon deforestation reported to be at its lowest level in more than a decade?",
+ "gold_answer": "2014",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_006",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "2014",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "2014",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "Since what year was Amazon deforestation reported to be at its lowest level in more than a decade",
+   "queries_tried": [
+    "Since what year was Amazon deforestation reported to be at its lowest level in more than a decade"
+   ],
+   "n_snippets": 4
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 3,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

@@ -1,0 +1,60 @@
+{
+ "id": "g1f-sports-03v2",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "Who won the Stanley Cup?",
+ "gold_answer": "Carolina Hurricanes",
+ "verdict": "admit",
+ "reason": "recurring_needs_valid_until",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_089",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "Carolina Hurricanes",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "Carolina Hurricanes",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "Who won the Stanley Cup",
+   "queries_tried": [
+    "Who won the Stanley Cup",
+    "won the Stanley Cup"
+   ],
+   "n_snippets": 4
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 30,
+   "recurring": true,
+   "valid_until": null,
+   "flags": [
+    "recurring_needs_valid_until"
+   ],
+   "proposed_valid_until": "2027-06-07"
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "valid_until": "2027-06-07",
+ "resolution": "recurring; valid_until=2027-06-07 (fallback_proposed_+358d); lookup='UNKNOWN\n\nThe most recent Stanley Cup was won by th'"
+}

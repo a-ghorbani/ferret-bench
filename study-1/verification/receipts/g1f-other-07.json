@@ -1,0 +1,56 @@
+{
+ "id": "g1f-other-07",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "What was the global wild population of California condors approaching in 2015?",
+ "gold_answer": "240",
+ "verdict": "drop",
+ "reason": "gold_disputed_panel_agrees_other",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "268",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "268 birds",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_disputed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "was the global wild population of California condors approaching in 2015",
+   "queries_tried": [
+    "What was the global wild population of California condors approaching in 2015",
+    "was the global wild population of California condors approaching in 2015"
+   ],
+   "n_snippets": 6
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 25,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

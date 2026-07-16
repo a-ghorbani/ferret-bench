@@ -1,0 +1,56 @@
+{
+ "id": "g1f-geography-09v1",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "What prominent feature did nighttime satellite imagery show at the center of Jangmi?",
+ "gold_answer": "A large eye",
+ "verdict": "drop",
+ "reason": "gold_disputed_panel_agrees_other",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "A giant eye",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "A giant eye",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_disputed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "prominent feature did nighttime satellite imagery show at the center of Jangmi",
+   "queries_tried": [
+    "What prominent feature did nighttime satellite imagery show at the center of Jangmi",
+    "prominent feature did nighttime satellite imagery show at the center of Jangmi"
+   ],
+   "n_snippets": 6
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 41,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

@@ -1,0 +1,53 @@
+{
+ "id": "g1f-tech-31v1",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "As of what date were GPT-5.1 models unavailable in ChatGPT?",
+ "gold_answer": "March 11, 2026",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_111",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "March 11, 2026",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "March 11, 2026",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "As of what date were GPT-5.1 models unavailable in ChatGPT",
+   "queries_tried": [
+    "As of what date were GPT-5.1 models unavailable in ChatGPT"
+   ],
+   "n_snippets": 1
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 60,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

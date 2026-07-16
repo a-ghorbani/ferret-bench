@@ -1,0 +1,56 @@
+{
+ "id": "g1u-03",
+ "split": "unanswerable",
+ "origin_tier": null,
+ "question": "Which player did Manchester United sign from Real Madrid on 1 July 2026?",
+ "gold_answer": "NOT_FOUND",
+ "verdict": "admit",
+ "reason": "unanswerable_confirmed_awaiting_negative_signoff",
+ "attributes": {
+  "answer_only_in_body": null,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_188",
+ "probes": {
+  "unanswerable_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "",
+     "declined": true,
+     "error": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "NObodyKNOWS",
+     "declined": true,
+     "error": false
+    }
+   },
+   "all_declined": true,
+   "found_answer": false,
+   "source_urls_present": true,
+   "expires_on_valid": true
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "panel declined with search -> admit as unanswerable (gold=NOT_FOUND)",
+ "resolution_probe": {
+  "mode": "agentic_tryhard",
+  "panel": {
+   "openrouter:z-ai/glm-5.2": {
+    "answer": "Based on my research across multiple sources, I cannot find any credible evidence that Manchester United signed a player from Real Madrid on 1 July 2026.\n\nHere's what the record shows:\n\n**Manchester United's confirmed summer 2026 signings** (per Transfermarkt and TeamTalk):\n- **Andrey Santos** — from Chelsea (~€56m)\n- **Youri Tielemans** — from Aston Villa (~€41m)\n- **Karl Darlow** — from Leeds (f",
+    "specific": false
+   },
+   "openrouter:openai/gpt-5.6-luna": {
+    "answer": "No credible specific answer exists. As of **14 July 2026**, Manchester United had **not signed a player from Real Madrid on 1 July 2026**.\n\nThe main Real Madrid player linked with United was **Aurélien Tchouaméni**, but reports described him only as a **target**, and later coverage said he was set to remain at Madrid—not as a completed signing:\n\n- [TeamTalk: Tchouaméni receives Manchester United o",
+    "specific": false
+   }
+  }
+ }
+}

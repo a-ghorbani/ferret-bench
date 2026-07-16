@@ -1,0 +1,54 @@
+{
+ "id": "g1f-science-31",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "What was the deforestation level in the Brazilian Amazon in the first half of 2026 described as?",
+ "gold_answer": "lowest level in a decade",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_006",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "Lowest level in a decade",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "lowest level in a decade",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "What was the deforestation level in the Brazilian Amazon in the first half of 2026 described as",
+   "queries_tried": [
+    "What was the deforestation level in the Brazilian Amazon in the first half of 2026 described as",
+    "was the deforestation level in the Brazilian Amazon in the first half of 2026 described as"
+   ],
+   "n_snippets": 1
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 4,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

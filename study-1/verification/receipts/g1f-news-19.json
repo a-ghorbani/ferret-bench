@@ -1,0 +1,56 @@
+{
+ "id": "g1f-news-19",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "How many acres had wildfires torched in California by May 20, 2026?",
+ "gold_answer": "more than 26,000 acres",
+ "verdict": "drop",
+ "reason": "gold_uncertain_panel_split",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "More than 26,000 acres",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_uncertain",
+   "mode": "single_shot",
+   "unanimous": false
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "How many acres had wildfires torched in California by May 20, 2026",
+   "queries_tried": [
+    "How many acres had wildfires torched in California by May 20, 2026",
+    "acres had wildfires torched in California by May 20, 2026"
+   ],
+   "n_snippets": 2
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 55,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

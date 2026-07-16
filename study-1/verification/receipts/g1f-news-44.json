@@ -1,0 +1,56 @@
+{
+ "id": "g1f-news-44",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "What is the estimated probability of an M7-class earthquake directly beneath Tokyo in 2026?",
+ "gold_answer": "70%",
+ "verdict": "drop",
+ "reason": "gold_uncertain_panel_split",
+ "attributes": {
+  "answer_only_in_body": true,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "NObodyKNOWS",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "70% within 30 years",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_uncertain",
+   "mode": "single_shot",
+   "unanimous": false
+  },
+  "snippet_leak": {
+   "gold_in_snippet": false,
+   "matched_query": null,
+   "queries_tried": [
+    "What is the estimated probability of an M7-class earthquake directly beneath Tokyo in 2026",
+    "is the estimated probability of an M7-class earthquake directly beneath Tokyo in 2026"
+   ],
+   "n_snippets": 10
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 56,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

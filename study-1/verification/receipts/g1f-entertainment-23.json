@@ -1,0 +1,54 @@
+{
+ "id": "g1f-entertainment-23",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "Who did Jannik Sinner defeat in the 2026 Wimbledon men's singles final?",
+ "gold_answer": "Alexander Zverev",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_022",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "Alexander Zverev",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "Alexander Zverev",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "Who did Jannik Sinner defeat in the 2026 Wimbledon men's singles final",
+   "queries_tried": [
+    "Who did Jannik Sinner defeat in the 2026 Wimbledon men's singles final",
+    "did Jannik Sinner defeat in the 2026 Wimbledon men's singles final"
+   ],
+   "n_snippets": 1
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 2,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

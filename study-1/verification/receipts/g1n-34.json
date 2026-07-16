@@ -1,0 +1,26 @@
+{
+ "id": "g1n-34",
+ "split": "no_search",
+ "origin_tier": null,
+ "question": "You have two ropes that each take exactly 1 hour to burn, but they burn unevenly. How can you measure exactly 45 minutes?",
+ "gold_answer": null,
+ "verdict": "admit",
+ "reason": "mechanical_no_search_admit",
+ "attributes": {
+  "answer_only_in_body": null,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_146",
+ "probes": {
+  "no_search": {
+   "note": "mechanical false-positive probe; no gold to verify"
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

@@ -1,0 +1,59 @@
+{
+ "id": "g1f-news-58v1",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "When was the 2026 Australian Open golf tournament held?",
+ "gold_answer": "June 30, 2026",
+ "verdict": "drop",
+ "reason": "gold_disputed_panel_agrees_other",
+ "attributes": {
+  "answer_only_in_body": true,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "December 3 to December 6, 2026",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "December 3–6, 2026",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_disputed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": false,
+   "matched_query": null,
+   "queries_tried": [
+    "When was the 2026 Australian Open golf tournament held",
+    "was the 2026 Australian Open golf tournament held"
+   ],
+   "n_snippets": 10
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 14,
+   "recurring": true,
+   "valid_until": null,
+   "flags": [
+    "recurring_needs_valid_until"
+   ],
+   "proposed_valid_until": "2027-06-23"
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

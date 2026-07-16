@@ -1,0 +1,56 @@
+{
+ "id": "g1f-geography-11",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "Which natural-disaster phenomenon category was specifically listed among the 2026 disasters?",
+ "gold_answer": "Volcanic eruptions",
+ "verdict": "drop",
+ "reason": "gold_disputed_panel_agrees_other",
+ "attributes": {
+  "answer_only_in_body": true,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "Compound Climate Disasters",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "Flooding",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_disputed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": false,
+   "matched_query": null,
+   "queries_tried": [
+    "Which natural-disaster phenomenon category was specifically listed among the 2026 disasters",
+    "natural-disaster phenomenon category was specifically listed among the 2026 disasters"
+   ],
+   "n_snippets": 10
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 60,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

@@ -1,0 +1,56 @@
+{
+ "id": "g1f-business-13v1",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "What was the size of Seedcamp's June fundraise?",
+ "gold_answer": "€279 million",
+ "verdict": "drop",
+ "reason": "gold_disputed_panel_agrees_other",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "$320 million",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "$320 million",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_disputed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "What was the size of Seedcamp's June fundraise",
+   "queries_tried": [
+    "What was the size of Seedcamp's June fundraise",
+    "was the size of Seedcamp's June fundraise"
+   ],
+   "n_snippets": 4
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 14,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

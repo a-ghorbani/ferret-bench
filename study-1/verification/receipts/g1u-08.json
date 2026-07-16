@@ -1,0 +1,56 @@
+{
+ "id": "g1u-08",
+ "split": "unanswerable",
+ "origin_tier": null,
+ "question": "Which specific Intel fabrication plant will produce Alphabet's custom in-house processors?",
+ "gold_answer": "NOT_FOUND",
+ "verdict": "admit",
+ "reason": "unanswerable_confirmed_awaiting_negative_signoff",
+ "attributes": {
+  "answer_only_in_body": null,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_191",
+ "probes": {
+  "unanswerable_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "",
+     "declined": true,
+     "error": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "NObodyKNOWS",
+     "declined": true,
+     "error": false
+    }
+   },
+   "all_declined": true,
+   "found_answer": false,
+   "source_urls_present": true,
+   "expires_on_valid": true
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "panel declined with search -> admit as unanswerable (gold=NOT_FOUND)",
+ "resolution_probe": {
+  "mode": "agentic_tryhard",
+  "panel": {
+   "openrouter:z-ai/glm-5.2": {
+    "answer": "Based on my research, here is what the reporting establishes:\n\n## The specific fab: Intel's Fab 52 in Chandler, Arizona\n\nAlphabet/Google's order for more than 3 million Tensor Processing Units (TPUs), with production targeted for 2028, will be manufactured on **Intel's 18A process node**. Intel's 18A high-volume manufacturing is centered at **Fab 52**, the newest fabrication plant on Intel's Ocoti",
+    "specific": false
+   },
+   "openrouter:openai/gpt-5.6-luna": {
+    "answer": "**No credible public source identifies a specific Intel fabrication plant.**\n\nWhat is publicly reported is that Alphabet/Google has ordered Intel to manufacture **more than three million custom Tensor Processing Units (TPUs), targeted for 2028**. Reuters, citing *The Information*, reports the Intel manufacturing agreement but does **not** name a fab or location: [Reuters](https://www.reuters.com/b",
+    "specific": false
+   }
+  }
+ }
+}

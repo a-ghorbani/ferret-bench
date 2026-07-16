@@ -1,0 +1,55 @@
+{
+ "id": "g1f-business-41",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "By how much did U.S. initial jobless claims change for the week ending July 4, 2026?",
+ "gold_answer": "Decreased by 2,000",
+ "verdict": "drop",
+ "reason": "gold_uncertain_panel_split",
+ "attributes": {
+  "answer_only_in_body": true,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "Decrease of 2,000",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "Decreased by 2,000",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_uncertain",
+   "mode": "single_shot",
+   "unanimous": false
+  },
+  "snippet_leak": {
+   "gold_in_snippet": false,
+   "matched_query": null,
+   "queries_tried": [
+    "By how much did U.S. initial jobless claims change for the week ending July 4, 2026"
+   ],
+   "n_snippets": 5
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 5,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

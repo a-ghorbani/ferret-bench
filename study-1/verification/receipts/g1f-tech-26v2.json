@@ -1,0 +1,56 @@
+{
+ "id": "g1f-tech-26v2",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "What date did Tesla's first reported standard AWD Cybertruck handover take place?",
+ "gold_answer": "June 12, 2026",
+ "verdict": "drop",
+ "reason": "gold_disputed_panel_agrees_other",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "June 12",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "June 12",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_disputed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "date did Tesla's first reported standard AWD Cybertruck handover take place",
+   "queries_tried": [
+    "What date did Tesla's first reported standard AWD Cybertruck handover take place",
+    "date did Tesla's first reported standard AWD Cybertruck handover take place"
+   ],
+   "n_snippets": 7
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 32,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

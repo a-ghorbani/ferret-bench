@@ -1,0 +1,41 @@
+{
+ "id": "g1u-02",
+ "split": "unanswerable",
+ "origin_tier": null,
+ "question": "What was the exact percentage of TSMC's June 2026 revenue that came from 3nm process nodes?",
+ "gold_answer": "NOT_FOUND",
+ "verdict": "drop",
+ "reason": "panel_found_confident_answer_item_is_answerable",
+ "attributes": {
+  "answer_only_in_body": null,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "unanswerable_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "[Wafer: response was truncated before the model finished its internal reasoning. Increase max_tokens, or disable thinking on this model (e.g. chat_template_kwargs.enable_thinking=false), then retry.]",
+     "declined": false,
+     "error": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "NObodyKNOWS",
+     "declined": true,
+     "error": false
+    }
+   },
+   "all_declined": false,
+   "found_answer": true,
+   "source_urls_present": true,
+   "expires_on_valid": true
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

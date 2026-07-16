@@ -1,0 +1,54 @@
+{
+ "id": "g1f-entertainment-25v1",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "What was the full-time score in the 2026 Champions League final between PSG and Arsenal?",
+ "gold_answer": "1-1",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_023",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "1-1",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "1-1 after extra time; PSG won 4-3 on penalties",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "What was the full-time score in the 2026 Champions League final between PSG and Arsenal",
+   "queries_tried": [
+    "What was the full-time score in the 2026 Champions League final between PSG and Arsenal",
+    "was the full-time score in the 2026 Champions League final between PSG and Arsenal"
+   ],
+   "n_snippets": 1
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 45,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

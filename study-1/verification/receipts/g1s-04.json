@@ -1,0 +1,38 @@
+{
+ "id": "g1s-04",
+ "split": "stable",
+ "origin_tier": null,
+ "question": "Who wrote the play 'Romeo and Juliet'?",
+ "gold_answer": "William Shakespeare",
+ "verdict": "admit",
+ "reason": "gold_confirmed",
+ "attributes": {
+  "answer_only_in_body": null,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_151",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "William Shakespeare",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "William Shakespeare",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

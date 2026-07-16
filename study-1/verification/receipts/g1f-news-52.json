@@ -1,0 +1,55 @@
+{
+ "id": "g1f-news-52",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "In which month of 2026 did the FAA expect the Boeing 737 MAX 7 to be certified, according to FAA Administrator Bryan Bedford?",
+ "gold_answer": "August 2026",
+ "verdict": "drop",
+ "reason": "gold_disputed_panel_agrees_other",
+ "attributes": {
+  "answer_only_in_body": true,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "NObodyKNOWS",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "Summer",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_disputed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": false,
+   "matched_query": null,
+   "queries_tried": [
+    "In which month of 2026 did the FAA expect the Boeing 737 MAX 7 to be certified, according to FAA Administrator Bryan Bedford"
+   ],
+   "n_snippets": 5
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 48,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

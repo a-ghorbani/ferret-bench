@@ -1,0 +1,53 @@
+{
+ "id": "g1f-other-04v1",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "Did the 7.2-magnitude earthquake off Japan on June 25, 2026 cause any casualties?",
+ "gold_answer": "No",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_058",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "No",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "No casualties were reported.",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "Did the 7.2-magnitude earthquake off Japan on June 25, 2026 cause any casualties",
+   "queries_tried": [
+    "Did the 7.2-magnitude earthquake off Japan on June 25, 2026 cause any casualties"
+   ],
+   "n_snippets": 1
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 19,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

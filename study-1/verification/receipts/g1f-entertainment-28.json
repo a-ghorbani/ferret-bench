@@ -1,0 +1,56 @@
+{
+ "id": "g1f-entertainment-28",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "What is the theme of Tokyo Game Show 2026?",
+ "gold_answer": "The Longest Five Days of Nonstop Play",
+ "verdict": "drop",
+ "reason": "gold_uncertain_panel_split",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "Longest Five Days of Nonstop Play",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "The Longest Five Days of Nonstop Play",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_uncertain",
+   "mode": "single_shot",
+   "unanimous": false
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "What is the theme of Tokyo Game Show 2026",
+   "queries_tried": [
+    "What is the theme of Tokyo Game Show 2026",
+    "is the theme of Tokyo Game Show 2026"
+   ],
+   "n_snippets": 2
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 5,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

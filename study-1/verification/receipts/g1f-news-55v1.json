@@ -1,0 +1,56 @@
+{
+ "id": "g1f-news-55v1",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "When was Paris Haute Couture Week for autumn/winter 2026-2027 held?",
+ "gold_answer": "July 6-9, 2026",
+ "verdict": "drop",
+ "reason": "gold_disputed_panel_agrees_other",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "July 6–9, 2026",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "July 6–9, 2026",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_disputed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "When was Paris Haute Couture Week for autumn/winter 2026-2027 held",
+   "queries_tried": [
+    "When was Paris Haute Couture Week for autumn/winter 2026-2027 held",
+    "was Paris Haute Couture Week for autumn/winter 2026-2027 held"
+   ],
+   "n_snippets": 1
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 8,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

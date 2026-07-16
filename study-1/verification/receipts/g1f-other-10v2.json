@@ -1,0 +1,54 @@
+{
+ "id": "g1f-other-10v2",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "What marathon distance did the Perseverance rover achieve on Mars in 2026?",
+ "gold_answer": "a full marathon (26.2 miles / 42.195 kilometers)",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_061",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "26.2 miles (42.195 kilometers)",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "26.2 miles (42.195 kilometers)",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "What marathon distance did the Perseverance rover achieve on Mars in 2026",
+   "queries_tried": [
+    "What marathon distance did the Perseverance rover achieve on Mars in 2026",
+    "marathon distance did the Perseverance rover achieve on Mars in 2026"
+   ],
+   "n_snippets": 1
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 30,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

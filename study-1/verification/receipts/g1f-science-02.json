@@ -1,0 +1,56 @@
+{
+ "id": "g1f-science-02",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "What was the name of the rescue mission launched on July 3, 2026 to save NASA's Neil Gehrels Swift Observatory?",
+ "gold_answer": "Swift rescue mission",
+ "verdict": "drop",
+ "reason": "gold_disputed_panel_agrees_other",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "Swift Boost Mission",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "Swift Boost mission",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_disputed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "What was the name of the rescue mission launched on July 3, 2026 to save NASA's Neil Gehrels Swift Observatory",
+   "queries_tried": [
+    "What was the name of the rescue mission launched on July 3, 2026 to save NASA's Neil Gehrels Swift Observatory",
+    "was the name of the rescue mission launched on July 3, 2026 to save NASA's Neil Gehrels Swift Observatory"
+   ],
+   "n_snippets": 3
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 11,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

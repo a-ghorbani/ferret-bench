@@ -1,0 +1,54 @@
+{
+ "id": "g1f-geography-25v1",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "When did the Saharan dust plume reach the Caribbean Sea in the reported visualization?",
+ "gold_answer": "June 1, 2026",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_038",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "1 June 2026 at 00:00 UTC",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "1 June 2026 at 00:00 UTC",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "When did the Saharan dust plume reach the Caribbean Sea in the reported visualization",
+   "queries_tried": [
+    "When did the Saharan dust plume reach the Caribbean Sea in the reported visualization",
+    "did the Saharan dust plume reach the Caribbean Sea in the reported visualization"
+   ],
+   "n_snippets": 1
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 43,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

@@ -1,0 +1,56 @@
+{
+ "id": "g1f-business-36v2",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "What sporting-goods company filed for Chapter 11?",
+ "gold_answer": "Lynskey Performance Products",
+ "verdict": "drop",
+ "reason": "gold_uncertain_panel_split",
+ "attributes": {
+  "answer_only_in_body": true,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "303 Boards, Gamma Sports, Sports Authority, Lynskey Performance Products",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "303 Boards",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_uncertain",
+   "mode": "single_shot",
+   "unanimous": false
+  },
+  "snippet_leak": {
+   "gold_in_snippet": false,
+   "matched_query": null,
+   "queries_tried": [
+    "What sporting-goods company filed for Chapter 11",
+    "sporting-goods company filed for Chapter 11"
+   ],
+   "n_snippets": 10
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 24,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

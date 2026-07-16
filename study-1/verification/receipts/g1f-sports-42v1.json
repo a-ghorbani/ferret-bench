@@ -1,0 +1,59 @@
+{
+ "id": "g1f-sports-42v1",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "Which teams qualified for the 2026 World Cup from UEFA?",
+ "gold_answer": "Bosnia, Czechia, Sweden and Türkiye",
+ "verdict": "drop",
+ "reason": "gold_disputed_panel_agrees_other",
+ "attributes": {
+  "answer_only_in_body": true,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "Austria, Belgium, Croatia, England, France, Germany, Netherlands, Norway, Portugal, Scotland, Spain, Switzerland, Bosnia and Herzegovina, Czechia, Sweden, Türkiye",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "Austria, Belgium, Bosnia and Herzegovina, Croatia, Czechia, England, France, Germany, Netherlands, Norway, Portugal, Scotland, Spain, Sweden, Switzerland, Türkiye",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_disputed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": false,
+   "matched_query": null,
+   "queries_tried": [
+    "Which teams qualified for the 2026 World Cup from UEFA",
+    "teams qualified for the 2026 World Cup from UEFA"
+   ],
+   "n_snippets": 10
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 8,
+   "recurring": true,
+   "valid_until": null,
+   "flags": [
+    "recurring_needs_valid_until"
+   ],
+   "proposed_valid_until": "2027-06-29"
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

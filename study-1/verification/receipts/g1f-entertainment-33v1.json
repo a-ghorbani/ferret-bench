@@ -1,0 +1,56 @@
+{
+ "id": "g1f-entertainment-33v1",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "Who is presenting the Marvel's Wolverine panel at SDCC 2026?",
+ "gold_answer": "Insomniac Games",
+ "verdict": "drop",
+ "reason": "gold_uncertain_panel_split",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "Marcus Smith, Mike Daly, Walt Williams, Jess Reiner-Reed, Liam McIntyre, and Krizia Bajos",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "Insomniac Games’ team, led by Marcus Smith",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_uncertain",
+   "mode": "single_shot",
+   "unanimous": false
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "Who is presenting the Marvel's Wolverine panel at SDCC 2026",
+   "queries_tried": [
+    "Who is presenting the Marvel's Wolverine panel at SDCC 2026",
+    "is presenting the Marvel's Wolverine panel at SDCC 2026"
+   ],
+   "n_snippets": 1
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 4,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

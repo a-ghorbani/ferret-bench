@@ -1,0 +1,60 @@
+{
+ "id": "g1f-sports-07",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "How many games did the 2026 Stanley Cup Final last?",
+ "gold_answer": "six games",
+ "verdict": "admit",
+ "reason": "recurring_needs_valid_until",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_089",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "Six games",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "six games",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "How many games did the 2026 Stanley Cup Final last",
+   "queries_tried": [
+    "How many games did the 2026 Stanley Cup Final last",
+    "games did the 2026 Stanley Cup Final last"
+   ],
+   "n_snippets": 1
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 30,
+   "recurring": true,
+   "valid_until": null,
+   "flags": [
+    "recurring_needs_valid_until"
+   ],
+   "proposed_valid_until": "2027-06-07"
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "valid_until": "2027-06-23",
+ "resolution": "recurring; valid_until=2027-06-23 (agentic_lookup); lookup='2027-06-23'"
+}

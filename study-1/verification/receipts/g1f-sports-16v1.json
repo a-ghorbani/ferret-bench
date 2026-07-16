@@ -1,0 +1,60 @@
+{
+ "id": "g1f-sports-16v1",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "What trophy does the women's singles winner at Wimbledon receive?",
+ "gold_answer": "Venus Rosewater Dish",
+ "verdict": "admit",
+ "reason": "recurring_needs_valid_until",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_091",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "Venus Rosewater Dish",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "Venus Rosewater Dish",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "What trophy does the women's singles winner at Wimbledon receive",
+   "queries_tried": [
+    "What trophy does the women's singles winner at Wimbledon receive",
+    "trophy does the women's singles winner at Wimbledon receive"
+   ],
+   "n_snippets": 1
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 1,
+   "recurring": true,
+   "valid_until": null,
+   "flags": [
+    "recurring_needs_valid_until"
+   ],
+   "proposed_valid_until": "2027-07-06"
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "valid_until": "2027-07-11",
+ "resolution": "recurring; valid_until=2027-07-11 (agentic_lookup); lookup='2027-07-11'"
+}

@@ -1,0 +1,56 @@
+{
+ "id": "g1f-sports-20v1",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "Which brand of tennis ball is used at the 2026 Wimbledon Junior Championships?",
+ "gold_answer": "Slazenger Wimbledon (Type 2)",
+ "verdict": "drop",
+ "reason": "gold_disputed_panel_agrees_other",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "Slazenger",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "Slazenger",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_disputed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "Which brand of tennis ball is used at the 2026 Wimbledon Junior Championships",
+   "queries_tried": [
+    "Which brand of tennis ball is used at the 2026 Wimbledon Junior Championships",
+    "brand of tennis ball is used at the 2026 Wimbledon Junior Championships"
+   ],
+   "n_snippets": 2
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 1,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

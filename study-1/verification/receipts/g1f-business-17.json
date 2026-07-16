@@ -1,0 +1,56 @@
+{
+ "id": "g1f-business-17",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "Which company led Taktile's $110 million Series C round in June 2026?",
+ "gold_answer": "Goldman Sachs Alternatives",
+ "verdict": "drop",
+ "reason": "gold_uncertain_panel_split",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "Goldman Sachs",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "Goldman Sachs Alternatives",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_uncertain",
+   "mode": "single_shot",
+   "unanimous": false
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "Which company led Taktile's $110 million Series C round in June 2026",
+   "queries_tried": [
+    "Which company led Taktile's $110 million Series C round in June 2026",
+    "company led Taktile's $110 million Series C round in June 2026"
+   ],
+   "n_snippets": 4
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 14,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

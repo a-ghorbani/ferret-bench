@@ -1,0 +1,54 @@
+{
+ "id": "g1f-news-01",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "How many buildings collapsed in the June 24, 2026 earthquakes in northwestern Venezuela?",
+ "gold_answer": "more than 100",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_039",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "More than 100",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "More than 100 buildings",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "How many buildings collapsed in the June 24, 2026 earthquakes in northwestern Venezuela",
+   "queries_tried": [
+    "How many buildings collapsed in the June 24, 2026 earthquakes in northwestern Venezuela",
+    "buildings collapsed in the June 24, 2026 earthquakes in northwestern Venezuela"
+   ],
+   "n_snippets": 2
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 20,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

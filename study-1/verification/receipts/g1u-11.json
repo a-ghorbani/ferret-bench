@@ -1,0 +1,56 @@
+{
+ "id": "g1u-11",
+ "split": "unanswerable",
+ "origin_tier": null,
+ "question": "What was the exact percentage of Alphabet's custom processor order that Intel will manufacture versus other foundries?",
+ "gold_answer": "NOT_FOUND",
+ "verdict": "admit",
+ "reason": "unanswerable_confirmed_awaiting_negative_signoff",
+ "attributes": {
+  "answer_only_in_body": null,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_191",
+ "probes": {
+  "unanswerable_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "NObodyKNOWS",
+     "declined": true,
+     "error": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "NObodyKNOWS",
+     "declined": true,
+     "error": false
+    }
+   },
+   "all_declined": true,
+   "found_answer": false,
+   "source_urls_present": true,
+   "expires_on_valid": true
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "panel declined with search -> admit as unanswerable (gold=NOT_FOUND)",
+ "resolution_probe": {
+  "mode": "agentic_tryhard",
+  "panel": {
+   "openrouter:z-ai/glm-5.2": {
+    "answer": "Based on multiple sources, here is the specific answer:\n\n## Intel's Share: Approximately 50% (roughly half) of Alphabet's TPU output for 2028\n\nAccording to Morgan Stanley estimates cited across several industry sources, Google/Alphabet is expected to produce **more than 6 million TPUs between 2027 and 2028**, and Intel's foundry order of **over 3 million TPUs** accounts for **approximately half (~",
+    "specific": false
+   },
+   "openrouter:openai/gpt-5.6-luna": {
+    "answer": "There is **no credible exact percentage publicly disclosed**.\n\nThe best-supported estimate is **approximately 50% for Intel and approximately 50% for other foundries—principally TSMC—but that is only an estimate, not an exact split**:\n\n- Reuters reported that Google/Alphabet ordered **more than 3 million TPUs from Intel for 2028**, but did not disclose Alphabet’s total TPU order or the quantities ",
+    "specific": false
+   }
+  }
+ }
+}

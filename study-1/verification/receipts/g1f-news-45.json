@@ -1,0 +1,54 @@
+{
+ "id": "g1f-news-45",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "Who won the by-election in Makerfield, UK, on June 18, 2026?",
+ "gold_answer": "Burnham",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_051",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "Andy Burnham",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "Andy Burnham",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "Who won the by-election in Makerfield, UK, on June 18, 2026",
+   "queries_tried": [
+    "Who won the by-election in Makerfield, UK, on June 18, 2026",
+    "won the by-election in Makerfield, UK, on June 18, 2026"
+   ],
+   "n_snippets": 2
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 26,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

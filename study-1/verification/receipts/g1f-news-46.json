@@ -1,0 +1,54 @@
+{
+ "id": "g1f-news-46",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "Which former U.S. Senator was the Democratic nominee for Senate in Ohio in the 2026 midterms?",
+ "gold_answer": "Sherrod Brown",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_052",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "Sherrod Brown",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "Sherrod Brown",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "Which former U.S. Senator was the Democratic nominee for Senate in Ohio in the 2026 midterms",
+   "queries_tried": [
+    "Which former U.S. Senator was the Democratic nominee for Senate in Ohio in the 2026 midterms",
+    "former U.S. Senator was the Democratic nominee for Senate in Ohio in the 2026 midterms"
+   ],
+   "n_snippets": 1
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 5,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

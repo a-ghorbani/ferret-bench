@@ -1,0 +1,26 @@
+{
+ "id": "g1n-19",
+ "split": "no_search",
+ "origin_tier": null,
+ "question": "Three people check into a hotel room that costs $30. They each pay $10. Later the clerk realizes the room is only $25 and sends $5 with the bellboy. The bellboy keeps $2 and gives $1 back to each person. Now each person paid $9, totaling $27, plus the $2 the bellboy kept is $29. Where is the missing dollar?",
+ "gold_answer": null,
+ "verdict": "admit",
+ "reason": "mechanical_no_search_admit",
+ "attributes": {
+  "answer_only_in_body": null,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_131",
+ "probes": {
+  "no_search": {
+   "note": "mechanical false-positive probe; no gold to verify"
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

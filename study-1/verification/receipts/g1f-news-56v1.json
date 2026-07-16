@@ -1,0 +1,60 @@
+{
+ "id": "g1f-news-56v1",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "Where was the 2026 Australian Open golf championship staged?",
+ "gold_answer": "Kingston Heath Golf Club",
+ "verdict": "admit",
+ "reason": "recurring_needs_valid_until",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_057",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "Kingston Heath Golf Club",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "Kingston Heath Golf Club",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "Where was the 2026 Australian Open golf championship staged",
+   "queries_tried": [
+    "Where was the 2026 Australian Open golf championship staged",
+    "was the 2026 Australian Open golf championship staged"
+   ],
+   "n_snippets": 1
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 35,
+   "recurring": true,
+   "valid_until": null,
+   "flags": [
+    "recurring_needs_valid_until"
+   ],
+   "proposed_valid_until": "2027-06-02"
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "valid_until": "2026-12-06",
+ "resolution": "recurring; valid_until=2026-12-06 (agentic_lookup); lookup='2026-12-06'"
+}

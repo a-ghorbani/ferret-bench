@@ -1,0 +1,54 @@
+{
+ "id": "g1f-business-10",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "What total 2026 biopharma M&A value did Reuters say could be exceeded if the pace continued?",
+ "gold_answer": "$250 billion",
+ "verdict": "admit",
+ "reason": "gold_confirmed_and_fresh",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_003",
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "$250 billion",
+     "matches_gold": true
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "$250 billion",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_confirmed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "What total 2026 biopharma M&A value did Reuters say could be exceeded if the pace continued",
+   "queries_tried": [
+    "What total 2026 biopharma M&A value did Reuters say could be exceeded if the pace continued",
+    "total 2026 biopharma M&A value did Reuters say could be exceeded if the pace continued"
+   ],
+   "n_snippets": 1
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 60,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false
+}

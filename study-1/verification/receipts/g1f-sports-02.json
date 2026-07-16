@@ -1,0 +1,55 @@
+{
+ "id": "g1f-sports-02",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "In how many games did the New York Knicks defeat the San Antonio Spurs in the 2026 NBA Finals?",
+ "gold_answer": "five",
+ "verdict": "drop",
+ "reason": "gold_disputed_panel_agrees_other",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "4",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "4 games",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_disputed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "In how many games did the New York Knicks defeat the San Antonio Spurs in the 2026 NBA Finals",
+   "queries_tried": [
+    "In how many games did the New York Knicks defeat the San Antonio Spurs in the 2026 NBA Finals"
+   ],
+   "n_snippets": 5
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 31,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

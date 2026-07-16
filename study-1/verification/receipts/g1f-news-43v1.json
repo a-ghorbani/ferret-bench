@@ -1,0 +1,56 @@
+{
+ "id": "g1f-news-43v1",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "What type of third-party apps did Apple add to CarPlay in iOS 27?",
+ "gold_answer": "video apps",
+ "verdict": "drop",
+ "reason": "gold_disputed_panel_agrees_other",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "Video streaming apps and navigation apps",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "Video streaming apps",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_disputed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "What type of third-party apps did Apple add to CarPlay in iOS 27",
+   "queries_tried": [
+    "What type of third-party apps did Apple add to CarPlay in iOS 27",
+    "type of third-party apps did Apple add to CarPlay in iOS 27"
+   ],
+   "n_snippets": 5
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 18,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

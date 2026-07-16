@@ -1,0 +1,56 @@
+{
+ "id": "g1f-tech-37v1",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "How many CPU cores were specified for NVIDIA and MediaTek's RTX Spark?",
+ "gold_answer": "20 cores",
+ "verdict": "drop",
+ "reason": "gold_disputed_panel_agrees_other",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "20",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "20 CPU cores",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_disputed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "CPU cores were specified for NVIDIA and MediaTek's RTX Spark",
+   "queries_tried": [
+    "How many CPU cores were specified for NVIDIA and MediaTek's RTX Spark",
+    "CPU cores were specified for NVIDIA and MediaTek's RTX Spark"
+   ],
+   "n_snippets": 9
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 42,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

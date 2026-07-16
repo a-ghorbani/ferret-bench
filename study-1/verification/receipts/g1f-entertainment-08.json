@@ -1,0 +1,56 @@
+{
+ "id": "g1f-entertainment-08",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "Which film won the Short Film Palme d'Or at the 2026 Cannes Film Festival?",
+ "gold_answer": "For The Opponents",
+ "verdict": "drop",
+ "reason": "gold_disputed_panel_agrees_other",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "The Opponents",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "The Opponents",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_disputed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "Which film won the Short Film Palme d'Or at the 2026 Cannes Film Festival",
+   "queries_tried": [
+    "Which film won the Short Film Palme d'Or at the 2026 Cannes Film Festival",
+    "film won the Short Film Palme d'Or at the 2026 Cannes Film Festival"
+   ],
+   "n_snippets": 4
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 52,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

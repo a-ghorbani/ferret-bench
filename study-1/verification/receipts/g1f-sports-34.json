@@ -1,0 +1,59 @@
+{
+ "id": "g1f-sports-34",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "When did the 2026 MotoGP Italian Grand Prix take place?",
+ "gold_answer": "29-31 May 2026",
+ "verdict": "drop",
+ "reason": "gold_disputed_panel_agrees_other",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "May 29–31, 2026",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "May 29–31, 2026",
+     "matches_gold": false
+    }
+   },
+   "verdict": "gold_disputed",
+   "mode": "single_shot",
+   "unanimous": true
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "When did the 2026 MotoGP Italian Grand Prix take place",
+   "queries_tried": [
+    "When did the 2026 MotoGP Italian Grand Prix take place",
+    "did the 2026 MotoGP Italian Grand Prix take place"
+   ],
+   "n_snippets": 3
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 46,
+   "recurring": true,
+   "valid_until": null,
+   "flags": [
+    "recurring_needs_valid_until"
+   ],
+   "proposed_valid_until": "2027-05-22"
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}

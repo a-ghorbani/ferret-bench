@@ -1,0 +1,56 @@
+{
+ "id": "g1u-04",
+ "split": "unanswerable",
+ "origin_tier": null,
+ "question": "What did Elon Musk say in his private DMs to Sam Altman on X after Apple filed the OpenAI lawsuit on July 13, 2026?",
+ "gold_answer": "NOT_FOUND",
+ "verdict": "admit",
+ "reason": "unanswerable_confirmed_awaiting_negative_signoff",
+ "attributes": {
+  "answer_only_in_body": null,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": "fact_189",
+ "probes": {
+  "unanswerable_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "",
+     "declined": true,
+     "error": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "NObodyKNOWS",
+     "declined": true,
+     "error": false
+    }
+   },
+   "all_declined": true,
+   "found_answer": false,
+   "source_urls_present": true,
+   "expires_on_valid": true
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "panel declined with search -> admit as unanswerable (gold=NOT_FOUND)",
+ "resolution_probe": {
+  "mode": "agentic_tryhard",
+  "panel": {
+   "openrouter:z-ai/glm-5.2": {
+    "answer": "Based on my searches across multiple sources (TechCrunch, Bloomberg, CNBC, The Hill, Fortune, Quartz, Yahoo Finance, PYMNTS, NDTV, and Moneywise), I could not find any credible reporting of **private DMs** between Elon Musk and Sam Altman on X regarding the Apple–OpenAI lawsuit.\n\nWhat the sources do document is a **public** exchange on X (not private DMs) after Apple filed its trade-secret theft l",
+    "specific": false
+   },
+   "openrouter:openai/gpt-5.6-luna": {
+    "answer": "There is **no credible evidence that Elon Musk sent Sam Altman private DMs on X** after Apple’s lawsuit. The available reporting describes a **public exchange on X**, not private messages.\n\nMusk’s publicly reported remarks included:\n\n- “**Scam Altman strikes again**”\n- “**He takes scamming to a whole new level**”\n- “**He might literally love scamming more than any human alive!**”\n- He also said Al",
+    "specific": false
+   }
+  }
+ }
+}

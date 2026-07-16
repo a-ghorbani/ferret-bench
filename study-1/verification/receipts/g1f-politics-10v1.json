@@ -1,0 +1,55 @@
+{
+ "id": "g1f-politics-10v1",
+ "split": "fresh",
+ "origin_tier": null,
+ "question": "On which day in July 2026 did the House hold a pro forma session with no votes?",
+ "gold_answer": "July 2, 2026",
+ "verdict": "drop",
+ "reason": "gold_uncertain_panel_split",
+ "attributes": {
+  "answer_only_in_body": false,
+  "dependent_search": false,
+  "memorable": null
+ },
+ "fact_id": null,
+ "probes": {
+  "gold_verify": {
+   "panel": {
+    "openrouter:z-ai/glm-5.2": {
+     "answer": "",
+     "matches_gold": false
+    },
+    "openrouter:openai/gpt-5.6-luna": {
+     "answer": "July 2, 2026",
+     "matches_gold": true
+    }
+   },
+   "verdict": "gold_uncertain",
+   "mode": "single_shot",
+   "unanimous": false
+  },
+  "snippet_leak": {
+   "gold_in_snippet": true,
+   "matched_query": "On which day in July 2026 did the House hold a pro forma session with no votes",
+   "queries_tried": [
+    "On which day in July 2026 did the House hold a pro forma session with no votes"
+   ],
+   "n_snippets": 3
+  },
+  "temporal_guard": {
+   "freshness": "ok",
+   "age_days": 12,
+   "recurring": false,
+   "valid_until": null,
+   "flags": []
+  }
+ },
+ "curator_panel": [
+  "openrouter:z-ai/glm-5.2",
+  "openrouter:openai/gpt-5.6-luna"
+ ],
+ "anchor": "2026-07-14",
+ "human_signed": false,
+ "auto_resolved": true,
+ "resolution": "gold disputed/uncertain at probe -> drop (overwrite-recovery disabled)"
+}
