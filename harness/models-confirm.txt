@@ -9,3 +9,5 @@ qwen35-4b
 gemma-4-e2b
 ministral-3-3b
 lfm25-1.2b
+lfm2-2.6b
+bonsai-27b-q1
