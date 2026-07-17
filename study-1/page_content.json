@@ -87,7 +87,7 @@
     "Declared composition skew: sports/tech/business-heavy, June-2026-heavy.",
     "Scope is crisp-fact retrieval — not long-form synthesis or multi-hop depth.",
     "Sealed holdout (58 facts) unused: config was frozen before any dev run, so dev is itself the out-of-sample test.",
-    "Graded by an LLM judge (deepseek-v4-flash) against curated golds; the gold panel (gpt-5.6-luna + glm-5.2) is disjoint from the judge.",
+    "Graded by an LLM judge (deepseek-v4-flash) against golds verified by a disjoint frontier panel (gpt-5.6-luna + glm-5.2) — machine-verified, not human-graded.",
     "Workstation run of the phone GGUF files — battery, heat and latency unmeasured.",
     "bonsai-27b-q1 is 1-bit; others Q4_K_M except Qwen3-1.7B (Q6_K)."
   ],
