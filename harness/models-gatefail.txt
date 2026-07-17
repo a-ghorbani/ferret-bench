@@ -1,0 +1,8 @@
+# GATE-FAILURE roster — tool schema never rendered by llama.cpp for these GGUF packages.
+# schema_not_rendered=399/399, 0 searches on all fresh items in the study1 dev sweep (2026-07-17).
+# NOT a capability result — these models never received the search tools. Excluded from the board.
+gemma-3-4b
+gemma-3-1b-q4
+phi-4-mini
+smollm3-3b
+hermes-3-3b
