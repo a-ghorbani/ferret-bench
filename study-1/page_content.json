@@ -1,0 +1,97 @@
+{
+  "_README": "Interpretive text for the study-1 public leaderboard page. THESE ARE CLAIMS ABOUT RESULTS — they are only true of the study-1 dev runs (config=frozen, dataset=study-1/datasets/dev). study-1 dropped difficulty tiers, has a near-empty fabrication split (4 unanswerable questions / 3 facts — too small for a rate), and reports fresh accuracy at the FACT level (variants aggregated per fact_id). export_site.py cross-checks the gate_failures roster against models-gatefail.txt. If a re-run changes the picture, rewrite this file.",
+  "content_schema_version": 1,
+  "study": "study-1",
+  "for_config_id": "frozen",
+  "for_config_hash": "bbb5cdbf1e9f18d79598d8a5f83f79e7c7a5b5b5501b4ea0351c918c19fe446c",
+  "for_dataset_split": "dev",
+  "headline_findings": [
+    {
+      "value": "5 of 9",
+      "label": "Never got the tools",
+      "detail": "Five of the nine packages we tried never received the search tools at all — the GGUF chat template dropped the tool schema, so they scored zero searches and are off the board."
+    },
+    {
+      "value": "0.83",
+      "label": "A 1-bit 27B holds up",
+      "detail": "Bonsai-27B at a 1-bit quant (3.8 GB) lands in the top cluster on fresh accuracy — a genuinely surprising result for that bit-width."
+    },
+    {
+      "value": "0.80–0.87",
+      "label": "The top five tie",
+      "detail": "The top five models are one statistical cluster: every 90% CI overlaps the leader's. At 80 facts this ranks tiers, not fine positions."
+    },
+    {
+      "value": "0.80 vs 0.87",
+      "label": "The 2B keeps up with the 4B",
+      "detail": "Qwen3.5-2B (1.3 GB) sits inside the top cluster with its own 4B sibling — half the file size, statistically indistinguishable here."
+    }
+  ],
+  "config_notes": {
+    "provider": "Brave. The frozen config's search backend.",
+    "result_count": "Five results, the shipped default.",
+    "result_format": "Markdown-formatted result menus.",
+    "tool_desc": "Enriched tool descriptions: tell the model what the tool is for and to write short keyword queries.",
+    "system_prompt": "Shipped prompt with the current date injected ('Today's date is X').",
+    "max_turns": "A five-turn agentic budget; the passers average well under two turns per question.",
+    "enable_thinking": "Off. Reasoning mode is disabled so every model is compared on the same footing."
+  },
+  "metric_definitions": [
+    {
+      "key": "fresh",
+      "label": "Fresh ✓",
+      "description": "Primary score. Share of FACTS answered correctly on the fresh (retrieval-required) split. Each fact has several phrasing variants; a fact's score is the mean correctness across its variants, and the reported rate is the mean over the 80 fresh facts. The 90% CI is a Wilson interval over 80 facts. These questions are about events after the models' training cutoff, so they cannot be answered from memory.",
+      "lower_is_better": false
+    },
+    {
+      "key": "stable",
+      "label": "Stable ✓",
+      "description": "Share of timeless general-knowledge facts answered correctly (same fact-level aggregation). Checks that adding web search does not damage what a model already knew.",
+      "lower_is_better": false
+    },
+    {
+      "key": "searched",
+      "label": "Searched",
+      "description": "Fraction of fresh questions on which the model actually issued at least one search. The dominant failure mode for small models is not searching at all.",
+      "lower_is_better": false
+    },
+    {
+      "key": "file_size_gb",
+      "label": "File size",
+      "description": "On-disk size of the exact GGUF weights file run, in decimal GB. This is the download and storage cost on a phone, and the axis of the accuracy-vs-size Pareto view.",
+      "lower_is_better": true
+    }
+  ],
+  "gate_failures": {
+    "title": "Five packages never received the search tools",
+    "model_aliases": [
+      "gemma-3-4b",
+      "gemma-3-1b-q4",
+      "phi-4-mini",
+      "smollm3-3b",
+      "hermes-3-3b"
+    ],
+    "display_names": [
+      "Gemma-3-4B",
+      "Gemma-3-1B",
+      "Phi-4-mini",
+      "SmolLM3-3B",
+      "Hermes-3-3B"
+    ],
+    "mechanism": "These five recorded schema_not_rendered on all 399 fresh questions and issued zero searches. The llama.cpp/GGUF tool-calling path test-renders each model's chat template to decide whether it supports tools; for these packages the template ignores the tool block, so the search schema is silently left out of the prompt. schema_not_rendered is a canary for exactly this: the tools never landed, so the model could not search. This is a packaging/template failure, NOT a statement about the models' capability — they were never offered the tools. They are listed, not ranked.",
+    "takeaway": "Gate on rendered capability, never a model allowlist: pass the tools, then assert the schema actually rendered. One check (schema_not_rendered == 0) catches all five and any future repack that drops the tool template."
+  },
+  "limitations": [
+    "Dev split only: 80 fresh facts (399 phrasing variants). Neighbouring models sit within noise; separating the top cluster needs roughly 400 facts, and the dataset is growable.",
+    "No fabrication claims: the unanswerable (hallucination-under-failure) split has only 4 questions across 3 facts here — too small to state a fabrication rate. It is pool-limited by generation.",
+    "Composition skew is declared: the fact pool leans sports/tech/business and is June-2026-heavy. A model tuned on other topics or languages could rank differently.",
+    "Scope is crisp-fact retrieval — short, checkable answers. It does not measure long-form synthesis, multi-hop reasoning depth, or reading comprehension beyond what a snippet or one page yields.",
+    "The sealed holdout (58 facts) is unused: the config was frozen before any dev run, so dev is itself the out-of-sample test. The holdout is reserved for a single future confirmation run.",
+    "Correctness is graded by an LLM judge (deepseek-v4-flash) against human-curated golds; the gold panel (gpt-5.6-luna + z-ai/glm-5.2) is disjoint from the judge. It is a strong signal, not a human grader.",
+    "Quality is measured on a workstation running the same quantised GGUF files a phone would run. Battery, heat and on-device latency are not measured.",
+    "bonsai-27b-q1 runs at 1-bit; the others are Q4_K_M except Qwen3-1.7B (Q6_K). Bit-width is a real difference in the weights."
+  ],
+  "cluster_note": "This board resolves tiers, not fine positions. The top five (0.80–0.87) are one statistical cluster — all CIs overlap the leader's — so read the groupings, not the exact order.",
+  "pareto_note": "The accuracy-vs-file-size view shows which models are not beaten on both axes at once. A model is on the frontier if no other model is at least as accurate AND at least as small.",
+  "gate_failure_takeaway": "Gate on rendered capability, never a model allowlist. schema_not_rendered==0 is the single assertion that separates a real result from a package that never got the tools."
+}

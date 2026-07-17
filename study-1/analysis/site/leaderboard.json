@@ -1,0 +1,473 @@
+{
+ "benchmark": "ferret-bench — agentic web search for small on-device LLMs (study-1)",
+ "source": "https://github.com/a-ghorbani/ferret-bench",
+ "generated_at": "2026-07-17",
+ "study": "study-1",
+ "sweep_tag": "study1",
+ "config_id": "frozen",
+ "config_hash": "bbb5cdbf1e9f18d79598d8a5f83f79e7c7a5b5b5501b4ea0351c918c19fe446c",
+ "config_values": {
+  "provider": "brave",
+  "result_count": 5,
+  "result_format": "markdown",
+  "tool_desc": "enriched",
+  "system_prompt": "shipped",
+  "snippet_chars": 280,
+  "menu_token_ceiling": 1000,
+  "read_url_policy": "available",
+  "read_content_chars": 4800,
+  "max_turns": 5,
+  "untrusted_wrapper": true,
+  "enable_thinking": false,
+  "gen": {
+   "temperature": 0.7,
+   "top_p": 0.95,
+   "max_tokens": 1024,
+   "seed": 42
+  }
+ },
+ "dataset_split": "dev",
+ "dataset_anchor_date": "2026-07-14",
+ "dataset_counts": {
+  "facts": {
+   "fresh": 80,
+   "no_search": 24,
+   "stable": 29,
+   "unanswerable": 3
+  },
+  "questions": {
+   "fresh": 399,
+   "no_search": 24,
+   "stable": 31,
+   "unanswerable": 4
+  }
+ },
+ "judge": {
+  "model": "deepseek/deepseek-v4-flash",
+  "prompt_version": "v3-simpleqa-3way + unanswerable-refusal"
+ },
+ "gold_panel": [
+  "gpt-5.6-luna",
+  "z-ai/glm-5.2"
+ ],
+ "presentation_rules": {
+  "no_tiers": "study-1 dropped difficulty tiers; there is no per-tier gradient",
+  "cluster_not_ranks": "the top five (0.80–0.87) are one statistical cluster; render groupings, not medal positions",
+  "fact_level": "fresh/stable rates are fact-level: variants aggregated per fact_id, mean over facts; CI is Wilson-90 over n_facts",
+  "no_fabrication_rate": "the unanswerable split is too small (4 questions / 3 facts) to state a fabrication rate",
+  "pareto": "a gate-passer is on the frontier if no other model is >= as accurate AND <= in file size"
+ },
+ "pareto": {
+  "x": "file_size_gb",
+  "y": "fresh.rate",
+  "frontier": [
+   "qwen35-4b",
+   "ministral-3-3b",
+   "qwen35-2b",
+   "lfm25-1.2b",
+   "qwen3-06b"
+  ]
+ },
+ "page_content": {
+  "content_schema_version": 1,
+  "study": "study-1",
+  "for_config_id": "frozen",
+  "for_config_hash": "bbb5cdbf1e9f18d79598d8a5f83f79e7c7a5b5b5501b4ea0351c918c19fe446c",
+  "for_dataset_split": "dev",
+  "headline_findings": [
+   {
+    "value": "5 of 9",
+    "label": "Never got the tools",
+    "detail": "Five of the nine packages we tried never received the search tools at all — the GGUF chat template dropped the tool schema, so they scored zero searches and are off the board."
+   },
+   {
+    "value": "0.83",
+    "label": "A 1-bit 27B holds up",
+    "detail": "Bonsai-27B at a 1-bit quant (3.8 GB) lands in the top cluster on fresh accuracy — a genuinely surprising result for that bit-width."
+   },
+   {
+    "value": "0.80–0.87",
+    "label": "The top five tie",
+    "detail": "The top five models are one statistical cluster: every 90% CI overlaps the leader's. At 80 facts this ranks tiers, not fine positions."
+   },
+   {
+    "value": "0.80 vs 0.87",
+    "label": "The 2B keeps up with the 4B",
+    "detail": "Qwen3.5-2B (1.3 GB) sits inside the top cluster with its own 4B sibling — half the file size, statistically indistinguishable here."
+   }
+  ],
+  "config_notes": {
+   "provider": "Brave. The frozen config's search backend.",
+   "result_count": "Five results, the shipped default.",
+   "result_format": "Markdown-formatted result menus.",
+   "tool_desc": "Enriched tool descriptions: tell the model what the tool is for and to write short keyword queries.",
+   "system_prompt": "Shipped prompt with the current date injected ('Today's date is X').",
+   "max_turns": "A five-turn agentic budget; the passers average well under two turns per question.",
+   "enable_thinking": "Off. Reasoning mode is disabled so every model is compared on the same footing."
+  },
+  "metric_definitions": [
+   {
+    "key": "fresh",
+    "label": "Fresh ✓",
+    "description": "Primary score. Share of FACTS answered correctly on the fresh (retrieval-required) split. Each fact has several phrasing variants; a fact's score is the mean correctness across its variants, and the reported rate is the mean over the 80 fresh facts. The 90% CI is a Wilson interval over 80 facts. These questions are about events after the models' training cutoff, so they cannot be answered from memory.",
+    "lower_is_better": false
+   },
+   {
+    "key": "stable",
+    "label": "Stable ✓",
+    "description": "Share of timeless general-knowledge facts answered correctly (same fact-level aggregation). Checks that adding web search does not damage what a model already knew.",
+    "lower_is_better": false
+   },
+   {
+    "key": "searched",
+    "label": "Searched",
+    "description": "Fraction of fresh questions on which the model actually issued at least one search. The dominant failure mode for small models is not searching at all.",
+    "lower_is_better": false
+   },
+   {
+    "key": "file_size_gb",
+    "label": "File size",
+    "description": "On-disk size of the exact GGUF weights file run, in decimal GB. This is the download and storage cost on a phone, and the axis of the accuracy-vs-size Pareto view.",
+    "lower_is_better": true
+   }
+  ],
+  "gate_failures": {
+   "title": "Five packages never received the search tools",
+   "model_aliases": [
+    "gemma-3-4b",
+    "gemma-3-1b-q4",
+    "phi-4-mini",
+    "smollm3-3b",
+    "hermes-3-3b"
+   ],
+   "display_names": [
+    "Gemma-3-4B",
+    "Gemma-3-1B",
+    "Phi-4-mini",
+    "SmolLM3-3B",
+    "Hermes-3-3B"
+   ],
+   "mechanism": "These five recorded schema_not_rendered on all 399 fresh questions and issued zero searches. The llama.cpp/GGUF tool-calling path test-renders each model's chat template to decide whether it supports tools; for these packages the template ignores the tool block, so the search schema is silently left out of the prompt. schema_not_rendered is a canary for exactly this: the tools never landed, so the model could not search. This is a packaging/template failure, NOT a statement about the models' capability — they were never offered the tools. They are listed, not ranked.",
+   "takeaway": "Gate on rendered capability, never a model allowlist: pass the tools, then assert the schema actually rendered. One check (schema_not_rendered == 0) catches all five and any future repack that drops the tool template."
+  },
+  "limitations": [
+   "Dev split only: 80 fresh facts (399 phrasing variants). Neighbouring models sit within noise; separating the top cluster needs roughly 400 facts, and the dataset is growable.",
+   "No fabrication claims: the unanswerable (hallucination-under-failure) split has only 4 questions across 3 facts here — too small to state a fabrication rate. It is pool-limited by generation.",
+   "Composition skew is declared: the fact pool leans sports/tech/business and is June-2026-heavy. A model tuned on other topics or languages could rank differently.",
+   "Scope is crisp-fact retrieval — short, checkable answers. It does not measure long-form synthesis, multi-hop reasoning depth, or reading comprehension beyond what a snippet or one page yields.",
+   "The sealed holdout (58 facts) is unused: the config was frozen before any dev run, so dev is itself the out-of-sample test. The holdout is reserved for a single future confirmation run.",
+   "Correctness is graded by an LLM judge (deepseek-v4-flash) against human-curated golds; the gold panel (gpt-5.6-luna + z-ai/glm-5.2) is disjoint from the judge. It is a strong signal, not a human grader.",
+   "Quality is measured on a workstation running the same quantised GGUF files a phone would run. Battery, heat and on-device latency are not measured.",
+   "bonsai-27b-q1 runs at 1-bit; the others are Q4_K_M except Qwen3-1.7B (Q6_K). Bit-width is a real difference in the weights."
+  ],
+  "cluster_note": "This board resolves tiers, not fine positions. The top five (0.80–0.87) are one statistical cluster — all CIs overlap the leader's — so read the groupings, not the exact order.",
+  "pareto_note": "The accuracy-vs-file-size view shows which models are not beaten on both axes at once. A model is on the frontier if no other model is at least as accurate AND at least as small.",
+  "gate_failure_takeaway": "Gate on rendered capability, never a model allowlist. schema_not_rendered==0 is the single assertion that separates a real result from a package that never got the tools."
+ },
+ "gate_failures": [
+  {
+   "model_id": "gemma-3-4b",
+   "display_name": "Gemma-3-4B",
+   "alias": "gemma-3-4b",
+   "gate_pass": false,
+   "schema_not_rendered": 399,
+   "n_fresh_questions": 399,
+   "n_searches": 0,
+   "reason": "tool schema never rendered by the GGUF chat template; the model was never offered the search tools"
+  },
+  {
+   "model_id": "gemma-3-1b-q4",
+   "display_name": "Gemma-3-1B",
+   "alias": "gemma-3-1b-q4",
+   "gate_pass": false,
+   "schema_not_rendered": 399,
+   "n_fresh_questions": 399,
+   "n_searches": 0,
+   "reason": "tool schema never rendered by the GGUF chat template; the model was never offered the search tools"
+  },
+  {
+   "model_id": "phi-4-mini",
+   "display_name": "Phi-4-mini",
+   "alias": "phi-4-mini",
+   "gate_pass": false,
+   "schema_not_rendered": 399,
+   "n_fresh_questions": 399,
+   "n_searches": 0,
+   "reason": "tool schema never rendered by the GGUF chat template; the model was never offered the search tools"
+  },
+  {
+   "model_id": "smollm3-3b",
+   "display_name": "SmolLM3-3B",
+   "alias": "smollm3-3b",
+   "gate_pass": false,
+   "schema_not_rendered": 399,
+   "n_fresh_questions": 399,
+   "n_searches": 0,
+   "reason": "tool schema never rendered by the GGUF chat template; the model was never offered the search tools"
+  },
+  {
+   "model_id": "hermes-3-3b",
+   "display_name": "Hermes-3-3B",
+   "alias": "hermes-3-3b",
+   "gate_pass": false,
+   "schema_not_rendered": 399,
+   "n_fresh_questions": 399,
+   "n_searches": 0,
+   "reason": "tool schema never rendered by the GGUF chat template; the model was never offered the search tools"
+  }
+ ],
+ "rows": [
+  {
+   "model_id": "qwen35-4b",
+   "display_name": "Qwen3.5-4B",
+   "alias": "qwen35-4b",
+   "class": "on-device",
+   "quant": "Q4_K_M",
+   "file_size_gb": 2.71,
+   "gate_pass": true,
+   "fresh": {
+    "n_facts": 80,
+    "n_variants": 399,
+    "rate": 0.8735,
+    "ci90": [
+     0.8017,
+     0.9238
+    ]
+   },
+   "stable": {
+    "rate": 0.9655
+   },
+   "searched": {
+    "n_fresh_questions": 399,
+    "n_searched": 399,
+    "searched_frac": 1.0
+   },
+   "run_id": "20260716-235052-study1-frozen-qwen35-4b",
+   "pareto_frontier": true
+  },
+  {
+   "model_id": "ministral-3-3b",
+   "display_name": "Ministral-3-3B",
+   "alias": "ministral-3-3b",
+   "class": "on-device",
+   "quant": "Q4_K_M",
+   "file_size_gb": 2.15,
+   "gate_pass": true,
+   "fresh": {
+    "n_facts": 80,
+    "n_variants": 399,
+    "rate": 0.8419,
+    "ci90": [
+     0.7588,
+     0.8941
+    ]
+   },
+   "stable": {
+    "rate": 1.0
+   },
+   "searched": {
+    "n_fresh_questions": 399,
+    "n_searched": 399,
+    "searched_frac": 1.0
+   },
+   "run_id": "20260717-004951-study1-frozen-ministral-3-3b",
+   "pareto_frontier": true
+  },
+  {
+   "model_id": "gemma-4-e2b",
+   "display_name": "Gemma-4-E2B",
+   "alias": "gemma-4-e2b",
+   "class": "on-device",
+   "quant": "Q4_K_M",
+   "file_size_gb": 3.43,
+   "gate_pass": true,
+   "fresh": {
+    "n_facts": 80,
+    "n_variants": 399,
+    "rate": 0.8384,
+    "ci90": [
+     0.7588,
+     0.8941
+    ]
+   },
+   "stable": {
+    "rate": 1.0
+   },
+   "searched": {
+    "n_fresh_questions": 399,
+    "n_searched": 399,
+    "searched_frac": 1.0
+   },
+   "run_id": "20260717-003729-study1-frozen-gemma-4-e2b",
+   "pareto_frontier": false
+  },
+  {
+   "model_id": "bonsai-27b-q1",
+   "display_name": "Bonsai-27B",
+   "alias": "bonsai-27b-q1",
+   "class": "on-device",
+   "quant": "Q1_0",
+   "file_size_gb": 3.8,
+   "gate_pass": true,
+   "fresh": {
+    "n_facts": 80,
+    "n_variants": 399,
+    "rate": 0.8333,
+    "ci90": [
+     0.7588,
+     0.8941
+    ]
+   },
+   "stable": {
+    "rate": 0.931
+   },
+   "searched": {
+    "n_fresh_questions": 399,
+    "n_searched": 376,
+    "searched_frac": 0.9424
+   },
+   "run_id": "20260717-092626-study1-frozen-bonsai-27b-q1",
+   "pareto_frontier": false
+  },
+  {
+   "model_id": "qwen35-2b",
+   "display_name": "Qwen3.5-2B",
+   "alias": "qwen35-2b",
+   "class": "on-device",
+   "quant": "Q4_K_M",
+   "file_size_gb": 1.27,
+   "gate_pass": true,
+   "fresh": {
+    "n_facts": 80,
+    "n_variants": 399,
+    "rate": 0.7966,
+    "ci90": [
+     0.7172,
+     0.8632
+    ]
+   },
+   "stable": {
+    "rate": 0.8966
+   },
+   "searched": {
+    "n_fresh_questions": 399,
+    "n_searched": 399,
+    "searched_frac": 1.0
+   },
+   "run_id": "20260716-233349-study1-frozen-qwen35-2b",
+   "pareto_frontier": true
+  },
+  {
+   "model_id": "lfm2-2.6b",
+   "display_name": "LFM2-2.6B",
+   "alias": "lfm2-2.6b",
+   "class": "on-device",
+   "quant": "Q4_K_M",
+   "file_size_gb": 1.56,
+   "gate_pass": true,
+   "fresh": {
+    "n_facts": 80,
+    "n_variants": 399,
+    "rate": 0.7556,
+    "ci90": [
+     0.6631,
+     0.8206
+    ]
+   },
+   "stable": {
+    "rate": 0.9655
+   },
+   "searched": {
+    "n_fresh_questions": 399,
+    "n_searched": 388,
+    "searched_frac": 0.9724
+   },
+   "run_id": "20260717-090853-study1-frozen-lfm2-2.6b",
+   "pareto_frontier": false
+  },
+  {
+   "model_id": "lfm25-1.2b",
+   "display_name": "LFM2.5-1.2B",
+   "alias": "lfm25-1.2b",
+   "class": "on-device",
+   "quant": "Q4_K_M",
+   "file_size_gb": 0.73,
+   "gate_pass": true,
+   "fresh": {
+    "n_facts": 80,
+    "n_variants": 399,
+    "rate": 0.7449,
+    "ci90": [
+     0.6631,
+     0.8206
+    ]
+   },
+   "stable": {
+    "rate": 1.0
+   },
+   "searched": {
+    "n_fresh_questions": 399,
+    "n_searched": 383,
+    "searched_frac": 0.9599
+   },
+   "run_id": "20260717-014553-study1-frozen-lfm25-1.2b",
+   "pareto_frontier": true
+  },
+  {
+   "model_id": "qwen3-06b",
+   "display_name": "Qwen3-0.6B",
+   "alias": "qwen3-06b",
+   "class": "on-device",
+   "quant": "Q4_K_M",
+   "file_size_gb": 0.48,
+   "gate_pass": true,
+   "fresh": {
+    "n_facts": 80,
+    "n_variants": 399,
+    "rate": 0.7385,
+    "ci90": [
+     0.6498,
+     0.8097
+    ]
+   },
+   "stable": {
+    "rate": 0.6379
+   },
+   "searched": {
+    "n_fresh_questions": 399,
+    "n_searched": 375,
+    "searched_frac": 0.9398
+   },
+   "run_id": "20260716-230548-study1-frozen-qwen3-06b",
+   "pareto_frontier": true
+  },
+  {
+   "model_id": "qwen3-1.7b",
+   "display_name": "Qwen3-1.7B",
+   "alias": "qwen3-1.7b",
+   "class": "on-device",
+   "quant": "Q6_K",
+   "file_size_gb": 1.67,
+   "gate_pass": true,
+   "fresh": {
+    "n_facts": 80,
+    "n_variants": 399,
+    "rate": 0.7199,
+    "ci90": [
+     0.6365,
+     0.7987
+    ]
+   },
+   "stable": {
+    "rate": 0.8966
+   },
+   "searched": {
+    "n_fresh_questions": 399,
+    "n_searched": 369,
+    "searched_frac": 0.9248
+   },
+   "run_id": "20260716-231537-study1-frozen-qwen3-1.7b",
+   "pareto_frontier": false
+  }
+ ]
+}
