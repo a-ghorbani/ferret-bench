@@ -3,3 +3,11 @@
 __pycache__/
 .venv/
 cache/secrets*
+
+
+# heavy / regenerable / secret-risk — never commit (comments on own lines!)
+cache/
+runs/
+study-1/verification/receipts_pilot/
+.claude/
+.mcp.json

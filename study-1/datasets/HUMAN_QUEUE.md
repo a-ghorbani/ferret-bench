@@ -2,127 +2,946 @@
 
 Anchor 2026-07-14. Every item here is `needs_human` (or an ambiguous cluster). Splits contain only `admit` items; nothing here is in dev/holdout yet.
 
-Totals: 28 needs_human receipts + 0 ambiguous cluster pairs.
+Totals: 281 needs_human receipts + 2 ambiguous cluster pairs.
 
-## 1. Disputed / uncertain golds (6) — panel did not confirm our gold
+## 1. Disputed / uncertain golds (237) — panel did not confirm our gold
 The panel (with search) either agreed on a DIFFERENT answer (disputed) or split (uncertain). Decide: fix gold, or drop.
 
-- **fr2-news-02** (fresh, gold_disputed_panel_agrees_other)  our_gold='Evian-les-Bains, France'
-  - Q: Which town hosted the G7 summit in June 2026?
-  - panel: claude-sonnet-5='Évian-les-Bains, France' | gpt-5.6-sol='Évian-les-Bains, France'
-- **fr2-news-08** (fresh, gold_disputed_panel_agrees_other)  our_gold='Azerbaijan'
-  - Q: Which country's president was invited to the July 2026 NATO summit in Ankara but did not attend?
-  - panel: claude-sonnet-5='NObodyKNOWS' | gpt-5.6-sol='NObodyKNOWS'
-- **fr2-tech-08** (fresh, gold_disputed_panel_agrees_other)  our_gold='$91 billion'
-  - Q: When Nvidia reported earnings in May 2026, how much revenue did it forecast for the following quarter?
-  - panel: claude-sonnet-5='$78.0 billion' | gpt-5.6-sol='NObodyKNOWS'
-- **fr2-tech-14** (fresh, gold_uncertain_panel_split)  our_gold="Salesforce's Fin acquisition"
-  - Q: Which deal was announced first in June 2026: Salesforce buying Fin, or SpaceX buying Cursor's maker?
-  - panel: claude-sonnet-5="Salesforce's acquisition of Fin was announced first. Salesfo" | gpt-5.6-sol='**Salesforce buying Fin was announced first**, on **June 15,'
-- **fr3-col-02** (fresh, gold_disputed_panel_agrees_other)  our_gold='Google Gemini'
-  - Q: whats siri actually running on now after the apple event
-  - panel: claude-sonnet-5='NObodyKNOWS' | gpt-5.6-sol='iOS 27 public beta'
-- **fr3-und-11** (fresh, gold_disputed_panel_agrees_other)  our_gold='macOS Golden Gate'
-  - Q: what's the new macos called?
-  - panel: claude-sonnet-5='macOS 26 Tahoe' | gpt-5.6-sol='macOS 26 Tahoe'
+- **g1f-business-01v1** (fresh, gold_uncertain_panel_split)  our_gold='Webster Financial'
+  - Q: What was the target of Santander's largest U.S. acquisition announced in June 2026?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='Webster Financial'
+- **g1f-business-08** (fresh, gold_disputed_panel_agrees_other)  our_gold='Minority investments, joint ventures, and partnerships'
+  - Q: What type of investment structures did PwC say were increasingly carrying capital instead of control-based acquisitions in mid-2026?
+  - panel: glm-5.2='minority investments, joint ventures, partnerships, and othe' | gpt-5.6-luna='minority investments, joint ventures, partnerships, and othe'
+- **g1f-business-08v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Minority investments, joint ventures, and partnerships'
+  - Q: What non-control deal structures did PwC highlight in its 2026 mid-year M&A outlook?
+  - panel: glm-5.2='Joint venture structures' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-business-12** (fresh, gold_uncertain_panel_split)  our_gold='€8.3 billion'
+  - Q: What was the total investment in European startups during June 2026?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='€8.3 billion'
+- **g1f-business-13** (fresh, gold_disputed_panel_agrees_other)  our_gold='€279 million'
+  - Q: How much did Seedcamp raise in June 2026?
+  - panel: glm-5.2='$320 million' | gpt-5.6-luna='$320 million'
+- **g1f-business-13v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='€279 million'
+  - Q: What was the size of Seedcamp's June fundraise?
+  - panel: glm-5.2='$320 million' | gpt-5.6-luna='$320 million'
+- **g1f-business-14** (fresh, gold_disputed_panel_agrees_other)  our_gold='$5.8 billion'
+  - Q: What valuation did Alan reach after its latest funding round in June 2026?
+  - panel: glm-5.2='€5.5 billion' | gpt-5.6-luna='€5.5 billion'
+- **g1f-business-14v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='$5.8 billion'
+  - Q: What was Alan's post-funding valuation?
+  - panel: glm-5.2='$6,258.94M (or $6.3 billion)' | gpt-5.6-luna='€5.5 billion'
+- **g1f-business-15** (fresh, gold_disputed_panel_agrees_other)  our_gold='$116 million'
+  - Q: How much funding did Alan raise in June 2026?
+  - panel: glm-5.2='€480 million' | gpt-5.6-luna='€480 million'
+- **g1f-business-15v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='$116 million'
+  - Q: What was the amount of Alan's latest funding round?
+  - panel: glm-5.2='€480 million ($550 million)' | gpt-5.6-luna='€480 million'
+- **g1f-business-17** (fresh, gold_uncertain_panel_split)  our_gold='Goldman Sachs Alternatives'
+  - Q: Which company led Taktile's $110 million Series C round in June 2026?
+  - panel: glm-5.2='Goldman Sachs' | gpt-5.6-luna='Goldman Sachs Alternatives'
+- **g1f-business-17v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Goldman Sachs Alternatives'
+  - Q: Who led Taktile's Series C financing?
+  - panel: glm-5.2='Goldman Sachs' | gpt-5.6-luna='Goldman Sachs Growth Equity'
+- **g1f-business-19v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='55%'
+  - Q: What was the year-over-year drop in large fintech deals?
+  - panel: glm-5.2='8%' | gpt-5.6-luna='8%'
+- **g1f-business-20** (fresh, gold_disputed_panel_agrees_other)  our_gold='sunbay.io'
+  - Q: Which company raised €610,000 in a CEE funding round closed in June 2026?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-business-21** (fresh, gold_disputed_panel_agrees_other)  our_gold='July 30, 2026'
+  - Q: On what date did Apple announce that it would release its fiscal Q3 2026 results?
+  - panel: glm-5.2='July 2, 2026' | gpt-5.6-luna='July 2, 2026'
+- **g1f-business-26** (fresh, gold_disputed_panel_agrees_other)  our_gold='662,752 million dollars'
+  - Q: What was the seasonally adjusted U.S. retail sales value for May 2026 in millions of dollars?
+  - panel: glm-5.2='662,752' | gpt-5.6-luna='662,752'
+- **g1f-business-26v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='662,752 million dollars'
+  - Q: What May retail-sales level did FRED report?
+  - panel: glm-5.2='$763.7 billion' | gpt-5.6-luna='$763.7 billion'
+- **g1f-business-26v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='662,752 million dollars'
+  - Q: What was May 2026's advance retail-sales figure?
+  - panel: glm-5.2='$763.7 billion' | gpt-5.6-luna='$763.7 billion'
+- **g1f-business-27v2** (fresh, gold_uncertain_panel_split)  our_gold='€4.1 billion'
+  - Q: What amount was Google's record EU antitrust fine?
+  - panel: glm-5.2='€4.125 billion ($4.67 billion)' | gpt-5.6-luna='€4.1 billion'
+- **g1f-business-28** (fresh, gold_uncertain_panel_split)  our_gold='3.50% to 3.75%'
+  - Q: What federal funds target range was the Federal Reserve maintaining in June 2026?
+  - panel: glm-5.2='3-1/2 to 3-3/4 percent (3.50% to 3.75%)' | gpt-5.6-luna='3-1/2 to 3-3/4 percent'
+- **g1f-business-28v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='3.50% to 3.75%'
+  - Q: What benchmark interest-rate range was the Fed holding?
+  - panel: glm-5.2='3.50%-3.75%' | gpt-5.6-luna='3.50%–3.75%'
+- **g1f-business-28v2** (fresh, gold_uncertain_panel_split)  our_gold='3.50% to 3.75%'
+  - Q: What was the Fed's maintained federal funds target range as of June 2026?
+  - panel: glm-5.2='3-1/2 to 3-3/4 percent (3.50% to 3.75%)' | gpt-5.6-luna='3-1/2 to 3-3/4 percent'
+- **g1f-business-34** (fresh, gold_uncertain_panel_split)  our_gold='The remainder of 2026 on a proportionate basis'
+  - Q: What was the 2026 target period for China's agricultural purchases under the U.S.-China deal announced in May 2026?
+  - panel: glm-5.2='the remainder of the year (prorated)' | gpt-5.6-luna='The remainder of 2026 (prorated)'
+- **g1f-business-34v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='The remainder of 2026 on a proportionate basis'
+  - Q: For what portion of 2026 did the agricultural purchase target apply?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='50 percent of program funding'
+- **g1f-business-34v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='The remainder of 2026 on a proportionate basis'
+  - Q: How was the 2026 China purchase target calculated?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-business-35v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Generally balanced and positive results'
+  - Q: How did China's Commerce Ministry characterize the preliminary trade talks with the United States?
+  - panel: glm-5.2='Preliminary' | gpt-5.6-luna='Preliminary'
+- **g1f-business-35v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='Generally balanced and positive results'
+  - Q: What was China's assessment of the initial bilateral trade negotiations?
+  - panel: glm-5.2='a huge win for Beijing' | gpt-5.6-luna='A selective, gradual approach to trade liberalization'
+- **g1f-business-36** (fresh, gold_disputed_panel_agrees_other)  our_gold='Lynskey Performance Products'
+  - Q: Which company filed for Chapter 11 bankruptcy according to the June 20, 2026 retail report?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='Saks Global Enterprises'
+- **g1f-business-36v2** (fresh, gold_uncertain_panel_split)  our_gold='Lynskey Performance Products'
+  - Q: What sporting-goods company filed for Chapter 11?
+  - panel: glm-5.2='303 Boards, Gamma Sports, Sports Authority, Lynskey Performa' | gpt-5.6-luna='303 Boards'
+- **g1f-business-38v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Eddie Bauer'
+  - Q: Which apparel retailer sought Chapter 11 protection in July 2026?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='Liberated Brands'
+- **g1f-business-39v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Roughly 180'
+  - Q: About how many U.S. and Canadian stores were operated by Eddie Bauer's bankrupt operator?
+  - panel: glm-5.2='About 180' | gpt-5.6-luna='About 180'
+- **g1f-business-39v2** (fresh, gold_uncertain_panel_split)  our_gold='Roughly 180'
+  - Q: What was the approximate store count of the Eddie Bauer operator at its Chapter 11 filing?
+  - panel: glm-5.2='About 180' | gpt-5.6-luna='About 180 stores'
+- **g1f-business-41** (fresh, gold_uncertain_panel_split)  our_gold='Decreased by 2,000'
+  - Q: By how much did U.S. initial jobless claims change for the week ending July 4, 2026?
+  - panel: glm-5.2='Decrease of 2,000' | gpt-5.6-luna='Decreased by 2,000'
+- **g1f-business-41v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='Decreased by 2,000'
+  - Q: Were U.S. initial jobless claims higher or lower than the previous week, and by how much?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='Lower by 2,000.'
+- **g1f-business-42v1** (fresh, gold_uncertain_panel_split)  our_gold='Approximately $620 billion'
+  - Q: What was U.S. investment-grade corporate issuance in Q1 2026?
+  - panel: glm-5.2='Approximately $620 billion (or $721 billion according to ano' | gpt-5.6-luna='$721 billion'
+- **g1f-business-42v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='Approximately $620 billion'
+  - Q: About how much investment-grade corporate debt was issued in the first quarter?
+  - panel: glm-5.2='$721 billion' | gpt-5.6-luna='More than $531 billion'
+- **g1f-entertainment-02** (fresh, gold_disputed_panel_agrees_other)  our_gold='Laurie Metcalf'
+  - Q: Who won the Tony Award for Best Actress in a Play at the 79th Tony Awards?
+  - panel: glm-5.2='Lesley Manville' | gpt-5.6-luna='Lesley Manville'
+- **g1f-entertainment-02v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Laurie Metcalf'
+  - Q: Which actress won Best Lead Actress in a Play at the 2026 Tony Awards?
+  - panel: glm-5.2='Lesley Manville' | gpt-5.6-luna='Lesley Manville'
+- **g1f-entertainment-08** (fresh, gold_disputed_panel_agrees_other)  our_gold='For The Opponents'
+  - Q: Which film won the Short Film Palme d'Or at the 2026 Cannes Film Festival?
+  - panel: glm-5.2='The Opponents' | gpt-5.6-luna='The Opponents'
+- **g1f-entertainment-16** (fresh, gold_uncertain_panel_split)  our_gold='1h 55min'
+  - Q: What is the runtime of the 2026 live-action 'Moana' film?
+  - panel: glm-5.2='120 minutes' | gpt-5.6-luna='1h 55min'
+- **g1f-entertainment-16v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='1h 55min'
+  - Q: How long is the live-action Moana movie?
+  - panel: glm-5.2='One hour and 51 minutes (111 minutes)' | gpt-5.6-luna='1 hour and 51 minutes'
+- **g1f-entertainment-17v1** (fresh, gold_uncertain_panel_split)  our_gold='Bulgaria'
+  - Q: Who won Eurovision 2026?
+  - panel: glm-5.2='Dara' | gpt-5.6-luna='Dara from Bulgaria'
+- **g1f-entertainment-26v1** (fresh, gold_uncertain_panel_split)  our_gold='4-3 to Paris Saint-Germain'
+  - Q: How did PSG beat Arsenal in the 2026 Champions League final?
+  - panel: glm-5.2='On penalties, 4-3, after a 1-1 draw in extra time.' | gpt-5.6-luna='4–3 on penalties after a 1–1 draw.'
+- **g1f-entertainment-28** (fresh, gold_uncertain_panel_split)  our_gold='The Longest Five Days of Nonstop Play'
+  - Q: What is the theme of Tokyo Game Show 2026?
+  - panel: glm-5.2='Longest Five Days of Nonstop Play' | gpt-5.6-luna='The Longest Five Days of Nonstop Play'
+- **g1f-entertainment-28v1** (fresh, gold_uncertain_panel_split)  our_gold='The Longest Five Days of Nonstop Play'
+  - Q: What is the official theme for TGS 2026?
+  - panel: glm-5.2='The Longest Five Days of Nonstop Play' | gpt-5.6-luna='Longest Five Days of Nonstop Play'
+- **g1f-entertainment-29v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Kingdom Hearts IV'
+  - Q: What game got a new trailer at TGS 2026?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-entertainment-33v1** (fresh, gold_uncertain_panel_split)  our_gold='Insomniac Games'
+  - Q: Who is presenting the Marvel's Wolverine panel at SDCC 2026?
+  - panel: glm-5.2='Marcus Smith, Mike Daly, Walt Williams, Jess Reiner-Reed, Li' | gpt-5.6-luna='Insomniac Games’ team, led by Marcus Smith'
+- **g1f-entertainment-34v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Black Pass'
+  - Q: What is the premium business ticket for TGS 2026 called?
+  - panel: glm-5.2='Business Day Gold Pass' | gpt-5.6-luna='Business Day Gold Pass'
+- **g1f-geography-06** (fresh, gold_disputed_panel_agrees_other)  our_gold='Life-threatening flash floods'
+  - Q: What dangerous weather did forecasters warn Tropical Storm Arthur could produce along the northern Gulf Coast?
+  - panel: glm-5.2='Flash floods, urban flooding, rip currents, and tornadoes' | gpt-5.6-luna='Life-threatening surf and rip currents'
+- **g1f-geography-06v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Life-threatening flash floods'
+  - Q: What flooding threat accompanied Tropical Storm Arthur's approach?
+  - panel: glm-5.2='Flash flooding' | gpt-5.6-luna='Flash flooding'
+- **g1f-geography-09** (fresh, gold_disputed_panel_agrees_other)  our_gold='A large eye'
+  - Q: What atmospheric feature was visible in satellite images of Typhoon Jangmi?
+  - panel: glm-5.2='A giant eye (and swirling cloud bands)' | gpt-5.6-luna='A massive eye'
+- **g1f-geography-09v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='A large eye'
+  - Q: What prominent feature did nighttime satellite imagery show at the center of Jangmi?
+  - panel: glm-5.2='A giant eye' | gpt-5.6-luna='A giant eye'
+- **g1f-geography-10v1** (fresh, gold_uncertain_panel_split)  our_gold='Gexi Luori'
+  - Q: Who twice summited both Everest and Lhotse in one season?
+  - panel: glm-5.2='Gexi Luori and Satyadeep Gupta' | gpt-5.6-luna='Satyadeep Gupta'
+- **g1f-geography-11** (fresh, gold_disputed_panel_agrees_other)  our_gold='Volcanic eruptions'
+  - Q: Which natural-disaster phenomenon category was specifically listed among the 2026 disasters?
+  - panel: glm-5.2='Compound Climate Disasters' | gpt-5.6-luna='Flooding'
+- **g1f-geography-11v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Volcanic eruptions'
+  - Q: What geological disaster type appears in the 2026 natural-disasters listings?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='Earthquakes'
+- **g1f-geography-13v2** (fresh, gold_uncertain_panel_split)  our_gold='June 17, 2026'
+  - Q: What was the announcement date for Tropical Storm Arthur?
+  - panel: glm-5.2='June 17, 2026' | gpt-5.6-luna='June 14th'
+- **g1f-geography-15v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='11.18 million square kilometers'
+  - Q: How large was Arctic sea-ice extent in early June 2026?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-geography-17v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='55%'
+  - Q: How much did Arctic snow cover shrink in early June 2026?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-geography-18** (fresh, gold_disputed_panel_agrees_other)  our_gold='2023'
+  - Q: Since what year was the June 2026 Arctic snow-cover extent the lowest for June 15?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-geography-18v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='2023'
+  - Q: The June 15 Arctic snow-cover extent in 2026 was the lowest since which year?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-geography-18v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='2023'
+  - Q: What was the comparison year for the record-low June 15 snow cover reported in 2026?
+  - panel: glm-5.2='2025' | gpt-5.6-luna='2025'
+- **g1f-geography-19** (fresh, gold_uncertain_panel_split)  our_gold='Japan, the Philippines, and Nicaragua'
+  - Q: Which three countries were reported as being struck by earthquakes along the Pacific Ring of Fire on June 29, 2026?
+  - panel: glm-5.2='California, Venezuela and Japan' | gpt-5.6-luna='Japan, the Philippines and Nicaragua'
+- **g1f-geography-19v1** (fresh, gold_uncertain_panel_split)  our_gold='Japan, the Philippines, and Nicaragua'
+  - Q: Which countries experienced the reported Ring of Fire earthquakes?
+  - panel: glm-5.2='China, the United States, Peru, Venezuela, Japan, the Philip' | gpt-5.6-luna='China, the United States, Peru, Venezuela, and Japan'
+- **g1f-geography-19v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='Japan, the Philippines, and Nicaragua'
+  - Q: Where did the Pacific Ring of Fire earthquakes occur in the June 29, 2026 report?
+  - panel: glm-5.2='' | gpt-5.6-luna='Japan, the Philippines, Papua New Guinea, California, and So'
+- **g1f-geography-20** (fresh, gold_disputed_panel_agrees_other)  our_gold='6.5'
+  - Q: What magnitude earthquake was highlighted in the June 29, 2026 report about Pacific Ring of Fire activity?
+  - panel: glm-5.2='Magnitude 5.5' | gpt-5.6-luna='5.5 magnitude'
+- **g1f-geography-20v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='6.5'
+  - Q: How strong was the earthquake mentioned in the Ring of Fire report?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='Magnitude 5.8'
+- **g1f-geography-20v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='6.5'
+  - Q: What was the reported magnitude of the June 29, 2026 Ring of Fire earthquake?
+  - panel: glm-5.2='5.5' | gpt-5.6-luna='5.5 magnitude'
+- **g1f-geography-21v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='June 25, 2026'
+  - Q: What date did the Reuters Connect earthquake infographic carry?
+  - panel: glm-5.2='Jun 10, 2026' | gpt-5.6-luna='Jun 11, 2026'
+- **g1f-geography-22** (fresh, gold_disputed_panel_agrees_other)  our_gold='37%'
+  - Q: By what percentage did Amazon deforestation decrease in 2025 according to satellite data?
+  - panel: glm-5.2='11%' | gpt-5.6-luna='11%'
+- **g1f-geography-22v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='37%'
+  - Q: How much did Amazon deforestation fall in the satellite data covering 2025?
+  - panel: glm-5.2='' | gpt-5.6-luna='11%'
+- **g1f-geography-23v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='2014'
+  - Q: What earlier year did the 2026 Amazon deforestation figure surpass as a low?
+  - panel: glm-5.2='2018' | gpt-5.6-luna='2018'
+- **g1f-geography-23v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='2014'
+  - Q: Amazon destruction in 2026 was described as the lowest since which year?
+  - panel: glm-5.2='2016' | gpt-5.6-luna='2018'
+- **g1f-geography-24v2** (fresh, gold_uncertain_panel_split)  our_gold='1,040 feet'
+  - Q: What projected elevation would match Lake Mead's record low?
+  - panel: glm-5.2='1,040 feet' | gpt-5.6-luna='1,040.58 feet above sea level'
+- **g1f-geography-25v2** (fresh, gold_uncertain_panel_split)  our_gold='June 1, 2026'
+  - Q: What was the date of the Saharan dust plume's documented Caribbean reach?
+  - panel: glm-5.2='July 11, 1994' | gpt-5.6-luna='1 June 2026'
+- **g1f-geography-26v1** (fresh, gold_uncertain_panel_split)  our_gold='15% of normal'
+  - Q: How far below normal was the forecasted April–July 2026 Colorado River flow?
+  - panel: glm-5.2='15% of normal (or 85% below normal)' | gpt-5.6-luna='85% below normal'
+- **g1f-news-01v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='more than 100'
+  - Q: What was the building collapse count from the twin earthquakes in Venezuela in June 2026?
+  - panel: glm-5.2='189' | gpt-5.6-luna='189 buildings'
+- **g1f-news-02** (fresh, gold_disputed_panel_agrees_other)  our_gold='over 500'
+  - Q: What was the death toll reported from the twin earthquakes in Venezuela as of June 26, 2026?
+  - panel: glm-5.2='At least 920 people' | gpt-5.6-luna='At least 920 people'
+- **g1f-news-02v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='over 500'
+  - Q: How many people were killed in the Venezuela earthquakes according to a June 26, 2026 report?
+  - panel: glm-5.2='' | gpt-5.6-luna='At least 920 people'
+- **g1f-news-05v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Bosnia and Herzegovina and Czechia'
+  - Q: In July 2026, which two nations secured World Cup spots via penalty shootouts?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='Morocco and Colombia'
+- **g1f-news-06** (fresh, gold_disputed_panel_agrees_other)  our_gold='Mexico 2, South Africa 0'
+  - Q: What was the final score of the Mexico vs South Africa match on June 11, 2026?
+  - panel: glm-5.2='2-0' | gpt-5.6-luna='2-0'
+- **g1f-news-06v1** (fresh, gold_uncertain_panel_split)  our_gold='Mexico 2, South Africa 0'
+  - Q: What was the result of the opening World Cup match between Mexico and South Africa?
+  - panel: glm-5.2='Mexico 2-0 South Africa' | gpt-5.6-luna='Mexico won 2–0.'
+- **g1f-news-10** (fresh, gold_disputed_panel_agrees_other)  our_gold='2026-06-25'
+  - Q: What was the date of the Supreme Court's decision in Landor v. Louisiana Department of Corrections and Public Safety?
+  - panel: glm-5.2='June 23, 2026' | gpt-5.6-luna='June 23, 2026'
+- **g1f-news-10v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='2026-06-25'
+  - Q: When did the Supreme Court rule in Landor v. Louisiana?
+  - panel: glm-5.2='June 23, 2026' | gpt-5.6-luna='June 23, 2026'
+- **g1f-news-13v1** (fresh, gold_uncertain_panel_split)  our_gold='Emmanuel Macron'
+  - Q: Who hosted the 2026 G7 summit in Évian?
+  - panel: glm-5.2='The President of the French Republic and Brigitte Macron' | gpt-5.6-luna='France'
+- **g1f-news-14** (fresh, gold_disputed_panel_agrees_other)  our_gold='2026-05-17 to 2026-05-20'
+  - Q: What was the date of the G7 summit in Évian, France?
+  - panel: glm-5.2='15 to 17 June 2026' | gpt-5.6-luna='15–17 June 2026'
+- **g1f-news-14v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='2026-05-17 to 2026-05-20'
+  - Q: When did the 2026 G7 summit take place?
+  - panel: glm-5.2='15 to 17 June 2026' | gpt-5.6-luna='15–17 June 2026'
+- **g1f-news-17v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='3%'
+  - Q: What is the ECB's 2026 headline inflation forecast for the euro zone?
+  - panel: glm-5.2='2.6%' | gpt-5.6-luna='2.6%'
+- **g1f-news-19** (fresh, gold_uncertain_panel_split)  our_gold='more than 26,000 acres'
+  - Q: How many acres had wildfires torched in California by May 20, 2026?
+  - panel: glm-5.2='' | gpt-5.6-luna='More than 26,000 acres'
+- **g1f-news-21** (fresh, gold_disputed_panel_agrees_other)  our_gold='Ventura and Riverside counties'
+  - Q: Which three counties in Southern California had wildfires burning in May 2026 that triggered evacuation orders?
+  - panel: glm-5.2='Ventura, Riverside, and Santa Barbara counties' | gpt-5.6-luna='Ventura, Riverside, and Santa Barbara counties'
+- **g1f-news-21v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Ventura and Riverside counties'
+  - Q: Which California counties saw wildfire evacuations in May 2026?
+  - panel: glm-5.2='Ventura, Riverside, San Diego, and Santa Barbara counties' | gpt-5.6-luna='Ventura, Riverside, San Diego, and Santa Barbara counties'
+- **g1f-news-29** (fresh, gold_uncertain_panel_split)  our_gold='May 26, 2026'
+  - Q: On what date was the 2026 southwest monsoon expected to reach Kerala, according to the IMD?
+  - panel: glm-5.2='' | gpt-5.6-luna='May 26'
+- **g1f-news-29v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='May 26, 2026'
+  - Q: When was the 2026 southwest monsoon expected to arrive over Kerala?
+  - panel: glm-5.2='June 4, 2026' | gpt-5.6-luna='June 4, 2026'
+- **g1f-news-29v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='May 26, 2026'
+  - Q: What date did the IMD give for the 2026 monsoon onset over Kerala?
+  - panel: glm-5.2='June 4, 2026' | gpt-5.6-luna='June 4, 2026'
+- **g1f-news-35v1** (fresh, gold_uncertain_panel_split)  our_gold='Fjord'
+  - Q: What movie won the top prize at Cannes this year?
+  - panel: glm-5.2='' | gpt-5.6-luna='Fjord'
+- **g1f-news-38** (fresh, gold_disputed_panel_agrees_other)  our_gold='2026-07-06'
+  - Q: On what date did OPEC+ hold a virtual meeting in July 2026 to expand monthly oil production?
+  - panel: glm-5.2='5 July 2026' | gpt-5.6-luna='5 July 2026'
+- **g1f-news-38v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='2026-07-06'
+  - Q: When did OPEC+ meet in July to discuss increasing output?
+  - panel: glm-5.2='July 5' | gpt-5.6-luna='July 5, 2026'
+- **g1f-news-40** (fresh, gold_uncertain_panel_split)  our_gold='Siri AI'
+  - Q: What major new feature did Apple announce for Siri at WWDC 2026?
+  - panel: glm-5.2='A rich conversational experience in Spotlight' | gpt-5.6-luna='Siri AI with personal context and app actions'
+- **g1f-news-42** (fresh, gold_disputed_panel_agrees_other)  our_gold='eight'
+  - Q: How many OPEC+ members participated in the virtual meeting on July 6, 2026?
+  - panel: glm-5.2='Seven' | gpt-5.6-luna='Seven'
+- **g1f-news-43v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='video apps'
+  - Q: What type of third-party apps did Apple add to CarPlay in iOS 27?
+  - panel: glm-5.2='Video streaming apps and navigation apps' | gpt-5.6-luna='Video streaming apps'
+- **g1f-news-44** (fresh, gold_uncertain_panel_split)  our_gold='70%'
+  - Q: What is the estimated probability of an M7-class earthquake directly beneath Tokyo in 2026?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='70% within 30 years'
+- **g1f-news-44v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='70%'
+  - Q: What is the chance of a major earthquake hitting Tokyo directly in 2026?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-news-47** (fresh, gold_disputed_panel_agrees_other)  our_gold='From ~$67K to $59,100'
+  - Q: How much did Bitcoin drop from and to in the 48-hour period of June 4-6, 2026?
+  - panel: glm-5.2='From roughly $67,000 to $59,100' | gpt-5.6-luna='Roughly $67,000 to $59,100'
+- **g1f-news-47v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='From ~$67K to $59,100'
+  - Q: What was the price range of Bitcoin during the 48-hour liquidation cascade in early June 2026?
+  - panel: glm-5.2='~$67,000 to $59,100' | gpt-5.6-luna='~$67,000 to $59,100'
+- **g1f-news-48v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='U.S.-Iran conflict fueling inflation and suppressing rate-cut expectations'
+  - Q: What geopolitical event was cited as a key cause of the June 2026 crypto crash?
+  - panel: glm-5.2='US-Iran strikes' | gpt-5.6-luna='US-Iran strikes'
+- **g1f-news-52** (fresh, gold_disputed_panel_agrees_other)  our_gold='August 2026'
+  - Q: In which month of 2026 did the FAA expect the Boeing 737 MAX 7 to be certified, according to FAA Administrator Bryan Bedford?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='Summer'
+- **g1f-news-52v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='August 2026'
+  - Q: When did the FAA target certification for the Boeing 737 MAX 7?
+  - panel: glm-5.2='Summer 2026' | gpt-5.6-luna='This summer'
+- **g1f-news-53v1** (fresh, gold_uncertain_panel_split)  our_gold='Rory McIlroy'
+  - Q: Who is the two-time Masters winner returning to the 2026 Australian Open?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='Rory McIlroy'
+- **g1f-news-55** (fresh, gold_uncertain_panel_split)  our_gold='July 6-9, 2026'
+  - Q: On what date did Paris Haute Couture A/W 2026-2027 take place?
+  - panel: glm-5.2='July 6-9, 2026' | gpt-5.6-luna='July 6–9, 2026'
+- **g1f-news-55v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='July 6-9, 2026'
+  - Q: When was Paris Haute Couture Week for autumn/winter 2026-2027 held?
+  - panel: glm-5.2='July 6–9, 2026' | gpt-5.6-luna='July 6–9, 2026'
+- **g1f-news-57v1** (fresh, gold_uncertain_panel_split)  our_gold='below-normal'
+  - Q: How did NOAA describe the expected 2026 Atlantic hurricane season activity?
+  - panel: glm-5.2='Below-normal' | gpt-5.6-luna='Below-average, with 8 to 14 named storms.'
+- **g1f-news-58v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='June 30, 2026'
+  - Q: When was the 2026 Australian Open golf tournament held?
+  - panel: glm-5.2='December 3 to December 6, 2026' | gpt-5.6-luna='December 3–6, 2026'
+- **g1f-news-60** (fresh, gold_uncertain_panel_split)  our_gold='before year-end 2026'
+  - Q: What was the target month for Boeing 737 MAX 10 certification, according to the FAA chief in May 2026?
+  - panel: glm-5.2='Before year-end 2026' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-news-60v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='before year-end 2026'
+  - Q: When did the FAA expect the Boeing 737 MAX 10 to be approved?
+  - panel: glm-5.2='Before the end of the year (2026)' | gpt-5.6-luna='Before the end of the year'
+- **g1f-other-06** (fresh, gold_disputed_panel_agrees_other)  our_gold='10'
+  - Q: How many California condor chicks did the Los Angeles Zoo hatch in a recent milestone?
+  - panel: glm-5.2='17' | gpt-5.6-luna='17 chicks'
+- **g1f-other-06v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='10'
+  - Q: How many condor chicks were hatched by the LA Zoo in a recent conservation success?
+  - panel: glm-5.2='17' | gpt-5.6-luna='17'
+- **g1f-other-07** (fresh, gold_disputed_panel_agrees_other)  our_gold='240'
+  - Q: What was the global wild population of California condors approaching in 2015?
+  - panel: glm-5.2='268' | gpt-5.6-luna='268 birds'
+- **g1f-other-07v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='240'
+  - Q: What was the global wild condor population approaching in 2015?
+  - panel: glm-5.2='268' | gpt-5.6-luna='268 birds'
+- **g1f-other-08** (fresh, gold_disputed_panel_agrees_other)  our_gold='70'
+  - Q: What was the central coast population of California condors in 2015?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-other-08v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='70'
+  - Q: How many condors were in the central coast population in 2015?
+  - panel: glm-5.2='61 birds' | gpt-5.6-luna='61 birds'
+- **g1f-other-09** (fresh, gold_uncertain_panel_split)  our_gold='Wanna Decryptor'
+  - Q: What was the name of the ransomware that appeared on NHS hospital computers on May 5, 2017?
+  - panel: glm-5.2='WannaCry' | gpt-5.6-luna='Wana Decryptor'
+- **g1f-other-11** (fresh, gold_disputed_panel_agrees_other)  our_gold='45.1°C (113.2°F) at Andújar, Spain'
+  - Q: What was the highest temperature recorded during the 2026 European heatwave, and where was it measured?
+  - panel: glm-5.2='45.1°C at Andújar in southern Spain' | gpt-5.6-luna='45.1°C at Andújar, southern Spain'
+- **g1f-other-11v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='45.1°C (113.2°F) at Andújar, Spain'
+  - Q: On June 22, 2026, what peak temperature was recorded in Andújar, Spain during the European heatwave?
+  - panel: glm-5.2='45.1 °C (113.2 °F)' | gpt-5.6-luna='45.1°C'
+- **g1f-other-11v2** (fresh, gold_uncertain_panel_split)  our_gold='45.1°C (113.2°F) at Andújar, Spain'
+  - Q: What was the single highest reading of the 2026 European heatwave, and in which Spanish town was it measured?
+  - panel: glm-5.2='45.1°C in Andújar' | gpt-5.6-luna='45.1°C at Andújar, Spain'
+- **g1f-other-12** (fresh, gold_uncertain_panel_split)  our_gold='An oil tanker breakdown'
+  - Q: What caused a brief disruption to Suez Canal traffic in June 2026?
+  - panel: glm-5.2='An oil tanker breakdown' | gpt-5.6-luna='An oil tanker’s mechanical breakdown'
+- **g1f-other-12v1** (fresh, gold_uncertain_panel_split)  our_gold='An oil tanker breakdown'
+  - Q: What briefly disrupted Suez Canal traffic in mid-2026?
+  - panel: glm-5.2='An oil tanker breakdown' | gpt-5.6-luna='an oil tanker broke down'
+- **g1f-other-13** (fresh, gold_disputed_panel_agrees_other)  our_gold='13 MW floating solar plant on the Oued Rmel Dam reservoir'
+  - Q: What is the name of the largest floating solar plant in Africa that began operations in Morocco in July 2026?
+  - panel: glm-5.2='Oued Rmel floating solar plant' | gpt-5.6-luna='Oued Rmel floating solar plant'
+- **g1f-other-13v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='13 MW floating solar plant on the Oued Rmel Dam reservoir'
+  - Q: Which floating solar plant became Africa's largest when it began operations in Morocco in July 2026?
+  - panel: glm-5.2='Oued Rmel' | gpt-5.6-luna='Oued Rmel floating solar plant'
+- **g1f-other-16** (fresh, gold_uncertain_panel_split)  our_gold='Transit surcharges'
+  - Q: What surcharge did the Suez Canal Authority confirm would increase from mid-July 2026 for most vessel classes?
+  - panel: glm-5.2='Transit surcharges' | gpt-5.6-luna='12 percentage points'
+- **g1f-other-17v1** (fresh, gold_uncertain_panel_split)  our_gold='Clade 1b'
+  - Q: Which mpox variant caused the 2023–2026 epidemic in Central Africa?
+  - panel: glm-5.2='clade 1b' | gpt-5.6-luna='Clade Ib'
+- **g1f-politics-02v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Forging New Partnerships and Rebuilding International Solidarity'
+  - Q: What was the name of the G7 working session on June 16, 2026, that included Brazil, Egypt, India, Kenya, and South Korea?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-politics-06** (fresh, gold_disputed_panel_agrees_other)  our_gold='16-17 June 2026'
+  - Q: What was the date of the 2026 G7 Leaders' Summit in Evian, France?
+  - panel: glm-5.2='15 to 17 June 2026' | gpt-5.6-luna='June 15–17, 2026'
+- **g1f-politics-06v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='16-17 June 2026'
+  - Q: When did the 2026 G7 summit take place?
+  - panel: glm-5.2='15 to 17 June 2026' | gpt-5.6-luna='15–17 June 2026'
+- **g1f-politics-08** (fresh, gold_disputed_panel_agrees_other)  our_gold='July 10, 2026'
+  - Q: What was the date of the Federal Reserve's Monetary Policy Report to Congress in July 2026?
+  - panel: glm-5.2='July 14-15, 2026' | gpt-5.6-luna='July 2026'
+- **g1f-politics-10** (fresh, gold_disputed_panel_agrees_other)  our_gold='July 2, 2026'
+  - Q: What was the date of the pro forma session of the U.S. House of Representatives in July 2026 during which no legislative votes were conducted?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-politics-10v1** (fresh, gold_uncertain_panel_split)  our_gold='July 2, 2026'
+  - Q: On which day in July 2026 did the House hold a pro forma session with no votes?
+  - panel: glm-5.2='' | gpt-5.6-luna='July 2, 2026'
+- **g1f-politics-15v1** (fresh, gold_uncertain_panel_split)  our_gold='June 2026'
+  - Q: When was the informal EU summit on migration held in Brussels?
+  - panel: glm-5.2='23 September 2015' | gpt-5.6-luna='June 2026'
+- **g1f-politics-16v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Labour and the Conservatives'
+  - Q: Which two UK political parties saw a rise in June 2026 polling?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='Reform UK and the Conservatives'
+- **g1f-politics-20** (fresh, gold_disputed_panel_agrees_other)  our_gold='a bill for the creation of state police'
+  - Q: What did the Nigerian Senate pass on June 24, 2026, to address insecurity?
+  - panel: glm-5.2='A bill to allow the creation of state police' | gpt-5.6-luna='A bill to allow the creation of state police forces'
+- **g1f-politics-20v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='a bill for the creation of state police'
+  - Q: What major policing reform did Nigeria's Senate approve in June 2026?
+  - panel: glm-5.2='Allowing each state to create their own police forces (State' | gpt-5.6-luna='Allowing each state to create its own police force'
+- **g1f-politics-20v2** (fresh, gold_uncertain_panel_split)  our_gold='a bill for the creation of state police'
+  - Q: In June 2026, what bill did the Nigerian Senate pass to reshape the country's policing structure?
+  - panel: glm-5.2='State Police Bill (or the Constitution of the Federal Republ' | gpt-5.6-luna='The State Police Bill (Sixth Alteration) Bill, 2026'
+- **g1f-politics-22v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='a bill for the creation of state police'
+  - Q: What reform did Nigeria's Senate approve in June 2026 to tackle insecurity?
+  - panel: glm-5.2='Allowing the creation of state police forces' | gpt-5.6-luna='Allowing states to create their own police forces'
+- **g1f-politics-22v2** (fresh, gold_uncertain_panel_split)  our_gold='a bill for the creation of state police'
+  - Q: What did the Nigerian Senate pass on June 24, 2026?
+  - panel: glm-5.2='State Police Bill' | gpt-5.6-luna='A bill to establish state police in Nigeria'
+- **g1f-politics-24v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='the end of June 2026'
+  - Q: What was the deadline for the compensation period extension announced by OPEC+ in June 2026?
+  - panel: glm-5.2='End of December 2026' | gpt-5.6-luna='end of December 2026'
+- **g1f-politics-27** (fresh, gold_disputed_panel_agrees_other)  our_gold='July 4'
+  - Q: On what date in July 2026 did Chile's constitutional assembly deliver the finished draft of the proposed constitution to President Gabriel Boric?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-politics-35** (fresh, gold_disputed_panel_agrees_other)  our_gold='2026-06-04'
+  - Q: On what date in 2026 did Pakistan's parliament gather to vote on a no-confidence motion against Prime Minister Imran Khan?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-politics-35v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='2026-06-04'
+  - Q: When did the no-confidence vote against Imran Khan take place in Pakistan's parliament?
+  - panel: glm-5.2='April 10, 2022' | gpt-5.6-luna='April 10, 2022'
+- **g1f-science-02** (fresh, gold_disputed_panel_agrees_other)  our_gold='Swift rescue mission'
+  - Q: What was the name of the rescue mission launched on July 3, 2026 to save NASA's Neil Gehrels Swift Observatory?
+  - panel: glm-5.2='Swift Boost Mission' | gpt-5.6-luna='Swift Boost mission'
+- **g1f-science-02v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Swift rescue mission'
+  - Q: Which mission launched on July 3, 2026 to rescue the Swift Observatory?
+  - panel: glm-5.2='' | gpt-5.6-luna='LINK rescue spacecraft'
+- **g1f-science-04** (fresh, gold_disputed_panel_agrees_other)  our_gold='flibanserin'
+  - Q: What medication, according to a January 2026 report, can boost natural stem cells and address loss of sexual desire in premenopausal women?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='Bremelanotide (Vyleesi)'
+- **g1f-science-04v1** (fresh, gold_uncertain_panel_split)  our_gold='flibanserin'
+  - Q: Which drug was reported to boost natural stem cells and help with HSDD in premenopausal women?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='Addyi (flibanserin)'
+- **g1f-science-06** (fresh, gold_uncertain_panel_split)  our_gold='29'
+  - Q: How many Falcon 9 launches of Starlink satellites were scheduled for July 2026 from Cape Canaveral in one of the reports?
+  - panel: glm-5.2='29 Starlink satellites' | gpt-5.6-luna='2'
+- **g1f-science-07** (fresh, gold_disputed_panel_agrees_other)  our_gold='91st Soyuz 2.1a mission'
+  - Q: What was the mission number of the Soyuz 2.1a launch to the ISS scheduled as the 91st of its kind in July 2026?
+  - panel: glm-5.2='Soyuz MS-29' | gpt-5.6-luna='MS-29'
+- **g1f-science-07v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='91st Soyuz 2.1a mission'
+  - Q: Which Soyuz mission number was scheduled for July 2026 to the ISS?
+  - panel: glm-5.2='Soyuz MS-29' | gpt-5.6-luna='Soyuz MS-29'
+- **g1f-science-08** (fresh, gold_uncertain_panel_split)  our_gold='July 16, 2026'
+  - Q: What date is SpaceX targeting for the launch of Starship Flight 13?
+  - panel: glm-5.2='July 16' | gpt-5.6-luna='July 16, 2026'
+- **g1f-science-10** (fresh, gold_disputed_panel_agrees_other)  our_gold='2.6°'
+  - Q: What precision did the LHCb collaboration report for the CKM angle γ in July 2026?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-science-10v1** (fresh, gold_uncertain_panel_split)  our_gold='2.6°'
+  - Q: What is the improved determination of the CKM angle gamma reported by LHCb?
+  - panel: glm-5.2='2.6°' | gpt-5.6-luna='Precision better than 3°'
+- **g1f-science-11** (fresh, gold_uncertain_panel_split)  our_gold='ASACUSA'
+  - Q: Which experiment at CERN reported a new precision measurement of the mass of the antiproton relative to the electron in 2026?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='ASACUSA experiment'
+- **g1f-science-11v1** (fresh, gold_uncertain_panel_split)  our_gold='ASACUSA'
+  - Q: Which CERN experiment measured the antiproton mass relative to the electron in 2026?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='ASACUSA experiment'
+- **g1f-science-14v1** (fresh, gold_uncertain_panel_split)  our_gold='new Starlink satellites'
+  - Q: What payload will Starship Flight 13 test in orbit?
+  - panel: glm-5.2='20 Starlink V3 satellites' | gpt-5.6-luna='20 Starlink satellites'
+- **g1f-science-15** (fresh, gold_uncertain_panel_split)  our_gold='strange particle behavior'
+  - Q: What did scientists at CERN's Large Hadron Collider detect that could rewrite physics?
+  - panel: glm-5.2='Strange particle behavior (penguin decays)' | gpt-5.6-luna='Penguin decays'
+- **g1f-science-15v1** (fresh, gold_uncertain_panel_split)  our_gold='strange particle behavior'
+  - Q: What did the Large Hadron Collider detect in May 2026 that hints at new physics?
+  - panel: glm-5.2='Strange particle behavior in rare "penguin decays" (or rare ' | gpt-5.6-luna='Penguin decays of B mesons'
+- **g1f-science-20** (fresh, gold_disputed_panel_agrees_other)  our_gold='2030'
+  - Q: In what year is the Large Hadron Collider expected to restart after Long Shutdown 3?
+  - panel: glm-5.2='2028' | gpt-5.6-luna='2028'
+- **g1f-science-22** (fresh, gold_disputed_panel_agrees_other)  our_gold='AlphaFold2'
+  - Q: What is the name of the AI model developed by DeepMind that achieved over 90% accuracy in predicting 3D protein structures?
+  - panel: glm-5.2='AlphaFold' | gpt-5.6-luna='AlphaFold'
+- **g1f-science-22v1** (fresh, gold_uncertain_panel_split)  our_gold='AlphaFold2'
+  - Q: Which DeepMind AI model was over 90% accurate at predicting protein structures?
+  - panel: glm-5.2='' | gpt-5.6-luna='AlphaFold2'
+- **g1f-science-24** (fresh, gold_disputed_panel_agrees_other)  our_gold='2026-05-25'
+  - Q: What was the launch date of China's Shenzhou 23 spacecraft?
+  - panel: glm-5.2='May 24, 2026' | gpt-5.6-luna='May 24, 2026'
+- **g1f-science-24v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='2026-05-25'
+  - Q: When did Shenzhou 23 launch?
+  - panel: glm-5.2='May 24, 2026' | gpt-5.6-luna='May 24, 2026'
+- **g1f-science-25** (fresh, gold_uncertain_panel_split)  our_gold='Zhu Yangzhu, Zhang Zhiyuan, and Li Jiaying'
+  - Q: What are the names of the three taikonauts on the Shenzhou 23 mission?
+  - panel: glm-5.2='Zhu Yangzhu, Zhang Zhiyuan, and Li Jiaying' | gpt-5.6-luna='Zhu Yangzhu, Li Jiaying, and Zhang Zhiyuan'
+- **g1f-science-28** (fresh, gold_uncertain_panel_split)  our_gold='1,295 square kilometers'
+  - Q: How many square kilometers of forest were cleared in the Brazilian Amazon from January to June 2026?
+  - panel: glm-5.2='1,295' | gpt-5.6-luna='1,295 square kilometers'
+- **g1f-science-29** (fresh, gold_disputed_panel_agrees_other)  our_gold='37%'
+  - Q: What was the deforestation decrease percentage in the Amazon rainforest in 2025, according to satellite data reported in July 2026?
+  - panel: glm-5.2='' | gpt-5.6-luna='38%'
+- **g1f-science-30v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='37% decrease'
+  - Q: What percentage drop in Amazon deforestation was recorded in 2025, the lowest in over a decade?
+  - panel: glm-5.2='11.08%' | gpt-5.6-luna='11.08%'
+- **g1f-science-32v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='37%'
+  - Q: By how much did Amazon deforestation drop in 2025?
+  - panel: glm-5.2='68%' | gpt-5.6-luna='68%'
+- **g1f-sports-02** (fresh, gold_disputed_panel_agrees_other)  our_gold='five'
+  - Q: In how many games did the New York Knicks defeat the San Antonio Spurs in the 2026 NBA Finals?
+  - panel: glm-5.2='4' | gpt-5.6-luna='4 games'
+- **g1f-sports-02v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='five'
+  - Q: What was the series result of the 2026 NBA Finals?
+  - panel: glm-5.2='Knicks won the series 4-1' | gpt-5.6-luna='Knicks won 4–1'
+- **g1f-sports-07v1** (fresh, gold_uncertain_panel_split)  our_gold='six games'
+  - Q: In how many games did the Hurricanes win the 2026 Stanley Cup?
+  - panel: glm-5.2='6' | gpt-5.6-luna='4 games'
+- **g1f-sports-18** (fresh, gold_uncertain_panel_split)  our_gold='29 June to 12 July'
+  - Q: What is the date range for main-draw action at Wimbledon 2026?
+  - panel: glm-5.2='29 June to 12 July' | gpt-5.6-luna='29 June–12 July 2026'
+- **g1f-sports-19** (fresh, gold_uncertain_panel_split)  our_gold='June 12, 2026'
+  - Q: When does the 2026 Copa América start?
+  - panel: glm-5.2='' | gpt-5.6-luna='June 12, 2026'
+- **g1f-sports-19v1** (fresh, gold_uncertain_panel_split)  our_gold='June 12, 2026'
+  - Q: What is the start date of the 2026 Copa América?
+  - panel: glm-5.2='' | gpt-5.6-luna='June 12, 2026'
+- **g1f-sports-20v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Slazenger Wimbledon (Type 2)'
+  - Q: Which brand of tennis ball is used at the 2026 Wimbledon Junior Championships?
+  - panel: glm-5.2='Slazenger' | gpt-5.6-luna='Slazenger'
+- **g1f-sports-22** (fresh, gold_disputed_panel_agrees_other)  our_gold='June 4, 2026'
+  - Q: What was the date of Game 1 of the 2026 Stanley Cup Final?
+  - panel: glm-5.2='June 2, 2026' | gpt-5.6-luna='June 2, 2026'
+- **g1f-sports-22v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='June 4, 2026'
+  - Q: When did the 2026 Stanley Cup Final begin?
+  - panel: glm-5.2='June 2, 2026' | gpt-5.6-luna='Tuesday, June 2, 2026'
+- **g1f-sports-23** (fresh, gold_disputed_panel_agrees_other)  our_gold='May 24, 2026'
+  - Q: What was the date of the 2026 Monaco Grand Prix race?
+  - panel: glm-5.2='June 7, 2026' | gpt-5.6-luna='June 7, 2026'
+- **g1f-sports-23v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='May 24, 2026'
+  - Q: When was the 2026 Formula 1 Monaco Grand Prix held?
+  - panel: glm-5.2='June 7, 2026' | gpt-5.6-luna='7 June 2026'
+- **g1f-sports-23v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='May 24, 2026'
+  - Q: What date did the 2026 Monaco GP take place?
+  - panel: glm-5.2='June 7, 2026' | gpt-5.6-luna='7 June 2026'
+- **g1f-sports-27** (fresh, gold_disputed_panel_agrees_other)  our_gold='Vegas Golden Knights vs Carolina Hurricanes'
+  - Q: Which two teams played in the 2026 Stanley Cup Final?
+  - panel: glm-5.2='Carolina Hurricanes and Vegas Golden Knights' | gpt-5.6-luna='Carolina Hurricanes and Vegas Golden Knights'
+- **g1f-sports-27v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='Vegas Golden Knights vs Carolina Hurricanes'
+  - Q: Name the two teams that competed for the 2026 NHL championship.
+  - panel: glm-5.2='Carolina Hurricanes and Vegas Golden Knights' | gpt-5.6-luna='Carolina Hurricanes and Vegas Golden Knights'
+- **g1f-sports-28** (fresh, gold_uncertain_panel_split)  our_gold='8 p.m. ET'
+  - Q: What was the start time (ET) for every game of the 2026 Stanley Cup Final?
+  - panel: glm-5.2='8 p.m. ET' | gpt-5.6-luna='8:00 p.m. ET for every game'
+- **g1f-sports-28v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='8 p.m. ET'
+  - Q: What was the scheduled puck drop time for the 2026 NHL Finals?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='5 p.m. PT'
+- **g1f-sports-34** (fresh, gold_disputed_panel_agrees_other)  our_gold='29-31 May 2026'
+  - Q: When did the 2026 MotoGP Italian Grand Prix take place?
+  - panel: glm-5.2='May 29–31, 2026' | gpt-5.6-luna='May 29–31, 2026'
+- **g1f-sports-34v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='29-31 May 2026'
+  - Q: On what dates was the 2026 Italian MotoGP held?
+  - panel: glm-5.2='May 29–31, 2026' | gpt-5.6-luna='29–31 May 2026'
+- **g1f-sports-42** (fresh, gold_disputed_panel_agrees_other)  our_gold='Bosnia, Czechia, Sweden and Türkiye'
+  - Q: Which four nations qualified for the 2026 FIFA World Cup through the UEFA qualifiers?
+  - panel: glm-5.2='Bosnia and Herzegovina, Czechia, Sweden, and Türkiye' | gpt-5.6-luna='Bosnia and Herzegovina, Czechia, Sweden, Türkiye'
+- **g1f-sports-42v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Bosnia, Czechia, Sweden and Türkiye'
+  - Q: Which teams qualified for the 2026 World Cup from UEFA?
+  - panel: glm-5.2='Austria, Belgium, Croatia, England, France, Germany, Netherl' | gpt-5.6-luna='Austria, Belgium, Bosnia and Herzegovina, Croatia, Czechia, '
+- **g1f-sports-42v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='Bosnia, Czechia, Sweden and Türkiye'
+  - Q: Name the four UEFA nations that secured a spot in the 2026 FIFA World Cup.
+  - panel: glm-5.2='Bosnia and Herzegovina, Czechia, Sweden, Türkiye' | gpt-5.6-luna='Bosnia and Herzegovina, Czechia, Sweden, Türkiye'
+- **g1f-tech-01** (fresh, gold_disputed_panel_agrees_other)  our_gold='Project Glasswing'
+  - Q: What project did Anthropic announce on June 3, 2026?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-tech-03** (fresh, gold_disputed_panel_agrees_other)  our_gold='1 p.m.'
+  - Q: At what time did Apple's WWDC 2026 keynote begin on June 8?
+  - panel: glm-5.2='10 a.m. PT' | gpt-5.6-luna='10 a.m. PT'
+- **g1f-tech-03v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='1 p.m.'
+  - Q: What was the announced start time for the WWDC26 keynote?
+  - panel: glm-5.2='10 a.m. PT' | gpt-5.6-luna='10 a.m. PT'
+- **g1f-tech-07v1** (fresh, gold_uncertain_panel_split)  our_gold='Muse Spark 1.1'
+  - Q: What was the numbered release of Meta's Muse Spark model in early July 2026?
+  - panel: glm-5.2='Muse Spark 1.1' | gpt-5.6-luna='1.1'
+- **g1f-tech-08** (fresh, gold_disputed_panel_agrees_other)  our_gold='Xperia 1 VIII'
+  - Q: What smartphone model was reported as arriving in June 2026 with the Snapdragon 8 Elite Gen 5?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-tech-09** (fresh, gold_disputed_panel_agrees_other)  our_gold='Locking a missing phone using biometrics'
+  - Q: What security feature did Google announce for missing phones in its June 2026 AI updates?
+  - panel: glm-5.2='The ability to lock a missing phone using your biometrics' | gpt-5.6-luna='Lock a missing phone using biometrics'
+- **g1f-tech-09v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Locking a missing phone using biometrics'
+  - Q: How could Pixel users secure a missing phone under Google's new security upgrade?
+  - panel: glm-5.2='Remote Lock (via android.com/lock)' | gpt-5.6-luna='Use Remote Lock at android.com/lock with your verified phone'
+- **g1f-tech-10** (fresh, gold_uncertain_panel_split)  our_gold='June 8, 2026'
+  - Q: On what date did Apple hold its WWDC 2026 keynote?
+  - panel: glm-5.2='Monday, June 8' | gpt-5.6-luna='June 8, 2026'
+- **g1f-tech-12** (fresh, gold_uncertain_panel_split)  our_gold='May 19, 2026'
+  - Q: What date did Google I/O 2026 kick off?
+  - panel: glm-5.2='May 19' | gpt-5.6-luna='May 19, 2026'
+- **g1f-tech-15** (fresh, gold_uncertain_panel_split)  our_gold='Amazon'
+  - Q: Which company was named as a Google partner using the Universal Commerce Protocol at Google I/O 2026?
+  - panel: glm-5.2='Shopify, Etsy, Wayfair, Target, Walmart, Amazon, Nike, Sepho' | gpt-5.6-luna='Shopify'
+- **g1f-tech-15v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Amazon'
+  - Q: Which retailer was mentioned as a UCP partner in the Google I/O 2026 recap?
+  - panel: glm-5.2='Nike, Sephora, Target, Ulta, Walmart, Wayfair' | gpt-5.6-luna='Nike'
+- **g1f-tech-15v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='Amazon'
+  - Q: What company partnered with Google around the Universal Commerce Protocol?
+  - panel: glm-5.2='Salesforce, Shopify, and Target' | gpt-5.6-luna='Salesforce'
+- **g1f-tech-16** (fresh, gold_disputed_panel_agrees_other)  our_gold='Antigravity'
+  - Q: What was the name of Google's new agent mentioned in its list of Google I/O 2026 announcements?
+  - panel: glm-5.2='Gemini Spark' | gpt-5.6-luna='Gemini Spark'
+- **g1f-tech-16v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='Antigravity'
+  - Q: What was Google's new agent called?
+  - panel: glm-5.2='Remy (or Agent Smith)' | gpt-5.6-luna='Remy'
+- **g1f-tech-20** (fresh, gold_uncertain_panel_split)  our_gold='12:30 PM ET'
+  - Q: At what time was Satya Nadella's Microsoft Build 2026 keynote scheduled to begin in Eastern Time?
+  - panel: glm-5.2='12:30 PM ET' | gpt-5.6-luna='12:30 p.m. ET'
+- **g1f-tech-20v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='12:30 PM ET'
+  - Q: What was the Eastern Time start time for the Microsoft Build 2026 opening keynote?
+  - panel: glm-5.2='12:30PM ET' | gpt-5.6-luna='12:30 p.m. ET'
+- **g1f-tech-20v2** (fresh, gold_uncertain_panel_split)  our_gold='12:30 PM ET'
+  - Q: When did the Build 2026 keynote start in ET?
+  - panel: glm-5.2='June 2 at 12:30PM ET' | gpt-5.6-luna='12:30 PM ET'
+- **g1f-tech-22** (fresh, gold_uncertain_panel_split)  our_gold='June 23–26, 2026'
+  - Q: When did Amazon Prime Day 2026 take place?
+  - panel: glm-5.2='June 23 to 26, 2026' | gpt-5.6-luna='June 23–26, 2026'
+- **g1f-tech-22v1** (fresh, gold_uncertain_panel_split)  our_gold='June 23–26, 2026'
+  - Q: What were the dates of the 2026 Amazon Prime Day sale?
+  - panel: glm-5.2='June 23 to 26, 2026' | gpt-5.6-luna='June 23–26, 2026'
+- **g1f-tech-22v2** (fresh, gold_uncertain_panel_split)  our_gold='June 23–26, 2026'
+  - Q: When was Prime Day held in 2026?
+  - panel: glm-5.2='June 23 to 26, 2026' | gpt-5.6-luna='June 23–26, 2026'
+- **g1f-tech-23** (fresh, gold_disputed_panel_agrees_other)  our_gold='$16'
+  - Q: What price was highlighted for the Amazon Fire TV Stick during Prime Day 2026?
+  - panel: glm-5.2='$9.99' | gpt-5.6-luna='$9.99'
+- **g1f-tech-23v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='$16'
+  - Q: How much did the Amazon Fire TV Stick cost in the highlighted Prime Day 2026 deal?
+  - panel: glm-5.2='' | gpt-5.6-luna='$9.99'
+- **g1f-tech-23v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='$16'
+  - Q: What was the Fire TV Stick's featured Prime Day price?
+  - panel: glm-5.2='$9.99' | gpt-5.6-luna='$24.99'
+- **g1f-tech-24v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='39% off'
+  - Q: How large was the tablet discount in PCMag's Prime Day 2026 last-chance deal?
+  - panel: glm-5.2='38%' | gpt-5.6-luna='38% discount'
+- **g1f-tech-24v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='39% off'
+  - Q: What percentage discount was offered on the highlighted tablet?
+  - panel: glm-5.2='10%' | gpt-5.6-luna='10%'
+- **g1f-tech-25v2** (fresh, gold_uncertain_panel_split)  our_gold='$59,990'
+  - Q: What was the reported price of the base Cybertruck?
+  - panel: glm-5.2='$59,990, $61,000, $62,235, $69,990, $71,985, or $79,990' | gpt-5.6-luna='$61,000'
+- **g1f-tech-26v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='June 12, 2026'
+  - Q: What date did Tesla's first reported standard AWD Cybertruck handover take place?
+  - panel: glm-5.2='June 12' | gpt-5.6-luna='June 12'
+- **g1f-tech-28** (fresh, gold_disputed_panel_agrees_other)  our_gold='June 12, 2026'
+  - Q: On what date was Tesla's base Cybertruck delivery event announced in late May 2026?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-tech-28v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='June 12, 2026'
+  - Q: What date was set for Tesla's Cybertruck delivery event?
+  - panel: glm-5.2='November 30, 2023' | gpt-5.6-luna='November 30, 2023'
+- **g1f-tech-28v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='June 12, 2026'
+  - Q: When was the announced Cybertruck delivery event scheduled?
+  - panel: glm-5.2='November 30, 2023' | gpt-5.6-luna='November 30, 2023'
+- **g1f-tech-29v2** (fresh, gold_disputed_panel_agrees_other)  our_gold='June 21, 2026'
+  - Q: What date appeared on the Cybertruck delivery confirmation?
+  - panel: glm-5.2='June 12' | gpt-5.6-luna='June 12'
+- **g1f-tech-30** (fresh, gold_disputed_panel_agrees_other)  our_gold="Tesla's new factory in Austin, Texas"
+  - Q: Where did Elon Musk host the broadcasted Tesla Cybertruck delivery event?
+  - panel: glm-5.2='Austin, Texas' | gpt-5.6-luna='Austin, Texas'
+- **g1f-tech-30v1** (fresh, gold_disputed_panel_agrees_other)  our_gold="Tesla's new factory in Austin, Texas"
+  - Q: At what location was Elon Musk's Cybertruck delivery broadcast hosted?
+  - panel: glm-5.2='Austin, Texas' | gpt-5.6-luna='Austin, Texas'
+- **g1f-tech-30v2** (fresh, gold_disputed_panel_agrees_other)  our_gold="Tesla's new factory in Austin, Texas"
+  - Q: Where was the Tesla Cybertruck delivery event held?
+  - panel: glm-5.2='Austin, Texas' | gpt-5.6-luna='Gigafactory Texas in Austin, Texas'
+- **g1f-tech-32** (fresh, gold_disputed_panel_agrees_other)  our_gold='Biometric locking'
+  - Q: What security feature did Google announce for missing Pixel phones in June 2026?
+  - panel: glm-5.2='The ability to lock a missing phone using your biometrics' | gpt-5.6-luna='Lock a missing phone using biometrics'
+- **g1f-tech-32v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Biometric locking'
+  - Q: What biometric security upgrade did Google add for missing phones?
+  - panel: glm-5.2='Identity Check' | gpt-5.6-luna='Identity Check requiring biometric authentication outside tr'
+- **g1f-tech-34** (fresh, gold_uncertain_panel_split)  our_gold='Project Glasswing'
+  - Q: What was the name of Anthropic's initiative announced on June 3, 2026?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='Project Glasswing'
+- **g1f-tech-34v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Project Glasswing'
+  - Q: What did Anthropic call its June 2026 initiative?
+  - panel: glm-5.2='When AI builds itself' | gpt-5.6-luna='A global AI pause'
+- **g1f-tech-37v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='20 cores'
+  - Q: How many CPU cores were specified for NVIDIA and MediaTek's RTX Spark?
+  - panel: glm-5.2='20' | gpt-5.6-luna='20 CPU cores'
+- **g1f-tech-39v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Muse Video'
+  - Q: What was Meta's planned video-generation model called?
+  - panel: glm-5.2='' | gpt-5.6-luna='Movie Gen'
+- **g1f-tech-41** (fresh, gold_disputed_panel_agrees_other)  our_gold='Xperia 1 VIII'
+  - Q: What phone was reported to launch in June 2026 with the Snapdragon 8 Elite Gen 5?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-tech-43** (fresh, gold_disputed_panel_agrees_other)  our_gold='Pokémon smart sets'
+  - Q: What new LEGO product category was unveiled in June 2026?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1f-tech-43v1** (fresh, gold_disputed_panel_agrees_other)  our_gold='Pokémon smart sets'
+  - Q: What smart sets did LEGO unveil in June 2026?
+  - panel: glm-5.2='LEGO Pokémon SMART Play sets' | gpt-5.6-luna='LEGO Pokémon SMART Play sets'
+- **g1s-36** (stable, gold_uncertain_panel_split)  our_gold='6'
+  - Q: How many sides does a hexagon have?
+  - panel: glm-5.2='' | gpt-5.6-luna='6'
+- **g1s-44** (stable, gold_disputed_panel_agrees_other)  our_gold='Miso'
+  - Q: What is the main ingredient in traditional Japanese miso soup?
+  - panel: glm-5.2='Wakame' | gpt-5.6-luna='Soybeans'
 
-## 2. Recurring-event items needing valid_until (9)
+## 2. Recurring-event items needing valid_until (33)
 Gold is confirmed but the question is time-relative; sign a `valid_until` (proposed = event_date + ~358d).
 
-- **fr3-und-01**  gold='Paris Saint-Germain (beat Arsenal on penalties)'  proposed valid_until=2027-05-23
-  - Q: who won the champions league?
-- **fr3-und-02**  gold='New York Knicks'  proposed valid_until=2027-06-06
-  - Q: who won the nba finals?
-- **fr3-und-03**  gold='Carolina Hurricanes'  proposed valid_until=2027-06-07
-  - Q: who won the stanley cup?
-- **fr3-und-04**  gold='Alexander Zverev'  proposed valid_until=2027-05-31
-  - Q: who won the french open?
-- **fr3-und-05**  gold='Belgium, 4-1 in the round of 16'  proposed valid_until=2027-06-23
-  - Q: who knocked the usa out of the world cup?
-- **fr3-und-06**  gold='Charles Leclerc'  proposed valid_until=2027-06-28
-  - Q: who won the british grand prix?
-- **fr3-und-07**  gold='Wyndham Clark'  proposed valid_until=2027-06-14
-  - Q: who won the us open in golf?
-- **fr3-und-08**  gold='Toyota #7 (Conway, Kobayashi, de Vries)'  proposed valid_until=2027-06-07
-  - Q: who won le mans?
-- **fr3-und-18**  gold='Schmigadoon!'  proposed valid_until=2027-05-31
-  - Q: what won best musical at the tonys?
+- **g1f-entertainment-11v1**  gold='5'  proposed valid_until=2027-07-01
+  - Q: How many Emmy nominations did Taylor Swift's Eras Tour final concert film get?
+- **g1f-news-03v1**  gold='July 19, 2026'  proposed valid_until=2027-07-05
+  - Q: When is the 2026 FIFA World Cup final?
+- **g1f-news-05**  gold='Bosnia and Herzegovina and Czechia'  proposed valid_until=2027-06-29
+  - Q: Which two teams won shootouts to qualify for the 2026 FIFA World Cup?
+- **g1f-news-11v1**  gold='Korea Republic'  proposed valid_until=2027-06-04
+  - Q: Who beat Czechia 2-1 in the 2026 World Cup group stage?
+- **g1f-news-23**  gold='Jannik Sinner'  proposed valid_until=2027-07-05
+  - Q: Who won the men's singles title at Wimbledon in 2026?
+- **g1f-news-24**  gold='Linda Noskova'  proposed valid_until=2027-07-05
+  - Q: Who won the women's singles title at Wimbledon in 2026?
+- **g1f-news-25**  gold='1.9 million'  proposed valid_until=2027-07-05
+  - Q: How many viewers did the 2026 Wimbledon women's final average?
+- **g1f-news-33**  gold='48%'  proposed valid_until=2027-07-05
+  - Q: What was the percentage increase in viewership for the 2026 Wimbledon women's final compared to the previous year?
+- **g1f-news-34**  gold='down 16%'  proposed valid_until=2027-07-05
+  - Q: What was the percentage change in viewership for the 2026 Wimbledon men's final compared to the previous year?
+- **g1f-news-56v1**  gold='Kingston Heath Golf Club'  proposed valid_until=2027-06-02
+  - Q: Where was the 2026 Australian Open golf championship staged?
+- **g1f-sports-01v2**  gold='New York Knicks'  proposed valid_until=2027-06-06
+  - Q: Who won the NBA Finals?
+- **g1f-sports-03v2**  gold='Carolina Hurricanes'  proposed valid_until=2027-06-07
+  - Q: Who won the Stanley Cup?
+- **g1f-sports-05v1**  gold='Alexander Zverev'  proposed valid_until=2027-05-31
+  - Q: Who won the French Open men's singles?
+- **g1f-sports-07**  gold='six games'  proposed valid_until=2027-06-07
+  - Q: How many games did the 2026 Stanley Cup Final last?
+- **g1f-sports-08**  gold='Vegas Golden Knights'  proposed valid_until=2027-06-07
+  - Q: Which team did the Carolina Hurricanes defeat in the 2026 Stanley Cup Final?
+- **g1f-sports-09**  gold='Jalen Brunson'  proposed valid_until=2027-06-07
+  - Q: Who won the 2026 NBA Finals MVP award?
+- **g1f-sports-11**  gold='San Antonio Spurs'  proposed valid_until=2027-06-07
+  - Q: Which team did the New York Knicks defeat in the 2026 NBA Finals?
+- **g1f-sports-12**  gold='Budapest, Hungary'  proposed valid_until=2027-05-23
+  - Q: Where was the 2026 UEFA Champions League final held?
+- **g1f-sports-13**  gold='30 May 2026'  proposed valid_until=2027-05-23
+  - Q: On what date was the 2026 UEFA Champions League final played?
+- **g1f-sports-16**  gold='Venus Rosewater Dish'  proposed valid_until=2027-07-06
+  - Q: What is the name of the trophy awarded to the women's singles champion at Wimbledon?
+- **g1f-sports-16v1**  gold='Venus Rosewater Dish'  proposed valid_until=2027-07-06
+  - Q: What trophy does the women's singles winner at Wimbledon receive?
+- **g1f-sports-20**  gold='Slazenger Wimbledon (Type 2)'  proposed valid_until=2027-07-06
+  - Q: What is the official ball used at the 2026 Junior Championships, Wimbledon?
+- **g1f-sports-21**  gold='Jamie Baker'  proposed valid_until=2027-07-06
+  - Q: Who is the tournament director for the 2026 Junior Championships, Wimbledon?
+- **g1f-sports-29v1**  gold='Oklahoma'  proposed valid_until=2027-06-14
+  - Q: Which team won the 2026 Men's College World Series?
+- **g1f-sports-29v2**  gold='Oklahoma'  proposed valid_until=2027-06-14
+  - Q: Who beat North Carolina in the 2026 College World Series final?
+- **g1f-sports-30**  gold='North Carolina'  proposed valid_until=2027-06-14
+  - Q: Which team did Oklahoma beat in the 2026 Men's College World Series championship series?
+- **g1f-sports-30v1**  gold='North Carolina'  proposed valid_until=2027-06-14
+  - Q: Who was Oklahoma's opponent in the 2026 College World Series finals?
+- **g1f-sports-31**  gold='Marco Bezzecchi'  proposed valid_until=2027-05-24
+  - Q: Who won the 2026 MotoGP Italian Grand Prix?
+- **g1f-sports-31v2**  gold='Marco Bezzecchi'  proposed valid_until=2027-05-24
+  - Q: Who took victory at the 2026 Brembo Grand Prix of Italy?
+- **g1f-sports-32**  gold='Omaha, Nebraska'  proposed valid_until=2027-06-13
+  - Q: In which city was the 2026 Men's College World Series held?
+- **g1f-sports-32v1**  gold='Omaha, Nebraska'  proposed valid_until=2027-06-13
+  - Q: Where was the 2026 College World Series played?
+- **g1f-sports-33**  gold='Charles Schwab Field'  proposed valid_until=2027-06-13
+  - Q: What is the name of the stadium that hosted the 2026 Men's College World Series?
+- **g1f-sports-35**  gold='Mugello Circuit'  proposed valid_until=2027-05-24
+  - Q: Which circuit hosted the 2026 MotoGP Italian Grand Prix?
 
-## 3. Unanswerable items — sign the negative (13)
+## 3. Unanswerable items — sign the negative (11)
 Panel with search did not surface a specific answer. Human confirms the negative against the archived evidence URLs and the expires_on.
 
-- **un-fp-01**  (unanswerable_confirmed_awaiting_negative_signoff)
-  - Q: How much did OpenAI pay to acquire Perplexity AI, and when did the deal close?
+- **g1u-03**  (unanswerable_confirmed_awaiting_negative_signoff)
+  - Q: Which player did Manchester United sign from Real Madrid on 1 July 2026?
   - all_declined=True  src_urls=True  expires_ok=True (expires_on=2099-01-01)
-  - panel: claude-sonnet-5='NObodyKNOWS' | gpt-5.6-sol='NObodyKNOWS'
-- **un-fp-02**  (unanswerable_confirmed_awaiting_negative_signoff)
-  - Q: What price did Apple announce for the Vision Pro 3 headset it unveiled at the WWDC 2026 keynote?
+  - panel: glm-5.2='' | gpt-5.6-luna='NObodyKNOWS'
+- **g1u-04**  (unanswerable_confirmed_awaiting_negative_signoff)
+  - Q: What did Elon Musk say in his private DMs to Sam Altman on X after Apple filed the OpenAI lawsuit on July 13, 2026?
   - all_declined=True  src_urls=True  expires_ok=True (expires_on=2099-01-01)
-  - panel: claude-sonnet-5='NObodyKNOWS' | gpt-5.6-sol='NObodyKNOWS'
-- **un-fp-03**  (unanswerable_confirmed_awaiting_negative_signoff)
-  - Q: Who did Elon Musk name as his successor as Tesla CEO when he stepped down in 2026?
+  - panel: glm-5.2='' | gpt-5.6-luna='NObodyKNOWS'
+- **g1u-05**  (unanswerable_confirmed_awaiting_negative_signoff)
+  - Q: How many steps did the winner of the 2026 Boston Marathon take during the race?
   - all_declined=True  src_urls=True  expires_ok=True (expires_on=2099-01-01)
-  - panel: claude-sonnet-5='NObodyKNOWS' | gpt-5.6-sol='NObodyKNOWS'
-- **un-fp-04**  (unanswerable_confirmed_awaiting_negative_signoff)
-  - Q: Which city was selected to host the 2036 Summer Olympics at the IOC session in June 2026?
-  - all_declined=True  src_urls=True  expires_ok=True (expires_on=2029-01-01)
-  - panel: claude-sonnet-5='NObodyKNOWS' | gpt-5.6-sol='NObodyKNOWS'
-- **un-fp-05**  (unanswerable_confirmed_awaiting_negative_signoff)
-  - Q: How many seats did Reform UK win in the June 2026 UK general election?
-  - all_declined=True  src_urls=True  expires_ok=True (expires_on=2029-08-15)
-  - panel: claude-sonnet-5='NObodyKNOWS' | gpt-5.6-sol='NObodyKNOWS'
-- **un-ud-01**  (unanswerable_confirmed_awaiting_negative_signoff)
-  - Q: Who won the 2026 Nobel Peace Prize?
-  - all_declined=True  src_urls=True  expires_ok=True (expires_on=2026-10-09)
-  - panel: claude-sonnet-5='NObodyKNOWS' | gpt-5.6-sol='NObodyKNOWS'
-- **un-ud-02**  (unanswerable_confirmed_awaiting_negative_signoff)
-  - Q: Who won the 2026 Ballon d'Or?
-  - all_declined=True  src_urls=True  expires_ok=True (expires_on=2026-10-26)
-  - panel: claude-sonnet-5='NObodyKNOWS' | gpt-5.6-sol='NObodyKNOWS'
-- **un-ud-03**  (unanswerable_confirmed_awaiting_negative_signoff)
-  - Q: Which party won control of the US Senate in the 2026 midterm elections?
-  - all_declined=True  src_urls=True  expires_ok=True (expires_on=2026-11-03)
-  - panel: claude-sonnet-5='NObodyKNOWS' | gpt-5.6-sol='NObodyKNOWS'
-- **un-uf-01**  (unanswerable_confirmed_awaiting_negative_signoff)
-  - Q: What did Tim Cook eat for breakfast on the morning of Apple's WWDC 2026 keynote on June 8?
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1u-07**  (unanswerable_confirmed_awaiting_negative_signoff)
+  - Q: What was the exact valuation of Kling AI agreed upon by Alibaba and Tencent during their June 2026 investment round?
   - all_declined=True  src_urls=True  expires_ok=True (expires_on=2099-01-01)
-  - panel: claude-sonnet-5='NObodyKNOWS' | gpt-5.6-sol='NObodyKNOWS'
-- **un-uf-02**  (unanswerable_confirmed_awaiting_negative_signoff)
-  - Q: Exactly how many parameters does OpenAI's GPT-5 have?
+  - panel: glm-5.2='' | gpt-5.6-luna=''
+- **g1u-08**  (unanswerable_confirmed_awaiting_negative_signoff)
+  - Q: Which specific Intel fabrication plant will produce Alphabet's custom in-house processors?
   - all_declined=True  src_urls=True  expires_ok=True (expires_on=2099-01-01)
-  - panel: claude-sonnet-5='NObodyKNOWS' | gpt-5.6-sol='NObodyKNOWS'
-- **un-uf-03**  (unanswerable_confirmed_awaiting_negative_signoff)
-  - Q: How many paying Claude subscribers did Anthropic have on 1 July 2026?
+  - panel: glm-5.2='' | gpt-5.6-luna='NObodyKNOWS'
+- **g1u-09**  (unanswerable_confirmed_awaiting_negative_signoff)
+  - Q: What was the exact number of votes cast against the Farm Supply Company merger that was approved with over 90% shareholder support?
   - all_declined=True  src_urls=True  expires_ok=True (expires_on=2099-01-01)
-  - panel: claude-sonnet-5='NObodyKNOWS' | gpt-5.6-sol='NObodyKNOWS'
-- **un-uf-04**  (unanswerable_confirmed_awaiting_negative_signoff)
-  - Q: How many strides did John Korir take over the full course while winning the 2026 Boston Marathon?
+  - panel: glm-5.2='' | gpt-5.6-luna='NObodyKNOWS'
+- **g1u-10**  (unanswerable_confirmed_awaiting_negative_signoff)
+  - Q: Which specific day in June 2026 did the Munich court issue its ruling on Google AI Overviews?
   - all_declined=True  src_urls=True  expires_ok=True (expires_on=2099-01-01)
-  - panel: claude-sonnet-5='NObodyKNOWS' | gpt-5.6-sol='NObodyKNOWS'
-- **un-uf-05**  (unanswerable_confirmed_awaiting_negative_signoff)
-  - Q: What exactly did Mexico's head coach say to his players in the dressing room at half-time of the World Cup opening match against South Africa?
+  - panel: glm-5.2='' | gpt-5.6-luna=''
+- **g1u-11**  (unanswerable_confirmed_awaiting_negative_signoff)
+  - Q: What was the exact percentage of Alphabet's custom processor order that Intel will manufacture versus other foundries?
   - all_declined=True  src_urls=True  expires_ok=True (expires_on=2099-01-01)
-  - panel: claude-sonnet-5='NObodyKNOWS' | gpt-5.6-sol='NObodyKNOWS'
+  - panel: glm-5.2='NObodyKNOWS' | gpt-5.6-luna='NObodyKNOWS'
+- **g1u-12**  (unanswerable_confirmed_awaiting_negative_signoff)
+  - Q: Which specific clause in the Apple lawsuit against OpenAI did the judge cite when allowing the case to proceed?
+  - all_declined=True  src_urls=True  expires_ok=True (expires_on=2099-01-01)
+  - panel: glm-5.2='' | gpt-5.6-luna='NObodyKNOWS'
+- **g1u-15**  (unanswerable_confirmed_awaiting_negative_signoff)
+  - Q: What was the exact amount of Eli Lilly's final offer to acquire Abivax in 2026?
+  - all_declined=True  src_urls=True  expires_ok=True (expires_on=2099-01-01)
+  - panel: glm-5.2='' | gpt-5.6-luna='NObodyKNOWS'
+- **g1u-16**  (unanswerable_confirmed_awaiting_negative_signoff)
+  - Q: What did Tim Cook tell the Apple board privately before the June 2026 OpenAI lawsuit was filed?
+  - all_declined=True  src_urls=True  expires_ok=True (expires_on=2099-01-01)
+  - panel: glm-5.2='' | gpt-5.6-luna='NObodyKNOWS'
 
-## 4. Ambiguous fact clusters (0 near-threshold pairs)
+## 4. Ambiguous fact clusters (2 near-threshold pairs)
 Question similarity in [0.80, 0.85): possibly the same fact. Human decides whether to merge fact_ids (matters for holdout leakage).
 
+- g1f-news-04  ~0.811~  g1f-news-08v1
+- g1s-08  ~0.815~  g1s-33
 
-## 5. Multi-item fact clusters to confirm (15)
+## 5. Multi-item fact clusters to confirm (99)
 These admitted items were auto-merged into one fact_id (shared source URL / identical gold / Q-sim>0.85). Confirm they are truly variants (holdout is split by fact_id).
 
-- fact_001: fr2-news-01, fr2-news-03, fr2-news-10, fr2-news-13, fr2-news-15, fr3-col-12
-- fact_002: fr2-news-04, fr2-news-12, fr2-news-14, fr2-news-17
-- fact_009: fr2-sport-01, fr2-sport-08, fr2-sport-10, fr2-sport-12, fr2-sport-14, fr2-sport-17, fr3-col-08
-- fact_010: fr2-sport-02, fr2-sport-13, fr2-sport-16, fr3-col-06
-- fact_011: fr2-sport-03, fr2-sport-04, fr3-col-09
-- fact_012: fr2-sport-05, fr2-sport-18
-- fact_014: fr2-sport-07, fr2-sport-15
-- fact_016: fr2-sport-11, fr3-und-19
-- fact_018: fr2-tech-02, fr2-tech-09, fr2-tech-15, fr3-col-01
-- fact_019: fr2-tech-03, fr2-tech-13, fr3-und-10
-- fact_020: fr2-tech-04, fr2-tech-11, fr2-tech-12
-- fact_022: fr2-tech-06, fr2-tech-16
-- fact_023: fr2-tech-07, fr2-tech-10, fr2-tech-18
-- fact_027: fr3-col-05, fr3-und-15
-- fact_061: st-09, st-24
+- fact_001: g1f-business-01, g1f-business-02, g1f-business-02v1, g1f-business-05, g1f-business-05v1, g1f-business-06, g1f-business-06v1
+- fact_002: g1f-business-03, g1f-business-03v1, g1f-business-04, g1f-business-04v1, g1f-business-07, g1f-business-07v1, g1f-business-09, g1f-business-09v1
+- fact_003: g1f-business-10, g1f-business-10v1
+- fact_004: g1f-business-11, g1f-business-11v1, g1f-business-12v1, g1f-business-16, g1f-business-16v1, g1f-business-18, g1f-business-18v1, g1f-business-19, g1f-business-20v1, g1f-geography-15, g1f-geography-15v2, g1f-geography-16, g1f-geography-16v1, g1f-geography-16v2, g1f-geography-17, g1f-geography-17v2, g1f-news-57, g1f-science-17, g1f-science-17v1
+- fact_006: g1f-business-22, g1f-business-22v1, g1f-geography-14, g1f-geography-14v1, g1f-geography-14v2, g1f-geography-22v2, g1f-geography-23, g1f-science-27, g1f-science-27v1, g1f-science-28v1, g1f-science-29v1, g1f-science-30, g1f-science-31, g1f-science-31v1, g1f-science-32, g1f-science-33, g1f-science-33v1
+- fact_007: g1f-business-23, g1f-business-23v1, g1f-business-23v2, g1f-business-24, g1f-business-24v1, g1f-business-24v2, g1f-business-27, g1f-business-27v1, g1f-business-29, g1f-business-29v1, g1f-business-29v2, g1f-business-30, g1f-business-30v1, g1f-business-30v2, g1f-business-31, g1f-business-31v1, g1f-business-31v2, g1f-news-30, g1f-news-30v1, g1f-news-31, g1f-news-31v1, g1f-news-32, g1f-news-32v1, g1f-news-40v1, g1f-news-43, g1f-tech-02, g1f-tech-02v1, g1f-tech-04, g1f-tech-04v1, g1f-tech-10v1, g1f-tech-10v2, g1f-tech-11, g1f-tech-11v1, g1f-tech-11v2
+- fact_008: g1f-business-25, g1f-business-25v1, g1f-business-25v2
+- fact_009: g1f-business-32, g1f-business-32v1, g1f-business-32v2
+- fact_010: g1f-business-33, g1f-business-33v1, g1f-business-33v2, g1f-business-35
+- fact_011: g1f-business-36v1, g1f-business-37, g1f-business-37v1, g1f-business-37v2, g1f-business-38, g1f-business-38v2, g1f-business-39
+- fact_012: g1f-business-40, g1f-business-40v1, g1f-business-40v2, g1f-business-41v1
+- fact_013: g1f-business-42, g1f-business-43, g1f-business-43v1, g1f-business-43v2
+- fact_014: g1f-entertainment-01, g1f-entertainment-01v1, g1f-entertainment-01v2, g1f-entertainment-05, g1f-entertainment-05v1, g1f-entertainment-08v1, g1f-news-35, g1f-news-36, g1f-news-36v1, g1f-news-37, g1f-news-37v1, g1f-news-41, g1f-news-41v1
+- fact_015: g1f-entertainment-03, g1f-entertainment-03v1, g1f-entertainment-04, g1f-entertainment-04v1, g1f-entertainment-09, g1f-entertainment-09v1, g1f-entertainment-10, g1f-entertainment-10v1
+- fact_016: g1f-entertainment-06, g1f-entertainment-06v1
+- fact_017: g1f-entertainment-07, g1f-entertainment-07v1
+- fact_018: g1f-entertainment-11, g1f-entertainment-12, g1f-entertainment-12v1
+- fact_019: g1f-entertainment-13, g1f-entertainment-13v1, g1f-entertainment-14, g1f-entertainment-14v1, g1f-entertainment-15, g1f-entertainment-15v1, g1f-politics-04, g1f-politics-04v1, g1f-politics-08v1, g1f-science-08v1, g1f-science-09, g1f-science-09v1, g1f-science-14
+- fact_020: g1f-entertainment-17, g1f-entertainment-17v2, g1f-entertainment-18, g1f-entertainment-18v1, g1f-entertainment-19, g1f-entertainment-19v1, g1f-entertainment-20, g1f-entertainment-20v1
+- fact_021: g1f-entertainment-21, g1f-entertainment-21v1, g1f-entertainment-21v2, g1f-entertainment-22, g1f-entertainment-22v1, g1f-news-23v1, g1f-news-23v2, g1f-news-24v1, g1f-news-24v2, g1f-news-25v1, g1f-news-33v1, g1f-news-34v1
+- fact_022: g1f-entertainment-23, g1f-entertainment-23v1, g1f-sports-05, g1f-sports-06, g1f-sports-06v1, g1f-sports-37, g1f-sports-37v1, g1f-sports-37v2, g1f-sports-40, g1f-sports-40v1, g1f-sports-40v2
+- fact_023: g1f-entertainment-24, g1f-entertainment-24v1, g1f-entertainment-24v2, g1f-entertainment-25, g1f-entertainment-25v1, g1f-entertainment-26, g1f-news-11, g1f-news-12, g1f-news-12v1
+- fact_024: g1f-entertainment-27, g1f-entertainment-27v1, g1f-entertainment-27v2
+- fact_026: g1f-entertainment-30, g1f-entertainment-30v1
+- fact_027: g1f-entertainment-31, g1f-entertainment-31v1, g1f-entertainment-33
+- fact_028: g1f-entertainment-32, g1f-entertainment-32v1
+- fact_030: g1f-entertainment-35, g1f-entertainment-35v1, g1f-entertainment-35v2
+- fact_031: g1f-entertainment-36, g1f-entertainment-36v1, g1f-entertainment-36v2
+- fact_032: g1f-geography-01, g1f-geography-01v1, g1f-geography-02, g1f-geography-02v1
+- fact_033: g1f-geography-03, g1f-geography-03v1, g1f-geography-10
+- fact_034: g1f-geography-04, g1f-geography-04v1, g1f-geography-05, g1f-geography-05v1, g1f-geography-12, g1f-geography-12v1, g1f-geography-12v2, g1f-geography-13, g1f-geography-13v1, g1f-news-54, g1f-news-54v1
+- fact_035: g1f-geography-07, g1f-geography-07v1, g1f-geography-08, g1f-geography-08v1
+- fact_036: g1f-geography-21, g1f-geography-21v1
+- fact_037: g1f-geography-24, g1f-geography-24v1, g1f-geography-26, g1f-geography-26v2
+- fact_038: g1f-geography-25, g1f-geography-25v1
+- fact_041: g1f-news-04, g1f-news-04v1, g1f-news-08, g1f-news-08v1, g1f-news-09, g1f-news-09v1, g1f-news-13, g1f-news-18, g1f-news-18v1, g1f-politics-01, g1f-politics-01v1, g1f-politics-01v2, g1f-politics-02, g1f-politics-07, g1f-politics-07v1, g1f-politics-09, g1f-politics-09v1, g1f-politics-11, g1f-politics-11v1
+- fact_042: g1f-news-07, g1f-news-07v1
+- fact_043: g1f-news-15, g1f-news-15v1
+- fact_044: g1f-news-16, g1f-news-16v1, g1f-news-17, g1f-news-22, g1f-news-22v1
+- fact_045: g1f-news-19v1, g1f-news-20, g1f-news-20v1
+- fact_046: g1f-news-26, g1f-news-26v1
+- fact_047: g1f-news-27, g1f-news-27v1
+- fact_048: g1f-news-28, g1f-news-28v1
+- fact_049: g1f-news-39, g1f-news-39v1, g1f-sports-14, g1f-sports-14v1, g1f-sports-15, g1f-sports-15v1
+- fact_051: g1f-news-45, g1f-news-45v1
+- fact_052: g1f-news-46, g1f-news-46v1, g1f-politics-03, g1f-politics-03v1
+- fact_054: g1f-news-49, g1f-news-49v1
+- fact_055: g1f-news-50, g1f-news-50v1, g1f-news-59, g1f-news-59v1
+- fact_056: g1f-news-51, g1f-news-51v1
+- fact_057: g1f-news-53, g1f-news-56, g1f-news-58
+- fact_058: g1f-other-01, g1f-other-01v1, g1f-other-01v2, g1f-other-03, g1f-other-03v1, g1f-other-04, g1f-other-04v1
+- fact_059: g1f-other-02, g1f-other-02v1, g1f-other-05, g1f-other-05v1
+- fact_061: g1f-other-10, g1f-other-10v1, g1f-other-10v2
+- fact_062: g1f-other-14, g1f-other-14v1
+- fact_063: g1f-other-15, g1f-other-15v1
+- fact_066: g1f-other-18, g1f-other-18v1, g1f-other-18v2
+- fact_067: g1f-politics-05, g1f-politics-05v1, g1f-politics-12, g1f-politics-12v1
+- fact_068: g1f-politics-13, g1f-politics-13v1, g1f-politics-13v2
+- fact_069: g1f-politics-14, g1f-politics-14v1, g1f-politics-14v2, g1f-politics-16
+- fact_071: g1f-politics-17, g1f-politics-17v1, g1f-politics-18, g1f-politics-18v1
+- fact_072: g1f-politics-19, g1f-politics-19v1
+- fact_073: g1f-politics-21, g1f-politics-21v1, g1f-politics-21v2, g1f-politics-22, g1f-politics-23, g1f-politics-23v1, g1f-politics-23v2
+- fact_074: g1f-politics-24, g1f-politics-24v1
+- fact_075: g1f-politics-25, g1f-politics-25v1, g1f-politics-25v2
+- fact_076: g1f-politics-26, g1f-politics-26v1, g1f-politics-26v2, g1f-politics-31, g1f-politics-31v1, g1f-politics-34, g1f-politics-34v1
+- fact_078: g1f-politics-28, g1f-politics-28v1, g1f-politics-32, g1f-politics-32v1, g1s-11
+- fact_079: g1f-politics-29, g1f-politics-29v1, g1f-politics-30, g1f-politics-30v1, g1f-politics-33, g1f-politics-33v1
+- fact_080: g1f-science-01, g1f-science-01v1, g1f-science-05, g1f-science-05v1
+- fact_081: g1f-science-03, g1f-science-03v1, g1f-science-06v1
+- fact_082: g1f-science-12, g1f-science-12v1, g1f-science-16, g1f-science-16v1
+- fact_083: g1f-science-13, g1f-science-13v1
+- fact_084: g1f-science-18, g1f-science-18v1, g1f-science-19, g1f-science-19v1, g1f-science-20v1
+- fact_085: g1f-science-21, g1f-science-21v1
+- fact_086: g1f-science-23, g1f-science-23v1
+- fact_088: g1f-science-26, g1f-science-26v1
+- fact_089: g1f-sports-01, g1f-sports-01v1, g1f-sports-03, g1f-sports-03v1, g1f-sports-04, g1f-sports-04v1, g1f-sports-08v1, g1f-sports-09v1, g1f-sports-10, g1f-sports-10v1, g1f-sports-11v1
+- fact_090: g1f-sports-12v1, g1f-sports-13v1
+- fact_091: g1f-sports-17, g1f-sports-17v1, g1f-sports-18v1, g1f-sports-21v1
+- fact_092: g1f-sports-22v2, g1f-sports-28v1
+- fact_093: g1f-sports-24, g1f-sports-24v1, g1f-sports-24v2
+- fact_094: g1f-sports-25, g1f-sports-25v1, g1f-sports-25v2, g1f-sports-26, g1f-sports-26v1, g1f-sports-26v2
+- fact_096: g1f-sports-29, g1f-sports-33v1
+- fact_097: g1f-sports-31v1, g1f-sports-35v1
+- fact_098: g1f-sports-36, g1f-sports-36v1, g1f-sports-36v2
+- fact_099: g1f-sports-38, g1f-sports-38v1, g1f-sports-38v2, g1f-sports-39, g1f-sports-39v1, g1f-sports-39v2
+- fact_100: g1f-sports-41, g1f-sports-41v1, g1f-sports-41v2
+- fact_101: g1f-sports-43, g1f-sports-43v1, g1f-sports-43v2
+- fact_102: g1f-tech-01v1, g1f-tech-33, g1f-tech-33v1
+- fact_103: g1f-tech-05, g1f-tech-05v1, g1f-tech-06, g1f-tech-06v1, g1f-tech-07, g1f-tech-38, g1f-tech-38v1, g1f-tech-39, g1f-tech-40, g1f-tech-40v1
+- fact_104: g1f-tech-08v1, g1f-tech-41v1, g1f-tech-42, g1f-tech-42v1
+- fact_105: g1f-tech-12v1, g1f-tech-12v2, g1f-tech-13, g1f-tech-13v1, g1f-tech-13v2
+- fact_106: g1f-tech-14, g1f-tech-14v1, g1f-tech-14v2, g1f-tech-16v1, g1f-tech-17, g1f-tech-17v1, g1f-tech-17v2
+- fact_107: g1f-tech-18, g1f-tech-18v1, g1f-tech-18v2, g1f-tech-21, g1f-tech-21v1, g1f-tech-21v2
+- fact_108: g1f-tech-19, g1f-tech-19v1, g1f-tech-19v2
+- fact_110: g1f-tech-25, g1f-tech-25v1, g1f-tech-26, g1f-tech-26v1, g1f-tech-27, g1f-tech-27v1, g1f-tech-27v2, g1f-tech-29, g1f-tech-29v1
+- fact_111: g1f-tech-31, g1f-tech-31v1, g1f-tech-31v2
+- fact_112: g1f-tech-35, g1f-tech-35v1, g1f-tech-36, g1f-tech-36v1, g1f-tech-37
+- fact_161: g1s-15, g1s-21
+- fact_164: g1s-18, g1s-26
