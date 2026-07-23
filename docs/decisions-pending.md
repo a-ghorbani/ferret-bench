@@ -1,42 +1,19 @@
-# Pending decisions (repo packaging)
+# Packaging decisions
 
-## 1. `cache/` and `runs/` are tracked, but `.gitignore` says they should not be
+## 1. `cache/` and `runs/` — RESOLVED 2026-07-23
 
-`.gitignore` has listed both since `c6282c3`, but they were already tracked and gitignore
-does not untrack. Today they are ~85% of tracked files (`cache/` 375 MB / 4,979 files,
-`runs/` 126 MB / 583 files) and `.git` is 69 MB. **The repo currently contradicts itself**,
-and a contributor cannot tell which policy is real.
+Both were tracked while `.gitignore` said they shouldn't be — ~85% of tracked files, `.git` was 69 MB. Resolved:
 
-These are two different decisions, not one:
+- **`cache/`** — dropped from tracking and purged from all history. Regenerable replay data, keyed on stale model-generated queries with no TTL, so not the durability asset it looked like. Regenerates on first run.
+- **`runs/`** — untracked and purged from history, but preserved as a release asset (`ferret-bench-runs-<date>.tar.zst`, sha256 in release notes) because every published claim is checkable against it.
+- History rewritten with `git filter-repo`; `.git` 69 MB → 1.4 MB. Full pre-rewrite backup bundle kept outside the repo (`ferret-bench-backup-<ts>.bundle`).
+- `.gitignore`, the tree and history now agree: both dirs ignored, none tracked, none in history.
 
-**`cache/` — recommend untracking.** It is not the reproducibility asset it looks like. It is
-keyed on model-generated queries with no TTL, and entries were captured across different days,
-which is precisely the confound recorded in `FINDINGS-2026-07-22-measurement-precision.md`
-(cache-hit rate rose 6%→58% with run order). Shipping it implies a determinism guarantee it
-cannot honour.
+## 2. Package layout — OPEN
 
-**`runs/` — do not simply delete.** Every published claim is checkable only against these, and
-that is how the `0.00` gate-failure error was caught. Untrack only alongside a durable
-alternative: a GitHub release tarball with its checksum recorded in the README.
+`harness/` is not installable; ~15 modules use `sys.path.insert` and the supported entry point is `cd harness && python3 <script>.py`. Converting to a real package with console entry points removes a class of contributor friction but touches every module and every documented command, so it deserves its own PR. Listed as a good-first-contribution in `CONTRIBUTING.md`.
 
-**Note that `git rm -r --cached` alone is cosmetic.** It stops future tracking but leaves the
-objects in history, so `.git` stays 69 MB and clones stay slow. Getting the real benefit needs
-`git filter-repo` and a force-push, which **breaks every existing clone and fork**. The repo
-is public at `a-ghorbani/ferret-bench`, so this is an owner decision. If it is done, do it
-soon — the cost only grows.
+## 3. Housekeeping — OPEN
 
-Whichever way it goes, make `.gitignore`, the README and the tree agree.
-
-## 2. Package layout
-
-`harness/` is not installable; ~15 modules use `sys.path.insert` and the supported entry point
-is `cd harness && python3 <script>.py`. Converting to a real package with console entry points
-removes a whole class of contributor friction, but it touches every module and every documented
-command, so it deserves its own PR rather than being folded into unrelated work. Listed as a
-good-first-contribution in `CONTRIBUTING.md`.
-
-## 3. Housekeeping
-
-- `runs/20260722-154358-swaptest-*` is an aborted 26-item smoke test. Its manifest is marked
-  `"aborted": true` so it stops crashing `aggregate.py`, but it should be deleted — it will
-  otherwise appear as a bogus row in aggregate output.
+- `runs/20260722-154358-swaptest-*` is an aborted 26-item smoke test (manifest marked `"aborted": true` so it no longer crashes `aggregate.py`). Delete when convenient; already excluded from the runs release tarball.
+- `harness/export_site.py` is superseded by `study-1/export_site.py` (forked, ~70 of ~290 lines shared). Merge and delete the old one.

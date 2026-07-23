@@ -102,7 +102,14 @@ Note that `harness/page_content.json` — the interpretive text the public leade
 python3 aggregate.py && python3 leaderboard.py
 ```
 
-Everything in `report.md` is derived from `analysis/scores.jsonl`; every numeric claim cites a run id under `runs/<run-id>/` (manifest + full transcripts).
+Every numeric claim cites a run id whose manifest + full transcript live in `runs/<run-id>/`.
+
+### Where `runs/` and `cache/` are
+
+Both are **untracked** — too large for git, and the replay cache is regenerable rather than a durability guarantee (it is keyed on model-generated queries with no TTL, so hit-rate varies with run order; see `FINDINGS-2026-07-22-measurement-precision.md`).
+
+- **`runs/`** (the evidence behind every published number) is published as a release asset: `ferret-bench-runs-<date>.tar.zst`, sha256 in the release notes. Download and extract at the repo root to check any claim.
+- **`cache/`** regenerates on first run: any query not already recorded is fetched live (`--http-mode replay-or-live`). It is not shipped.
 
 ## Reproducibility
 
