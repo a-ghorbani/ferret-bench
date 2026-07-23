@@ -1,0 +1,17 @@
+name: ci
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      # Tests need no third-party packages: stdlib unittest, no network, no GPU.
+      - name: Unit tests
+        run: cd tests && python -m unittest discover -v
+      - name: Lint
+        run: |
+          pip install ruff
+          ruff check harness/ tests/ study-1/*.py --select E9,F63,F7,F82

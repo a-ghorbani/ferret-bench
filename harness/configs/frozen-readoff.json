@@ -1,0 +1,13 @@
+{
+  "config_id": "frozen-readoff",
+  "tool_desc": "enriched",
+  "provider": "brave",
+  "result_format": "markdown",
+  "read_url_policy": "disabled",
+  "gen": {
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "max_tokens": 1024,
+    "seed": 42
+  }
+}

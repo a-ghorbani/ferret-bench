@@ -63,6 +63,35 @@ TOOL_DESCS = {
                      "Do not invent URLs."),
         "read_url.url": "Exact URL copied from a web_search result.",
     },
+    # --- Trigger-clause test (PREREG-2026-07-21). Arms B1/B2 differ from 'enriched' ONLY in the
+    # tail of web_search's description — the clause that decides WHEN to search. Everything else
+    # (topic list, query-style guidance, return description, both read_url strings) is byte-identical
+    # to 'enriched', so tool_desc is a genuine single factor across the three arms.
+    #
+    # 'enriched' tail (control):  "...or any fact that may have changed since your training data
+    #                              or that you are unsure about."  <- cutoff-referential + self-referential
+    "no-cutoff": {  # B1: drop the training-cutoff reference, KEEP the uncertainty trigger
+        "web_search": ("Search the web for current information. Use this for any question about news, current "
+                       "events, prices, releases, sports, weather, or any fact that you are unsure about. "
+                       "Write short keyword queries (2-6 words), like "
+                       "a search engine user, not full sentences. Returns result titles, source URLs, and text snippets."),
+        "web_search.query": "Short keyword search query, e.g. 'nobel prize physics 2026 winner'.",
+        "read_url": ("Fetch the full text of one web page. Use this after web_search when a snippet mentions the "
+                     "answer but does not fully contain it. Pass the exact URL copied from a web_search result. "
+                     "Do not invent URLs."),
+        "read_url.url": "Exact URL copied from a web_search result.",
+    },
+    "parallel": {  # B2: no cutoff reference; volatility trigger sits BESIDE uncertainty, not instead of it
+        "web_search": ("Search the web for current information. Use this for any question about news, current "
+                       "events, prices, releases, sports, weather, any fact whose answer can change over time, "
+                       "or anything you are unsure about. Write short keyword queries (2-6 words), like "
+                       "a search engine user, not full sentences. Returns result titles, source URLs, and text snippets."),
+        "web_search.query": "Short keyword search query, e.g. 'nobel prize physics 2026 winner'.",
+        "read_url": ("Fetch the full text of one web page. Use this after web_search when a snippet mentions the "
+                     "answer but does not fully contain it. Pass the exact URL copied from a web_search result. "
+                     "Do not invent URLs."),
+        "read_url.url": "Exact URL copied from a web_search result.",
+    },
 }
 
 

@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
-"""Export the leaderboard as site-consumable JSON for pocketpal.dev → analysis/site/leaderboard.json.
+"""SUPERSEDED — use ``study-1/export_site.py`` for anything current.
+
+This exports the v1-v3 boards (``analysis/scores.jsonl``, dataset versions v1/v2/v3).
+``study-1/export_site.py`` is the successor: it reads study-1's dataset directly, scores at
+the fact level, and is what produces the live page. The two files have forked and drifted —
+they now share only ~70 of ~290 lines. Patch the successor, not this one. Merging them is a
+listed good-first-contribution (see CONTRIBUTING.md); this copy is kept only because
+``report.md`` and the retraction record refer to boards it generated.
+
+Export the leaderboard as site-consumable JSON for pocketpal.dev → analysis/site/leaderboard.json.
 
 Usage: python3 export_site.py [--tag confirm2] [--out ../analysis/site/leaderboard.json]
 

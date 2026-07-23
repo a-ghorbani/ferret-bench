@@ -1,0 +1,12 @@
+{
+  "config_id": "trig-b2-s43",
+  "tool_desc": "parallel",
+  "provider": "brave",
+  "result_format": "markdown",
+  "gen": {
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "max_tokens": 1024,
+    "seed": 43
+  }
+}

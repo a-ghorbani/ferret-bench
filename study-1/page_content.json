@@ -22,7 +22,7 @@
       "detail": "Bonsai-27B at 1-bit (3.8 GB) lands in the top cluster — surprising for that bit-width."
     },
     {
-      "value": "5 of 9",
+      "value": "5 of 14",
       "label": "Never got the tools",
       "detail": "Five of nine packages never received the search tools — their GGUF chat template dropped the schema, so they scored zero searches and are off the board."
     }

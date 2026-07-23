@@ -5,10 +5,31 @@
 > Ferrets are small and relentless at finding things. So should your pocket LLM be.
 
 - **`frozen-config/`** — the optimized configuration PocketPal can consume directly (tool definitions, prompt, formatting, provider), every value annotated with the runs that justified it (`PROVENANCE.md`).
-- **`report.md`** — findings for all research questions; **`analysis/leaderboard.md`** — the model ranking.
-- **`PROTOCOL.md`** — the full experimental protocol with amendment log; **`JOURNAL.md`** — decision log.
+- **`study-1/LEADERBOARD.md`** — the current model ranking; **`report.md`** — findings for all research questions.
+- **`PROTOCOL.md`** — the full experimental protocol with amendment log; **`STATE.md`** — where the project is right now.
 
-## Results at a glance (dataset **v2**, thinking **off**, anchored 2026-07-12)
+> **Start here:** [`STATE.md`](STATE.md) for live status, [`study-1/LEADERBOARD.md`](study-1/LEADERBOARD.md) for the current board, and the [repository map](#repository-map) below for everything else.
+
+## Repository map
+
+| path | what it is | status |
+|---|---|---|
+| `STATE.md` | live status — the one file that says where things are | **current** |
+| `study-1/` | the active study: validator-built dataset, 9-model board, sealed holdout | **current** |
+| `harness/` | the benchmark engine (agent loop, providers, cache, judge, aggregation) | **current** |
+| `frozen-config/` | the optimized config for PocketPal to consume, with provenance | **current** |
+| `tests/` | contract tests — run `cd tests && python3 -m unittest discover` | **current** |
+| `PROTOCOL.md` | experimental protocol + amendment log | **current** |
+| `FINDINGS-2026-07-22-measurement-precision.md` | run-to-run noise; three retracted mechanisms | **current** |
+| `PREREG-2026-07-21-trigger-clause.md` | a pre-registered test and its outcome (falsified) | history |
+| `report.md`, `analysis/` | v1–v3 results, superseded by `study-1/` | **superseded** |
+| `REVIEW-*.md` | methodology audits, newest last | history |
+| `JOURNAL.md`, `study-1/JOURNAL.md`, `harness/JOURNAL.md` | decision logs | history |
+| `datasets/` | v1–v3 datasets, superseded by `study-1/datasets/` | **superseded** |
+
+> ⚠️ **The section below is the v2/v3 board and is superseded by `study-1/`.** It is kept because `report.md` and the two published retractions refer to it. Its tier-gradient framing was withdrawn after review — see `REVIEW-2026-07-15-rigorous-methodology-audit.md`. For current results use `study-1/LEADERBOARD.md`, and read it as bands: under k=5 replication only the bottom row separates from the leader.
+
+## Results at a glance — v2 (SUPERSEDED, thinking **off**, anchored 2026-07-12)
 
 ![Leaderboard](analysis/leaderboard.svg)
 
