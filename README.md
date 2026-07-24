@@ -108,8 +108,10 @@ Every numeric claim cites a run id whose manifest + full transcript live in `run
 
 Both are **untracked** — too large for git, and the replay cache is regenerable rather than a durability guarantee (it is keyed on model-generated queries with no TTL, so hit-rate varies with run order; see `FINDINGS-2026-07-22-measurement-precision.md`).
 
-- **`runs/`** (the evidence behind every published number) is published as a release asset: `ferret-bench-runs-<date>.tar.zst`, sha256 in the release notes. Download and extract at the repo root to check any claim.
+- **`runs/`** (the evidence behind every published number) is published as a release asset. Download `ferret-bench-runs-<date>.tar.gz` from the [releases page](https://github.com/a-ghorbani/ferret-bench/releases) and extract at the repo root (`tar -xzf …`; verify with `sha256sum -c …`) to check any claim.
 - **`cache/`** regenerates on first run: any query not already recorded is fetched live (`--http-mode replay-or-live`). It is not shipped.
+
+To cut a fresh snapshot after new runs: `scripts/release-runs.sh` builds the tarball + checksum locally, and `scripts/release-runs.sh --publish` also creates the release (needs `gh` auth). This is a local step by necessity — `runs/` is untracked, so a CI runner has no data to package.
 
 ## Reproducibility
 
