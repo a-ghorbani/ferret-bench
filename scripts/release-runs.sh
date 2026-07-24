@@ -44,8 +44,17 @@ if [ "${1:-}" != "--publish" ]; then
 fi
 
 command -v gh >/dev/null || { echo "gh not installed; upload ${TARBALL} via the web UI"; exit 1; }
+
+# A GITHUB_TOKEN in the environment overrides `gh auth login` and is often read-only
+# (release creation then 403s). Prefer the interactive/keyring credential when one exists.
+GH=(gh)
+if [ -n "${GITHUB_TOKEN:-}" ] && env -u GITHUB_TOKEN gh auth status >/dev/null 2>&1; then
+  echo "note: unsetting read-scoped GITHUB_TOKEN for this call; using your gh login instead"
+  GH=(env -u GITHUB_TOKEN gh)
+fi
+
 echo "creating release ${TAG} on ${REPO_SLUG} ..."
-gh release create "${TAG}" "${TARBALL}" "${TARBALL}.sha256" \
+"${GH[@]}" release create "${TAG}" "${TARBALL}" "${TARBALL}.sha256" \
   --repo "${REPO_SLUG}" \
   --title "Run evidence — ${DATE}" \
   --notes "Full \`runs/\` tree backing every published number (${N} run dirs).
